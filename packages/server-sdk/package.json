@@ -1,0 +1,29 @@
+{
+	"name": "@portone/server-sdk",
+	"type": "module",
+	"version": "0.1.0",
+	"description": "PortOne JavaScript SDK for server-side usage",
+	"keywords": ["PortOne", "payment", "포트원", "결제 연동"],
+	"author": {
+		"name": "portone-dx",
+		"email": "support@portone.io"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"scripts": {
+		"build": "unbuild"
+	},
+	"devDependencies": {
+		"unbuild": "^2.0.0"
+	},
+	"files": ["dist"],
+	"license": "(Apache-2.0 OR MIT)"
+}

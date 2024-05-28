@@ -1,0 +1,16 @@
+{
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"check": "biome check .",
+		"format": "biome format --write .",
+		"build": "turbo run build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.7.3",
+		"turbo": "^1.13.3",
+		"typescript": "^5.4.5"
+	},
+	"license": "(Apache-2.0 OR MIT)",
+	"packageManager": "pnpm@9.1.3"
+}
