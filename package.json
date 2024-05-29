@@ -5,10 +5,12 @@
 		"check": "biome check .",
 		"format": "biome format --write .",
 		"build": "turbo run build",
-		"test": "turbo run test"
+		"test": "turbo run test",
+		"publish": "turbo run prepublish && changeset publish"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.3",
+		"@changesets/cli": "^2.27.5",
 		"turbo": "^1.13.3",
 		"typescript": "^5.4.5"
 	},

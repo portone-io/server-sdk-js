@@ -8,6 +8,10 @@
 		"test": {
 			"dependsOn": ["^build"],
 			"outputs": []
+		},
+		"prepublish": {
+			"dependsOn": ["^prepublish"],
+			"outputs": []
 		}
 	}
 }

@@ -1,7 +1,7 @@
 {
 	"name": "@portone/server-sdk",
 	"type": "module",
-	"version": "0.1.0",
+	"version": "0.0.0",
 	"description": "PortOne JavaScript SDK for server-side usage",
 	"keywords": ["PortOne", "payment", "포트원", "결제 연동"],
 	"author": {
@@ -21,7 +21,8 @@
 	"scripts": {
 		"build": "unbuild",
 		"test:dev": "vitest --ui --typecheck",
-		"test": "vitest run --typecheck"
+		"test": "vitest run --typecheck",
+		"prepublish": "pnpm build"
 	},
 	"devDependencies": {
 		"@types/node": "^20.12.12",
