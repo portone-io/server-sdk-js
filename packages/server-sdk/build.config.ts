@@ -1,4 +1,5 @@
 import { type MkdistBuildEntry, defineBuildConfig } from "unbuild";
+import rootTsConfig from "../../tsconfig.json";
 
 export default defineBuildConfig({
 	entries: [
@@ -14,6 +15,10 @@ export default defineBuildConfig({
 					} as const
 				)[format],
 				declaration: true,
+				addRelativeDeclarationExtensions: true,
+				typescript: {
+					compilerOptions: rootTsConfig.compilerOptions,
+				},
 			}),
 		),
 	],
