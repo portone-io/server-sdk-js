@@ -19,10 +19,15 @@
 		}
 	},
 	"scripts": {
-		"build": "unbuild"
+		"build": "unbuild",
+		"test:dev": "vitest --ui --typecheck",
+		"test": "vitest run --typecheck"
 	},
 	"devDependencies": {
-		"unbuild": "^2.0.0"
+		"@types/node": "^20.12.12",
+		"@vitest/ui": "^1.6.0",
+		"unbuild": "^2.0.0",
+		"vitest": "^1.6.0"
 	},
 	"files": ["dist"],
 	"license": "(Apache-2.0 OR MIT)"

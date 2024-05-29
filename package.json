@@ -4,7 +4,8 @@
 	"scripts": {
 		"check": "biome check .",
 		"format": "biome format --write .",
-		"build": "turbo run build"
+		"build": "turbo run build",
+		"test": "turbo run test"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.3",
