@@ -6,7 +6,8 @@
 		"format": "biome format --write .",
 		"build": "turbo run build",
 		"test": "turbo run test",
-		"publish": "turbo run prepublish && changeset publish"
+		"publish": "turbo run prepublish && changeset publish",
+		"example:express": "pnpm turbo run start --filter @portone/server-sdk-example-express"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.3",
