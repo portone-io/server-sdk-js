@@ -1,4 +1,4 @@
-export function tryCatch<T, E>(fn: () => T, onError: (e: unknown) => E): T | E {
+export function tryCatch<T>(fn: () => T, onError: (e: unknown) => T): T {
 	try {
 		return fn();
 	} catch (e) {
