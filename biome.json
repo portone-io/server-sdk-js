@@ -10,6 +10,6 @@
 		}
 	},
 	"files": {
-		"ignore": ["dist"]
+		"ignore": ["dist", "packages/server-sdk/package.json"]
 	}
 }
