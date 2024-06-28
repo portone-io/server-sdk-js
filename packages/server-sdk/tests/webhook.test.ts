@@ -37,27 +37,16 @@ it("should be exported", async () => {
 });
 
 describe("correct cases", () => {
-	it("sign()", async () => {
-		const key = "whsec_MfKQ9r8GKYqrTwjUPD8ILPZIo2LaLaSw";
-		const msgId = "msg_p5jXN8AQM9LWM0D4loKWxJek";
-		const timestamp = new Date(1614265330 * 1000);
-		const payload = '{"test": 2432232314}';
-		const expected = "v1,g0hM9SsE+OTPJTGt/tmIKtSyZlE3uFJELVlNIOLJ1OE=";
-
-		const signature = await sdk.Webhook.sign(key, msgId, timestamp, payload);
-		expect(signature).toBe(expected);
-	});
-
 	describe("verify()", () => {
-		it("valid signature is valid and returns correct payload", async () => {
+		it("valid signature is valid", async () => {
 			const testWebhook = await makeWebhook();
 
 			await expect(
 				sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-			).resolves.toEqual({ test: "test payload" });
+			).resolves.toBeUndefined();
 		});
 
-		it("valid unbranded signature is valid and returns correct payload", async () => {
+		it("valid unbranded signature is valid", async () => {
 			const testWebhook = await makeWebhook();
 			const unbrandedHeaders: Record<string, string | undefined> = {
 				"webhook-id": testWebhook.header["webhook-id"],
@@ -68,7 +57,7 @@ describe("correct cases", () => {
 
 			await expect(
 				sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-			).resolves.toEqual({ test: "test payload" });
+			).resolves.toBeUndefined();
 		});
 
 		it("multiple signatures", async () => {
@@ -83,7 +72,7 @@ describe("correct cases", () => {
 
 			await expect(
 				sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-			).resolves.toEqual({ test: "test payload" });
+			).resolves.toBeUndefined();
 		});
 
 		it("handles both with and without signature prefix", async () => {
@@ -91,10 +80,10 @@ describe("correct cases", () => {
 
 			await expect(
 				sdk.Webhook.verify(secret, testPayload.payload, testPayload.header),
-			).resolves.toEqual({ test: "test payload" });
+			).resolves.toBeUndefined();
 			await expect(
 				sdk.Webhook.verify(secret, testPayload.payload, testPayload.header),
-			).resolves.toEqual({ test: "test payload" });
+			).resolves.toBeUndefined();
 		});
 	});
 });

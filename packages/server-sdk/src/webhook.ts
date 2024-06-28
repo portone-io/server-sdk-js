@@ -1,4 +1,4 @@
-import { InvalidInputError, PortOneError, UnknownError } from "./error";
+import { InvalidInputError, PortOneError } from "./error";
 import { timingSafeEqual } from "./utils/timingSafeEqual";
 import { tryCatch } from "./utils/try";
 
@@ -89,119 +89,90 @@ const prefix = "whsec_";
  * 웹훅 페이로드를 검증합니다.
  *
  * @param secret 웹훅 시크릿
- * @param payload 웹훅 페이로드. Uint8Array를 전달할 시 UTF-8 데이터로 간주합니다.
+ * @param payload 웹훅 페이로드
  * @param headers 웹훅 요청 시 포함된 헤더
  * @returns 검증 후 디코딩된 웹훅 페이로드를 반환하는 Promise
- * @throws {InvalidInputError} 입력받은 웹훅 페이로드 또는 시크릿이 유효하지 않을 때 발생합니다.
+ * @throws {InvalidInputError} 입력받은 시크릿이 유효하지 않을 때 발생합니다.
  * @throws {WebhookVerificationError} 웹훅 검증에 실패했을 때 발생합니다.
- * @throws {UnknownError} 웹훅 검증 과정에서 알 수 없는 오류가 발생했을 때 발생합니다.
  */
 export async function verify(
-	secret: string | Uint8Array | { value: string; format: "raw" },
-	payload: string | Uint8Array,
+	secret: string | Uint8Array,
+	payload: string,
 	headers: WebhookUnbrandedRequiredHeaders | Record<string, string>,
-): Promise<unknown> {
-	try {
-		const mappedHeaders: Record<string, string> = Object.fromEntries(
-			Object.entries(headers).map(([key, value]) => [key.toLowerCase(), value]),
-		);
+): Promise<void> {
+	const mappedHeaders: Record<string, string> = Object.fromEntries(
+		Object.entries(headers).map(([key, value]) => [key.toLowerCase(), value]),
+	);
 
-		const msgId = mappedHeaders["webhook-id"];
-		const msgSignature = mappedHeaders["webhook-signature"];
-		const msgTimestamp = mappedHeaders["webhook-timestamp"];
+	const msgId = mappedHeaders["webhook-id"];
+	const msgSignature = mappedHeaders["webhook-signature"];
+	const msgTimestamp = mappedHeaders["webhook-timestamp"];
 
-		if (!msgSignature || !msgId || !msgTimestamp) {
-			throw new WebhookVerificationError("MISSING_REQUIRED_HEADERS");
-		}
-
-		const timestamp = verifyTimestamp(msgTimestamp);
-
-		const decodedPayload = tryCatch(
-			() => decodePayload(payload),
-			() => {
-				throw new InvalidInputError(
-					"`payload` 파라미터의 타입이 잘못되었습니다.",
-				);
-			},
-		);
-		const computedSignature = await sign(
-			secret,
-			msgId,
-			timestamp,
-			decodedPayload,
-		);
-		const expectedSignature = computedSignature.split(",")[1];
-
-		const passedSignatures = msgSignature.split(" ");
-
-		const encoder = new TextEncoder();
-		for (const versionedSignature of passedSignatures) {
-			const [version, signature] = versionedSignature.split(",");
-			if (version !== "v1") continue;
-
-			if (
-				timingSafeEqual(
-					encoder.encode(signature),
-					encoder.encode(expectedSignature),
-				)
-			) {
-				return JSON.parse(decodedPayload);
-			}
-		}
-		throw new WebhookVerificationError("NO_MATCHING_SIGNATURE");
-	} catch (e) {
-		if (e instanceof PortOneError) throw e;
-		throw new UnknownError(e);
+	if (
+		typeof msgId !== "string" ||
+		typeof msgSignature !== "string" ||
+		typeof msgTimestamp !== "string" ||
+		!msgId ||
+		!msgSignature ||
+		!msgTimestamp
+	) {
+		throw new WebhookVerificationError("MISSING_REQUIRED_HEADERS");
 	}
+
+	verifyTimestamp(msgTimestamp);
+
+	const expectedSignature = await sign(secret, msgId, msgTimestamp, payload);
+
+	for (const versionedSignature of msgSignature.split(" ")) {
+		const split = versionedSignature.split(",", 3);
+		if (split.length < 2) continue;
+		const [version, signature] = split;
+
+		if (version !== "v1") continue;
+
+		const signatureDecoded = tryCatch(
+			() => Uint8Array.from(atob(signature), (c) => c.charCodeAt(0)),
+			() => undefined,
+		);
+		if (signatureDecoded === undefined) continue;
+
+		if (timingSafeEqual(signatureDecoded, expectedSignature)) return;
+	}
+	throw new WebhookVerificationError("NO_MATCHING_SIGNATURE");
 }
 
 /**
  * 웹훅 페이로드를 서명하여 웹훅 본문을 생성합니다.
  *
  * @param msgId 웹훅 본문에 지정할 고유 ID
- * @param timestamp 웹훅 생성 시도 시각
- * @param payload 웹훅 페이로드. Uint8Array를 전달할 시 UTF-8 데이터로 간주합니다.
+ * @param msgTimestamp 웹훅 생성 시도 시각
+ * @param payload 웹훅 페이로드
  * @returns 서명된 웹훅 본문을 반환하는 Promise
  * @throws {InvalidInputError} 입력받은 웹훅 페이로드가 유효하지 않을 때 발생합니다.
- * @throws {UnknownError} 서명 과정에서 알 수 없는 오류가 일어났을 때 발생합니다.
  */
-export async function sign(
-	secret: string | Uint8Array | { value: string; format: "raw" },
+async function sign(
+	secret: string | Uint8Array,
 	msgId: string,
-	timestamp: Date,
-	payload: string | Uint8Array,
-): Promise<string> {
-	try {
-		const cryptoKey = await getCryptoKeyFromSecret(secret);
-		const decodedPayload = decodePayload(payload);
-		const encoder = new TextEncoder();
-		const timestampNumber = Math.floor(timestamp.getTime() / 1000);
-		const toSign = encoder.encode(
-			`${msgId}.${timestampNumber}.${decodedPayload}`,
-		);
+	msgTimestamp: string,
+	payload: string,
+): Promise<ArrayBuffer> {
+	const cryptoKey = await getCryptoKeyFromSecret(secret);
+	const encoder = new TextEncoder();
+	const toSign = encoder.encode(`${msgId}.${msgTimestamp}.${payload}`);
 
-		const signature = await crypto.subtle.sign("HMAC", cryptoKey, toSign);
-		const signatureBase64 = btoa(
-			String.fromCharCode(...new Uint8Array(signature)),
-		);
-		return `v1,${signatureBase64}`;
-	} catch (e) {
-		if (e instanceof PortOneError) throw e;
-		throw new UnknownError(e);
-	}
+	return await crypto.subtle.sign("HMAC", cryptoKey, toSign);
 }
 
-const secrets = new Map<string, CryptoKey>();
+const secrets = new Map<string | Uint8Array, CryptoKey>();
 
 /**
  * 웹훅 시크릿 입력으로부터 CryptoKey를 가져옵니다.
  *
  * @throws {InvalidInputError} 입력받은 웹훅 시크릿이 유효하지 않을 때 발생합니다.
  */
-async function getCryptoKeyFromSecret(
-	secret: string | Uint8Array | { value: string; format: "raw" },
-) {
-	if (!secret) throw new InvalidInputError("시크릿은 비어 있을 수 없습니다.");
+async function getCryptoKeyFromSecret(secret: string | Uint8Array) {
+	const cryptoKeyCached = secrets.get(secret); // cache based on argument
+	if (cryptoKeyCached !== undefined) return cryptoKeyCached;
 
 	let rawSecret: Uint8Array;
 	if (secret instanceof Uint8Array) {
@@ -210,34 +181,32 @@ async function getCryptoKeyFromSecret(
 		const secretBase64 = secret.startsWith(prefix)
 			? secret.substring(prefix.length)
 			: secret;
-		const secretDecoded = atob(secretBase64);
-		rawSecret = Uint8Array.from(secretDecoded, (c) => c.charCodeAt(0));
-	} else if (secret.format === "raw") {
-		rawSecret = Uint8Array.from(secret.value, (c) => c.charCodeAt(0));
+		rawSecret = tryCatch(
+			() => Uint8Array.from(atob(secretBase64), (c) => c.charCodeAt(0)),
+			() => {
+				throw new InvalidInputError(
+					"`secret` 파라미터가 올바른 Base64 문자열이 아닙니다.",
+				);
+			},
+		);
 	} else {
 		throw new InvalidInputError("`secret` 파라미터의 타입이 잘못되었습니다.");
 	}
 
-	const decoder = new TextDecoder();
-	const mapKey = decoder.decode(rawSecret);
+	if (rawSecret.length === 0)
+		throw new InvalidInputError("시크릿은 비어 있을 수 없습니다.");
 
-	let cryptoKey = secrets.get(mapKey);
-	if (cryptoKey) return cryptoKey;
+	const cryptoKey = await crypto.subtle.importKey(
+		"raw",
+		rawSecret,
+		{ name: "HMAC", hash: "SHA-256" },
+		false,
+		["sign"],
+	);
 
-	cryptoKey = await importKey(rawSecret);
-	secrets.set(mapKey, cryptoKey);
+	secrets.set(secret, cryptoKey);
+
 	return cryptoKey;
-}
-
-/**
- * payload 파라미터를 디코딩합니다.
- *
- * @throws {InvalidInputError} 입력받은 웹훅 페이로드가 유효하지 않은 형식일 때 발생합니다.
- */
-function decodePayload(payload: string | Uint8Array): string {
-	if (typeof payload === "string") return payload;
-	if (payload instanceof Uint8Array) return new TextDecoder().decode(payload);
-	throw new InvalidInputError("`payload` 파라미터의 타입이 잘못되었습니다.");
 }
 
 /**
@@ -245,7 +214,7 @@ function decodePayload(payload: string | Uint8Array): string {
  *
  * @throws {WebhookVerificationError} 타임스탬프가 유효하지 않을 때 발생합니다.
  */
-function verifyTimestamp(timestampHeader: string): Date {
+function verifyTimestamp(timestampHeader: string): void {
 	const now = Math.floor(Date.now() / 1000);
 	const timestamp = Number.parseInt(timestampHeader, 10);
 	if (Number.isNaN(timestamp)) {
@@ -257,31 +226,5 @@ function verifyTimestamp(timestampHeader: string): Date {
 	}
 	if (timestamp > now + WEBHOOK_TOLERANCE_IN_SECONDS) {
 		throw new WebhookVerificationError("TIMESTAMP_TOO_NEW");
-	}
-	return new Date(timestamp * 1000);
-}
-
-/**
- * HMAC-SHA256 사이닝을 위해 키를 임포트합니다.
- *
- * @param raw Uint8Array 형식의 키
- * @returns HMAC-SHA256 사이닝을 위한 키를 반환하는 Promise
- * @throws {InvalidInputError} 입력받은 키가 유효하지 않을 때 발생합니다.
- */
-async function importKey(raw: Uint8Array): Promise<CryptoKey> {
-	try {
-		const key = await crypto.subtle.importKey(
-			"raw",
-			raw,
-			{ name: "HMAC", hash: "SHA-256" },
-			false,
-			["sign"],
-		);
-		return key;
-	} catch (e) {
-		if (e instanceof TypeError) {
-			throw new InvalidInputError("시크릿이 올바른 형식의 값이 아닙니다.");
-		}
-		throw e;
 	}
 }

@@ -21,22 +21,24 @@ app.get("/", (_, res) => {
 	else res.end("PortOne Server SDK is not available");
 });
 
-app.get("/webhook", rawBody, (req, res) => {
-	PortOne.Webhook.verify(webhookSecret, req.rawBody, req.headers).then(
-		(payload) => {
-			console.log("Valid webhook payload received:", payload);
-			res.status(200).end();
-		},
-		(error) => {
-			if (error instanceof PortOne.Webhook.WebhookVerificationError) {
-				console.log("Invalid webhook payload received:", error.message);
+app.get("/webhook", rawBody, async (req, res, next) => {
+	try {
+		try {
+			await PortOne.Webhook.verify(webhookSecret, req.rawBody, req.headers);
+		} catch (err) {
+			if (err instanceof PortOne.Webhook.WebhookVerificationError) {
+				console.log("Invalid webhook payload received:", err.message);
 				res.status(400).end();
-			} else {
-				console.error(error);
-				res.status(500).end();
+				return;
 			}
-		},
-	);
+			throw e;
+		}
+
+		console.log("Valid webhook payload received:", JSON.parse(req.rawBody));
+		res.status(200).end();
+	} catch (err) {
+		next(err);
+	}
 });
 
 app.listen(8080, () => {
