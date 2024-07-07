@@ -38,6 +38,7 @@
 		"@expo/spawn-async": "^1.7.2",
 		"@types/node": "^20.12.12",
 		"@vitest/ui": "^1.6.0",
+		"openapi-fetch": "^0.10.2",
 		"unbuild": "^2.0.0",
 		"vitest": "^1.6.0"
 	},

@@ -14,9 +14,7 @@ export abstract class PortOneError extends Error {
 
 	constructor(message: string, options?: ErrorOptions) {
 		super(message, options);
-		Object.setPrototypeOf(this, PortOneError.prototype);
 		this.name = "PortOneError";
-		this.stack = new Error(message).stack;
 	}
 }
 
@@ -32,8 +30,34 @@ export class InvalidInputError extends PortOneError {
 
 	constructor(message: string) {
 		super(message);
-		Object.setPrototypeOf(this, InvalidInputError.prototype);
 		this.name = "InvalidInputError";
+	}
+}
+
+export class InvalidRequestError extends PortOneError {
+	readonly _tag = "PortOneInvalidRequestError";
+
+	constructor(message: string) {
+		super(message);
+		this.name = "InvalidRequestError";
+	}
+}
+
+export class UnauthorizedError extends PortOneError {
+	readonly _tag = "PortOneUnauthorizedError";
+
+	constructor(message: string) {
+		super(message);
+		this.name = "UnauthorizedError";
+	}
+}
+
+export class ForbiddenError extends PortOneError {
+	readonly _tag = "PortOneForbiddenError";
+
+	constructor(message: string) {
+		super(message);
+		this.name = "ForbiddenError";
 	}
 }
 
