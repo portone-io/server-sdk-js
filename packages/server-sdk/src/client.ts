@@ -18,7 +18,7 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { ApiRequest, ApiErrorResponse } from "./api";
+import type { ApiRequest, ApiErrorResponse, ApiRequestMethod } from "./api";
 import {
 	createGetPaymentsRequest,
 	createGetCashReceiptRequest,
@@ -60,6 +60,7 @@ import {
 	type ContractFilterInput,
 	type DiscountSharePolicyFilterInput,
 } from "./platform";
+import type { paths } from "./schema";
 
 export type ApiRequestClientInit = {
 	apiBase?: string;
@@ -92,10 +93,10 @@ export class PortOneApi {
 	}
 
 	async send<
-		Response,
-		Query extends Record<string, string>,
-		Body extends Record<string, unknown>,
-	>(request: ApiRequest<Response, Query, Body>) {
+		Path extends keyof paths,
+		Method extends keyof paths[Path],
+		RequestBody,
+	>(request: ApiRequest<Path, Method, RequestBody>) {
 		const url = new URL(request.path, this.apiBase);
 		const headers = new Headers();
 		const init: RequestInit = {
@@ -120,6 +121,7 @@ export class PortOneApi {
 				break;
 			case "post":
 			case "patch":
+			case "put":
 				if (request.body && Object.keys(request.body).length !== 0) {
 					init.body = JSON.stringify(request.body);
 				}

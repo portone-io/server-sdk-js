@@ -55,6 +55,27 @@ export function createGetPaymentsRequest(
 	});
 }
 
+export type PreRegisterPaymentRequest = PaymentRequest<
+	"/{paymentId}/pre-register",
+	"post"
+>;
+export type PreRegisterPaymentOptions = {
+	storeId?: string;
+	totalAmount?: bigint;
+	taxFreeAmount?: bigint;
+	currency?: components["schemas"]["Currency"];
+};
+export function createPreRegisterPaymentRequest(
+	paymentId: string,
+	options?: PreRegisterPaymentOptions,
+): PreRegisterPaymentRequest {
+	return createPaymentRequest({
+		path: `/${paymentId}/pre-register`,
+		method: "post",
+		body: options,
+	});
+}
+
 export type GetCashReceiptRequest = PaymentRequest<
 	"/{paymentId}/cash-receipt",
 	"get"

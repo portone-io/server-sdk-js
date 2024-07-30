@@ -1,11 +1,22 @@
 import type { paths } from "./schema";
 
-export type ApiRequest<Response, Query, Body> = {
+export type ApiRequest<
+	Path extends keyof paths,
+	Method extends keyof paths[Path],
+	RequestBody,
+> = {
 	path: string;
-	method: ApiRequestMethod;
-	query?: Query;
-	body?: Body;
-	transform?: (json: unknown) => Response;
+	method: Method;
+	query?: paths[Path]['parameters']['query'];
+	body?: (paths[Path] extends { parameters: { body?: object } }
+		? paths[Path]["parameters"]["body"]
+		: undefined) &
+		RequestBody;
+	transform?: (json: unknown) => paths[Path][Method] extends {
+		responses: { 200: { content: { "application/json": object } } };
+	}
+		? paths[Path][Method]["responses"][200]["content"]["application/json"]
+		: never;
 };
 
 export type GeneratedApiRequest<
@@ -27,31 +38,34 @@ export type PrefixedGeneratedApiRequest<
 		: never
 	: never;
 
-export type ApiRequestMethod = "get" | "post" | "delete" | "patch";
+type Values<T> = T[keyof T];
 
-export type ApiErrorResponse = {
-	type: ApiErrorResponseType;
-	message?: string;
-};
+export type ApiRequestMethod = Values<{
+	[Path in keyof paths]: keyof {
+		[Method in keyof Omit<
+			paths[Path],
+			"parameters"
+		> as paths[Path][Method] extends object
+			? Method
+			: never]: paths[Path][Method];
+	};
+}>;
 
-export type ApiErrorResponseType =
-	| "INVALID_REQUEST"
-	| "UNAUTHORIZED"
-	| "FORBIDDEN"
-	| "PAYMENT_NOT_FOUND"
-	| "PAYMENT_SCHEDULE_NOT_FOUND"
-	| "BILLING_KEY_NOT_FOUND"
-	| "CASH_RECEIPT_NOT_FOUND"
-	| "IDENTITY_VERIFICATION_NOT_FOUND"
-	| "PLATFORM_NOT_ENABLED"
-	| "PLATFORM_PARTNER_NOT_FOUND"
-	| "PLATFORM_TRANSFER_NOT_FOUND"
-	| "PLATFORM_NOT_SUPPORTED_BANK"
-	| "PLATFORM_EXTERNAL_API_TEMPORARILY_FAILED"
-	| "PLATFORM_EXTERNAL_API_FAILED"
-	| "PLATFORM_DISCOUNT_SHARE_POLICY_NOT_FOUND"
-	| "PLATFORM_ADDITIONAL_FEE_POLICY_NOT_FOUND"
-	| "PLATFORM_CONTRACT_NOT_FOUND";
+export type ApiErrorResponse = Values<
+	Omit<
+		NonNullable<
+			Values<{
+				[Path in keyof paths as keyof Omit<
+					paths[Path],
+					"parameters"
+				> extends never
+					? never
+					: Path]: paths[Path][keyof Omit<paths[Path], "parameters">];
+			}>
+		>["responses"],
+		200
+	>
+>["content"]["application/json"];
 
 export type SuccessJson<
 	Path extends keyof paths,
