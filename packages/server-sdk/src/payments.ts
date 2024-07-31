@@ -86,7 +86,10 @@ export class PortOnePaymentApi extends ApiClient {
 					number: pageNumber,
 					size: pageSize,
 				},
-				filter,
+				filter: {
+					storeId: this.storeId,
+					...filter,
+				},
 			},
 		});
 		if ("type" in response) {
