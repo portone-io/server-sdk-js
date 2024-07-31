@@ -1,11 +1,11 @@
 import type {
 	ApiRequestMethod,
-	SdkPaths,
-	QuerySchema,
 	BodySchema,
-	ResponseSchema,
-	PathSchema,
 	EffectiveQuerySchema,
+	PathSchema,
+	QuerySchema,
+	ResponseSchema,
+	SdkPaths,
 } from "./api";
 import type { components, operations } from "./schema";
 
