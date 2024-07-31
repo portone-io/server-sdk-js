@@ -15,7 +15,7 @@ export type SdkPaths = Pick<
 // biome-ignore lint/suspicious/noExplicitAny: keyof any
 type TryPick<T, K extends keyof any> = K extends keyof T ? T[K] : never;
 
-export type ParamSchema<
+export type PathSchema<
 	Path extends keyof SdkPaths,
 	Method extends ApiRequestMethod,
 > = NonNullable<SdkPaths[Path][Method]>["parameters"]["path"];

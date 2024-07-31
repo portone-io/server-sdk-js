@@ -4,7 +4,7 @@ import type {
 	QuerySchema,
 	BodySchema,
 	ResponseSchema,
-	ParamSchema as PathSchema,
+	PathSchema,
 	EffectiveQuerySchema,
 } from "./api";
 import type { components, operations } from "./schema";
