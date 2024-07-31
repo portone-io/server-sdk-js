@@ -1,5 +1,8 @@
-export type { PortOneError, InvalidInputError, UnknownError } from "./error";
+import { PortOnePaymentApi } from "./payments";
+
+export type * from "./error";
+export { InvalidInputError } from "./error";
 
 export * as Webhook from "./webhook";
 
-export { PortOneApi } from "./client";
+export class PortOneApi extends PortOnePaymentApi {}

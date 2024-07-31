@@ -123,5 +123,3 @@ export class ApiClient {
 		return rawResponse.json();
 	}
 }
-
-export class PortOneApi extends PortOnePaymentApi {}
