@@ -215,10 +215,15 @@ export class PaymentNotPaidError extends PortOneError {
 export class PgProviderError extends PortOneError {
 	readonly _tag = "PortOnePgProviderError";
 
+	readonly pgCode: string;
+	readonly pgMessage: string;
+
 	constructor(response: components["schemas"]["PgProviderError"]) {
 		super(response.message ?? "PG사에서 오류를 전달했습니다.");
 		Object.setPrototypeOf(this, PgProviderError.prototype);
 		this.name = "PgProviderError";
+		this.pgCode = response.pgCode;
+		this.pgMessage = response.pgMessage;
 	}
 }
 
