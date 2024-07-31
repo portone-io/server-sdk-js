@@ -31,7 +31,7 @@ type AvailableRequestBody<
 type MergedBody<
 	Path extends keyof SdkPaths,
 	Method extends AvailableMethods<SdkPaths[Path]>,
-> = { requestBody?: string } extends QuerySchema<Path, Method>
+> = { requestBody: string } extends QuerySchema<Path, Method>
 	? NonNullable<AvailableRequestBody<Path, Method>>
 	: BodySchema<Path, Method>;
 
