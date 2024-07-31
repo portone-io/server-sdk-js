@@ -19,6 +19,7 @@ import {
 	SumOfPartsExceedsCancelAmountError,
 	SumOfPartsExceedsTotalAmountError,
 	UnauthorizedError,
+	UnknownError,
 	WebhookNotFoundError,
 } from "./error";
 import type { components } from "./schema";
@@ -56,6 +57,8 @@ export class PortOnePaymentApi extends ApiClient {
 					return null;
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response;
@@ -94,6 +97,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw InvalidRequestError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response.items;
@@ -138,6 +143,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw InvalidRequestError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 	}
@@ -205,6 +212,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new SumOfPartsExceedsCancelAmountError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response.cancellation;
@@ -265,6 +274,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new SumOfPartsExceedsTotalAmountError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response.payment;
@@ -315,6 +326,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new SumOfPartsExceedsTotalAmountError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response.payment;
@@ -359,6 +372,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new PgProviderError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response;
@@ -410,6 +425,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new PgProviderError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response;
@@ -461,6 +478,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new PgProviderError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response;
@@ -514,6 +533,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new PgProviderError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response;
@@ -563,6 +584,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new UnauthorizedError(response);
 				case "WEBHOOK_NOT_FOUND":
 					throw new WebhookNotFoundError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response.webhook;
@@ -613,6 +636,8 @@ export class PortOnePaymentApi extends ApiClient {
 					throw new PgProviderError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
+				default:
+					throw new UnknownError(response);
 			}
 		}
 		return response;

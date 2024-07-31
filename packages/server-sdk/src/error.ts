@@ -335,10 +335,16 @@ export class WebhookNotFoundError extends PortOneError {
  */
 export class UnknownError extends PortOneError {
 	readonly _tag = "PortOneUnknownError";
+	readonly type: string;
 
-	constructor(cause: unknown, options?: Omit<ErrorOptions, "cause">) {
-		super("알 수 없는 에러가 발생했습니다.", { ...options, cause });
+	constructor(cause: never) {
+		const response = cause as {
+			type: string;
+			message?: string;
+		};
+		super(response.message ?? "알 수 없는 에러가 발생했습니다.", { cause });
 		Object.setPrototypeOf(this, UnknownError.prototype);
 		this.name = "UnknownError";
+		this.type = response.type;
 	}
 }
