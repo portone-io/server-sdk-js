@@ -9,7 +9,6 @@ import {
 	CancellableAmountConsistencyBrokenError,
 	ChannelNotFoundError,
 	ForbiddenError,
-	InvalidInputError,
 	InvalidRequestError,
 	PaymentAlreadyCancelledError,
 	PaymentNotFoundError,
@@ -34,7 +33,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param paymentId 조회할 결제 아이디
 	 * @param storeId 상점 ID
 	 * @returns 결제 건 객체 또는 `null`
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 	 * @throws {ForbiddenError} 요청이 거절된 경우
 	 */
@@ -52,7 +51,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_NOT_FOUND":
 					return null;
 				case "UNAUTHORIZED":
@@ -71,7 +70,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param pageSize 각 페이지 당 포함할 객체 수
 	 * @param filter 결제 건 다건 조회를 위한 입력 정보
 	 * @returns 조회된 결제 건 리스트와 페이지 정보
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 	 * @throws {ForbiddenError} 요청이 거절된 경우
 	 */
@@ -97,7 +96,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
 				default:
@@ -114,7 +113,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param options 등록할 사전 정보
 	 * @throws {AlreadyPaidError} 결제가 이미 완료된 경우
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 	 */
 	async preRegisterPayment(
@@ -143,7 +142,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "UNAUTHORIZED":
 					throw new UnauthorizedError(response);
 				default:
@@ -164,7 +163,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @throws {CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError} 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
 	 * @throws {CancellableAmountConsistencyBrokenError} 취소 가능 잔액 검증에 실패한 경우
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PaymentAlreadyCancelledError} 결제가 이미 취소된 경우
 	 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
 	 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
@@ -202,7 +201,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_ALREADY_CANCELLED":
 					throw new PaymentAlreadyCancelledError(response);
 				case "PAYMENT_NOT_FOUND":
@@ -233,7 +232,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @throws {BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
 	 * @throws {ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
 	 * @throws {SumOfPartsExceedsTotalAmountError} 하위 항목들의 합이 전체 결제 금액을 초과한 경우
 	 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
@@ -270,7 +269,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PG_PROVIDER":
 					throw new PgProviderError(response);
 				case "SUM_OF_PARTS_EXCEEDS_TOTAL_AMOUNT":
@@ -293,7 +292,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @throws {AlreadyPaidError} 이미 결제가 완료된 건에 대하여 사전 등록을 시도할 경우
 	 * @throws {ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
 	 * @throws {SumOfPartsExceedsTotalAmountError} 하위 항목들의 합이 전체 결제 금액을 초과한 경우
 	 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
@@ -322,7 +321,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PG_PROVIDER":
 					throw new PgProviderError(response);
 				case "SUM_OF_PARTS_EXCEEDS_TOTAL_AMOUNT":
@@ -342,7 +341,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param paymentId 결제 건 아이디
 	 * @returns 가상계좌 말소 정보
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
 	 * @throws {PaymentNotWaitingForDepositError} 결제 건이 입금 대기 상태가 아닌 경우
 	 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
@@ -366,7 +365,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_NOT_FOUND":
 					throw new PaymentNotFoundError(response);
 				case "PAYMENT_NOT_WAITING_FOR_DEPOSIT":
@@ -389,7 +388,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param options 에스크로 배송 정보
 	 * @returns 에스크로 정보 등록 정보
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
 	 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
 	 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
@@ -419,7 +418,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_NOT_FOUND":
 					throw new PaymentNotFoundError(response);
 				case "PAYMENT_NOT_PAID":
@@ -442,7 +441,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param options 에스크로 배송 정보
 	 * @returns 에스크로 배송 정보 수정 정보
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
 	 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
 	 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
@@ -472,7 +471,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_NOT_FOUND":
 					throw new PaymentNotFoundError(response);
 				case "PAYMENT_NOT_PAID":
@@ -495,7 +494,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param fromStore 확인 주체가 상점인지 여부
 	 * @returns 에스크로 구매 확정 정보
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
 	 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
 	 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
@@ -527,7 +526,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_NOT_FOUND":
 					throw new PaymentNotFoundError(response);
 				case "PAYMENT_NOT_PAID":
@@ -550,7 +549,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param webhookId 웹훅 아이디
 	 * @returns 성공 웹훅 내역
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
 	 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 	 * @throws {WebhookNotFoundError} 웹훅 내역이 존재하지 않는 경우
@@ -580,7 +579,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_NOT_FOUND":
 					throw new PaymentNotFoundError(response);
 				case "UNAUTHORIZED":
@@ -603,7 +602,7 @@ export class PortOnePaymentApi extends ApiClient {
 	 * @param items 하위 상점 거래 목록
 	 * @returns 하위 상점 거래 등록 정보
 	 * @throws {ForbiddenError} 요청이 거절된 경우
-	 * @throws {InvalidInputError} 요청된 입력 정보가 유효하지 않은 경우
+	 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 	 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
 	 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
 	 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
@@ -630,7 +629,7 @@ export class PortOnePaymentApi extends ApiClient {
 				case "FORBIDDEN":
 					throw new ForbiddenError(response);
 				case "INVALID_REQUEST":
-					throw InvalidRequestError(response);
+					throw new InvalidRequestError(response);
 				case "PAYMENT_NOT_FOUND":
 					throw new PaymentNotFoundError(response);
 				case "PAYMENT_NOT_PAID":

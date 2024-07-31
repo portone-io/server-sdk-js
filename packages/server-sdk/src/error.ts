@@ -39,12 +39,17 @@ export class InvalidInputError extends PortOneError {
 	}
 }
 
-export function InvalidRequestError(
-	response: components["schemas"]["InvalidRequestError"],
-) {
-	return new InvalidInputError(
-		response.message ?? "사용자 입력이 잘못되었습니다.",
-	);
+/**
+ * 서버에 전달한 사용자 입력 정보가 올바르지 않은 경우에 발생하는 에러입니다.
+ */
+export class InvalidRequestError extends PortOneError {
+	readonly _tag = "PortOneInvalidRequestError";
+
+	constructor(response: components["schemas"]["InvalidRequestError"]) {
+		super(response.message ?? "입력 정보가 올바르지 않습니다.");
+		Object.setPrototypeOf(this, InvalidRequestError.prototype);
+		this.name = "InvalidRequestError";
+	}
 }
 
 /**
