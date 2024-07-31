@@ -7,7 +7,6 @@ import type {
 	ParamSchema as PathSchema,
 	EffectiveQuerySchema,
 } from "./api";
-import { PortOnePaymentApi } from "./payments";
 import type { components, operations } from "./schema";
 
 export type ApiRequestClientInit = {
