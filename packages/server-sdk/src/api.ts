@@ -1,109 +1,98 @@
 import type { paths } from "./schema";
+import type { ExtractValues } from "./utils/types";
 
-export type ApiRequest<
-	Path extends keyof paths,
-	Method extends keyof paths[Path],
-	RequestBody,
-> = {
-	path: string;
-	method: Method;
-	query?: paths[Path]['parameters']['query'];
-	body?: (paths[Path] extends { parameters: { body?: object } }
-		? paths[Path]["parameters"]["body"]
-		: undefined) &
-		RequestBody;
-	transform?: (json: unknown) => paths[Path][Method] extends {
-		responses: { 200: { content: { "application/json": object } } };
-	}
-		? paths[Path][Method]["responses"][200]["content"]["application/json"]
-		: never;
-};
+export type SdkPaths = Pick<
+	paths,
+	keyof paths &
+		`${
+			| "/payments"
+			| "/payment-schedules"
+			| "/identity-verifications"
+			| "/billing-keys"
+			| "/kakaopay"}${string}`
+>;
 
-export type GeneratedApiRequest<
-	Path extends keyof paths,
-	Method extends keyof paths[Path],
-> = ApiRequest<
-	SuccessJson<Path, Method>,
-	Query<Path, Method>,
-	BodyJson<Path, Method>
-> & { method: Method };
+// biome-ignore lint/suspicious/noExplicitAny: keyof any
+type TryPick<T, K extends keyof any> = K extends keyof T ? T[K] : never;
 
-export type PrefixedGeneratedApiRequest<
-	Prefix extends string,
-	Path extends string,
-	Method extends string,
-> = `${Prefix}${Path}` extends keyof paths
-	? Method extends keyof paths[`${Prefix}${Path}`]
-		? GeneratedApiRequest<`${Prefix}${Path}`, Method>
-		: never
-	: never;
+export type ParamSchema<
+	Path extends keyof SdkPaths,
+	Method extends ApiRequestMethod,
+> = NonNullable<SdkPaths[Path][Method]>["parameters"]["path"];
 
-type Values<T> = T[keyof T];
+export type QuerySchema<
+	Path extends keyof SdkPaths,
+	Method extends ApiRequestMethod,
+> = NonNullable<NonNullable<SdkPaths[Path][Method]>["parameters"]["query"]>;
 
-export type ApiRequestMethod = Values<{
-	[Path in keyof paths]: keyof {
-		[Method in keyof Omit<
-			paths[Path],
-			"parameters"
-		> as paths[Path][Method] extends object
-			? Method
-			: never]: paths[Path][Method];
+export type EffectiveQuerySchema<
+	Path extends keyof SdkPaths,
+	Method extends ApiRequestMethod,
+> = Extract<
+	Omit<QuerySchema<Path, Method>, "requestBody">,
+	QuerySchema<Path, Method>
+>;
+
+export type BodySchema<
+	Path extends keyof SdkPaths,
+	Method extends ApiRequestMethod,
+> = NonNullable<
+	NonNullable<SdkPaths[Path][Method]>["requestBody"]
+>["content"]["application/json"];
+
+export type ResponseSchema<
+	Path extends keyof SdkPaths,
+	Method extends ApiRequestMethod,
+> = TryPick<
+	TryPick<
+		ExtractValues<NonNullable<SdkPaths[Path][Method]>["responses"]>,
+		"content"
+	>,
+	"application/json"
+>;
+
+export type PrefixedPath<Prefix extends string, Path extends string> = Extract<
+	keyof SdkPaths,
+	`${Prefix}${Path}`
+>;
+
+export type ApiRequestMethod = ExtractValues<{
+	[Path in keyof SdkPaths]: keyof {
+		[Method in keyof NonNullable<
+			Omit<SdkPaths[Path], "parameters">
+		> as keyof SdkPaths[Path][Method] extends never ? never : Method]: unknown;
 	};
 }>;
 
-export type ApiErrorResponse = Values<
-	Omit<
-		NonNullable<
-			Values<{
-				[Path in keyof paths as keyof Omit<
-					paths[Path],
-					"parameters"
-				> extends never
-					? never
-					: Path]: paths[Path][keyof Omit<paths[Path], "parameters">];
-			}>
-		>["responses"],
-		200
+export type ApiErrorResponse = NonNullable<
+	ExtractValues<
+		Omit<
+			NonNullable<
+				ExtractValues<Omit<SdkPaths[keyof SdkPaths], "parameters">>
+			>["responses"],
+			200
+		>
 	>
 >["content"]["application/json"];
 
+export type SpecificApiErrorResponse<
+	Path extends keyof SdkPaths,
+	Method extends ApiRequestMethod,
+> = NonNullable<
+	TryPick<
+		TryPick<
+			ExtractValues<
+				Omit<NonNullable<SdkPaths[Path][Method]>["responses"], 200>
+			>,
+			"content"
+		>,
+		"application/json"
+	>
+>;
+
 export type SuccessJson<
-	Path extends keyof paths,
-	Method extends keyof paths[Path],
-> = paths[Path][Method] extends {
-	responses: {
-		"200": {
-			content: {
-				"application/json": unknown;
-			};
-		};
-	};
-}
-	? paths[Path][Method]["responses"]["200"]["content"]["application/json"]
-	: never;
-
-export type Query<
-	Path extends keyof paths,
-	Method extends keyof paths[Path],
-> = paths[Path][Method] extends {
-	parameters: { query?: unknown };
-}
-	? Omit<paths[Path][Method]["parameters"]["query"], "requestBody">
-	: never;
-
-export type BodyJson<
-	Path extends keyof paths,
-	Method extends keyof paths[Path],
-> = paths[Path][Method] extends {
-	requestBody: { content: { "application/json": unknown } };
-}
-	? paths[Path][Method]["requestBody"]["content"]["application/json"]
-	: paths[Path][Method] extends {
-				parameters: {
-					query?: {
-						requestBody?: string;
-					};
-				};
-			}
-		? Record<string, unknown>
-		: never;
+	Path extends keyof SdkPaths,
+	Method extends ApiRequestMethod,
+> = NonNullable<
+	paths[Path][Method]
+>["responses"][200]["content"]["application/json"];
