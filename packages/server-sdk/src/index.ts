@@ -1,5 +1,6 @@
 import { BillingKeyApi } from "./billing-keys";
 import { ApiClient, type ApiRequestClientInit } from "./client";
+import { IdentityVerificationApi } from "./identity-verifications";
 import { PaymentScheduleApi } from "./payment-scheuldes";
 import { PaymentApi } from "./payments";
 export type * from "./error";
@@ -22,6 +23,7 @@ export function PortOneApi(secret: string, init?: ApiRequestClientInit) {
 			PaymentApi(client),
 			BillingKeyApi(client),
 			PaymentScheduleApi(client),
+			IdentityVerificationApi(client),
 		),
 	);
 }

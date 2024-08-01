@@ -488,6 +488,69 @@ export class AlreadyPaidOrWaitingError extends PortOneError {
 }
 
 /**
+ * 본인인증 건이 이미 API로 요청된 상태인 경우에 발생하는 에러입니다.
+ */
+export class IdentityVerificationAlreadySentError extends PortOneError {
+	readonly _tag = "PortOneIdentityVerificationAlreadySentError";
+
+	constructor(
+		response: components["schemas"]["IdentityVerificationAlreadySentError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, IdentityVerificationAlreadySentError.prototype);
+		this.name = "IdentityVerificationAlreadySentError";
+	}
+}
+
+/**
+ * 본인인증 건이 이미 인증 완료된 상태인 경우에 발생하는 에러입니다.
+ */
+export class IdentityVerificationAlreadyVerifiedError extends PortOneError {
+	readonly _tag = "PortOneIdentityVerificationAlreadyVerifiedError";
+
+	constructor(
+		response: components["schemas"]["IdentityVerificationAlreadyVerifiedError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(
+			this,
+			IdentityVerificationAlreadyVerifiedError.prototype,
+		);
+		this.name = "IdentityVerificationAlreadyVerifiedError";
+	}
+}
+
+/**
+ * 요청된 본인인증 건이 존재하지 않는 경우에 발생하는 에러입니다.
+ */
+export class IdentityVerificationNotFoundError extends PortOneError {
+	readonly _tag = "PortOneIdentityVerificationNotFoundError";
+
+	constructor(
+		response: components["schemas"]["IdentityVerificationNotFoundError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, IdentityVerificationNotFoundError.prototype);
+		this.name = "IdentityVerificationNotFoundError";
+	}
+}
+
+/**
+ * 본인인증 건이 API로 요청된 상태가 아닌 경우에 발생하는 에러입니다.
+ */
+export class IdentityVerificationNotSentError extends PortOneError {
+	readonly _tag = "PortOneIdentityVerificationNotSentError";
+
+	constructor(
+		response: components["schemas"]["IdentityVerificationNotSentError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, IdentityVerificationNotSentError.prototype);
+		this.name = "IdentityVerificationNotSentError";
+	}
+}
+
+/**
  * SDK 내에서 알 수 없는 오류가 일어났을 때 발생하는 에러입니다.
  *
  * 해당 에러는 주로 포트원 SDK 혹은 서버 내부 오류로 인해 발생합니다.
