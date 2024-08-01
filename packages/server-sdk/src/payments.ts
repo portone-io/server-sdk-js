@@ -159,7 +159,6 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param options 결제 취소 정보
 		 * @returns 결제 취소 내역
-		 *
 		 * @throws {CancelAmountExceedsCancellableAmountError} 결제 취소 금액이 취소 가능 금액을 초과한 경우
 		 * @throws {CancelTaxAmountExceedsCancellableTaxAmountError} 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
 		 * @throws {CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError} 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
