@@ -114,7 +114,7 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 
 		/**
 		 * 요청된 본인인증에 대한 확인을 진행합니다.
-		 * 
+		 *
 		 * @param identityVerificationId 본인인증 아이디
 		 * @param otp OTP (One-Time Password) SMS 방식에서만 사용됩니다.
 		 * @returns 완료된 본인인증 내역
@@ -168,7 +168,7 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 
 		/**
 		 * SMS 본인인증 요청을 재전송합니다.
-		 * 
+		 *
 		 * @param identityVerificationId 본인인증 아이디
 		 * @throws {ForbiddenError} 요청이 거절된 경우
 		 * @throws {IdentityVerificationAlreadyVerifiedError} 본인인증 건이 이미 인증 완료된 상태인 경우

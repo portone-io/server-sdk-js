@@ -27,7 +27,8 @@
 		"build": "unbuild",
 		"test:dev": "vitest --ui --typecheck",
 		"test": "vitest run --typecheck",
-		"prepublish": "pnpm build"
+		"prepublish": "pnpm build",
+		"schema": "openapi-typescript -o __generated__/schema.d.ts"
 	},
 	"devDependencies": {
 		"@expo/spawn-async": "^1.7.2",
