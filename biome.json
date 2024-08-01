@@ -9,7 +9,9 @@
 			"recommended": true
 		}
 	},
-	"files": {
-		"ignore": ["dist", "packages/server-sdk/package.json"]
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
 	}
 }
