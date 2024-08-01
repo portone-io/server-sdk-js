@@ -1,3 +1,4 @@
+import type { components } from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	ChannelNotFoundError,
@@ -11,7 +12,6 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { components } from "./schema";
 import type { Prettify } from "./utils/types";
 
 export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
@@ -38,21 +38,21 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "IDENTITY_VERIFICATION_NOT_FOUND":
 						return null;
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -88,26 +88,26 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "CHANNEL_NOT_FOUND":
-						throw new ChannelNotFoundError(response);
+						throw new ChannelNotFoundError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "IDENTITY_VERIFICATION_ALREADY_SENT":
-						throw new IdentityVerificationAlreadySentError(response);
+						throw new IdentityVerificationAlreadySentError(response.error);
 					case "IDENTITY_VERIFICATION_ALREADY_VERIFIED":
-						throw new IdentityVerificationAlreadyVerifiedError(response);
+						throw new IdentityVerificationAlreadyVerifiedError(response.error);
 					case "IDENTITY_VERIFICATION_NOT_FOUND":
-						throw new IdentityVerificationNotFoundError(response);
+						throw new IdentityVerificationNotFoundError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
 		},
@@ -142,27 +142,27 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "IDENTITY_VERIFICATION_ALREADY_VERIFIED":
-						throw new IdentityVerificationAlreadyVerifiedError(response);
+						throw new IdentityVerificationAlreadyVerifiedError(response.error);
 					case "IDENTITY_VERIFICATION_NOT_FOUND":
-						throw new IdentityVerificationNotFoundError(response);
+						throw new IdentityVerificationNotFoundError(response.error);
 					case "IDENTITY_VERIFICATION_NOT_SENT":
-						throw new IdentityVerificationNotSentError(response);
+						throw new IdentityVerificationNotSentError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.identityVerification;
+			return response.success.identityVerification;
 		},
 
 		/**
@@ -189,24 +189,24 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "IDENTITY_VERIFICATION_ALREADY_VERIFIED":
-						throw new IdentityVerificationAlreadyVerifiedError(response);
+						throw new IdentityVerificationAlreadyVerifiedError(response.error);
 					case "IDENTITY_VERIFICATION_NOT_FOUND":
-						throw new IdentityVerificationNotFoundError(response);
+						throw new IdentityVerificationNotFoundError(response.error);
 					case "IDENTITY_VERIFICATION_NOT_SENT":
-						throw new IdentityVerificationNotSentError(response);
+						throw new IdentityVerificationNotSentError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
 		},

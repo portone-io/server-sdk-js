@@ -1,3 +1,4 @@
+import type { components } from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	BillingKeyAlreadyDeletedError,
@@ -12,7 +13,6 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { components } from "./schema";
 import type { Prettify } from "./utils/types";
 
 export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
@@ -35,21 +35,21 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 					storeId: client.storeId,
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "BILLING_KEY_NOT_FOUND":
 						return null;
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -80,31 +80,31 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "BILLING_KEY_ALREADY_DELETED":
-						throw new BillingKeyAlreadyDeletedError(response);
+						throw new BillingKeyAlreadyDeletedError(response.error);
 					case "BILLING_KEY_NOT_FOUND":
-						throw new BillingKeyNotFoundError(response);
+						throw new BillingKeyNotFoundError(response.error);
 					case "BILLING_KEY_NOT_ISSUED":
-						throw new BillingKeyNotIssuedError(response);
+						throw new BillingKeyNotIssuedError(response.error);
 					case "CHANNEL_SPECIFIC":
-						throw new ChannelSpecificError(response);
+						throw new ChannelSpecificError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_SCHEDULE_ALREADY_EXISTS":
-						throw new PaymentScheduleAlreadyExistsError(response);
+						throw new PaymentScheduleAlreadyExistsError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -147,19 +147,19 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.items;
+			return response.success.items;
 		},
 
 		/**
@@ -188,25 +188,25 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 					...options,
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "CHANNEL_NOT_FOUND":
-						throw new ChannelNotFoundError(response);
+						throw new ChannelNotFoundError(response.error);
 					case "CHANNEL_SPECIFIC":
-						throw new ChannelSpecificError(response);
+						throw new ChannelSpecificError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 	};
 }

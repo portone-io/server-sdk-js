@@ -1,39 +1,25 @@
 import type {
-	ApiRequestMethod,
-	BodySchema,
+	AvailableMethods,
 	EffectiveQuerySchema,
+	ErrorJson,
+	MergedBody,
 	PathSchema,
-	QuerySchema,
-	ResponseSchema,
 	SdkPaths,
+	SuccessJson,
 } from "./api";
-import type { components, operations } from "./schema";
 
 export type ApiRequestClientInit = {
 	apiBase?: string;
 	storeId?: string;
 };
 
-type AvailableMethods<T> = keyof {
-	[K in keyof T as T[K] extends undefined ? never : K]: object;
-} &
-	ApiRequestMethod;
-
-type AvailableRequestBody<
-	Path extends keyof SdkPaths,
-	Method extends AvailableMethods<SdkPaths[Path]>,
-> = components["schemas"][keyof {
-	[Operation in keyof operations as operations[Operation] extends SdkPaths[Path][Method]
-		? `${Capitalize<Operation>}Body` & keyof components["schemas"]
-		: never]: never;
-}];
-
-type MergedBody<
-	Path extends keyof SdkPaths,
-	Method extends AvailableMethods<SdkPaths[Path]>,
-> = { requestBody: string } extends QuerySchema<Path, Method>
-	? NonNullable<AvailableRequestBody<Path, Method>>
-	: BodySchema<Path, Method>;
+type ApiResponse<T, E> =
+	| {
+			success: T;
+	  }
+	| {
+			error: E;
+	  };
 
 export function ApiClient(secret: string, init?: ApiRequestClientInit) {
 	return {
@@ -60,7 +46,9 @@ export function ApiClient(secret: string, init?: ApiRequestClientInit) {
 				(MergedBody<Path, Method> extends never
 					? object
 					: { body: MergedBody<Path, Method> }),
-		): Promise<NonNullable<ResponseSchema<Path, Method>>> {
+		): Promise<
+			ApiResponse<SuccessJson<Path, Method>, ErrorJson<Path, Method>>
+		> {
 			let replacedPath: string = path;
 			if ("path" in args) {
 				for (const [key, value] of Object.entries(args.path)) {
@@ -95,7 +83,14 @@ export function ApiClient(secret: string, init?: ApiRequestClientInit) {
 					break;
 			}
 			const rawResponse = await fetch(url, init);
-			return rawResponse.json();
+			if (rawResponse.ok) {
+				return {
+					success: await rawResponse.json(),
+				};
+			}
+			return {
+				error: await rawResponse.json(),
+			};
 		},
 	};
 }

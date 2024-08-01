@@ -1,4 +1,4 @@
-import type { components } from "./schema";
+import type { components } from "../__generated__/schema";
 
 /**
  * 포트원 SDK에서 발생하는 모든 에러의 기반 타입입니다.
@@ -547,6 +547,47 @@ export class IdentityVerificationNotSentError extends PortOneError {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, IdentityVerificationNotSentError.prototype);
 		this.name = "IdentityVerificationNotSentError";
+	}
+}
+
+/**
+ * 현금영수증이 발급되지 않은 경우에 발생하는 에러입니다.
+ */
+export class CashReceiptNotIssuedError extends PortOneError {
+	readonly _tag = "PortOneCashReceiptNotIssuedError";
+
+	constructor(response: components["schemas"]["CashReceiptNotIssuedError"]) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, CashReceiptNotIssuedError.prototype);
+		this.name = "CashReceiptNotIssuedError";
+	}
+}
+
+/**
+ * 현금영수증이 존재하지 않는 경우에 발생하는 에러입니다.
+ */
+export class CashReceiptNotFoundError extends PortOneError {
+	readonly _tag = "PortOneCashReceiptNotFoundError";
+
+	constructor(response: components["schemas"]["CashReceiptNotFoundError"]) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, CashReceiptNotFoundError.prototype);
+		this.name = "CashReceiptNotFoundError";
+	}
+}
+
+/**
+ * 현금영수증이 이미 발급된 경우에 발생하는 에러입니다.
+ */
+export class CashReceiptAlreadyIssuedError extends PortOneError {
+	readonly _tag = "PortOneCashReceiptAlreadyIssuedError";
+
+	constructor(
+		response: components["schemas"]["CashReceiptAlreadyIssuedError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, CashReceiptAlreadyIssuedError.prototype);
+		this.name = "CashReceiptAlreadyIssuedError";
 	}
 }
 

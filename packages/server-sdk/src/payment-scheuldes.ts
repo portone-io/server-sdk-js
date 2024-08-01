@@ -1,3 +1,4 @@
+import type { components } from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	AlreadyPaidOrWaitingError,
@@ -13,7 +14,6 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { components } from "./schema";
 import type { Prettify } from "./utils/types";
 
 export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
@@ -41,21 +41,21 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_SCHEDULE_NOT_FOUND":
 						return null;
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -94,19 +94,19 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.items;
+			return response.success.items;
 		},
 
 		/**
@@ -134,29 +134,29 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 					...options,
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "BILLING_KEY_ALREADY_DELETED":
-						throw new BillingKeyAlreadyDeletedError(response);
+						throw new BillingKeyAlreadyDeletedError(response.error);
 					case "BILLING_KEY_NOT_FOUND":
-						throw new BillingKeyNotFoundError(response);
+						throw new BillingKeyNotFoundError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_SCHEDULE_ALREADY_PROCESSED":
-						throw new PaymentScheduleAlreadyProcessedError(response);
+						throw new PaymentScheduleAlreadyProcessedError(response.error);
 					case "PAYMENT_SCHEDULE_ALREADY_REVOKED":
-						throw new PaymentScheduleAlreadyRevokedError(response);
+						throw new PaymentScheduleAlreadyRevokedError(response.error);
 					case "PAYMENT_SCHEDULE_NOT_FOUND":
-						throw new PaymentScheduleNotFoundError(response);
+						throw new PaymentScheduleNotFoundError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -193,29 +193,29 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "ALREADY_PAID_OR_WAITING":
-						throw new AlreadyPaidOrWaitingError(response);
+						throw new AlreadyPaidOrWaitingError(response.error);
 					case "BILLING_KEY_ALREADY_DELETED":
-						throw new BillingKeyAlreadyDeletedError(response);
+						throw new BillingKeyAlreadyDeletedError(response.error);
 					case "BILLING_KEY_NOT_FOUND":
-						throw new BillingKeyNotFoundError(response);
+						throw new BillingKeyNotFoundError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_SCHEDULE_ALREADY_EXISTS":
-						throw new PaymentScheduleAlreadyExistsError(response);
+						throw new PaymentScheduleAlreadyExistsError(response.error);
 					case "SUM_OF_PARTS_EXCEEDS_TOTAL_AMOUNT":
-						throw new SumOfPartsExceedsTotalAmountError(response);
+						throw new SumOfPartsExceedsTotalAmountError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.schedule;
+			return response.success.schedule;
 		},
 	};
 }

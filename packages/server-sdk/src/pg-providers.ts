@@ -21,17 +21,17 @@ export function PgProviderApi(client: ReturnType<typeof ApiClient>) {
 					channelKey,
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 	};
 }

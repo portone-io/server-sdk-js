@@ -9,9 +9,18 @@
 			"recommended": true
 		}
 	},
+<<<<<<< HEAD
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
 		"useIgnoreFile": true
+=======
+	"files": {
+		"ignore": [
+			"dist",
+			"packages/server-sdk/package.json",
+			"packages/server-sdk/__generated__"
+		]
+>>>>>>> 35331fa (feat: add cash-receipts)
 	}
 }

@@ -1,3 +1,4 @@
+import type { components } from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	AlreadyPaidError,
@@ -24,7 +25,6 @@ import {
 	UnknownError,
 	WebhookNotFoundError,
 } from "./error";
-import type { components } from "./schema";
 import type { Prettify } from "./utils/types";
 
 export function PaymentApi(client: ReturnType<typeof ApiClient>) {
@@ -48,21 +48,21 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					storeId: client.storeId,
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_NOT_FOUND":
 						return null;
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -93,19 +93,19 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			});
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.items;
+			return response.success.items;
 		},
 
 		/**
@@ -137,18 +137,18 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "ALREADY_PAID":
-						throw new AlreadyPaidError(response);
+						throw new AlreadyPaidError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
 		},
@@ -193,43 +193,45 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "CANCEL_AMOUNT_EXCEEDS_CANCELLABLE_AMOUNT":
-						throw new CancelAmountExceedsCancellableAmountError(response);
+						throw new CancelAmountExceedsCancellableAmountError(response.error);
 					case "CANCEL_TAX_AMOUNT_EXCEEDS_CANCELLABLE_TAX_AMOUNT":
-						throw new CancelTaxAmountExceedsCancellableTaxAmountError(response);
+						throw new CancelTaxAmountExceedsCancellableTaxAmountError(
+							response.error,
+						);
 					case "CANCEL_TAX_FREE_AMOUNT_EXCEEDS_CANCELLABLE_TAX_FREE_AMOUNT":
 						throw new CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError(
-							response,
+							response.error,
 						);
 					case "CANCELLABLE_AMOUNT_CONSISTENCY_BROKEN":
-						throw new CancellableAmountConsistencyBrokenError(response);
+						throw new CancellableAmountConsistencyBrokenError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_ALREADY_CANCELLED":
-						throw new PaymentAlreadyCancelledError(response);
+						throw new PaymentAlreadyCancelledError(response.error);
 					case "PAYMENT_NOT_FOUND":
-						throw new PaymentNotFoundError(response);
+						throw new PaymentNotFoundError(response.error);
 					case "PAYMENT_NOT_PAID":
-						throw new PaymentNotPaidError(response);
+						throw new PaymentNotPaidError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "SUM_OF_PARTS_EXCEEDS_CANCEL_AMOUNT":
-						throw new SumOfPartsExceedsCancelAmountError(response);
+						throw new SumOfPartsExceedsCancelAmountError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					case "REMAINED_AMOUNT_LESS_THAN_PROMOTION_MIN_PAYMENT_AMOUNT":
 						throw new RemainedAmountLessThanPromotionMinPaymentAmountError(
-							response,
+							response.error,
 						);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.cancellation;
+			return response.success.cancellation;
 		},
 
 		/**
@@ -269,35 +271,35 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "ALREADY_PAID":
-						throw new AlreadyPaidError(response);
+						throw new AlreadyPaidError(response.error);
 					case "BILLING_KEY_ALREADY_DELETED":
-						throw new BillingKeyAlreadyDeletedError(response);
+						throw new BillingKeyAlreadyDeletedError(response.error);
 					case "BILLING_KEY_NOT_FOUND":
-						throw new BillingKeyNotFoundError(response);
+						throw new BillingKeyNotFoundError(response.error);
 					case "CHANNEL_NOT_FOUND":
-						throw new ChannelNotFoundError(response);
+						throw new ChannelNotFoundError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "SUM_OF_PARTS_EXCEEDS_TOTAL_AMOUNT":
-						throw new SumOfPartsExceedsTotalAmountError(response);
+						throw new SumOfPartsExceedsTotalAmountError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					case "DISCOUNT_AMOUNT_EXCEEDS_TOTAL_AMOUNT":
-						throw new DiscountAmountExceedsTotalAmountError(response);
+						throw new DiscountAmountExceedsTotalAmountError(response.error);
 					case "PROMOTION_PAY_METHOD_DOES_NOT_MATCH":
-						throw new PromotionPayMethodDoesNotMatchError(response);
+						throw new PromotionPayMethodDoesNotMatchError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.payment;
+			return response.success.payment;
 		},
 
 		/**
@@ -335,31 +337,31 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "ALREADY_PAID":
-						throw new AlreadyPaidError(response);
+						throw new AlreadyPaidError(response.error);
 					case "CHANNEL_NOT_FOUND":
-						throw new ChannelNotFoundError(response);
+						throw new ChannelNotFoundError(response.error);
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "SUM_OF_PARTS_EXCEEDS_TOTAL_AMOUNT":
-						throw new SumOfPartsExceedsTotalAmountError(response);
+						throw new SumOfPartsExceedsTotalAmountError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					case "DISCOUNT_AMOUNT_EXCEEDS_TOTAL_AMOUNT":
-						throw new DiscountAmountExceedsTotalAmountError(response);
+						throw new DiscountAmountExceedsTotalAmountError(response.error);
 					case "PROMOTION_PAY_METHOD_DOES_NOT_MATCH":
-						throw new PromotionPayMethodDoesNotMatchError(response);
+						throw new PromotionPayMethodDoesNotMatchError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.payment;
+			return response.success.payment;
 		},
 
 		/**
@@ -387,25 +389,25 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_NOT_FOUND":
-						throw new PaymentNotFoundError(response);
+						throw new PaymentNotFoundError(response.error);
 					case "PAYMENT_NOT_WAITING_FOR_DEPOSIT":
-						throw new PaymentNotWaitingForDepositError(response);
+						throw new PaymentNotWaitingForDepositError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -440,25 +442,25 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_NOT_FOUND":
-						throw new PaymentNotFoundError(response);
+						throw new PaymentNotFoundError(response.error);
 					case "PAYMENT_NOT_PAID":
-						throw new PaymentNotPaidError(response);
+						throw new PaymentNotPaidError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -493,25 +495,25 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_NOT_FOUND":
-						throw new PaymentNotFoundError(response);
+						throw new PaymentNotFoundError(response.error);
 					case "PAYMENT_NOT_PAID":
-						throw new PaymentNotPaidError(response);
+						throw new PaymentNotPaidError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -548,25 +550,25 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_NOT_FOUND":
-						throw new PaymentNotFoundError(response);
+						throw new PaymentNotFoundError(response.error);
 					case "PAYMENT_NOT_PAID":
-						throw new PaymentNotPaidError(response);
+						throw new PaymentNotPaidError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 
 		/**
@@ -601,23 +603,23 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_NOT_FOUND":
-						throw new PaymentNotFoundError(response);
+						throw new PaymentNotFoundError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					case "WEBHOOK_NOT_FOUND":
-						throw new WebhookNotFoundError(response);
+						throw new WebhookNotFoundError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response.webhook;
+			return response.success.webhook;
 		},
 
 		/**
@@ -651,25 +653,25 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 					},
 				},
 			);
-			if ("type" in response) {
-				switch (response.type) {
+			if ("error" in response) {
+				switch (response.error.type) {
 					case "FORBIDDEN":
-						throw new ForbiddenError(response);
+						throw new ForbiddenError(response.error);
 					case "INVALID_REQUEST":
-						throw new InvalidRequestError(response);
+						throw new InvalidRequestError(response.error);
 					case "PAYMENT_NOT_FOUND":
-						throw new PaymentNotFoundError(response);
+						throw new PaymentNotFoundError(response.error);
 					case "PAYMENT_NOT_PAID":
-						throw new PaymentNotPaidError(response);
+						throw new PaymentNotPaidError(response.error);
 					case "PG_PROVIDER":
-						throw new PgProviderError(response);
+						throw new PgProviderError(response.error);
 					case "UNAUTHORIZED":
-						throw new UnauthorizedError(response);
+						throw new UnauthorizedError(response.error);
 					default:
-						throw new UnknownError(response);
+						throw new UnknownError(response.error);
 				}
 			}
-			return response;
+			return response.success;
 		},
 	};
 }
