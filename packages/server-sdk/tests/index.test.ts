@@ -1,7 +1,7 @@
 import * as fs from "node:fs/promises";
 import { createRequire } from "node:module";
 import spawnAsync from "@expo/spawn-async";
-import { afterAll, beforeAll, describe, expect, test } from "vitest";
+import { beforeAll, describe, expect, test } from "vitest";
 
 let uuid: string;
 
@@ -21,13 +21,13 @@ beforeAll(async () => {
 		"-C",
 		`./temp/${uuid}`,
 	]);
+
+	return async () => {
+		await fs.rm(`./temp/${uuid}`, { recursive: true, force: true });
+	};
 });
 
-afterAll(async () => {
-	await fs.rm("./temp", { recursive: true, force: true });
-});
-
-describe("can be imported", () => {
+describe.concurrent("can be imported", () => {
 	test("import", async () => {
 		const sdk = await import(`../temp/${uuid}/package`);
 		expect(sdk).toMatchObject({});
