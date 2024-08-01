@@ -417,6 +417,21 @@ export class DiscountAmountExceedsTotalAmountError extends PortOneError {
 }
 
 /**
+ * 결제 예약건이 이미 처리된 경우에 발생하는 에러입니다.
+ */
+export class PaymentScheduleAlreadyProcessedError extends PortOneError {
+	readonly _tag = "PortOnePaymentScheduleAlreadyProcessedError";
+
+	constructor(
+		response: components["schemas"]["PaymentScheduleAlreadyProcessedError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, PaymentScheduleAlreadyProcessedError.prototype);
+		this.name = "PaymentScheduleAlreadyProcessedError";
+	}
+}
+
+/**
  * 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우에 발생하는 에러입니다.
  */
 export class PromotionPayMethodDoesNotMatchError extends PortOneError {
@@ -428,6 +443,47 @@ export class PromotionPayMethodDoesNotMatchError extends PortOneError {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, PromotionPayMethodDoesNotMatchError.prototype);
 		this.name = "PromotionPayMethodDoesNotMatchError";
+	}
+}
+
+/**
+ * 결제 예약건이 이미 취소된 경우에 발생하는 에러입니다.
+ */
+export class PaymentScheduleAlreadyRevokedError extends PortOneError {
+	readonly _tag = "PortOnePaymentScheduleAlreadyRevokedError";
+
+	constructor(
+		response: components["schemas"]["PaymentScheduleAlreadyRevokedError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, PaymentScheduleAlreadyRevokedError.prototype);
+		this.name = "PaymentScheduleAlreadyRevokedError";
+	}
+}
+
+/**
+ * 결제 예약건이 존재하지 않는 경우에 발생하는 에러입니다.
+ */
+export class PaymentScheduleNotFoundError extends PortOneError {
+	readonly _tag = "PortOnePaymentScheduleNotFoundError";
+
+	constructor(response: components["schemas"]["PaymentScheduleNotFoundError"]) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, PaymentScheduleNotFoundError.prototype);
+		this.name = "PaymentScheduleNotFoundError";
+	}
+}
+
+/**
+ * 결제가 이미 완료되었거나 대기중인 경우에 발생하는 에러입니다.
+ */
+export class AlreadyPaidOrWaitingError extends PortOneError {
+	readonly _tag = "PortOneAlreadyPaidOrWaitingError";
+
+	constructor(response: components["schemas"]["AlreadyPaidOrWaitingError"]) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, AlreadyPaidOrWaitingError.prototype);
+		this.name = "AlreadyPaidOrWaitingError";
 	}
 }
 

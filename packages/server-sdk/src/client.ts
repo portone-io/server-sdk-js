@@ -15,7 +15,7 @@ export type ApiRequestClientInit = {
 };
 
 type AvailableMethods<T> = keyof {
-	[K in keyof T as T[K] extends undefined ? never : K]: T[K];
+	[K in keyof T as T[K] extends undefined ? never : K]: object;
 } &
 	ApiRequestMethod;
 
