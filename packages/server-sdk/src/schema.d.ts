@@ -945,7 +945,7 @@ export interface paths {
 			path?: never;
 			cookie?: never;
 		};
-		get?: never;
+		get: operations["getPlatformPartnerSettlements"];
 		put?: never;
 		post?: never;
 		delete?: never;
@@ -1041,7 +1041,7 @@ export interface paths {
 			path?: never;
 			cookie?: never;
 		};
-		get?: never;
+		get: operations["getPlatformPayouts"];
 		put?: never;
 		post?: never;
 		delete?: never;
@@ -1073,7 +1073,7 @@ export interface paths {
 			path?: never;
 			cookie?: never;
 		};
-		get?: never;
+		get: operations["getPlatformBulkPayouts"];
 		put?: never;
 		post?: never;
 		delete?: never;
@@ -1452,7 +1452,7 @@ export interface paths {
 		 *     <p>결제 예약 건을 취소합니다.</p>
 		 *
 		 */
-		delete: operations["revokePaymentSchedule"];
+		delete: operations["revokePaymentSchedules"];
 		options?: never;
 		head?: never;
 		patch?: never;
@@ -2624,10 +2624,10 @@ export interface paths {
 		get?: never;
 		put?: never;
 		/**
-		 * <p>영수증 내 하위 상점 거래 등록 API</p>
+		 * <p>영수증 내 하위 상점 거래 등록</p>
 		 *
-		 * @description <p>영수증 내 하위 상점 거래 등록 API</p>
-		 *     <p>결제 내역 매출전표에 하위 상점의 거래를 등록할 수 있는 API입니다.
+		 * @description <p>영수증 내 하위 상점 거래 등록</p>
+		 *     <p>결제 내역 매출전표에 하위 상점의 거래를 등록합니다.
 		 *     지원되는 PG사:
 		 *     KG이니시스(이용 전 콘솔 -&gt; 결제연동 탭에서 INIApi Key 등록 필요)</p>
 		 *
@@ -2656,6 +2656,173 @@ export interface paths {
 		trace?: never;
 	};
 	"/platform/bulk-payouts-sheet": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/payment-reconciliations": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/payment-reconciliations/settlements/summaries/excel-file": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/payment-reconciliations/settlements/summaries": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/payment-reconciliations/settlements/vat-excel-file": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/payment-reconciliations/excel-file": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/payment-reconciliations/transactions/summaries/excel-file": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/payment-reconciliations/transactions/summaries": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/promotions/{promotionId}": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		/**
+		 * <p>프로모션 단건 조회</p>
+		 *
+		 * @description <p>프로모션 단건 조회</p>
+		 *     <p>주어진 아이디에 대응되는 프로모션을 조회합니다.</p>
+		 *
+		 */
+		get: operations["getPromotion"];
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/excel/payments": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/excel/promotions": {
 		parameters: {
 			query?: never;
 			header?: never;
@@ -2710,6 +2877,7 @@ export interface components {
 			type: "ALREADY_PAID_OR_WAITING";
 			message?: string;
 		};
+		/** Analytics */
 		Analytics: Record<string, never>;
 		/**
 		 * 고객사의 평균 거래액 현황 조회 응답
@@ -2720,8 +2888,11 @@ export interface components {
 			stats: components["schemas"]["AnalyticsAverageAmountChartStat"][];
 			summary: components["schemas"]["AnalyticsAverageAmountChartSummary"];
 		};
-		/** @description <p>특정 시점의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsAverageAmountChartStat
+		 * @description <p>특정 시점의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsAverageAmountChartStat: {
 			/**
 			 * 시점
@@ -2739,8 +2910,11 @@ export interface components {
 			 */
 			customerAverageAmount: number;
 		};
-		/** @description <p>전체 구간의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsAverageAmountChartSummary
+		 * @description <p>전체 구간의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsAverageAmountChartSummary: {
 			/**
 			 * 건별 평균 거래액
@@ -2770,8 +2944,11 @@ export interface components {
 		AnalyticsCardChart: {
 			stats: components["schemas"]["AnalyticsCardChartStat"][];
 		};
-		/** @description <p>특정 시점의 카드결제 거래 건 수와 금액을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsCardChartStat
+		 * @description <p>특정 시점의 카드결제 거래 건 수와 금액을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsCardChartStat: {
 			/**
 			 * 시점
@@ -2799,8 +2976,11 @@ export interface components {
 			remainderStats: components["schemas"]["AnalyticsCardCompanyChartRemainderStat"][];
 			summary: components["schemas"]["AnalyticsCardCompanyChartSummary"];
 		};
-		/** @description <p>특정 시점의 나머지 카드사들의 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsCardCompanyChartRemainderStat
+		 * @description <p>특정 시점의 나머지 카드사들의 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsCardCompanyChartRemainderStat: {
 			/**
 			 * 시점
@@ -2818,8 +2998,11 @@ export interface components {
 			 */
 			count: number;
 		};
-		/** @description <p>특정 시점의 카드사 별 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsCardCompanyChartStat
+		 * @description <p>특정 시점의 카드사 별 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsCardCompanyChartStat: {
 			/**
 			 * 시점
@@ -2839,8 +3022,11 @@ export interface components {
 			 */
 			count: number;
 		};
-		/** @description <p>결제금액, 결제 건수의 총합을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsCardCompanyChartSummary
+		 * @description <p>결제금액, 결제 건수의 총합을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsCardCompanyChartSummary: {
 			/**
 			 * 결제금액 합
@@ -2861,8 +3047,11 @@ export interface components {
 		AnalyticsEasyPayChart: {
 			stats: components["schemas"]["AnalyticsEasyPayChartStat"][];
 		};
-		/** @description <p>특정 시점의 간편결제 거래 건수와 금액을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsEasyPayChartStat
+		 * @description <p>특정 시점의 간편결제 거래 건수와 금액을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsEasyPayChartStat: {
 			/**
 			 * 시점
@@ -2890,8 +3079,11 @@ export interface components {
 			remainderStats: components["schemas"]["AnalyticsEasyPayProviderChartRemainderStat"][];
 			summary: components["schemas"]["AnalyticsEasyPayProviderChartSummary"];
 		};
-		/** @description <p>특정 시점의 나머지 간편결제사들의 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsEasyPayProviderChartRemainderStat
+		 * @description <p>특정 시점의 나머지 간편결제사들의 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsEasyPayProviderChartRemainderStat: {
 			/**
 			 * 시점
@@ -2909,8 +3101,11 @@ export interface components {
 			 */
 			count: number;
 		};
-		/** @description <p>특정 시점의 간편결제사별 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsEasyPayProviderChartStat
+		 * @description <p>특정 시점의 간편결제사별 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsEasyPayProviderChartStat: {
 			/**
 			 * 시점
@@ -2930,8 +3125,11 @@ export interface components {
 			 */
 			count: number;
 		};
-		/** @description <p>결제금액, 결제 건수의 총합을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsEasyPayProviderChartSummary
+		 * @description <p>결제금액, 결제 건수의 총합을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsEasyPayProviderChartSummary: {
 			/**
 			 * 결제금액의 합
@@ -2991,8 +3189,11 @@ export interface components {
 			 */
 			lowestHourInDay: number;
 		};
-		/** @description <p>특정 시점의 거래 건 수와 금액을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPaymentChartStat
+		 * @description <p>특정 시점의 거래 건 수와 금액을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPaymentChartStat: {
 			/**
 			 * 시점
@@ -3018,8 +3219,11 @@ export interface components {
 		AnalyticsPaymentMethodChart: {
 			stats: components["schemas"]["AnalyticsPaymentMethodChartStat"][];
 		};
-		/** @description <p>결제수단별 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPaymentMethodChartStat
+		 * @description <p>결제수단별 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPaymentMethodChartStat: {
 			/** 결제수단 */
 			paymentMethod?: components["schemas"]["PaymentMethodType"];
@@ -3047,8 +3251,11 @@ export interface components {
 			 */
 			stats: components["schemas"]["AnalyticsPaymentMethodTrendChartStat"][];
 		};
-		/** @description <p>특정 시점의 결제수단별 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPaymentMethodTrendChartStat
+		 * @description <p>특정 시점의 결제수단별 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPaymentMethodTrendChartStat: {
 			/**
 			 * 시점
@@ -3076,8 +3283,11 @@ export interface components {
 		AnalyticsPaymentStatusByPaymentClientChart: {
 			stats: components["schemas"]["AnalyticsPaymentStatusByPaymentClientChartStat"][];
 		};
-		/** @description <p>고객사의 결제 환경 별 결제 상태 차트 정보</p>
-		 *      */
+		/**
+		 * AnalyticsPaymentStatusByPaymentClientChartStat
+		 * @description <p>고객사의 결제 환경 별 결제 상태 차트 정보</p>
+		 *
+		 */
 		AnalyticsPaymentStatusByPaymentClientChartStat: {
 			/** 결제가 발생한 클라이언트 환경 */
 			paymentClientType: components["schemas"]["PaymentClientType"];
@@ -3102,8 +3312,11 @@ export interface components {
 		AnalyticsPaymentStatusByPaymentMethodChart: {
 			stats: components["schemas"]["AnalyticsPaymentStatusByPaymentMethodChartStat"][];
 		};
-		/** @description <p>각 결제수단, 상태 별 건수와 금액을 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPaymentStatusByPaymentMethodChartStat
+		 * @description <p>각 결제수단, 상태 별 건수와 금액을 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPaymentStatusByPaymentMethodChartStat: {
 			/** 결제수단 */
 			paymentMethod?: components["schemas"]["PaymentMethodType"];
@@ -3128,8 +3341,11 @@ export interface components {
 		AnalyticsPaymentStatusByPgCompanyChart: {
 			stats: components["schemas"]["AnalyticsPaymentStatusByPgCompanyChartStat"][];
 		};
-		/** @description <p>각 상태의 건수와 금액, 사분위수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPaymentStatusByPgCompanyChartStat
+		 * @description <p>각 상태의 건수와 금액, 사분위수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPaymentStatusByPgCompanyChartStat: {
 			/** PG사 */
 			pgCompany: components["schemas"]["PgCompany"];
@@ -3154,8 +3370,11 @@ export interface components {
 		AnalyticsPaymentStatusChart: {
 			stats: components["schemas"]["AnalyticsPaymentStatusChartStat"][];
 		};
-		/** @description <p>각 상태의 건수와 금액, 사분위수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPaymentStatusChartStat
+		 * @description <p>각 상태의 건수와 금액, 사분위수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPaymentStatusChartStat: {
 			/** 결제 건 상태 */
 			paymentStatus: components["schemas"]["PaymentStatus"];
@@ -3198,8 +3417,11 @@ export interface components {
 		AnalyticsPgCompanyChart: {
 			stats: components["schemas"]["AnalyticsPgCompanyChartStat"][];
 		};
-		/** @description <p>결제대행사별 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPgCompanyChartStat
+		 * @description <p>결제대행사별 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPgCompanyChartStat: {
 			/** 결제대행사 */
 			pgCompany: components["schemas"]["PgCompany"];
@@ -3222,8 +3444,11 @@ export interface components {
 		AnalyticsPgCompanyTrendChart: {
 			stats: components["schemas"]["AnalyticsPgCompanyTrendChartStat"][];
 		};
-		/** @description <p>특정 시점의 결제대행사 별 결제금액, 결제 건수를 나타냅니다.</p>
-		 *      */
+		/**
+		 * AnalyticsPgCompanyTrendChartStat
+		 * @description <p>특정 시점의 결제대행사 별 결제금액, 결제 건수를 나타냅니다.</p>
+		 *
+		 */
 		AnalyticsPgCompanyTrendChartStat: {
 			/**
 			 * 시점
@@ -3295,6 +3520,7 @@ export interface components {
 			/** Format: int32 */
 			timezoneHourOffset: number;
 		};
+		/** ApplyEscrowLogisticsError */
 		ApplyEscrowLogisticsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -3330,6 +3556,7 @@ export interface components {
 			/** 파트너 메모. 값이 명시되지 않은 경우 업데이트하지 않습니다. */
 			memo?: string;
 		};
+		/** ApprovePlatformPartnerError */
 		ApprovePlatformPartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -3346,6 +3573,7 @@ export interface components {
 			/** 승인된 파트너 */
 			partner: components["schemas"]["PlatformPartner"];
 		};
+		/** ArchivePlatformAdditionalFeePolicyError */
 		ArchivePlatformAdditionalFeePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -3362,6 +3590,7 @@ export interface components {
 			/** 보관된 추가 수수료 정책 */
 			additionalFeePolicy: components["schemas"]["PlatformAdditionalFeePolicy"];
 		};
+		/** ArchivePlatformContractError */
 		ArchivePlatformContractError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -3378,6 +3607,7 @@ export interface components {
 			/** 보관된 계약 */
 			contract: components["schemas"]["PlatformContract"];
 		};
+		/** ArchivePlatformDiscountSharePolicyError */
 		ArchivePlatformDiscountSharePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -3394,6 +3624,7 @@ export interface components {
 			/** 보관된 할인 분담 */
 			discountSharePolicy: components["schemas"]["PlatformDiscountSharePolicy"];
 		};
+		/** ArchivePlatformPartnerError */
 		ArchivePlatformPartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -3435,6 +3666,7 @@ export interface components {
 			/** 파일 아이디 */
 			fileId: string;
 		};
+		/** AttachB2bTaxInvoiceFileError */
 		AttachB2bTaxInvoiceFileError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bFileNotFoundError"]
@@ -3456,6 +3688,7 @@ export interface components {
 			type: "B2B_BANK_ACCOUNT_NOT_FOUND";
 			message?: string;
 		};
+		/** B2bCertificate */
 		B2bCertificate: {
 			/**
 			 * 등록일시
@@ -3486,7 +3719,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		B2bCertificateType: "ETC" | "E_TAX" | "POP_BILL";
+		B2bCertificateType: "E_TAX" | "POP_BILL" | "ETC";
 		/**
 		 * 인증서가 등록되어 있지 않은 경우
 		 * @description <p>인증서가 등록되어 있지 않은 경우</p>
@@ -3513,6 +3746,7 @@ export interface components {
 			type: "B2B_COMPANY_ALREADY_REGISTERED";
 			message?: string;
 		};
+		/** B2bCompanyContact */
 		B2bCompanyContact: {
 			/**
 			 * 담당자 ID
@@ -3538,6 +3772,7 @@ export interface components {
 			 */
 			isManager: boolean;
 		};
+		/** B2bCompanyContactInput */
 		B2bCompanyContactInput: {
 			/**
 			 * 담당자 ID
@@ -3596,7 +3831,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		B2bCompanyStateBusinessStatus: "CLOSED" | "IN_BUSINESS" | "SUSPENDED";
+		B2bCompanyStateBusinessStatus: "IN_BUSINESS" | "CLOSED" | "SUSPENDED";
 		/**
 		 * 사업자 과세 유형
 		 * @description <p>사업자 과세 유형</p>
@@ -3604,11 +3839,11 @@ export interface components {
 		 * @enum {string}
 		 */
 		B2bCompanyStateTaxationType:
-			| "ASSIGNED_ID_NUMBER"
 			| "NORMAL"
+			| "TAX_FREE"
 			| "SIMPLE"
 			| "SIMPLE_TAX_INVOICE_ISSUER"
-			| "TAX_FREE";
+			| "ASSIGNED_ID_NUMBER";
 		/**
 		 * 담당자가 존재하지 않는 경우
 		 * @description <p>담당자가 존재하지 않는 경우</p>
@@ -3726,6 +3961,7 @@ export interface components {
 			type: "B2B_ID_ALREADY_EXISTS";
 			message?: string;
 		};
+		/** B2bMemberCompany */
 		B2bMemberCompany: {
 			/**
 			 * 사업자등록번호
@@ -3815,7 +4051,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		B2bSearchDateType: "ISSUE" | "REGISTER" | "WRITE";
+		B2bSearchDateType: "REGISTER" | "WRITE" | "ISSUE";
 		/**
 		 * 공급자가 존재하지 않은 경우
 		 * @description <p>공급자가 존재하지 않은 경우</p>
@@ -3842,6 +4078,7 @@ export interface components {
 			type: "B2B_SUSPENDED_ACCOUNT";
 			message?: string;
 		};
+		/** B2bTaxInvoice */
 		B2bTaxInvoice:
 			| components["schemas"]["B2bTaxInvoiceBeforeSending"]
 			| components["schemas"]["B2bTaxInvoiceIssuanceCancelled"]
@@ -3898,6 +4135,7 @@ export interface components {
 			type: "B2B_TAX_INVOICE_ATTACHMENT_NOT_FOUND";
 			message?: string;
 		};
+		/** B2bTaxInvoiceBeforeSending */
 		B2bTaxInvoiceBeforeSending: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -4012,6 +4250,7 @@ export interface components {
 			 */
 			ntsApproveNumber: string;
 		};
+		/** B2bTaxInvoiceCompany */
 		B2bTaxInvoiceCompany: {
 			/**
 			 * 사업자등록번호
@@ -4083,7 +4322,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		B2bTaxInvoiceDocumentKeyType: "RECIPIENT" | "SUPPLIER";
+		B2bTaxInvoiceDocumentKeyType: "SUPPLIER" | "RECIPIENT";
 		/**
 		 * 세금계산서 생성 요청 정보
 		 * @description <p>세금계산서 생성 요청 정보</p>
@@ -4190,6 +4429,7 @@ export interface components {
 			 */
 			contacts?: components["schemas"]["B2bTaxInvoiceAdditionalContact"][];
 		};
+		/** B2bTaxInvoiceIssuanceCancelled */
 		B2bTaxInvoiceIssuanceCancelled: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -4312,6 +4552,7 @@ export interface components {
 			 */
 			recipientClosedSuspendedDate?: string;
 		};
+		/** B2bTaxInvoiceIssued */
 		B2bTaxInvoiceIssued: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -4498,12 +4739,12 @@ export interface components {
 		 * @enum {string}
 		 */
 		B2bTaxInvoiceModificationType:
-			| "CANCELLATION_OF_CONTRACT"
-			| "CHANGE_IN_SUPPLY_COST"
 			| "CORRECTION_OF_ENTRY_ERRORS"
+			| "CHANGE_IN_SUPPLY_COST"
+			| "RETURN"
+			| "CANCELLATION_OF_CONTRACT"
 			| "DUPLICATE_ISSUANCE_DUE_TO_ERROR"
-			| "POST_ISSUANCE_LOCAL_LETTER_OF_CREDIT"
-			| "RETURN";
+			| "POST_ISSUANCE_LOCAL_LETTER_OF_CREDIT";
 		/**
 		 * 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우
 		 * @description <p>세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우</p>
@@ -4602,7 +4843,8 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		B2bTaxInvoicePurposeType: "INVOICE" | "NONE" | "RECEIPT";
+		B2bTaxInvoicePurposeType: "RECEIPT" | "INVOICE" | "NONE";
+		/** B2bTaxInvoiceRegistered */
 		B2bTaxInvoiceRegistered: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -4706,6 +4948,7 @@ export interface components {
 			 */
 			statusUpdatedAt: string;
 		};
+		/** B2bTaxInvoiceRequestCancelled */
 		B2bTaxInvoiceRequestCancelled: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -4809,6 +5052,7 @@ export interface components {
 			 */
 			statusUpdatedAt: string;
 		};
+		/** B2bTaxInvoiceRequestRefused */
 		B2bTaxInvoiceRequestRefused: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -4912,6 +5156,7 @@ export interface components {
 			 */
 			statusUpdatedAt: string;
 		};
+		/** B2bTaxInvoiceRequested */
 		B2bTaxInvoiceRequested: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -5015,6 +5260,7 @@ export interface components {
 			 */
 			statusUpdatedAt: string;
 		};
+		/** B2bTaxInvoiceSending */
 		B2bTaxInvoiceSending: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -5134,6 +5380,7 @@ export interface components {
 			 */
 			ntsSentAt: string;
 		};
+		/** B2bTaxInvoiceSendingCompleted */
 		B2bTaxInvoiceSendingCompleted: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -5266,6 +5513,7 @@ export interface components {
 			 */
 			ntsResultReceivedAt: string;
 		};
+		/** B2bTaxInvoiceSendingFailed */
 		B2bTaxInvoiceSendingFailed: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -5398,19 +5646,22 @@ export interface components {
 			 */
 			ntsResultReceivedAt: string;
 		};
-		/** @enum {string} */
+		/**
+		 * B2bTaxInvoiceStatus
+		 * @enum {string}
+		 */
 		B2bTaxInvoiceStatus:
-			| "BEFORE_SENDING"
-			| "ISSUANCE_CANCELLED_BY_SUPPLIER"
-			| "ISSUED"
 			| "REGISTERED"
 			| "REQUESTED"
 			| "REQUEST_CANCELLED_BY_RECIPIENT"
-			| "REQUEST_REFUSED"
+			| "ISSUED"
+			| "BEFORE_SENDING"
+			| "WAITING_SENDING"
 			| "SENDING"
 			| "SENDING_COMPLETED"
 			| "SENDING_FAILED"
-			| "WAITING_SENDING";
+			| "REQUEST_REFUSED"
+			| "ISSUANCE_CANCELLED_BY_SUPPLIER";
 		/**
 		 * 세금계산서 요약
 		 * @description <p>세금계산서 요약</p>
@@ -5493,6 +5744,7 @@ export interface components {
 			 */
 			ntsResultCode?: string;
 		};
+		/** B2bTaxInvoiceWaitingSending */
 		B2bTaxInvoiceWaitingSending: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -5613,7 +5865,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		B2bTaxType: "FREE" | "TAXABLE" | "ZERO_RATED";
+		B2bTaxType: "TAXABLE" | "ZERO_RATED" | "FREE";
 		/**
 		 * 은행
 		 * @description <p>은행</p>
@@ -5621,77 +5873,84 @@ export interface components {
 		 * @enum {string}
 		 */
 		Bank:
-			| "BANK_OF_AMERICA"
-			| "BANK_OF_CHINA"
 			| "BANK_OF_KOREA"
-			| "BNP_PARIBAS"
-			| "BOCOM"
-			| "BOOKOOK_SECURITIES"
-			| "BUSAN"
-			| "CAPE_SECURITIES"
-			| "CCB"
+			| "KDB"
+			| "IBK"
+			| "KOOKMIN"
+			| "SUHYUP"
+			| "KEXIM"
+			| "NONGHYUP"
+			| "LOCAL_NONGHYUP"
+			| "WOORI"
+			| "STANDARD_CHARTERED"
 			| "CITI"
 			| "DAEGU"
-			| "DAISHIN_SECURITIES"
-			| "DAOL_SECURITIES"
-			| "DB_SECURITIES"
-			| "DEUTSCHE"
-			| "EBEST_SECURITIES"
-			| "EUGENE_SECURITIES"
-			| "HANA"
-			| "HANA_SECURITIES"
-			| "HANHWA_SECURITIES"
-			| "HI_SECURITIES"
-			| "HSBC"
-			| "HYUNDAI_MOTOR_SECURITIES"
-			| "IBK"
-			| "ICBC"
+			| "BUSAN"
+			| "KWANGJU"
 			| "JEJU"
 			| "JEONBUK"
-			| "JPMC"
-			| "KAKAO"
-			| "KAKAO_PAY_SECURITIES"
-			| "KB_SECURITIES"
-			| "KCIS"
-			| "KDB"
-			| "KEXIM"
-			| "KFCC"
-			| "KIBO"
-			| "KIWOOM_SECURITIES"
-			| "KODIT"
-			| "KOOKMIN"
-			| "KOREA_FOSS_SECURITIES"
-			| "KOREA_SECURITIES"
-			| "KWANGJU"
-			| "KYOBO_SECURITIES"
 			| "KYONGNAM"
-			| "K_BANK"
-			| "LOCAL_NONGHYUP"
-			| "MERITZ_SECURITIES"
-			| "MIRAE_ASSET_SECURITIES"
-			| "MISC_FOREIGN"
-			| "MIZUHO"
-			| "MORGAN_STANLEY"
-			| "MUFG"
-			| "NFCF"
-			| "NH_SECURITIES"
-			| "NONGHYUP"
-			| "POST"
-			| "SAMSUNG_SECURITIES"
-			| "SAVINGS_BANK"
-			| "SGI"
-			| "SHINHAN"
-			| "SHINHAN_SECURITIES"
+			| "KFCC"
 			| "SHINHYUP"
-			| "SHINYOUNG_SECURITIES"
-			| "SK_SECURITIES"
-			| "STANDARD_CHARTERED"
-			| "SUHYUP"
-			| "TOSS"
-			| "TOSS_SECURITIES"
+			| "SAVINGS_BANK"
+			| "MORGAN_STANLEY"
+			| "HSBC"
+			| "DEUTSCHE"
+			| "JPMC"
+			| "MIZUHO"
+			| "MUFG"
+			| "BANK_OF_AMERICA"
+			| "BNP_PARIBAS"
+			| "ICBC"
+			| "BANK_OF_CHINA"
+			| "NFCF"
 			| "UOB"
-			| "WOORI"
-			| "YUANTA_SECURITIES";
+			| "BOCOM"
+			| "CCB"
+			| "POST"
+			| "KODIT"
+			| "KIBO"
+			| "HANA"
+			| "SHINHAN"
+			| "K_BANK"
+			| "KAKAO"
+			| "TOSS"
+			| "MISC_FOREIGN"
+			| "SGI"
+			| "KCIS"
+			| "YUANTA_SECURITIES"
+			| "KB_SECURITIES"
+			| "SANGSANGIN_SECURITIES"
+			| "HANYANG_SECURITIES"
+			| "LEADING_SECURITIES"
+			| "BNK_SECURITIES"
+			| "IBK_SECURITIES"
+			| "DAOL_SECURITIES"
+			| "MIRAE_ASSET_SECURITIES"
+			| "SAMSUNG_SECURITIES"
+			| "KOREA_SECURITIES"
+			| "NH_SECURITIES"
+			| "KYOBO_SECURITIES"
+			| "HI_SECURITIES"
+			| "HYUNDAI_MOTOR_SECURITIES"
+			| "KIWOOM_SECURITIES"
+			| "EBEST_SECURITIES"
+			| "SK_SECURITIES"
+			| "DAISHIN_SECURITIES"
+			| "HANHWA_SECURITIES"
+			| "HANA_SECURITIES"
+			| "TOSS_SECURITIES"
+			| "SHINHAN_SECURITIES"
+			| "DB_SECURITIES"
+			| "EUGENE_SECURITIES"
+			| "MERITZ_SECURITIES"
+			| "KAKAO_PAY_SECURITIES"
+			| "BOOKOOK_SECURITIES"
+			| "SHINYOUNG_SECURITIES"
+			| "CAPE_SECURITIES"
+			| "KOREA_SECURITIES_FINANCE"
+			| "KOREA_FOSS_SECURITIES"
+			| "WOORI_INVESTMENT_BANK";
 		/**
 		 * 배송 정보 등록 전
 		 * @description <p>배송 정보 등록 전</p>
@@ -5810,6 +6069,7 @@ export interface components {
 		BillingKeyInfo:
 			| components["schemas"]["DeletedBillingKeyInfo"]
 			| components["schemas"]["IssuedBillingKeyInfo"];
+		/** BillingKeyInfoSummary */
 		BillingKeyInfoSummary: {
 			/** 발급된 빌링키 */
 			billingKey: string;
@@ -5834,6 +6094,7 @@ export interface components {
 			type: "BILLING_KEY_NOT_FOUND";
 			message?: string;
 		};
+		/** BillingKeyNotIssuedError */
 		BillingKeyNotIssuedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -5908,6 +6169,8 @@ export interface components {
 			productType?: components["schemas"]["PaymentProductType"];
 			/** 배송지 주소 */
 			shippingAddress?: components["schemas"]["SeparatedAddressInput"];
+			/** 해당 결제에 적용할 프로모션 아이디 */
+			promotionId?: string;
 			/** PG사별 추가 파라미터 ("PG사별 연동 가이드" 참고) */
 			bypass?: Record<string, never>;
 		};
@@ -6021,7 +6284,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		BillingKeyPaymentMethodType: "CARD" | "EASY_PAY" | "MOBILE" | "TRANSFER";
+		BillingKeyPaymentMethodType: "CARD" | "MOBILE" | "EASY_PAY" | "TRANSFER";
 		/**
 		 * 빌링키 결제 완료된 결제 건 요약 정보
 		 * @description <p>빌링키 결제 완료된 결제 건 요약 정보</p>
@@ -6043,9 +6306,9 @@ export interface components {
 		 * @enum {string}
 		 */
 		BillingKeySortBy:
-			| "DELETED_AT"
-			| "ISSUED_AT"
 			| "REQUESTED_AT"
+			| "ISSUED_AT"
+			| "DELETED_AT"
 			| "STATUS_TIMESTAMP";
 		/**
 		 * 빌링키 다건 조회 시 정렬 조건
@@ -6072,7 +6335,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		BillingKeyStatus: "DELETED" | "ISSUED";
+		BillingKeyStatus: "ISSUED" | "DELETED";
 		/**
 		 * 통합검색 입력 정보
 		 * @description <p>통합검색 입력 정보</p>
@@ -6089,17 +6352,17 @@ export interface components {
 		 * @enum {string}
 		 */
 		BillingKeyTextSearchField:
-			| "BILLING_KEY"
 			| "CARD_BIN"
 			| "CARD_NUMBER"
-			| "CHANNEL_GROUP_NAME"
-			| "CUSTOMER_ADDRESS"
-			| "CUSTOMER_EMAIL"
-			| "CUSTOMER_NAME"
-			| "CUSTOMER_PHONE_NUMBER"
-			| "CUSTOMER_ZIPCODE"
 			| "PG_MERCHANT_ID"
-			| "USER_AGENT";
+			| "CUSTOMER_NAME"
+			| "CUSTOMER_EMAIL"
+			| "CUSTOMER_PHONE_NUMBER"
+			| "CUSTOMER_ADDRESS"
+			| "CUSTOMER_ZIPCODE"
+			| "USER_AGENT"
+			| "BILLING_KEY"
+			| "CHANNEL_GROUP_NAME";
 		/**
 		 * 빌링키 다건 조회 시, 시각 범위를 적용할 필드
 		 * @description <p>빌링키 다건 조회 시, 시각 범위를 적용할 필드</p>
@@ -6107,9 +6370,9 @@ export interface components {
 		 * @enum {string}
 		 */
 		BillingKeyTimeRangeField:
-			| "DELETED_AT"
-			| "ISSUED_AT"
 			| "REQUESTED_AT"
+			| "ISSUED_AT"
+			| "DELETED_AT"
 			| "STATUS_TIMESTAMP";
 		/**
 		 * 결제 취소 금액이 취소 가능 금액을 초과한 경우
@@ -6143,6 +6406,7 @@ export interface components {
 			/** 메모 */
 			memo?: string;
 		};
+		/** CancelB2bTaxInvoiceIssuanceError */
 		CancelB2bTaxInvoiceIssuanceError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -6168,6 +6432,7 @@ export interface components {
 			/** 메모 */
 			memo?: string;
 		};
+		/** CancelB2bTaxInvoiceRequestError */
 		CancelB2bTaxInvoiceRequestError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -6176,6 +6441,7 @@ export interface components {
 			| components["schemas"]["B2bTaxInvoiceNotRequestedStatusError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** CancelCashReceiptError */
 		CancelCashReceiptError:
 			| components["schemas"]["CashReceiptNotFoundError"]
 			| components["schemas"]["CashReceiptNotIssuedError"]
@@ -6270,6 +6536,7 @@ export interface components {
 			/** 예금주 연락처 - 스마트로 가상계좌 결제인 경우에 필요합니다. */
 			holderPhoneNumber?: string;
 		};
+		/** CancelPaymentError */
 		CancelPaymentError:
 			| components["schemas"]["CancelAmountExceedsCancellableAmountError"]
 			| components["schemas"]["CancelTaxAmountExceedsCancellableTaxAmountError"]
@@ -6281,6 +6548,7 @@ export interface components {
 			| components["schemas"]["PaymentNotFoundError"]
 			| components["schemas"]["PaymentNotPaidError"]
 			| components["schemas"]["PgProviderError"]
+			| components["schemas"]["RemainedAmountLessThanPromotionMinPaymentAmountError"]
 			| components["schemas"]["SumOfPartsExceedsCancelAmountError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
@@ -6292,6 +6560,7 @@ export interface components {
 			/** 결체 취소 내역 */
 			cancellation: components["schemas"]["PaymentCancellation"];
 		};
+		/** CancelPlatformAdditionalFeePolicyScheduleError */
 		CancelPlatformAdditionalFeePolicyScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -6304,6 +6573,7 @@ export interface components {
 		 *
 		 */
 		CancelPlatformAdditionalFeePolicyScheduleResponse: Record<string, never>;
+		/** CancelPlatformContractScheduleError */
 		CancelPlatformContractScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -6316,6 +6586,7 @@ export interface components {
 		 *
 		 */
 		CancelPlatformContractScheduleResponse: Record<string, never>;
+		/** CancelPlatformDiscountSharePolicyScheduleError */
 		CancelPlatformDiscountSharePolicyScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -6328,6 +6599,7 @@ export interface components {
 		 *
 		 */
 		CancelPlatformDiscountSharePolicyScheduleResponse: Record<string, never>;
+		/** CancelPlatformPartnerScheduleError */
 		CancelPlatformPartnerScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -6340,8 +6612,11 @@ export interface components {
 		 *
 		 */
 		CancelPlatformPartnerScheduleResponse: Record<string, never>;
-		/** @enum {string} */
-		CancelRequester: "ADMIN" | "CUSTOMER";
+		/**
+		 * CancelRequester
+		 * @enum {string}
+		 */
+		CancelRequester: "CUSTOMER" | "ADMIN";
 		/**
 		 * 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
 		 * @description <p>취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우</p>
@@ -6646,13 +6921,13 @@ export interface components {
 		 * @enum {string}
 		 */
 		CardBrand:
-			| "AMEX"
-			| "DINERS"
-			| "JCB"
 			| "LOCAL"
 			| "MASTER"
 			| "UNIONPAY"
-			| "VISA";
+			| "VISA"
+			| "JCB"
+			| "AMEX"
+			| "DINERS";
 		/**
 		 * 카드사
 		 * @description <p>카드사</p>
@@ -6660,29 +6935,81 @@ export interface components {
 		 * @enum {string}
 		 */
 		CardCompany:
-			| "BC_CARD"
-			| "CITI_CARD"
-			| "EPOST"
-			| "GWANGJU_CARD"
-			| "HANA_CARD"
-			| "HYUNDAI_CARD"
-			| "JEJU_CARD"
-			| "JEONBUK_CARD"
-			| "KAKAO_BANK"
-			| "KFCC"
-			| "KOOKMIN_CARD"
 			| "KOREA_DEVELOPMENT_BANK"
-			| "K_BANK"
-			| "LOTTE_CARD"
-			| "NH_CARD"
-			| "SAMSUNG_CARD"
-			| "SAVINGS_BANK_KOREA"
-			| "SHINHAN_CARD"
+			| "KFCC"
 			| "SHINHYUP"
-			| "SUHYUP_CARD"
+			| "EPOST"
+			| "SAVINGS_BANK_KOREA"
+			| "KAKAO_BANK"
+			| "K_BANK"
 			| "TOSS_BANK"
+			| "WOORI_CARD"
+			| "BC_CARD"
+			| "GWANGJU_CARD"
+			| "SAMSUNG_CARD"
+			| "SHINHAN_CARD"
+			| "HYUNDAI_CARD"
+			| "LOTTE_CARD"
+			| "SUHYUP_CARD"
+			| "CITI_CARD"
+			| "NH_CARD"
+			| "JEONBUK_CARD"
+			| "JEJU_CARD"
+			| "HANA_CARD"
+			| "KOOKMIN_CARD"
 			| "UNIDENTIFIED_GLOBAL_CARD"
-			| "WOORI_CARD";
+			| "CHAI_CARD"
+			| "AMEX_CARD"
+			| "MIR_CARD"
+			| "UNION_CARD"
+			| "JCB_CARD"
+			| "VISA_CARD"
+			| "MASTER_CARD"
+			| "DINERS_CARD"
+			| "DISCOVER_CARD"
+			| "IBK"
+			| "NH_BANK"
+			| "DAEGU_CARD"
+			| "BUSAN_CARD"
+			| "SC_BANK"
+			| "KYONGNAM_CARD"
+			| "WOORI_BANK"
+			| "CHINA_BANK"
+			| "NFCF"
+			| "KB_SECURITIES"
+			| "YUANTA_SECURITIES"
+			| "NH_SECURITIES"
+			| "DB_SECURITIES"
+			| "SK_SECURITIES"
+			| "EUGENE_SECURITIES"
+			| "KYOBO_SECURITIES"
+			| "MIRAE_ASSET_SECURITIES"
+			| "KOREA_SECURITIES"
+			| "HANHWA_SECURITIES"
+			| "SSG"
+			| "KONA_I"
+			| "CHAI"
+			| "TOSS_CARD"
+			| "PAYCO"
+			| "GMONEY_TRANS"
+			| "FINT"
+			| "KG_MOBILIANS"
+			| "HANPASS"
+			| "FINSHOT"
+			| "BIZPLAY"
+			| "NICE"
+			| "DANAL"
+			| "SECTA"
+			| "GME"
+			| "LORD_SYSTEM"
+			| "NAVERPAY"
+			| "KAKAOPAY"
+			| "KDBC"
+			| "TEEN_CASH"
+			| "EGG_MONEY"
+			| "ON_CASH"
+			| "GALAXIA_MONEY_TREE"
+			| "FIRFIN";
 		/**
 		 * 카드 인증 관련 정보
 		 * @description <p>카드 인증 관련 정보</p>
@@ -6706,7 +7033,73 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		CardOwnerType: "CORPORATE" | "PERSONAL";
+		CardOwnerType: "PERSONAL" | "CORPORATE";
+		/**
+		 * 카드 프로모션
+		 * @description <p>카드 프로모션</p>
+		 *
+		 */
+		CardPromotion: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "CARD";
+			/** 프로모션 아이디 */
+			id: string;
+			/** 상점 아이디 */
+			storeId: string;
+			/** 프로모션 이름 */
+			name: string;
+			/** 할인 유형 */
+			discountType: components["schemas"]["PromotionDiscount"];
+			/**
+			 * 총 예산
+			 * Format: int64
+			 */
+			totalBudget: number;
+			/**
+			 * 최소 결제 금액
+			 * Format: int64
+			 */
+			minPaymentAmount?: number;
+			/**
+			 * 최대 할인 금액
+			 * Format: int64
+			 */
+			maxDiscountAmount?: number;
+			/**
+			 * 소진 금액
+			 * Format: int64
+			 */
+			spentAmount: number;
+			/** 금액 화폐 */
+			currency: components["schemas"]["Currency"];
+			/**
+			 * 프로모션 시작 시각
+			 * Format: date-time
+			 */
+			startAt: string;
+			/**
+			 * 프로모션 종료 시각
+			 * Format: date-time
+			 */
+			endAt: string;
+			/**
+			 * 프로모션 중단 시각
+			 * Format: date-time
+			 */
+			terminatedAt?: string;
+			/** 프로모션 카드사 */
+			cardCompany: components["schemas"]["PromotionCardCompany"];
+			/** 프로모션 상태 */
+			status: components["schemas"]["PromotionStatus"];
+			/**
+			 * 프로모션 생성 시각
+			 * Format: date-time
+			 */
+			createdAt: string;
+		};
 		/**
 		 * 카드 유형
 		 * @description <p>카드 유형</p>
@@ -6714,6 +7107,13 @@ export interface components {
 		 * @enum {string}
 		 */
 		CardType: "CREDIT" | "DEBIT" | "GIFT";
+		/**
+		 * 통신사
+		 * @description <p>통신사</p>
+		 *
+		 * @enum {string}
+		 */
+		Carrier: "SKT" | "KT" | "LGU" | "SKT_MVNO" | "KT_MVNO" | "LGU_MVNO";
 		/**
 		 * 현금영수증 내역
 		 * @description <p>현금영수증 내역</p>
@@ -6757,7 +7157,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		CashReceiptInputType: "CORPORATE" | "NO_RECEIPT" | "PERSONAL";
+		CashReceiptInputType: "PERSONAL" | "CORPORATE" | "NO_RECEIPT";
 		/**
 		 * 현금영수증이 존재하지 않는 경우
 		 * @description <p>현금영수증이 존재하지 않는 경우</p>
@@ -6803,7 +7203,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		CashReceiptType: "CORPORATE" | "PERSONAL";
+		CashReceiptType: "PERSONAL" | "CORPORATE";
 		/**
 		 * 채널 정보
 		 * @description <p>채널 정보</p>
@@ -6871,6 +7271,7 @@ export interface components {
 			/** (결제, 본인인증 등에) 선택된 채널 정보 */
 			succeededChannels: components["schemas"]["SelectedChannel"][];
 		};
+		/** ChannelSpecificFailure */
 		ChannelSpecificFailure:
 			| components["schemas"]["ChannelSpecificFailureInvalidRequest"]
 			| components["schemas"]["ChannelSpecificFailurePgProvider"];
@@ -6912,6 +7313,7 @@ export interface components {
 		 * @enum {string}
 		 */
 		ChannelType: "LIVE" | "MERCHANT_TEST" | "SHARED_TEST";
+		/** CloseVirtualAccountError */
 		CloseVirtualAccountError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -6951,6 +7353,7 @@ export interface components {
 			 */
 			fromStore?: boolean;
 		};
+		/** ConfirmEscrowError */
 		ConfirmEscrowError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -6989,6 +7392,7 @@ export interface components {
 			 */
 			otp?: string;
 		};
+		/** ConfirmIdentityVerificationError */
 		ConfirmIdentityVerificationError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["IdentityVerificationAlreadyVerifiedError"]
@@ -7299,6 +7703,7 @@ export interface components {
 			/** 파일 이름 */
 			fileName: string;
 		};
+		/** CreateB2bTaxInvoiceFileUploadLinkCreateError */
 		CreateB2bTaxInvoiceFileUploadLinkCreateError:
 			| components["schemas"]["B2bNotEnabledError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7314,12 +7719,15 @@ export interface components {
 			/** 파일 업로드 링크 */
 			url: string;
 		};
+		/** CreateManualTransferResponse */
 		CreateManualTransferResponse: {
 			transfer: components["schemas"]["PlatformManualTransfer"];
 		};
+		/** CreateOrderCancelTransferResponse */
 		CreateOrderCancelTransferResponse: {
 			transfer: components["schemas"]["PlatformOrderCancelTransfer"];
 		};
+		/** CreateOrderTransferResponse */
 		CreateOrderTransferResponse: {
 			transfer: components["schemas"]["PlatformOrderTransfer"];
 		};
@@ -7337,6 +7745,7 @@ export interface components {
 			 */
 			timeToPay: string;
 		};
+		/** CreatePaymentScheduleError */
 		CreatePaymentScheduleError:
 			| components["schemas"]["AlreadyPaidOrWaitingError"]
 			| components["schemas"]["BillingKeyAlreadyDeletedError"]
@@ -7376,6 +7785,7 @@ export interface components {
 			/** 부가세 부담 주체 */
 			vatPayer: components["schemas"]["PlatformPayer"];
 		};
+		/** CreatePlatformAdditionalFeePolicyError */
 		CreatePlatformAdditionalFeePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7416,6 +7826,7 @@ export interface components {
 			/** 정산 시 결제금액 부가세 감액 여부 */
 			subtractPaymentVatAmount: boolean;
 		};
+		/** CreatePlatformContractError */
 		CreatePlatformContractError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7453,6 +7864,7 @@ export interface components {
 			/** 해당 할인 분담에 대한 메모 ex) 파트너 브랜드 쿠폰 */
 			memo?: string;
 		};
+		/** CreatePlatformDiscountSharePolicyError */
 		CreatePlatformDiscountSharePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7495,13 +7907,16 @@ export interface components {
 			 *
 			 */
 			isForTest?: boolean;
+			/** 사용자 정의 속성 */
+			userDefinedProperties?: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 		};
+		/** CreatePlatformManualTransferError */
 		CreatePlatformManualTransferError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerNotFoundError"]
-			| components["schemas"]["PlatformUnavailableSettlementDateError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 주문 취소 정산 등록을 위한 입력 정보
@@ -7551,8 +7966,8 @@ export interface components {
 			 *
 			 */
 			isForTest?: boolean;
-			/** 정산 파라미터 (실험기능) */
-			parameters?: components["schemas"]["TransferParameters"];
+			/** 사용자 정의 속성 */
+			userDefinedProperties?: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 		};
 		/**
 		 * 할인 정보
@@ -7619,6 +8034,7 @@ export interface components {
 			/** 상품 할인 정보 */
 			discounts: components["schemas"]["CreatePlatformOrderCancelTransferBodyDiscount"][];
 		};
+		/** CreatePlatformOrderCancelTransferError */
 		CreatePlatformOrderCancelTransferError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7641,6 +8057,7 @@ export interface components {
 			| components["schemas"]["PlatformTransferAlreadyExistsError"]
 			| components["schemas"]["PlatformTransferDiscountSharePolicyNotFoundError"]
 			| components["schemas"]["PlatformTransferNotFoundError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 주문 정산건 생성을 위한 입력 정보
@@ -7693,6 +8110,8 @@ export interface components {
 			isForTest?: boolean;
 			/** 정산 파라미터 (실험기능) */
 			parameters?: components["schemas"]["TransferParameters"];
+			/** 사용자 정의 속성 */
+			userDefinedProperties?: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 		};
 		/**
 		 * 추가 수수료 정보
@@ -7791,6 +8210,7 @@ export interface components {
 			/** 태그 */
 			tag?: string;
 		};
+		/** CreatePlatformOrderTransferError */
 		CreatePlatformOrderTransferError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7810,6 +8230,7 @@ export interface components {
 			| components["schemas"]["PlatformSettlementTaxFreeAmountExceededPortOnePaymentError"]
 			| components["schemas"]["PlatformTaxFreeAmountOverFlowError"]
 			| components["schemas"]["PlatformTransferAlreadyExistsError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 파트너 생성을 위한 입력 정보
@@ -7853,10 +8274,12 @@ export interface components {
 			tags: string[];
 			/**
 			 * 파트너 유형별 추가 정보
-			 * @description <p>사업자/원천징수대상자 중 추가할 파트너의 유형에 따른 정보를 입력해야 합니다.</p>
+			 * @description <p>사업자/원천징수 대상자 중 추가할 파트너의 유형에 따른 정보를 입력해야 합니다.</p>
 			 *
 			 */
 			type: components["schemas"]["CreatePlatformPartnerBodyType"];
+			/** 사용자 정의 속성 */
+			userDefinedProperties?: components["schemas"]["PlatformProperties"];
 		};
 		/**
 		 * 파트너 계좌 등록을 위한 정보
@@ -7896,9 +8319,12 @@ export interface components {
 		CreatePlatformPartnerBodyType: {
 			/** 사업자 추가 정보 */
 			business?: components["schemas"]["CreatePlatformPartnerBodyTypeBusiness"];
-			/** 원천징수대상자 추가 정보 */
+			/** 원천징수 대상자 추가 정보 */
 			whtPayer?: components["schemas"]["CreatePlatformPartnerBodyTypeWhtPayer"];
+			/** 원천징수 비대상자 추가 정보 */
+			nonWhtPayer?: components["schemas"]["CreatePlatformPartnerBodyTypeNonWhtPayer"];
 		};
+		/** CreatePlatformPartnerBodyTypeBusiness */
 		CreatePlatformPartnerBodyTypeBusiness: {
 			/** 상호명 */
 			companyName: string;
@@ -7919,10 +8345,25 @@ export interface components {
 			/** 업종 */
 			businessClass?: string;
 		};
-		CreatePlatformPartnerBodyTypeWhtPayer: {
-			/** 생년월일 */
+		/** CreatePlatformPartnerBodyTypeNonWhtPayer */
+		CreatePlatformPartnerBodyTypeNonWhtPayer: {
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
 			birthdate?: string;
 		};
+		/** CreatePlatformPartnerBodyTypeWhtPayer */
+		CreatePlatformPartnerBodyTypeWhtPayer: {
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
+			birthdate?: string;
+		};
+		/** CreatePlatformPartnerError */
 		CreatePlatformPartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7933,6 +8374,7 @@ export interface components {
 			| components["schemas"]["PlatformCurrencyNotSupportedError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerIdAlreadyExistsError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 파트너 생성 성공 응답
@@ -7952,6 +8394,7 @@ export interface components {
 			/** 생성할 파트너 리스트 정보 */
 			partners: components["schemas"]["CreatePlatformPartnerBody"][];
 		};
+		/** CreatePlatformPartnersError */
 		CreatePlatformPartnersError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -7960,6 +8403,7 @@ export interface components {
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerIdsAlreadyExistError"]
 			| components["schemas"]["PlatformPartnerIdsDuplicatedError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 파트너 다건 생성 성공 응답
@@ -7977,6 +8421,9 @@ export interface components {
 		 * @enum {string}
 		 */
 		Currency:
+			| "KRW"
+			| "USD"
+			| "JPY"
 			| "AED"
 			| "AFN"
 			| "ALL"
@@ -8049,13 +8496,11 @@ export interface components {
 			| "ISK"
 			| "JMD"
 			| "JOD"
-			| "JPY"
 			| "KES"
 			| "KGS"
 			| "KHR"
 			| "KMF"
 			| "KPW"
-			| "KRW"
 			| "KWD"
 			| "KYD"
 			| "KZT"
@@ -8126,7 +8571,6 @@ export interface components {
 			| "TZS"
 			| "UAH"
 			| "UGX"
-			| "USD"
 			| "USN"
 			| "UYI"
 			| "UYU"
@@ -8158,6 +8602,17 @@ export interface components {
 			| "ZAR"
 			| "ZMW"
 			| "ZWL";
+		/**
+		 * 커서 기반 페이지 정보
+		 * @description <p>커서 기반 페이지 정보</p>
+		 *
+		 */
+		CursorPageInfo: {
+			startCursor: string;
+			endCursor: string;
+			hasPreviousPage: boolean;
+			hasNextPage: boolean;
+		};
 		/**
 		 * 고객 정보
 		 * @description <p>고객 정보</p>
@@ -8243,6 +8698,7 @@ export interface components {
 			/** 성 */
 			last: string;
 		};
+		/** DateRange */
 		DateRange: {
 			/** @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
 			 *      */
@@ -8268,7 +8724,8 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		DayOfWeek: "FRI" | "MON" | "SAT" | "SUN" | "THU" | "TUE" | "WED";
+		DayOfWeek: "SUN" | "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT";
+		/** DeleteB2bTaxInvoiceAttachmentError */
 		DeleteB2bTaxInvoiceAttachmentError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -8277,6 +8734,7 @@ export interface components {
 			| components["schemas"]["B2bTaxInvoiceNotRegisteredStatusError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** DeleteB2bTaxInvoiceError */
 		DeleteB2bTaxInvoiceError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -8284,6 +8742,7 @@ export interface components {
 			| components["schemas"]["B2bTaxInvoiceNotFoundError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** DeleteBillingKeyError */
 		DeleteBillingKeyError:
 			| components["schemas"]["BillingKeyAlreadyDeletedError"]
 			| components["schemas"]["BillingKeyNotFoundError"]
@@ -8306,6 +8765,7 @@ export interface components {
 			 */
 			deletedAt: string;
 		};
+		/** DeletePlatformTransferError */
 		DeletePlatformTransferError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -8314,6 +8774,7 @@ export interface components {
 			| components["schemas"]["PlatformTransferNonDeletableStatusError"]
 			| components["schemas"]["PlatformTransferNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** DeletePlatformTransferResponse */
 		DeletePlatformTransferResponse: Record<string, never>;
 		/**
 		 * 빌링키 삭제 완료 상태 건
@@ -8402,48 +8863,108 @@ export interface components {
 			 */
 			appliedAt?: string;
 		};
+		/**
+		 * 프로모션 할인 금액이 결제 시도 금액 이상인 경우
+		 * @description <p>프로모션 할인 금액이 결제 시도 금액 이상인 경우</p>
+		 *
+		 */
+		DiscountAmountExceedsTotalAmountError: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "DISCOUNT_AMOUNT_EXCEEDS_TOTAL_AMOUNT";
+			message?: string;
+		};
+		/**
+		 * 결제건 엑셀 다운로드를 위한 입력 정보
+		 * @description <p>결제건 엑셀 다운로드를 위한 입력 정보</p>
+		 *
+		 */
+		DownloadPaymentsExcelBody: {
+			/** 조회하여 다운로드할 결제 건의 조건 필터 */
+			filter: components["schemas"]["DownloadPaymentsExcelFilter"];
+		};
+		/** DownloadPaymentsExcelFilter */
+		DownloadPaymentsExcelFilter: {
+			/**
+			 * 상점 아이디
+			 * @description <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+			 *
+			 */
+			storeId: string;
+			/** 프로모션 아이디 */
+			promotionId: string;
+		};
+		/** DownloadPlatformBulkPayoutsSheetBody */
 		DownloadPlatformBulkPayoutsSheetBody: {
 			filter?: components["schemas"]["PlatformBulkPayoutFilterInput"];
 			/** 다운로드 할 시트 컬럼 */
 			fields?: components["schemas"]["PlatformBulkPayoutsSheetField"][];
 			isForTest?: boolean;
 		};
+		/** DownloadPlatformBulkPayoutsSheetError */
 		DownloadPlatformBulkPayoutsSheetError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** DownloadPlatformPartnerSettlementSheetBody */
 		DownloadPlatformPartnerSettlementSheetBody: {
 			filter?: components["schemas"]["PlatformPartnerSettlementFilterInput"];
 			/** 다운로드 할 시트 컬럼 */
 			fields?: components["schemas"]["PlatformPartnerSettlementSheetField"][];
 			isForTest?: boolean;
 		};
+		/** DownloadPlatformPartnerSettlementSheetError */
 		DownloadPlatformPartnerSettlementSheetError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** DownloadPlatformPayoutsSheetBody */
 		DownloadPlatformPayoutsSheetBody: {
 			filter?: components["schemas"]["PlatformPayoutFilterInput"];
 			/** 다운로드 할 시트 컬럼 */
 			fields?: components["schemas"]["PlatformPayoutsSheetField"][];
 			isForTest?: boolean;
 		};
+		/** DownloadPlatformPayoutsSheetError */
 		DownloadPlatformPayoutsSheetError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** DownloadPlatformTransferSheetBody */
 		DownloadPlatformTransferSheetBody: {
 			filter?: components["schemas"]["PlatformTransferFilterInput"];
 			/** 다운로드 할 시트 컬럼 */
 			fields?: components["schemas"]["PlatformTransferSheetField"][];
+			transferUserDefinedPropertyKeys?: string[];
+			partnerUserDefinedPropertyKeys?: string[];
 		};
+		/** DownloadPlatformTransferSheetError */
 		DownloadPlatformTransferSheetError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/**
+		 * 프로모션 내역 엑셀 다운로드를 위한 입력 정보
+		 * @description <p>프로모션 내역 엑셀 다운로드를 위한 입력 정보</p>
+		 *
+		 */
+		DownloadPromotionsExcelBody: {
+			/**
+			 * 상점 아이디
+			 * @description <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+			 *
+			 */
+			storeId: string;
+			/** 시각 범위 */
+			datetimeRange?: components["schemas"]["DateTimeRange"];
+			/** 시각 범위를 적용할 필드 */
+			datetimeRangeField?: components["schemas"]["PromotionTimeRangeField"];
+		};
 		/**
 		 * 간편 결제 수단
 		 * @description <p>간편 결제 수단</p>
 		 *
 		 * @enum {string}
 		 */
-		EasyPayMethodType: "CARD" | "CHARGE" | "TRANSFER";
+		EasyPayMethodType: "CARD" | "TRANSFER" | "CHARGE";
 		/**
 		 * 간편 결제사
 		 * @description <p>간편 결제사</p>
@@ -8451,23 +8972,23 @@ export interface components {
 		 * @enum {string}
 		 */
 		EasyPayProvider:
-			| "ALIPAY"
-			| "APPLEPAY"
-			| "CHAI"
-			| "HYPHEN"
+			| "SAMSUNGPAY"
 			| "KAKAOPAY"
-			| "KB_APP"
-			| "KPAY"
-			| "LGPAY"
-			| "LPAY"
 			| "NAVERPAY"
 			| "PAYCO"
-			| "PINPAY"
-			| "SAMSUNGPAY"
-			| "SKPAY"
 			| "SSGPAY"
+			| "CHAI"
+			| "LPAY"
+			| "KPAY"
 			| "TOSSPAY"
-			| "TOSS_BRANDPAY";
+			| "LGPAY"
+			| "PINPAY"
+			| "APPLEPAY"
+			| "SKPAY"
+			| "TOSS_BRANDPAY"
+			| "KB_APP"
+			| "ALIPAY"
+			| "HYPHEN";
 		/**
 		 * 실패한 본인인증 내역
 		 * @description <p>실패한 본인인증 내역</p>
@@ -8763,9 +9284,12 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		Gender: "FEMALE" | "MALE" | "OTHER";
-		/** @description <p>결제 건 커서 기반 대용량 다건 조회를 위한 입력 정보</p>
-		 *      */
+		Gender: "MALE" | "FEMALE" | "OTHER";
+		/**
+		 * GetAllPaymentsByCursorBody
+		 * @description <p>결제 건 커서 기반 대용량 다건 조회를 위한 입력 정보</p>
+		 *
+		 */
 		GetAllPaymentsByCursorBody: {
 			/**
 			 * 상점 아이디
@@ -8810,6 +9334,7 @@ export interface components {
 			/** 조회된 결제 건 및 커서 정보 리스트 */
 			items: components["schemas"]["PaymentWithCursor"][];
 		};
+		/** GetAllPaymentsError */
 		GetAllPaymentsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -8872,6 +9397,7 @@ export interface components {
 			 */
 			currency: components["schemas"]["Currency"];
 		};
+		/** GetAnalyticsCancellationRateError */
 		GetAnalyticsCancellationRateError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -8911,6 +9437,7 @@ export interface components {
 			 */
 			timeGranularity: components["schemas"]["AnalyticsTimeGranularity"];
 		};
+		/** GetAnalyticsCardChartError */
 		GetAnalyticsCardChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -8954,6 +9481,7 @@ export interface components {
 			/** 나머지 집계에 포함되지 않을 카드사 */
 			excludesFromRemainders: components["schemas"]["CardCompany"][];
 		};
+		/** GetAnalyticsCardCompanyChartError */
 		GetAnalyticsCardCompanyChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -8993,6 +9521,7 @@ export interface components {
 			 */
 			timeGranularity: components["schemas"]["AnalyticsTimeGranularity"];
 		};
+		/** GetAnalyticsEasyPayChartError */
 		GetAnalyticsEasyPayChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9036,10 +9565,12 @@ export interface components {
 			/** 나머지 집계에 포함되지 않을 간편결제사 */
 			excludesFromRemainders: components["schemas"]["EasyPayProvider"][];
 		};
+		/** GetAnalyticsEasyPayProviderChartError */
 		GetAnalyticsEasyPayProviderChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetAnalyticsOverseasPaymentUsageError */
 		GetAnalyticsOverseasPaymentUsageError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["UnauthorizedError"];
@@ -9078,6 +9609,7 @@ export interface components {
 			 */
 			timeGranularity: components["schemas"]["AnalyticsTimeGranularity"];
 		};
+		/** GetAnalyticsPaymentChartError */
 		GetAnalyticsPaymentChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9118,6 +9650,7 @@ export interface components {
 			 */
 			timezoneHourOffset: number;
 		};
+		/** GetAnalyticsPaymentChartInsightError */
 		GetAnalyticsPaymentChartInsightError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9344,10 +9877,12 @@ export interface components {
 			/** 조회할 결제대행사 */
 			pgCompanies: components["schemas"]["PgCompany"][];
 		};
+		/** GetAverageAmountChartError */
 		GetAverageAmountChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetB2bAccountHolderError */
 		GetB2bAccountHolderError:
 			| components["schemas"]["B2bBankAccountNotFoundError"]
 			| components["schemas"]["B2bExternalServiceError"]
@@ -9369,6 +9904,7 @@ export interface components {
 			/** 예금주 */
 			accountHolder: string;
 		};
+		/** GetB2bCertificateError */
 		GetB2bCertificateError:
 			| components["schemas"]["B2bCertificateUnregisteredError"]
 			| components["schemas"]["B2bExternalServiceError"]
@@ -9376,6 +9912,7 @@ export interface components {
 			| components["schemas"]["B2bNotEnabledError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetB2bCertificateRegistrationUrlError */
 		GetB2bCertificateRegistrationUrlError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bMemberCompanyNotFoundError"]
@@ -9391,6 +9928,7 @@ export interface components {
 			/** 인증서 등록 URL */
 			url: string;
 		};
+		/** GetB2bCompanyStateError */
 		GetB2bCompanyStateError:
 			| components["schemas"]["B2bCompanyNotFoundError"]
 			| components["schemas"]["B2bExternalServiceError"]
@@ -9407,6 +9945,7 @@ export interface components {
 			/** 존재 여부 */
 			exists: boolean;
 		};
+		/** GetB2bMemberCompanyContactError */
 		GetB2bMemberCompanyContactError:
 			| components["schemas"]["B2bContactNotFoundError"]
 			| components["schemas"]["B2bExternalServiceError"]
@@ -9414,12 +9953,14 @@ export interface components {
 			| components["schemas"]["B2bNotEnabledError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetB2bMemberCompanyError */
 		GetB2bMemberCompanyError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bMemberCompanyNotFoundError"]
 			| components["schemas"]["B2bNotEnabledError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetB2bTaxInvoiceAttachmentsError */
 		GetB2bTaxInvoiceAttachmentsError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -9435,12 +9976,14 @@ export interface components {
 			/** 첨부파일 목록 */
 			attachments: components["schemas"]["B2bTaxInvoiceAttachment"][];
 		};
+		/** GetB2bTaxInvoiceError */
 		GetB2bTaxInvoiceError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
 			| components["schemas"]["B2bTaxInvoiceNotFoundError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetB2bTaxInvoicePdfDownloadUrlError */
 		GetB2bTaxInvoicePdfDownloadUrlError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -9456,6 +9999,7 @@ export interface components {
 			/** 세금계산서 PDF 다운로드 URL */
 			url: string;
 		};
+		/** GetB2bTaxInvoicePopupUrlError */
 		GetB2bTaxInvoicePopupUrlError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -9471,6 +10015,7 @@ export interface components {
 			/** 세금계산서 팝업 URL */
 			url: string;
 		};
+		/** GetB2bTaxInvoicePrintUrlError */
 		GetB2bTaxInvoicePrintUrlError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -9486,6 +10031,7 @@ export interface components {
 			/** 세금계산서 프린트 URL */
 			url: string;
 		};
+		/** GetB2bTaxInvoicesError */
 		GetB2bTaxInvoicesError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -9502,13 +10048,17 @@ export interface components {
 			/** 조회된 페이지 정보 */
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetBillingKeyInfoError */
 		GetBillingKeyInfoError:
 			| components["schemas"]["BillingKeyNotFoundError"]
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
-		/** @description <p>빌링키 다건 조회를 위한 입력 정보</p>
-		 *      */
+		/**
+		 * GetBillingKeyInfosBody
+		 * @description <p>빌링키 다건 조회를 위한 입력 정보</p>
+		 *
+		 */
 		GetBillingKeyInfosBody: {
 			/**
 			 * 요청할 페이지 정보
@@ -9529,6 +10079,7 @@ export interface components {
 			 */
 			filter?: components["schemas"]["BillingKeyFilterInput"];
 		};
+		/** GetBillingKeyInfosError */
 		GetBillingKeyInfosError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9544,16 +10095,19 @@ export interface components {
 			/** 조회된 페이지 정보 */
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetCashReceiptError */
 		GetCashReceiptError:
 			| components["schemas"]["CashReceiptNotFoundError"]
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetIdentityVerificationError */
 		GetIdentityVerificationError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["IdentityVerificationNotFoundError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetKakaopayPaymentOrderError */
 		GetKakaopayPaymentOrderError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
@@ -9571,20 +10125,140 @@ export interface components {
 			/** HTTP 응답 본문 (JSON) */
 			body: string;
 		};
+		/** GetMerchantError */
 		GetMerchantError: components["schemas"]["UnauthorizedError"];
+		/** GetPaymentError */
 		GetPaymentError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PaymentNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentMethodChartError */
 		GetPaymentMethodChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentMethodTrendChartError */
 		GetPaymentMethodTrendChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationSettlementSummariesBody */
+		GetPaymentReconciliationSettlementSummariesBody: {
+			/** 정산일 범위 */
+			dateRange: components["schemas"]["DateRange"];
+			/**
+			 * 조회할 건 수
+			 * Format: int32
+			 */
+			size: number;
+			/** 이전 페이지의 마지막 커서 */
+			after?: string;
+		};
+		/** GetPaymentReconciliationSettlementSummariesError */
+		GetPaymentReconciliationSettlementSummariesError:
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationSettlementSummariesResponse */
+		GetPaymentReconciliationSettlementSummariesResponse: {
+			items: components["schemas"]["PaymentReconciliationSettlementSummaryWithCursor"][];
+			pageInfo: components["schemas"]["CursorPageInfo"];
+		};
+		/** GetPaymentReconciliationSettlementSummaryExcelFileBody */
+		GetPaymentReconciliationSettlementSummaryExcelFileBody: {
+			/** 정산일 범위 */
+			dateRange: components["schemas"]["DateRange"];
+			filter?: components["schemas"]["PaymentReconciliationSettlementSummaryExcelFileFilterInput"];
+			/** 액셀파일 요청시 선택 필드 */
+			columns: components["schemas"]["PaymentReconciliationSettlementSummaryColumn"][];
+		};
+		/** GetPaymentReconciliationSettlementSummaryExcelFileError */
+		GetPaymentReconciliationSettlementSummaryExcelFileError:
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationSettlementVatReferenceExcelFileBody */
+		GetPaymentReconciliationSettlementVatReferenceExcelFileBody: {
+			/** 정산일 범위 */
+			dateRange: components["schemas"]["DateRange"];
+			filter?: components["schemas"]["PaymentReconciliationSettlementSummaryFilterInput"];
+		};
+		/** GetPaymentReconciliationSettlementVatReferenceExcelFileError */
+		GetPaymentReconciliationSettlementVatReferenceExcelFileError:
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationTransactionSummariesBody */
+		GetPaymentReconciliationTransactionSummariesBody: {
+			/** 거래일 범위 */
+			dateRange: components["schemas"]["DateRange"];
+			/**
+			 * 조회할 건 수
+			 * Format: int32
+			 */
+			size: number;
+			/** 이전 페이지의 마지막 커서 */
+			after?: string;
+		};
+		/** GetPaymentReconciliationTransactionSummariesError */
+		GetPaymentReconciliationTransactionSummariesError:
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationTransactionSummariesResponse */
+		GetPaymentReconciliationTransactionSummariesResponse: {
+			items: components["schemas"]["PaymentReconciliationTransactionSummaryWithCursor"][];
+			pageInfo: components["schemas"]["CursorPageInfo"];
+		};
+		/** GetPaymentReconciliationTransactionSummaryExcelFileBody */
+		GetPaymentReconciliationTransactionSummaryExcelFileBody: {
+			/** 거래일 범위 */
+			dateRange: components["schemas"]["DateRange"];
+			filter?: components["schemas"]["PaymentReconciliationTransactionSummaryExcelFilterInput"];
+			/** 액셀파일 요청시 선택 필드 */
+			columns: components["schemas"]["PaymentReconciliationTransactionSummaryColumn"][];
+		};
+		/** GetPaymentReconciliationTransactionSummaryExcelFileError */
+		GetPaymentReconciliationTransactionSummaryExcelFileError:
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationsBody */
+		GetPaymentReconciliationsBody: {
+			dateCondition: components["schemas"]["ReconciliationDateConditionInput"];
+			/**
+			 * 조회할 건 수
+			 * Format: int32
+			 */
+			size: number;
+			/** 이전 페이지의 마지막 커서 */
+			after?: string;
+		};
+		/** GetPaymentReconciliationsError */
+		GetPaymentReconciliationsError:
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationsExcelFileBody */
+		GetPaymentReconciliationsExcelFileBody: {
+			/** 엑셀파일 요청시 선택 필드 */
+			columns: components["schemas"]["PaymentReconciliationColumn"][];
+			dateCondition: components["schemas"]["ReconciliationDateConditionInput"];
+			searchCondition?: components["schemas"]["PaymentReconciliationSearchConditionInput"];
+			filter?: components["schemas"]["PaymentReconciliationExcelFileFilterInput"];
+			order?: components["schemas"]["PaymentReconciliationOrderInput"];
+		};
+		/** GetPaymentReconciliationsExcelFileError */
+		GetPaymentReconciliationsExcelFileError:
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentReconciliationsResponse */
+		GetPaymentReconciliationsResponse: {
+			items: components["schemas"]["PaymentReconciliationWithCursor"][];
+			pageInfo: components["schemas"]["CursorPageInfo"];
+		};
+		/** GetPaymentScheduleError */
 		GetPaymentScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9612,6 +10286,7 @@ export interface components {
 			/** 조회할 결제 예약 건의 조건 필터 */
 			filter?: components["schemas"]["PaymentScheduleFilterInput"];
 		};
+		/** GetPaymentSchedulesError */
 		GetPaymentSchedulesError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9627,24 +10302,31 @@ export interface components {
 			/** 조회된 페이지 정보 */
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetPaymentStatusByPaymentClientChartError */
 		GetPaymentStatusByPaymentClientChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentStatusByPaymentMethodChartError */
 		GetPaymentStatusByPaymentMethodChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentStatusByPgCompanyChartError */
 		GetPaymentStatusByPgCompanyChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPaymentStatusChartError */
 		GetPaymentStatusChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
-		/** @description <p>결제 건 다건 조회를 위한 입력 정보</p>
-		 *      */
+		/**
+		 * GetPaymentsBody
+		 * @description <p>결제 건 다건 조회를 위한 입력 정보</p>
+		 *
+		 */
 		GetPaymentsBody: {
 			/**
 			 * 요청할 페이지 정보
@@ -9659,6 +10341,7 @@ export interface components {
 			 */
 			filter?: components["schemas"]["PaymentFilterInput"];
 		};
+		/** GetPaymentsError */
 		GetPaymentsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9674,14 +10357,17 @@ export interface components {
 			/** 조회된 페이지 정보 */
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetPgCompanyChartError */
 		GetPgCompanyChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPgCompanyTrendChartError */
 		GetPgCompanyTrendChartError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformAccountHolderError */
 		GetPlatformAccountHolderError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9701,6 +10387,7 @@ export interface components {
 			/** 조회할 추가 수수료 정책 조건 필터 */
 			filter?: components["schemas"]["PlatformAdditionalFeePolicyFilterInput"];
 		};
+		/** GetPlatformAdditionalFeePoliciesError */
 		GetPlatformAdditionalFeePoliciesError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9717,61 +10404,72 @@ export interface components {
 			/** 조회된 페이지 정보 */
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetPlatformAdditionalFeePolicyError */
 		GetPlatformAdditionalFeePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformAdditionalFeePolicyNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformAdditionalFeePolicyScheduleError */
 		GetPlatformAdditionalFeePolicyScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformAdditionalFeePolicyNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformBulkPayoutError */
 		GetPlatformBulkPayoutError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformBulkPayoutNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformBulkPayoutPartnerSettlementsBody */
 		GetPlatformBulkPayoutPartnerSettlementsBody: {
 			filter?: components["schemas"]["PlatformBulkPayoutPartnerSettlementsFilterInput"];
 			page?: components["schemas"]["PageInput"];
 			isForTest?: boolean;
 		};
+		/** GetPlatformBulkPayoutPartnerSettlementsError */
 		GetPlatformBulkPayoutPartnerSettlementsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformBulkPayoutNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformBulkPayoutPartnerSettlementsResponse */
 		GetPlatformBulkPayoutPartnerSettlementsResponse: {
 			items: components["schemas"]["PlatformBulkPayoutPartnerSettlement"][];
 			page: components["schemas"]["PageInfo"];
 			counts: components["schemas"]["PlatformPartnerSettlementStatusStats"];
 		};
+		/** GetPlatformBulkPayoutsBody */
 		GetPlatformBulkPayoutsBody: {
 			isForTest?: boolean;
 			page?: components["schemas"]["PageInput"];
 			filter?: components["schemas"]["PlatformBulkPayoutFilterInput"];
 		};
+		/** GetPlatformBulkPayoutsError */
 		GetPlatformBulkPayoutsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformBulkPayoutsResponse */
 		GetPlatformBulkPayoutsResponse: {
 			items: components["schemas"]["PlatformBulkPayout"][];
 			page: components["schemas"]["PageInfo"];
 			counts: components["schemas"]["PlatformBulkPayoutStatusStats"];
 		};
+		/** GetPlatformContractError */
 		GetPlatformContractError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformContractNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformContractScheduleError */
 		GetPlatformContractScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9789,6 +10487,7 @@ export interface components {
 			/** 조회할 계약 조건 필터 */
 			filter?: components["schemas"]["PlatformContractFilterInput"];
 		};
+		/** GetPlatformContractsError */
 		GetPlatformContractsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9816,6 +10515,7 @@ export interface components {
 			/** 조회할 할인 분담 정책 조건 필터 */
 			filter?: components["schemas"]["PlatformDiscountSharePolicyFilterInput"];
 		};
+		/** GetPlatformDiscountSharePoliciesError */
 		GetPlatformDiscountSharePoliciesError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9832,27 +10532,32 @@ export interface components {
 			/** 조회된 페이지 정보 */
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetPlatformDiscountSharePolicyError */
 		GetPlatformDiscountSharePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformDiscountSharePolicyNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformDiscountSharePolicyFilterOptionsError */
 		GetPlatformDiscountSharePolicyFilterOptionsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformDiscountSharePolicyScheduleError */
 		GetPlatformDiscountSharePolicyScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformDiscountSharePolicyNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformError */
 		GetPlatformError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformHolidaysError */
 		GetPlatformHolidaysError: components["schemas"]["UnauthorizedError"];
 		/**
 		 * 공휴일 조회
@@ -9876,31 +10581,37 @@ export interface components {
 			 */
 			isForTest?: boolean;
 		};
+		/** GetPlatformPartnerDashboardError */
 		GetPlatformPartnerDashboardError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformPartnerError */
 		GetPlatformPartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformPartnerFilterOptionsError */
 		GetPlatformPartnerFilterOptionsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformPartnerScheduleError */
 		GetPlatformPartnerScheduleError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformPartnerSettlementCurrenciesBody */
 		GetPlatformPartnerSettlementCurrenciesBody: {
 			isForTest: boolean;
 		};
+		/** GetPlatformPartnerSettlementCurrenciesError */
 		GetPlatformPartnerSettlementCurrenciesError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9915,18 +10626,22 @@ export interface components {
 			/** 통화 단위 */
 			settlementCurrencies: components["schemas"]["Currency"][];
 		};
+		/** GetPlatformPartnerSettlementDashboardBody */
 		GetPlatformPartnerSettlementDashboardBody: {
 			filter: components["schemas"]["PlatformPartnerSettlementFilterInput"];
 			isForTest: boolean;
 		};
+		/** GetPlatformPartnerSettlementDashboardError */
 		GetPlatformPartnerSettlementDashboardError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformPartnerSettlementDatesBody */
 		GetPlatformPartnerSettlementDatesBody: {
 			isForTest: boolean;
 		};
+		/** GetPlatformPartnerSettlementDatesError */
 		GetPlatformPartnerSettlementDatesError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9952,6 +10667,7 @@ export interface components {
 			filter: components["schemas"]["PlatformPartnerSettlementFilterInput"];
 			isForTest: boolean;
 		};
+		/** GetPlatformPartnerSettlementsError */
 		GetPlatformPartnerSettlementsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9981,6 +10697,7 @@ export interface components {
 			/** 조회할 파트너 조건 필터 */
 			filter?: components["schemas"]["PlatformPartnerFilterInput"];
 		};
+		/** GetPlatformPartnersError */
 		GetPlatformPartnersError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -9997,6 +10714,7 @@ export interface components {
 			/** 조회된 페이지 정보 */
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetPlatformPayableSettlementDatesError */
 		GetPlatformPayableSettlementDatesError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -10011,44 +10729,52 @@ export interface components {
 			/** IN_PROCESS, SETTLED 상태의 Transfer가 등록되어 있는 정산일 리스트 */
 			settlementDates: string[];
 		};
+		/** GetPlatformPayoutError */
 		GetPlatformPayoutError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPayoutNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformPayoutsBody */
 		GetPlatformPayoutsBody: {
 			isForTest?: boolean;
 			page?: components["schemas"]["PageInput"];
 			filter?: components["schemas"]["PlatformPayoutFilterInput"];
 		};
+		/** GetPlatformPayoutsError */
 		GetPlatformPayoutsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformPayoutsResponse */
 		GetPlatformPayoutsResponse: {
 			items: components["schemas"]["PlatformPayout"][];
 			page: components["schemas"]["PageInfo"];
 			counts: components["schemas"]["PlatformPayoutStatusStats"];
 		};
+		/** GetPlatformTransferDashboardBody */
 		GetPlatformTransferDashboardBody: {
 			/** @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
 			 *      */
 			settlementDate: string;
 			isForTest?: boolean;
 		};
+		/** GetPlatformTransferDashboardError */
 		GetPlatformTransferDashboardError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformTransferError */
 		GetPlatformTransferError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformTransferNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformTransferFilterOptionsError */
 		GetPlatformTransferFilterOptionsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -10065,15 +10791,24 @@ export interface components {
 			/** 조회할 정산건 조건 필터 */
 			filter?: components["schemas"]["PlatformTransferFilterInput"];
 		};
+		/** GetPlatformTransferSummariesError */
 		GetPlatformTransferSummariesError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** GetPlatformTransferSummariesResponse */
 		GetPlatformTransferSummariesResponse: {
 			transferSummaries: components["schemas"]["PlatformTransferSummary"][];
 			page: components["schemas"]["PageInfo"];
 		};
+		/** GetPromotionError */
+		GetPromotionError:
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["PromotionNotFoundError"]
+			| components["schemas"]["UnauthorizedError"];
+		/** GetV2SupportedChannelsError */
 		GetV2SupportedChannelsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -10087,6 +10822,18 @@ export interface components {
 			/** 조회된 채널 리스트 */
 			items: components["schemas"]["Channel"][];
 		};
+		/**
+		 * 상품권 타입
+		 * @description <p>상품권 타입</p>
+		 *
+		 * @enum {string}
+		 */
+		GiftCertificateType:
+			| "BOOKNLIFE"
+			| "SMART_MUNSANG"
+			| "CULTURELAND"
+			| "HAPPYMONEY"
+			| "CULTURE_GIFT";
 		/**
 		 * 본인인증 내역
 		 * @description <p>본인인증 내역</p>
@@ -10128,7 +10875,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		IdentityVerificationMethod: "APP" | "SMS";
+		IdentityVerificationMethod: "SMS" | "APP";
 		/**
 		 * 요청된 본인인증 건이 존재하지 않는 경우
 		 * @description <p>요청된 본인인증 건이 존재하지 않는 경우</p>
@@ -10162,12 +10909,12 @@ export interface components {
 		 * @enum {string}
 		 */
 		IdentityVerificationOperator:
-			| "KT"
-			| "KT_MVNO"
-			| "LGU"
-			| "LGU_MVNO"
 			| "SKT"
-			| "SKT_MVNO";
+			| "KT"
+			| "LGU"
+			| "SKT_MVNO"
+			| "KT_MVNO"
+			| "LGU_MVNO";
 		/**
 		 * 요청 시 고객 정보
 		 * @description <p>요청 시 고객 정보</p>
@@ -10307,6 +11054,8 @@ export interface components {
 			productType?: components["schemas"]["PaymentProductType"];
 			/** 배송지 주소 */
 			shippingAddress?: components["schemas"]["SeparatedAddressInput"];
+			/** 해당 결제에 적용할 프로모션 아이디 */
+			promotionId?: string;
 		};
 		/**
 		 * 수기 결제 수단 입력 정보
@@ -10430,7 +11179,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		InstantPaymentMethodInputVirtualAccountOptionType: "FIXED" | "NORMAL";
+		InstantPaymentMethodInputVirtualAccountOptionType: "NORMAL" | "FIXED";
 		/**
 		 * 수기 결제가 완료된 결제 건 요약 정보
 		 * @description <p>수기 결제가 완료된 결제 건 요약 정보</p>
@@ -10459,6 +11208,7 @@ export interface components {
 			type: "INVALID_REQUEST";
 			message?: string;
 		};
+		/** IssueB2bTaxInvoiceError */
 		IssueB2bTaxInvoiceError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -10528,6 +11278,7 @@ export interface components {
 			 */
 			noticeUrls?: string[];
 		};
+		/** IssueBillingKeyError */
 		IssueBillingKeyError:
 			| components["schemas"]["ChannelNotFoundError"]
 			| components["schemas"]["ChannelSpecificError"]
@@ -10599,6 +11350,7 @@ export interface components {
 			/** 전화번호 */
 			phoneNumber?: string;
 		};
+		/** IssueCashReceiptError */
 		IssueCashReceiptError:
 			| components["schemas"]["CashReceiptAlreadyIssuedError"]
 			| components["schemas"]["ChannelNotFoundError"]
@@ -10820,6 +11572,7 @@ export interface components {
 			/** 발급받은 API key */
 			apiKey: string;
 		};
+		/** LoginViaApiKeyError */
 		LoginViaApiKeyError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
@@ -10851,6 +11604,7 @@ export interface components {
 			/** 발급받은 API secret */
 			apiSecret: string;
 		};
+		/** LoginViaApiSecretError */
 		LoginViaApiSecretError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
@@ -10912,6 +11666,7 @@ export interface components {
 			/** 상품 정보 */
 			products?: components["schemas"]["PaymentProduct"][];
 		};
+		/** ModifyEscrowLogisticsError */
 		ModifyEscrowLogisticsError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -11214,12 +11969,15 @@ export interface components {
 			 */
 			cancelledAt: string;
 		};
+		/** PayInstantlyError */
 		PayInstantlyError:
 			| components["schemas"]["AlreadyPaidError"]
 			| components["schemas"]["ChannelNotFoundError"]
+			| components["schemas"]["DiscountAmountExceedsTotalAmountError"]
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PgProviderError"]
+			| components["schemas"]["PromotionPayMethodDoesNotMatchError"]
 			| components["schemas"]["SumOfPartsExceedsTotalAmountError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
@@ -11317,14 +12075,17 @@ export interface components {
 			/** PG사 거래 아이디 */
 			pgTxId?: string;
 		};
+		/** PayWithBillingKeyError */
 		PayWithBillingKeyError:
 			| components["schemas"]["AlreadyPaidError"]
 			| components["schemas"]["BillingKeyAlreadyDeletedError"]
 			| components["schemas"]["BillingKeyNotFoundError"]
 			| components["schemas"]["ChannelNotFoundError"]
+			| components["schemas"]["DiscountAmountExceedsTotalAmountError"]
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PgProviderError"]
+			| components["schemas"]["PromotionPayMethodDoesNotMatchError"]
 			| components["schemas"]["SumOfPartsExceedsTotalAmountError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
@@ -11459,14 +12220,14 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		PaymentCashReceiptStatus: "CANCELLED" | "ISSUED";
+		PaymentCashReceiptStatus: "ISSUED" | "CANCELLED";
 		/**
 		 * 결제가 발생한 클라이언트 환경
 		 * @description <p>결제가 발생한 클라이언트 환경</p>
 		 *
 		 * @enum {string}
 		 */
-		PaymentClientType: "API" | "SDK_MOBILE" | "SDK_PC";
+		PaymentClientType: "SDK_MOBILE" | "SDK_PC" | "API";
 		/**
 		 * 에스크로 정보
 		 * @description <p>에스크로 정보</p>
@@ -11607,11 +12368,11 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentFilterInputEscrowStatus:
-			| "CANCELLED"
-			| "CONFIRMED"
-			| "DELIVERED"
 			| "REGISTERED"
+			| "DELIVERED"
+			| "CONFIRMED"
 			| "REJECTED"
+			| "CANCELLED"
 			| "REJECT_CONFIRMED";
 		/**
 		 * 할부 정보
@@ -11657,36 +12418,36 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentLogisticsCompany:
-			| "ACI"
-			| "CHUNIL"
-			| "CJ"
-			| "CJ_INTL"
-			| "DAESIN"
-			| "DHL"
-			| "DONGWON"
-			| "EMS"
-			| "ETC"
-			| "FEDEX"
-			| "GOODSTOLUCK"
-			| "GS"
-			| "GSM_NTON"
-			| "HANJIN"
-			| "HAPDONG"
-			| "ILYANG"
-			| "KGL"
-			| "KUNYOUNG"
-			| "KYUNGDONG"
-			| "LOGEN"
 			| "LOTTE"
-			| "LX_PANTOS"
+			| "LOGEN"
+			| "DONGWON"
 			| "POST"
+			| "CJ"
+			| "HANJIN"
+			| "DAESIN"
+			| "ILYANG"
+			| "KYUNGDONG"
+			| "CHUNIL"
 			| "POST_REGISTERED"
-			| "SF"
-			| "SLX"
-			| "SUNGWON"
+			| "GS"
+			| "WOORI"
+			| "HAPDONG"
+			| "FEDEX"
 			| "UPS"
+			| "GSM_NTON"
+			| "SUNGWON"
+			| "LX_PANTOS"
+			| "ACI"
+			| "CJ_INTL"
 			| "USPS"
-			| "WOORI";
+			| "EMS"
+			| "DHL"
+			| "KGL"
+			| "GOODSTOLUCK"
+			| "KUNYOUNG"
+			| "SLX"
+			| "SF"
+			| "ETC";
 		/**
 		 * 결제수단 정보
 		 * @description <p>결제수단 정보</p>
@@ -11782,10 +12543,10 @@ export interface components {
 		 */
 		PaymentMethodGiftCertificateType:
 			| "BOOKNLIFE"
-			| "CULTUREGIFT"
+			| "SMART_MUNSANG"
 			| "CULTURELAND"
 			| "HAPPYMONEY"
-			| "SMART_MUNSANG";
+			| "CULTUREGIFT";
 		/**
 		 * 모바일 상세 정보
 		 * @description <p>모바일 상세 정보</p>
@@ -11814,14 +12575,17 @@ export interface components {
 			/** 표준 은행 코드 */
 			bank?: components["schemas"]["Bank"];
 		};
-		/** @enum {string} */
+		/**
+		 * PaymentMethodType
+		 * @enum {string}
+		 */
 		PaymentMethodType:
 			| "CARD"
-			| "EASY_PAY"
+			| "TRANSFER"
+			| "VIRTUAL_ACCOUNT"
 			| "GIFT_CERTIFICATE"
 			| "MOBILE"
-			| "TRANSFER"
-			| "VIRTUAL_ACCOUNT";
+			| "EASY_PAY";
 		/**
 		 * 가상계좌 상세 정보
 		 * @description <p>가상계좌 상세 정보</p>
@@ -11863,10 +12627,10 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentMethodVirtualAccountRefundStatus:
-			| "COMPLETED"
-			| "FAILED"
+			| "PENDING"
 			| "PARTIAL_REFUND_FAILED"
-			| "PENDING";
+			| "FAILED"
+			| "COMPLETED";
 		/**
 		 * 가상계좌 유형
 		 * @description <p>가상계좌 유형</p>
@@ -11952,7 +12716,710 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		PaymentProductType: "DIGITAL" | "PHYSICAL";
+		PaymentProductType: "PHYSICAL" | "DIGITAL";
+		/** PaymentReconciliation */
+		PaymentReconciliation:
+			| components["schemas"]["PaymentReconciliationIncomparable"]
+			| components["schemas"]["PaymentReconciliationMatched"]
+			| components["schemas"]["PaymentReconciliationNotCollected"]
+			| components["schemas"]["PaymentReconciliationNotMatched"];
+		/**
+		 * 거래상태
+		 * @description <p>거래상태</p>
+		 *
+		 * @enum {string}
+		 */
+		PaymentReconciliationActionType:
+			| "APPROVAL"
+			| "FULL_CANCEL"
+			| "PARTIAL_CANCEL"
+			| "UNCLASSIFIED_CANCEL";
+		/**
+		 * 거래대사 엑셀파일 필드
+		 * @description <p>거래대사 엑셀파일 필드</p>
+		 *     <p>중복으로 필드를 선택 가능합니다</p>
+		 *
+		 * @enum {string}
+		 */
+		PaymentReconciliationColumn:
+			| "RECONCILIATION_STATUS"
+			| "ACTION_TYPE"
+			| "RECONCILIATION_PG_SPECIFIER"
+			| "STORE_ID"
+			| "PAYMENT_AMOUNT"
+			| "TAX_FREE_AMOUNT"
+			| "VAT_AMOUNT"
+			| "SUPPLY_AMOUNT"
+			| "ANOMALY_AMOUNT"
+			| "PAYMENT_CURRENCY"
+			| "PAYMENT_DATETIME"
+			| "IS_ESCROW"
+			| "PAYMENT_METHOD_TYPE"
+			| "PAYMENT_METHOD_CARD_ISSUER"
+			| "PAYMENT_METHOD_CARD_ACQUIRER"
+			| "PAYMENT_METHOD_CARD_APPROVAL_NUMBER"
+			| "PAYMENT_METHOD_GIFT_CERTIFICATE_APPROVAL_NUMBER"
+			| "PAYMENT_METHOD_GIFT_CERTIFICATE_TYPE"
+			| "PAYMENT_METHOD_MOBILE_CARRIER"
+			| "PAYMENT_METHOD_TRANSFER_BANK"
+			| "PAYMENT_METHOD_TRANSFER_APPROVAL_NUMBER"
+			| "PAYMENT_METHOD_VIRTUAL_ACCOUNT_BANK"
+			| "PAYMENT_METHOD_VIRTUAL_ACCOUNT_APPROVAL_NUMBER"
+			| "PAYMENT_METHOD_EASY_PAY_METHOD"
+			| "PAYMENT_METHOD_ETC_NAME"
+			| "PG_TX_ID"
+			| "INSTALLMENT_MONTH"
+			| "PAYMENT_ID"
+			| "TRANSACTION_ID"
+			| "ORDER_NAME"
+			| "NOT_MATCHED_REASONS"
+			| "SETTLEMENT_FEE"
+			| "SETTLEMENT_FEE_VAT"
+			| "SETTLEMENT_AMOUNT"
+			| "SETTLEMENT_CURRENCY"
+			| "SETTLEMENT_DATE";
+		/**
+		 * 거래대사 엑셀 파일 다운로드 필터 목록
+		 * @description <p>거래대사 엑셀 파일 다운로드 필터 목록</p>
+		 *     <p>필드 중복으로 적용됩니다.</p>
+		 *
+		 */
+		PaymentReconciliationExcelFileFilterInput: {
+			/**
+			 * 거래대사 하위 가맹점 아이디 필터
+			 * @description <p>storeId가 존재하지 않는 건을 검색하고 싶은 경우 빈 문자열을 포함시켜주세요.</p>
+			 *
+			 */
+			storeIds?: string[];
+			/** 거래대사 결제사(PG) 식별자 필터 */
+			pgSpecifiers?: components["schemas"]["ReconciliationPgSpecifier"][];
+			/** 거래대사 결제 수단 필터 */
+			paymentMethodTypes?: components["schemas"]["ReconciliationPaymentMethodType"][];
+			/** 거래대사 대사 상태 필터 */
+			paymentReconciliationStatuses?: components["schemas"]["PaymentReconciliationStatus"][];
+			/** 거래대사 결제 상태 필터 */
+			actionTypes?: components["schemas"]["PaymentReconciliationActionType"][];
+			/** 거래대사 결제 통화 필터 */
+			transactionCurrencies?: components["schemas"]["Currency"][];
+			/** 거래대사 정산 통화 필터 */
+			settlementCurrencies?: components["schemas"]["Currency"][];
+		};
+		/** PaymentReconciliationIncomparable */
+		PaymentReconciliationIncomparable: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			status: "INCOMPARABLE";
+			/** 거래대사 아이디 */
+			id: string;
+			graphqlId: string;
+			actionType: components["schemas"]["PaymentReconciliationActionType"];
+			/** 대사용 PG사 가맹점 식별자 */
+			pgSpecifier: components["schemas"]["ReconciliationPgSpecifier"];
+			/** 고객사 아이디 */
+			merchantId: string;
+			merchantGraphqlId: string;
+			/**
+			 * 결제 금액
+			 * Format: int64
+			 */
+			paymentAmount: number;
+			/**
+			 * 면세가액
+			 * Format: int64
+			 */
+			taxFreeAmount: number;
+			/**
+			 * 부가세
+			 * Format: int64
+			 */
+			vatAmount: number;
+			/**
+			 * 공급가액
+			 * Format: int64
+			 */
+			supplyAmount: number;
+			/**
+			 * 거래이상 금액
+			 * Format: int64
+			 */
+			anomalyAmount: number;
+			/**
+			 * 결제일
+			 * Format: date-time
+			 */
+			paidAt: string;
+			/** 에스크로 여부 */
+			isEscrow?: boolean;
+			/** 결제 통화 */
+			paymentCurrency: components["schemas"]["Currency"];
+			/** 결제수단 상세 정보 */
+			paymentMethod: components["schemas"]["ReconciliationPaymentMethod"];
+			/** PG사 거래 아이디 */
+			pgTxId: string;
+			/** 거래건의 정산 정보 */
+			settlement?: components["schemas"]["Settlement"];
+		};
+		/** PaymentReconciliationMatched */
+		PaymentReconciliationMatched: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			status: "MATCHED";
+			/** 거래대사 아이디 */
+			id: string;
+			graphqlId: string;
+			actionType: components["schemas"]["PaymentReconciliationActionType"];
+			/** 대사용 PG사 가맹점 식별자 */
+			pgSpecifier: components["schemas"]["ReconciliationPgSpecifier"];
+			/** 고객사 아이디 */
+			merchantId: string;
+			merchantGraphqlId: string;
+			/**
+			 * 결제 금액
+			 * Format: int64
+			 */
+			paymentAmount: number;
+			/**
+			 * 면세가액
+			 * Format: int64
+			 */
+			taxFreeAmount: number;
+			/**
+			 * 부가세
+			 * Format: int64
+			 */
+			vatAmount: number;
+			/**
+			 * 공급가액
+			 * Format: int64
+			 */
+			supplyAmount: number;
+			/**
+			 * 결제일
+			 * Format: date-time
+			 */
+			paidAt: string;
+			/** 에스크로 여부 */
+			isEscrow?: boolean;
+			/** 결제 통화 */
+			paymentCurrency: components["schemas"]["Currency"];
+			/** 결제수단 상세 정보 */
+			paymentMethod: components["schemas"]["ReconciliationPaymentMethod"];
+			/** PG사 거래 아이디 */
+			pgTxId: string;
+			/** 거래건의 정산 정보 */
+			settlement?: components["schemas"]["Settlement"];
+			/** 포트원 결제 아이디 */
+			transactionId: string;
+			/** 고객사 결제 아이디 */
+			paymentId: string;
+			/** 주문명 */
+			orderName: string;
+			/** 하위 가맹점 아이디 */
+			storeId: string;
+			storeGraphqlId: string;
+		};
+		/** PaymentReconciliationNotCollected */
+		PaymentReconciliationNotCollected: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			status: "NOT_COLLECTED";
+			/** 거래대사 아이디 */
+			id: string;
+			graphqlId: string;
+			actionType: components["schemas"]["PaymentReconciliationActionType"];
+			/** 대사용 PG사 가맹점 식별자 */
+			pgSpecifier: components["schemas"]["ReconciliationPgSpecifier"];
+			/** 고객사 아이디 */
+			merchantId: string;
+			merchantGraphqlId: string;
+			/**
+			 * 결제 금액
+			 * Format: int64
+			 */
+			paymentAmount: number;
+			/**
+			 * 면세가액
+			 * Format: int64
+			 */
+			taxFreeAmount: number;
+			/**
+			 * 부가세
+			 * Format: int64
+			 */
+			vatAmount: number;
+			/**
+			 * 공급가액
+			 * Format: int64
+			 */
+			supplyAmount: number;
+			/**
+			 * 거래이상 금액
+			 * Format: int64
+			 */
+			anomalyAmount: number;
+			/**
+			 * 결제일
+			 * Format: date-time
+			 */
+			paidAt: string;
+			/** 에스크로 여부 */
+			isEscrow?: boolean;
+			/** 결제 통화 */
+			paymentCurrency: components["schemas"]["Currency"];
+			/** 결제수단 상세 정보 */
+			paymentMethod: components["schemas"]["ReconciliationPaymentMethod"];
+			/** PG사 거래 아이디 */
+			pgTxId?: string;
+			/** 거래건의 정산 정보 */
+			settlement?: components["schemas"]["Settlement"];
+			/** 포트원 결제 아이디 */
+			transactionId?: string;
+			/** 고객사 결제 아이디 */
+			paymentId?: string;
+			/** 주문명 */
+			orderName?: string;
+			/** 하위 가맹점 아이디 */
+			storeId?: string;
+			storeGraphqlId?: string;
+		};
+		/** PaymentReconciliationNotMatched */
+		PaymentReconciliationNotMatched: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			status: "NOT_MATCHED";
+			/** 거래대사 아이디 */
+			id: string;
+			graphqlId: string;
+			actionType: components["schemas"]["PaymentReconciliationActionType"];
+			/** 대사용 PG사 가맹점 식별자 */
+			pgSpecifier: components["schemas"]["ReconciliationPgSpecifier"];
+			/** 고객사 아이디 */
+			merchantId: string;
+			merchantGraphqlId: string;
+			/**
+			 * 결제 금액
+			 * Format: int64
+			 */
+			paymentAmount: number;
+			/**
+			 * 면세가액
+			 * Format: int64
+			 */
+			taxFreeAmount: number;
+			/**
+			 * 부가세
+			 * Format: int64
+			 */
+			vatAmount: number;
+			/**
+			 * 공급가액
+			 * Format: int64
+			 */
+			supplyAmount: number;
+			/**
+			 * 거래이상 금액
+			 * Format: int64
+			 */
+			anomalyAmount: number;
+			/**
+			 * 결제일
+			 * Format: date-time
+			 */
+			paidAt: string;
+			/** 에스크로 여부 */
+			isEscrow?: boolean;
+			/** 결제 통화 */
+			paymentCurrency: components["schemas"]["Currency"];
+			/** 결제수단 상세 정보 */
+			paymentMethod: components["schemas"]["ReconciliationPaymentMethod"];
+			/** 포트원 결제 아이디 */
+			transactionId: string;
+			/** 고객사 결제 아이디 */
+			paymentId: string;
+			/** PG사 거래 아이디 */
+			pgTxId: string;
+			/** 거래건의 정산 정보 */
+			settlement?: components["schemas"]["Settlement"];
+			/** 거래대사 불일치 사유 */
+			notMatchedReasons: components["schemas"]["PaymentReconciliationNotMatchedReason"][];
+			/** 주문명 */
+			orderName: string;
+			/** 하위 가맹점 아이디 */
+			storeId: string;
+			storeGraphqlId: string;
+		};
+		/**
+		 * 거래대사 매치 실패 사유
+		 * @description <p>거래대사 매치 실패 사유</p>
+		 *
+		 * @enum {string}
+		 */
+		PaymentReconciliationNotMatchedReason:
+			| "PAYMENT_AMOUNT_NOT_MATCHED"
+			| "TAX_FREE_AMOUNT_NOT_MATCHED"
+			| "VAT_AMOUNT_NOT_MATCHED"
+			| "ESCROW_NOT_MATCHED"
+			| "INSTALLMENT_MONTH_NOT_MATCHED"
+			| "PAYMENT_DATE_NOT_MATCHED";
+		/**
+		 * 거래대사 거래 건 별 조회 정렬 조건
+		 * @description <p>거래대사 거래 건 별 조회 정렬 조건</p>
+		 *     <p>필드중 하나만 명시하여야 합니다</p>
+		 *
+		 */
+		PaymentReconciliationOrderInput: {
+			/** 정산일 기준 정렬 */
+			settlementDate?: components["schemas"]["SortOrder"];
+			/** 결제일 기준 정렬 */
+			transactionDate?: components["schemas"]["SortOrder"];
+			/** 결제 금액 기준 정렬 */
+			transactionAmount?: components["schemas"]["SortOrder"];
+			/** 거래이상 금액 기준 정렬 */
+			anomalyAmount?: components["schemas"]["SortOrder"];
+			/** 정산 금액 기준 정렬 */
+			settlementAmount?: components["schemas"]["SortOrder"];
+		};
+		/**
+		 * 거래대사 거래내역 검색용 필드
+		 * @description <p>거래대사 거래내역 검색용 필드</p>
+		 *     <p>각 필드 중 하나만 적용 됩니다.</p>
+		 *
+		 */
+		PaymentReconciliationSearchConditionInput: {
+			/** 고객사 거래 아이디 필드 */
+			paymentId?: string;
+			/** 포트원 결제 아이디 필드 */
+			transactionId?: string;
+			/** PG사 거래 아이디 필드 */
+			pgTxId?: string;
+			/** 주문명 필드 */
+			orderName?: string;
+		};
+		/**
+		 * 거래대사 정산내역 일별 요약
+		 * @description <p>거래대사 정산내역 일별 요약</p>
+		 *
+		 */
+		PaymentReconciliationSettlementSummary: {
+			/**
+			 * 정산일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
+			date: string;
+			/** 정산 통화 */
+			settlementCurrency: components["schemas"]["Currency"];
+			/** 결제 통화 */
+			transactionCurrency: components["schemas"]["Currency"];
+			/** 정산내역 합산 데이터 */
+			aggregate: components["schemas"]["PaymentReconciliationSettlementSummaryAggregate"];
+			/** 정산내역 일별 상세 데이터 목록 */
+			details: components["schemas"]["PaymentReconciliationSettlementSummaryDetail"][];
+		};
+		/** PaymentReconciliationSettlementSummaryAggregate */
+		PaymentReconciliationSettlementSummaryAggregate: {
+			/**
+			 * 정산 금액
+			 * Format: int64
+			 */
+			settlementAmount: number;
+			/**
+			 * 정산 건 수
+			 * Format: int64
+			 */
+			settlementCount: number;
+			/**
+			 * PG 수수료
+			 * Format: int64
+			 */
+			feeAmount: number;
+			/**
+			 * PG 수수료 부가세
+			 * Format: int64
+			 */
+			feeVatAmount: number;
+			/**
+			 * 취소 금액
+			 * Format: int64
+			 */
+			cancelAmount: number;
+			/**
+			 * 취소 건 수
+			 * Format: int64
+			 */
+			cancelCount: number;
+			/**
+			 * 거래 합계 금액
+			 * Format: int64
+			 */
+			transactionAmount: number;
+		};
+		/**
+		 * 거래대사 정산 요약 내역 엑셀파일 필드
+		 * @description <p>거래대사 정산 요약 내역 엑셀파일 필드</p>
+		 *
+		 * @enum {string}
+		 */
+		PaymentReconciliationSettlementSummaryColumn:
+			| "SETTLEMENT_DATE"
+			| "STORE_ID"
+			| "RECONCILIATION_PG_SPECIFIER"
+			| "SETTLEMENT_COUNT"
+			| "SETTLEMENT_AMOUNT"
+			| "SETTLEMENT_FEE"
+			| "SETTLEMENT_FEE_VAT"
+			| "CANCEL_COUNT"
+			| "CANCEL_AMOUNT"
+			| "TRANSACTION_AMOUNT";
+		/** PaymentReconciliationSettlementSummaryDetail */
+		PaymentReconciliationSettlementSummaryDetail: {
+			/** 상점 ID */
+			storeId?: string;
+			storeGraphqlId?: string;
+			/** 대사용 PG사 가맹점 식별자 */
+			pgSpecifier: components["schemas"]["ReconciliationPgSpecifier"];
+			/**
+			 * 정산 금액
+			 * Format: int64
+			 */
+			settlementAmount: number;
+			/**
+			 * 정산 건 수
+			 * Format: int64
+			 */
+			settlementCount: number;
+			/**
+			 * PG 수수료
+			 * Format: int64
+			 */
+			feeAmount: number;
+			/**
+			 * PG 수수료 부가세
+			 * Format: int64
+			 */
+			feeVatAmount: number;
+			/**
+			 * 취소 금액
+			 * Format: int64
+			 */
+			cancelAmount: number;
+			/**
+			 * 취소 건 수
+			 * Format: int64
+			 */
+			cancelCount: number;
+			/**
+			 * 거래 합계 금액
+			 * Format: int64
+			 */
+			transactionAmount: number;
+		};
+		/**
+		 * 거래대사 정산 요약 엑셀 파일 필터
+		 * @description <p>거래대사 정산 요약 엑셀 파일 필터</p>
+		 *     <p>필드 중복으로 적용됩니다.</p>
+		 *
+		 */
+		PaymentReconciliationSettlementSummaryExcelFileFilterInput: {
+			/** PG사 가맹점 식별자 필터 */
+			pgSpecifiers?: components["schemas"]["ReconciliationPgSpecifier"][];
+			/**
+			 * 하위 상점 아이디 필터
+			 * @description <p>storeId가 존재하지 않는 건을 검색하고 싶은 경우 빈 문자열을 포함시켜주세요.</p>
+			 *
+			 */
+			storeIds?: string[];
+		};
+		/**
+		 * 거래대사 정산 요약 내역 필터
+		 * @description <p>거래대사 정산 요약 내역 필터</p>
+		 *
+		 */
+		PaymentReconciliationSettlementSummaryFilterInput: {
+			/** PG사 가맹점 식별자 필터 */
+			pgSpecifiers?: components["schemas"]["ReconciliationPgSpecifier"][];
+			/** 하위 상점 아이디 필터 */
+			storeIds?: string[];
+		};
+		/** PaymentReconciliationSettlementSummaryWithCursor */
+		PaymentReconciliationSettlementSummaryWithCursor: {
+			item: components["schemas"]["PaymentReconciliationSettlementSummary"];
+			cursor: string;
+		};
+		/**
+		 * 결제 건의 대사 상태
+		 * @description <p>결제 건의 대사 상태</p>
+		 *
+		 * @enum {string}
+		 */
+		PaymentReconciliationStatus:
+			| "MATCHED"
+			| "NOT_MATCHED"
+			| "INCOMPARABLE"
+			| "NOT_COLLECTED";
+		/**
+		 * 거래대사 거래내역 일별 요약
+		 * @description <p>거래대사 거래내역 일별 요약</p>
+		 *
+		 */
+		PaymentReconciliationTransactionSummary: {
+			/**
+			 * 거래일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
+			date: string;
+			/** 거래 통화 */
+			currency: components["schemas"]["Currency"];
+			/** 거래내역 합산 데이터 */
+			aggregate: components["schemas"]["PaymentReconciliationTransactionSummaryAggregate"];
+			/** 거래내역 상세 데이터 목록 */
+			details: components["schemas"]["PaymentReconciliationTransactionSummaryDetail"][];
+		};
+		/** PaymentReconciliationTransactionSummaryAggregate */
+		PaymentReconciliationTransactionSummaryAggregate: {
+			/**
+			 * 거래 금액
+			 * Format: int64
+			 */
+			transactionAmount: number;
+			/**
+			 * 거래 건 수
+			 * Format: int64
+			 */
+			transactionCount: number;
+			/**
+			 * 거래 취소 금액
+			 * Format: int64
+			 */
+			cancelAmount: number;
+			/**
+			 * 거래 취소 건 수
+			 * Format: int64
+			 */
+			cancelCount: number;
+			/**
+			 * 거래 이상 금액
+			 * Format: int64
+			 */
+			anomalyAmount: number;
+			/**
+			 * 거래 이상 건 수
+			 * Format: int64
+			 */
+			anomalyCount: number;
+			/**
+			 * 대사불일치 건 수
+			 * Format: int64
+			 */
+			notMatchedCount: number;
+			/**
+			 * 대사불능 건 수
+			 * Format: int64
+			 */
+			incomparableCount: number;
+		};
+		/**
+		 * 거래대사 정산 요약 내역 엑셀파일 필드
+		 * @description <p>거래대사 정산 요약 내역 엑셀파일 필드</p>
+		 *
+		 * @enum {string}
+		 */
+		PaymentReconciliationTransactionSummaryColumn:
+			| "TRANSACTION_DATE"
+			| "RECONCILIATION_STATUS"
+			| "STORE_ID"
+			| "RECONCILIATION_PG_SPECIFIER"
+			| "TRANSACTION_COUNT"
+			| "TRANSACTION_AMOUNT"
+			| "CANCEL_COUNT"
+			| "CANCEL_AMOUNT"
+			| "ANOMALY_COUNT"
+			| "ANOMALY_AMOUNT";
+		/** PaymentReconciliationTransactionSummaryDetail */
+		PaymentReconciliationTransactionSummaryDetail: {
+			/** 상점 ID */
+			storeId?: string;
+			storeGraphqlId?: string;
+			/** 대사용 PG사 가맹점 식별자 */
+			pgSpecifier: components["schemas"]["ReconciliationPgSpecifier"];
+			/**
+			 * 거래 금액
+			 * Format: int64
+			 */
+			transactionAmount: number;
+			/**
+			 * 거래 건 수
+			 * Format: int64
+			 */
+			transactionCount: number;
+			/**
+			 * 거래 취소 금액
+			 * Format: int64
+			 */
+			cancelAmount: number;
+			/**
+			 * 거래 취소 건 수
+			 * Format: int64
+			 */
+			cancelCount: number;
+			/**
+			 * 거래 이상 금액
+			 * Format: int64
+			 */
+			anomalyAmount: number;
+			/**
+			 * 거래 이상 건 수
+			 * Format: int64
+			 */
+			anomalyCount: number;
+			/**
+			 * 대사불일치 건 수
+			 * Format: int64
+			 */
+			notMatchedCount: number;
+			/**
+			 * 대사불능 건 수
+			 * Format: int64
+			 */
+			incomparableCount: number;
+		};
+		/**
+		 * 거래대사 거래 요약 엑셀 파일 필터
+		 * @description <p>거래대사 거래 요약 엑셀 파일 필터</p>
+		 *     <p>필드 중복으로 적용됩니다.</p>
+		 *
+		 */
+		PaymentReconciliationTransactionSummaryExcelFilterInput: {
+			/** 대사 상태 필터 */
+			reconciliationStatuses?: components["schemas"]["PaymentReconciliationStatus"][];
+			/** 대사용 PG사 가맹점 식별자 필터 */
+			pgSpecifiers?: components["schemas"]["ReconciliationPgSpecifier"][];
+			/**
+			 * 하위 상점 아이디 필터
+			 * @description <p>storeId가 존재하지 않는 건을 검색하고 싶은 경우 빈 문자열을 포함시켜주세요.</p>
+			 *
+			 */
+			storeIds?: string[];
+		};
+		/** PaymentReconciliationTransactionSummaryWithCursor */
+		PaymentReconciliationTransactionSummaryWithCursor: {
+			item: components["schemas"]["PaymentReconciliationTransactionSummary"];
+			cursor: string;
+		};
+		/** PaymentReconciliationWithCursor */
+		PaymentReconciliationWithCursor: {
+			item: components["schemas"]["PaymentReconciliation"];
+			cursor: string;
+		};
 		/**
 		 * 결제 예약 건
 		 * @description <p>결제 예약 건</p>
@@ -12058,7 +13525,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		PaymentScheduleSortBy: "COMPLETED_AT" | "CREATED_AT" | "TIME_TO_PAY";
+		PaymentScheduleSortBy: "CREATED_AT" | "TIME_TO_PAY" | "COMPLETED_AT";
 		/**
 		 * 결제 예약 건 다건 조회 시 정렬 조건
 		 * @description <p>결제 예약 건 다건 조회 시 정렬 조건</p>
@@ -12085,12 +13552,12 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentScheduleStatus:
-			| "FAILED"
-			| "PENDING"
-			| "REVOKED"
 			| "SCHEDULED"
 			| "STARTED"
-			| "SUCCEEDED";
+			| "SUCCEEDED"
+			| "FAILED"
+			| "REVOKED"
+			| "PENDING";
 		/**
 		 * 결제 예약 건
 		 * @description <p>결제 예약 건</p>
@@ -12114,13 +13581,13 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentStatus:
-			| "CANCELLED"
-			| "FAILED"
-			| "PAID"
-			| "PARTIAL_CANCELLED"
-			| "PENDING"
 			| "READY"
-			| "VIRTUAL_ACCOUNT_ISSUED";
+			| "PENDING"
+			| "VIRTUAL_ACCOUNT_ISSUED"
+			| "PAID"
+			| "FAILED"
+			| "PARTIAL_CANCELLED"
+			| "CANCELLED";
 		/**
 		 * 통합검색 입력 정보
 		 * @description <p>통합검색 입력 정보</p>
@@ -12138,37 +13605,37 @@ export interface components {
 		 */
 		PaymentTextSearchField:
 			| "ALL"
-			| "BILLING_KEY"
-			| "CANCEL_REASON"
-			| "CARD_ACQUIRER"
-			| "CARD_APPROVAL_NUMBER"
-			| "CARD_BIN"
-			| "CARD_INSTALLMENT"
-			| "CARD_ISSUER"
-			| "CARD_NUMBER"
-			| "CARD_RECEIPT_NAME"
-			| "CUSTOMER_ADDRESS"
-			| "CUSTOMER_EMAIL"
-			| "CUSTOMER_NAME"
-			| "CUSTOMER_PHONE_NUMBER"
-			| "CUSTOMER_ZIPCODE"
-			| "FAIL_REASON"
-			| "GIFT_CERTIFICATION_APPROVAL_NUMBER"
-			| "ORDER_NAME"
 			| "PAYMENT_ID"
-			| "PG_CANCELLATION_ID"
-			| "PG_MERCHANT_ID"
-			| "PG_RECEIPT_ID"
-			| "PG_TX_ID"
-			| "PROMOTION_ID"
-			| "RECEIPT_APPROVAL_NUMBER"
-			| "SCHEDULE_ID"
-			| "TRANS_BANK"
 			| "TX_ID"
-			| "USER_AGENT"
-			| "VIRTUAL_ACCOUNT_BANK"
+			| "SCHEDULE_ID"
+			| "FAIL_REASON"
+			| "CARD_ISSUER"
+			| "CARD_ACQUIRER"
+			| "CARD_BIN"
+			| "CARD_NUMBER"
+			| "CARD_APPROVAL_NUMBER"
+			| "CARD_RECEIPT_NAME"
+			| "CARD_INSTALLMENT"
+			| "TRANS_BANK"
 			| "VIRTUAL_ACCOUNT_HOLDER_NAME"
-			| "VIRTUAL_ACCOUNT_NUMBER";
+			| "VIRTUAL_ACCOUNT_BANK"
+			| "VIRTUAL_ACCOUNT_NUMBER"
+			| "PG_MERCHANT_ID"
+			| "PG_TX_ID"
+			| "PG_RECEIPT_ID"
+			| "RECEIPT_APPROVAL_NUMBER"
+			| "PG_CANCELLATION_ID"
+			| "CANCEL_REASON"
+			| "ORDER_NAME"
+			| "CUSTOMER_NAME"
+			| "CUSTOMER_EMAIL"
+			| "CUSTOMER_PHONE_NUMBER"
+			| "CUSTOMER_ADDRESS"
+			| "CUSTOMER_ZIPCODE"
+			| "USER_AGENT"
+			| "BILLING_KEY"
+			| "PROMOTION_ID"
+			| "GIFT_CERTIFICATION_APPROVAL_NUMBER";
 		/**
 		 * 조회 시점 기준
 		 * @description <p>조회 시점 기준</p>
@@ -12241,13 +13708,13 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentWebhookPaymentStatus:
-			| "CANCELLED"
-			| "FAILED"
-			| "PAID"
-			| "PARTIAL_CANCELLED"
-			| "PAY_PENDING"
 			| "READY"
-			| "VIRTUAL_ACCOUNT_ISSUED";
+			| "VIRTUAL_ACCOUNT_ISSUED"
+			| "PAID"
+			| "FAILED"
+			| "PARTIAL_CANCELLED"
+			| "CANCELLED"
+			| "PAY_PENDING";
 		/**
 		 * 웹훅 요청 정보
 		 * @description <p>웹훅 요청 정보</p>
@@ -12289,9 +13756,9 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentWebhookStatus:
+			| "SUCCEEDED"
 			| "FAILED_NOT_OK_RESPONSE"
-			| "FAILED_UNEXPECTED_ERROR"
-			| "SUCCEEDED";
+			| "FAILED_UNEXPECTED_ERROR";
 		/**
 		 * 웹훅 실행 트리거
 		 * @description <p>웹훅 실행 트리거</p>
@@ -12300,12 +13767,12 @@ export interface components {
 		 * @enum {string}
 		 */
 		PaymentWebhookTrigger:
+			| "MANUAL"
+			| "VIRTUAL_ACCOUNT_DEPOSIT"
 			| "ASYNC_CANCEL_APPROVED"
 			| "ASYNC_CANCEL_FAILED"
 			| "ASYNC_PAY_APPROVED"
-			| "ASYNC_PAY_FAILED"
-			| "MANUAL"
-			| "VIRTUAL_ACCOUNT_DEPOSIT";
+			| "ASYNC_PAY_FAILED";
 		/**
 		 * 결제 건 및 커서 정보
 		 * @description <p>결제 건 및 커서 정보</p>
@@ -12317,6 +13784,10 @@ export interface components {
 			/** 해당 결제 건의 커서 정보 */
 			cursor: string;
 		};
+		/** PaymentsExcelDownloadError */
+		PaymentsExcelDownloadError:
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 결제 대기 상태
 		 * @description <p>결제 대기 상태</p>
@@ -12410,36 +13881,36 @@ export interface components {
 		 * @enum {string}
 		 */
 		PgCompany:
-			| "ALIPAY"
-			| "BLUEWALNUT"
-			| "CHAI"
-			| "DANAL"
-			| "DAOU"
-			| "EXIMBAY"
-			| "GALAXIA"
-			| "HYPHEN"
 			| "INICIS"
-			| "JTNET"
-			| "KAKAO"
-			| "KAKAOPAY"
-			| "KCP"
-			| "KICC"
-			| "KPN"
-			| "KSNET"
-			| "MOBILIANS"
-			| "NAVERPAY"
 			| "NICE"
-			| "PAYCO"
-			| "PAYMENTWALL"
-			| "PAYPAL"
-			| "PAYPLE"
-			| "SETTLE"
-			| "SMARTRO"
-			| "SMILEPAY"
-			| "SYRUP"
-			| "TOSSPAY"
+			| "KCP"
+			| "DANAL"
 			| "TOSSPAYMENTS"
-			| "WELCOME";
+			| "MOBILIANS"
+			| "KICC"
+			| "SMARTRO"
+			| "DAOU"
+			| "BLUEWALNUT"
+			| "PAYPAL"
+			| "ALIPAY"
+			| "EXIMBAY"
+			| "PAYMENTWALL"
+			| "SETTLE"
+			| "GALAXIA"
+			| "NAVERPAY"
+			| "KAKAOPAY"
+			| "SMILEPAY"
+			| "KAKAO"
+			| "TOSSPAY"
+			| "CHAI"
+			| "PAYCO"
+			| "PAYPLE"
+			| "SYRUP"
+			| "KSNET"
+			| "WELCOME"
+			| "JTNET"
+			| "KPN"
+			| "HYPHEN";
 		/**
 		 * PG사 결제 모듈
 		 * @description <p>PG사 결제 모듈</p>
@@ -12447,54 +13918,54 @@ export interface components {
 		 * @enum {string}
 		 */
 		PgProvider:
-			| "ALIPAY"
-			| "BLUEWALNUT"
-			| "CHAI"
-			| "DANAL"
-			| "DANAL_TPAY"
-			| "DAOU"
-			| "EXIMBAY"
-			| "GALAXIA"
 			| "HTML5_INICIS"
-			| "HYPHEN"
-			| "INICIS"
-			| "INICIS_UNIFIED"
-			| "INICIS_V2"
-			| "JTNET"
-			| "KAKAO"
-			| "KAKAOPAY"
-			| "KCP"
-			| "KCP_BILLING"
-			| "KCP_DIRECT"
-			| "KCP_QUICK"
-			| "KCP_V2"
-			| "KICC"
-			| "KPN"
-			| "KSNET"
-			| "MOBILIANS"
-			| "NAVERCO"
-			| "NAVERPAY"
-			| "NICE"
-			| "NICE_V2"
-			| "PAYCO"
-			| "PAYMENTWALL"
 			| "PAYPAL"
 			| "PAYPAL_V2"
-			| "PAYPLE"
-			| "PINPAY"
+			| "INICIS"
+			| "DANAL"
+			| "NICE"
+			| "DANAL_TPAY"
+			| "JTNET"
+			| "UPLUS"
+			| "NAVERPAY"
+			| "KAKAO"
 			| "SETTLE"
-			| "SETTLE_ACC"
-			| "SETTLE_FIRM"
+			| "KCP"
+			| "MOBILIANS"
+			| "KAKAOPAY"
+			| "NAVERCO"
+			| "SYRUP"
+			| "KICC"
+			| "EXIMBAY"
+			| "SMILEPAY"
+			| "PAYCO"
+			| "KCP_BILLING"
+			| "ALIPAY"
+			| "PAYPLE"
+			| "CHAI"
+			| "BLUEWALNUT"
 			| "SMARTRO"
 			| "SMARTRO_V2"
-			| "SMILEPAY"
-			| "SYRUP"
-			| "TOSSPAY"
+			| "PAYMENTWALL"
 			| "TOSSPAYMENTS"
-			| "TOSSPAY_V2"
+			| "KCP_QUICK"
+			| "DAOU"
+			| "GALAXIA"
+			| "TOSSPAY"
+			| "KCP_DIRECT"
+			| "SETTLE_ACC"
+			| "SETTLE_FIRM"
+			| "INICIS_UNIFIED"
+			| "KSNET"
+			| "PINPAY"
+			| "NICE_V2"
 			| "TOSS_BRANDPAY"
-			| "UPLUS"
-			| "WELCOME";
+			| "WELCOME"
+			| "TOSSPAY_V2"
+			| "INICIS_V2"
+			| "KPN"
+			| "KCP_V2"
+			| "HYPHEN";
 		/**
 		 * PG사에서 오류를 전달한 경우
 		 * @description <p>PG사에서 오류를 전달한 경우</p>
@@ -12562,12 +14033,12 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformAccountStatus:
-			| "EXPIRED"
-			| "NOT_VERIFIED"
-			| "UNKNOWN"
-			| "VERIFIED"
 			| "VERIFYING"
-			| "VERIFY_FAILED";
+			| "VERIFIED"
+			| "VERIFY_FAILED"
+			| "NOT_VERIFIED"
+			| "EXPIRED"
+			| "UNKNOWN";
 		/**
 		 * 파트너 계좌 검증 아이디를 이미 사용한 경우
 		 * @description <p>파트너 계좌 검증 아이디를 이미 사용한 경우</p>
@@ -12607,6 +14078,7 @@ export interface components {
 			type: "PLATFORM_ACCOUNT_VERIFICATION_NOT_FOUND";
 			message?: string;
 		};
+		/** PlatformAdditionalFeePoliciesNotFoundError */
 		PlatformAdditionalFeePoliciesNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12643,6 +14115,7 @@ export interface components {
 			 */
 			appliedAt: string;
 		};
+		/** PlatformAdditionalFeePolicyAlreadyExistsError */
 		PlatformAdditionalFeePolicyAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12689,6 +14162,7 @@ export interface components {
 			 *      */
 			fee?: string;
 		};
+		/** PlatformAdditionalFeePolicyNotFoundError */
 		PlatformAdditionalFeePolicyNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12697,6 +14171,7 @@ export interface components {
 			type: "PLATFORM_ADDITIONAL_FEE_POLICY_NOT_FOUND";
 			message?: string;
 		};
+		/** PlatformAdditionalFeePolicyScheduleAlreadyExistsError */
 		PlatformAdditionalFeePolicyScheduleAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12705,6 +14180,7 @@ export interface components {
 			type: "PLATFORM_ADDITIONAL_FEE_POLICY_SCHEDULE_ALREADY_EXISTS";
 			message?: string;
 		};
+		/** PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError */
 		PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12782,6 +14258,7 @@ export interface components {
 			type: "PLATFORM_ARCHIVED_PARTNERS_CANNOT_BE_SCHEDULED";
 			message?: string;
 		};
+		/** PlatformBulkPayout */
 		PlatformBulkPayout: {
 			/** 일괄 지급 고유 아이디 */
 			id: string;
@@ -12801,11 +14278,13 @@ export interface components {
 			/** Format: date-time */
 			updatedAt: string;
 		};
+		/** PlatformBulkPayoutFilterInput */
 		PlatformBulkPayoutFilterInput: {
 			statuses?: components["schemas"]["PlatformBulkPayoutStatus"][];
 			methods?: components["schemas"]["PlatformPayoutMethod"][];
 			criteria?: components["schemas"]["PlatformBulkPayoutFilterInputCriteria"];
 		};
+		/** PlatformBulkPayoutFilterInputCriteria */
 		PlatformBulkPayoutFilterInputCriteria: {
 			timestampRange?: components["schemas"]["DateTimeRange"];
 			bulkPayoutId?: string;
@@ -12823,28 +14302,35 @@ export interface components {
 			type: "PLATFORM_BULK_PAYOUT_NOT_FOUND";
 			message?: string;
 		};
+		/** PlatformBulkPayoutPartnerSettlement */
 		PlatformBulkPayoutPartnerSettlement: {
 			bulkPayoutId: string;
 			partnerSettlement: components["schemas"]["PlatformPartnerSettlement"];
 			isSelected: boolean;
 		};
+		/** PlatformBulkPayoutPartnerSettlementsFilterInput */
 		PlatformBulkPayoutPartnerSettlementsFilterInput: {
 			partnerIds: string[];
 			/** 정산 상태 */
 			statuses: components["schemas"]["PlatformPartnerSettlementStatus"][];
 		};
+		/** PlatformBulkPayoutStats */
 		PlatformBulkPayoutStats: {
 			amount: components["schemas"]["PlatformPayoutStatusStats"];
 			count: components["schemas"]["PlatformPayoutStatusStats"];
 		};
-		/** @enum {string} */
+		/**
+		 * PlatformBulkPayoutStatus
+		 * @enum {string}
+		 */
 		PlatformBulkPayoutStatus:
-			| "CANCELLED"
-			| "COMPLETED"
-			| "ONGOING"
-			| "PREPARED"
 			| "PREPARING"
-			| "STOPPED";
+			| "PREPARED"
+			| "ONGOING"
+			| "CANCELLED"
+			| "STOPPED"
+			| "COMPLETED";
+		/** PlatformBulkPayoutStatusStats */
 		PlatformBulkPayoutStatusStats: {
 			/** Format: int64 */
 			preparing: number;
@@ -12867,23 +14353,24 @@ export interface components {
 		 */
 		PlatformBulkPayoutsSheetField:
 			| "BULK_PAYOUT_ID"
-			| "CREATED_AT"
+			| "NAME"
 			| "CREATOR_ID"
 			| "METHOD"
-			| "NAME"
-			| "PAYOUT_CANCELLED_AMOUNT"
-			| "PAYOUT_CANCELLED_COUNT"
-			| "PAYOUT_FAILED_AMOUNT"
-			| "PAYOUT_FAILED_COUNT"
+			| "STATUS"
+			| "TOTAL_PAYOUT_AMOUNT"
+			| "STATUS_UPDATED_AT"
+			| "CREATED_AT"
 			| "PAYOUT_PREPARED_AMOUNT"
 			| "PAYOUT_PREPARED_COUNT"
-			| "PAYOUT_STOPPED_AMOUNT"
-			| "PAYOUT_STOPPED_COUNT"
 			| "PAYOUT_SUCCEEDED_AMOUNT"
 			| "PAYOUT_SUCCEEDED_COUNT"
-			| "STATUS"
-			| "STATUS_UPDATED_AT"
-			| "TOTAL_PAYOUT_AMOUNT";
+			| "PAYOUT_FAILED_AMOUNT"
+			| "PAYOUT_FAILED_COUNT"
+			| "PAYOUT_STOPPED_AMOUNT"
+			| "PAYOUT_STOPPED_COUNT"
+			| "PAYOUT_CANCELLED_AMOUNT"
+			| "PAYOUT_CANCELLED_COUNT";
+		/** PlatformCancelOrderTransfersExistsError */
 		PlatformCancelOrderTransfersExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12915,6 +14402,7 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformCancellableAmountType: "SUPPLY_WITH_VAT" | "TAX_FREE";
+		/** PlatformCancellableDiscountAmountExceededError */
 		PlatformCancellableDiscountAmountExceededError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12928,6 +14416,7 @@ export interface components {
 			productId?: string;
 			message?: string;
 		};
+		/** PlatformCancellableProductQuantityExceededError */
 		PlatformCancellableProductQuantityExceededError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12939,6 +14428,7 @@ export interface components {
 			cancellableQuantity: number;
 			message?: string;
 		};
+		/** PlatformCancellationAndPaymentTypeMismatchedError */
 		PlatformCancellationAndPaymentTypeMismatchedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -12947,6 +14437,7 @@ export interface components {
 			type: "PLATFORM_CANCELLATION_AND_PAYMENT_TYPE_MISMATCHED";
 			message?: string;
 		};
+		/** PlatformCancellationNotFoundError */
 		PlatformCancellationNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13069,6 +14560,7 @@ export interface components {
 			 */
 			appliedAt: string;
 		};
+		/** PlatformContractAlreadyExistsError */
 		PlatformContractAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13124,6 +14616,7 @@ export interface components {
 			 *      */
 			name?: string;
 		};
+		/** PlatformContractNotFoundError */
 		PlatformContractNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13132,6 +14625,7 @@ export interface components {
 			type: "PLATFORM_CONTRACT_NOT_FOUND";
 			message?: string;
 		};
+		/** PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError */
 		PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13144,6 +14638,7 @@ export interface components {
 			settlementCurrency: components["schemas"]["Currency"];
 			message?: string;
 		};
+		/** PlatformContractScheduleAlreadyExistsError */
 		PlatformContractScheduleAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13152,6 +14647,7 @@ export interface components {
 			type: "PLATFORM_CONTRACT_SCHEDULE_ALREADY_EXISTS";
 			message?: string;
 		};
+		/** PlatformContractsNotFoundError */
 		PlatformContractsNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13175,6 +14671,7 @@ export interface components {
 			type: "PLATFORM_CURRENCY_NOT_SUPPORTED";
 			message?: string;
 		};
+		/** PlatformDiscountCancelExceededOrderCancelAmountError */
 		PlatformDiscountCancelExceededOrderCancelAmountError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13183,6 +14680,7 @@ export interface components {
 			type: "PLATFORM_DISCOUNT_CANCEL_EXCEEDED_ORDER_CANCEL_AMOUNT";
 			message?: string;
 		};
+		/** PlatformDiscountExceededOrderAmountError */
 		PlatformDiscountExceededOrderAmountError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13191,6 +14689,7 @@ export interface components {
 			type: "PLATFORM_DISCOUNT_EXCEEDED_ORDER_AMOUNT";
 			message?: string;
 		};
+		/** PlatformDiscountSharePoliciesNotFoundError */
 		PlatformDiscountSharePoliciesNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13230,6 +14729,7 @@ export interface components {
 			 */
 			appliedAt: string;
 		};
+		/** PlatformDiscountSharePolicyAlreadyExistsError */
 		PlatformDiscountSharePolicyAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13279,6 +14779,7 @@ export interface components {
 			/** 조회된 파트너 분담율 리스트 */
 			partnerShareRates: number[];
 		};
+		/** PlatformDiscountSharePolicyIdDuplicatedError */
 		PlatformDiscountSharePolicyIdDuplicatedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13289,6 +14790,7 @@ export interface components {
 			graphqlId: string;
 			message?: string;
 		};
+		/** PlatformDiscountSharePolicyNotFoundError */
 		PlatformDiscountSharePolicyNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13297,6 +14799,7 @@ export interface components {
 			type: "PLATFORM_DISCOUNT_SHARE_POLICY_NOT_FOUND";
 			message?: string;
 		};
+		/** PlatformDiscountSharePolicyScheduleAlreadyExistsError */
 		PlatformDiscountSharePolicyScheduleAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13449,6 +14952,7 @@ export interface components {
 			type: "PLATFORM_INSUFFICIENT_DATA_TO_CHANGE_PARTNER_TYPE";
 			message?: string;
 		};
+		/** PlatformInvalidSettlementFormulaError */
 		PlatformInvalidSettlementFormulaError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13492,12 +14996,15 @@ export interface components {
 			payoutGraphqlId?: string;
 			/** 테스트 모드 여부 */
 			isForTest: boolean;
+			/** 사용자 정의 속성 */
+			userDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 			/**
 			 * 정산 금액
 			 * Format: int64
 			 */
 			settlementAmount: number;
 		};
+		/** PlatformManualTransferSummary */
 		PlatformManualTransferSummary: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13514,6 +15021,10 @@ export interface components {
 			settlementDate: string;
 			settlementCurrency: components["schemas"]["Currency"];
 			isForTest: boolean;
+			/** 사용자 정의 속성 */
+			partnerUserDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
+			/** 사용자 정의 속성 */
+			userDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 			/** Format: int64 */
 			settlementAmount: number;
 		};
@@ -13584,6 +15095,8 @@ export interface components {
 			payoutGraphqlId?: string;
 			/** 테스트 모드 여부 */
 			isForTest: boolean;
+			/** 사용자 정의 속성 */
+			userDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 			/** 정산 금액 정보 */
 			amount: components["schemas"]["PlatformOrderSettlementAmount"];
 			/** 계약 */
@@ -13607,6 +15120,7 @@ export interface components {
 			/** 정산 파라미터 (실험기능) */
 			parameters: components["schemas"]["TransferParameters"];
 		};
+		/** PlatformOrderCancelTransferSummary */
 		PlatformOrderCancelTransferSummary: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13624,12 +15138,17 @@ export interface components {
 			settlementDate: string;
 			settlementCurrency: components["schemas"]["Currency"];
 			isForTest: boolean;
+			/** 사용자 정의 속성 */
+			partnerUserDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
+			/** 사용자 정의 속성 */
+			userDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 			amount: components["schemas"]["PlatformOrderSettlementAmount"];
 			payment: components["schemas"]["PlatformTransferSummaryPayment"];
 			/** @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
 			 *      */
 			settlementStartDate: string;
 		};
+		/** PlatformOrderDetailMismatchedError */
 		PlatformOrderDetailMismatchedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13745,6 +15264,8 @@ export interface components {
 			payoutGraphqlId?: string;
 			/** 테스트 모드 여부 */
 			isForTest: boolean;
+			/** 사용자 정의 속성 */
+			userDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 			/** 정산 금액 정보 */
 			amount: components["schemas"]["PlatformOrderSettlementAmount"];
 			/** 계약 */
@@ -13785,6 +15306,7 @@ export interface components {
 			 */
 			vat: number;
 		};
+		/** PlatformOrderTransferAlreadyCancelledError */
 		PlatformOrderTransferAlreadyCancelledError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13869,6 +15391,7 @@ export interface components {
 			/** 태그 */
 			tag?: string;
 		};
+		/** PlatformOrderTransferSummary */
 		PlatformOrderTransferSummary: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -13886,6 +15409,10 @@ export interface components {
 			settlementDate: string;
 			settlementCurrency: components["schemas"]["Currency"];
 			isForTest: boolean;
+			/** 사용자 정의 속성 */
+			partnerUserDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
+			/** 사용자 정의 속성 */
+			userDefinedProperties: components["schemas"]["PlatformUserDefinedPropertyKeyValue"][];
 			amount: components["schemas"]["PlatformOrderSettlementAmount"];
 			payment: components["schemas"]["PlatformTransferSummaryPayment"];
 			/** @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
@@ -13926,6 +15453,8 @@ export interface components {
 			 * Format: date-time
 			 */
 			appliedAt: string;
+			/** 사용자 정의 속성 */
+			userDefinedProperties: components["schemas"]["PlatformProperties"];
 		};
 		/**
 		 * 플랫폼 파트너 사업자 상태
@@ -13934,13 +15463,13 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformPartnerBusinessStatus:
-			| "CLOSED"
-			| "IN_BUSINESS"
-			| "NOT_FOUND"
 			| "NOT_VERIFIED"
-			| "SUSPENDED"
+			| "VERIFY_FAILED"
+			| "NOT_FOUND"
 			| "VERIFYING"
-			| "VERIFY_FAILED";
+			| "IN_BUSINESS"
+			| "CLOSED"
+			| "SUSPENDED";
 		/**
 		 * 파트너 계약 요약 정보
 		 * @description <p>파트너 계약 요약 정보</p>
@@ -14065,6 +15594,7 @@ export interface components {
 			/** 조회된 파트너 계약 요약 정보 리스트 */
 			contractSummary: components["schemas"]["PlatformPartnerContractSummary"][];
 		};
+		/** PlatformPartnerIdAlreadyExistsError */
 		PlatformPartnerIdAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14073,6 +15603,7 @@ export interface components {
 			type: "PLATFORM_PARTNER_ID_ALREADY_EXISTS";
 			message?: string;
 		};
+		/** PlatformPartnerIdsAlreadyExistError */
 		PlatformPartnerIdsAlreadyExistError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14083,6 +15614,7 @@ export interface components {
 			graphqlIds: string[];
 			message?: string;
 		};
+		/** PlatformPartnerIdsDuplicatedError */
 		PlatformPartnerIdsDuplicatedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14093,6 +15625,7 @@ export interface components {
 			graphqlIds: string[];
 			message?: string;
 		};
+		/** PlatformPartnerManualSettlement */
 		PlatformPartnerManualSettlement: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14124,6 +15657,7 @@ export interface components {
 			/** 테스트 모드 여부 */
 			isForTest: boolean;
 		};
+		/** PlatformPartnerNotFoundError */
 		PlatformPartnerNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14132,6 +15666,7 @@ export interface components {
 			type: "PLATFORM_PARTNER_NOT_FOUND";
 			message?: string;
 		};
+		/** PlatformPartnerOrderCancelSettlement */
 		PlatformPartnerOrderCancelSettlement: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14164,6 +15699,7 @@ export interface components {
 			/** 테스트 모드 여부 */
 			isForTest: boolean;
 		};
+		/** PlatformPartnerOrderSettlement */
 		PlatformPartnerOrderSettlement: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14196,6 +15732,7 @@ export interface components {
 			/** 테스트 모드 여부 */
 			isForTest: boolean;
 		};
+		/** PlatformPartnerScheduleAlreadyExistsError */
 		PlatformPartnerScheduleAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14204,6 +15741,7 @@ export interface components {
 			type: "PLATFORM_PARTNER_SCHEDULE_ALREADY_EXISTS";
 			message?: string;
 		};
+		/** PlatformPartnerSchedulesAlreadyExistError */
 		PlatformPartnerSchedulesAlreadyExistError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14214,6 +15752,7 @@ export interface components {
 			graphqlIds: string[];
 			message?: string;
 		};
+		/** PlatformPartnerSettlement */
 		PlatformPartnerSettlement:
 			| components["schemas"]["PlatformPartnerManualSettlement"]
 			| components["schemas"]["PlatformPartnerOrderCancelSettlement"]
@@ -14260,6 +15799,7 @@ export interface components {
 			/** 상태별 총 정산 금액 */
 			statusSettlementAmount: components["schemas"]["PlatformPartnerSettlementStatusStats"];
 		};
+		/** PlatformPartnerSettlementFilterInput */
 		PlatformPartnerSettlementFilterInput: {
 			settlementDates?: string[];
 			contractIds?: string[];
@@ -14273,6 +15813,7 @@ export interface components {
 			settlementTypes?: components["schemas"]["PlatformPartnerSettlementType"][];
 			keyword?: components["schemas"]["PlatformPartnerSettlementFilterKeywordInput"];
 		};
+		/** PlatformPartnerSettlementFilterKeywordInput */
 		PlatformPartnerSettlementFilterKeywordInput: {
 			partnerSettlementId?: string;
 			payoutId?: string;
@@ -14294,33 +15835,36 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformPartnerSettlementSheetField:
-			| "CONTRACT_ID"
-			| "CONTRACT_NAME"
-			| "MEMO"
-			| "PARTNER_ACCOUNT_BANK"
-			| "PARTNER_ACCOUNT_NUMBER"
+			| "PARTNER_SETTLEMENT_ID"
+			| "STATUS"
 			| "PARTNER_ID"
 			| "PARTNER_NAME"
-			| "PARTNER_SETTLEMENT_ID"
-			| "SETTLEMENT_ADDITIONAL_FEE_AMOUNT"
-			| "SETTLEMENT_ADDITIONAL_FEE_VAT_AMOUNT"
-			| "SETTLEMENT_AMOUNT"
-			| "SETTLEMENT_CURRENCY"
+			| "PARTNER_ACCOUNT_NUMBER"
+			| "PARTNER_ACCOUNT_BANK"
+			| "CONTRACT_ID"
+			| "CONTRACT_NAME"
+			| "SETTLEMENT_TYPE"
 			| "SETTLEMENT_DATE"
-			| "SETTLEMENT_DISCOUNT_AMOUNT"
-			| "SETTLEMENT_DISCOUNT_SHARE_AMOUNT"
+			| "SETTLEMENT_START_DATE_RANGE"
+			| "SETTLEMENT_CURRENCY"
+			| "SETTLEMENT_AMOUNT"
 			| "SETTLEMENT_ORDER_AMOUNT"
 			| "SETTLEMENT_PAYMENT_AMOUNT"
 			| "SETTLEMENT_PAYMENT_VAT_AMOUNT"
 			| "SETTLEMENT_PAYMENT_VAT_BURDEN_AMOUNT"
-			| "SETTLEMENT_PLATFORM_FEE_AMOUNT"
-			| "SETTLEMENT_PLATFORM_FEE_VAT_AMOUNT"
-			| "SETTLEMENT_START_DATE_RANGE"
 			| "SETTLEMENT_SUPPLY_AMOUNT"
 			| "SETTLEMENT_TAX_FREE_AMOUNT"
-			| "SETTLEMENT_TYPE"
-			| "STATUS"
-			| "TAXATION_TYPE";
+			| "SETTLEMENT_PLATFORM_FEE_AMOUNT"
+			| "SETTLEMENT_PLATFORM_FEE_VAT_AMOUNT"
+			| "SETTLEMENT_DISCOUNT_AMOUNT"
+			| "SETTLEMENT_DISCOUNT_SHARE_AMOUNT"
+			| "SETTLEMENT_ADDITIONAL_FEE_AMOUNT"
+			| "SETTLEMENT_ADDITIONAL_FEE_VAT_AMOUNT"
+			| "MEMO"
+			| "PARTNER_TYPE"
+			| "TAXATION_TYPE"
+			| "INCOME_TYPE"
+			| "TAXATION_TYPE_OR_INCOME_TYPE";
 		/**
 		 * 정산 상태
 		 * @description <p>정산 상태</p>
@@ -14328,11 +15872,12 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformPartnerSettlementStatus:
-			| "IN_PAYOUT"
-			| "PAID_OUT"
-			| "PAYOUT_FAILED"
 			| "PAYOUT_PREPARED"
-			| "PAYOUT_WITHHELD";
+			| "PAYOUT_WITHHELD"
+			| "PAYOUT_FAILED"
+			| "IN_PAYOUT"
+			| "PAID_OUT";
+		/** PlatformPartnerSettlementStatusStats */
 		PlatformPartnerSettlementStatusStats: {
 			/** Format: int64 */
 			payoutPrepared: number;
@@ -14358,7 +15903,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		PlatformPartnerStatus: "APPROVED" | "PENDING" | "REJECTED";
+		PlatformPartnerStatus: "PENDING" | "APPROVED" | "REJECTED";
 		/**
 		 * 플랫폼 파트너 과세 유형
 		 * @description <p>플랫폼 파트너 과세 유형</p>
@@ -14367,8 +15912,8 @@ export interface components {
 		 */
 		PlatformPartnerTaxationType:
 			| "NORMAL"
-			| "SIMPLE"
 			| "SIMPLE_TAX_INVOICE_ISSUER"
+			| "SIMPLE"
 			| "TAX_FREE";
 		/**
 		 * 파트너 유형별 추가 정보
@@ -14377,6 +15922,7 @@ export interface components {
 		 */
 		PlatformPartnerType:
 			| components["schemas"]["PlatformPartnerTypeBusiness"]
+			| components["schemas"]["PlatformPartnerTypeNonWhtPayer"]
 			| components["schemas"]["PlatformPartnerTypeWhtPayer"];
 		/**
 		 * 사업자 파트너 정보
@@ -14408,8 +15954,27 @@ export interface components {
 			businessClass?: string;
 		};
 		/**
-		 * 원천징수대상자 파트너 정보
-		 * @description <p>원천징수대상자 파트너 정보</p>
+		 * 원천징수 비대상자 파트너 정보
+		 * @description <p>원천징수 비대상자 파트너 정보</p>
+		 *     <p>비사업자 유형의 파트너 추가 정보 입니다.</p>
+		 *
+		 */
+		PlatformPartnerTypeNonWhtPayer: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "NON_WHT_PAYER";
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
+			birthdate?: string;
+		};
+		/**
+		 * 원천징수 대상자 파트너 정보
+		 * @description <p>원천징수 대상자 파트너 정보</p>
 		 *     <p>비사업자 유형의 파트너 추가 정보 입니다.</p>
 		 *
 		 */
@@ -14419,7 +15984,11 @@ export interface components {
 			 * @enum {string}
 			 */
 			type: "WHT_PAYER";
-			/** 생년월일 */
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
 			birthdate?: string;
 		};
 		/**
@@ -14429,7 +15998,7 @@ export interface components {
 		 *
 		 * @enum {string}
 		 */
-		PlatformPayer: "MERCHANT" | "PARTNER";
+		PlatformPayer: "PARTNER" | "MERCHANT";
 		/**
 		 * 결제 정보
 		 * @description <p>결제 정보</p>
@@ -14479,6 +16048,7 @@ export interface components {
 			 */
 			type: "CARD";
 		};
+		/** PlatformPaymentMethodCardInput */
 		PlatformPaymentMethodCardInput: Record<string, never>;
 		/**
 		 * 간편 결제
@@ -14519,6 +16089,7 @@ export interface components {
 			 */
 			type: "GIFT_CERTIFICATE";
 		};
+		/** PlatformPaymentMethodGiftCertificateInput */
 		PlatformPaymentMethodGiftCertificateInput: Record<string, never>;
 		/**
 		 * 결제 수단 입력 정보
@@ -14551,6 +16122,7 @@ export interface components {
 			 */
 			type: "MOBILE";
 		};
+		/** PlatformPaymentMethodMobileInput */
 		PlatformPaymentMethodMobileInput: Record<string, never>;
 		/**
 		 * 계좌이체
@@ -14564,6 +16136,7 @@ export interface components {
 			 */
 			type: "TRANSFER";
 		};
+		/** PlatformPaymentMethodTransferInput */
 		PlatformPaymentMethodTransferInput: Record<string, never>;
 		/**
 		 * 가상계좌
@@ -14577,7 +16150,9 @@ export interface components {
 			 */
 			type: "VIRTUAL_ACCOUNT";
 		};
+		/** PlatformPaymentMethodVirtualAccountInput */
 		PlatformPaymentMethodVirtualAccountInput: Record<string, never>;
+		/** PlatformPaymentNotFoundError */
 		PlatformPaymentNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14586,7 +16161,9 @@ export interface components {
 			type: "PLATFORM_PAYMENT_NOT_FOUND";
 			message?: string;
 		};
+		/** PlatformPayout */
 		PlatformPayout: {
+			/** 지급 고유 아이디 */
 			id: string;
 			graphqlId: string;
 			method: components["schemas"]["PlatformPayoutMethod"];
@@ -14599,16 +16176,24 @@ export interface components {
 			currency: components["schemas"]["Currency"];
 			/** Format: int64 */
 			amount: number;
+			/** Format: int64 */
+			settlementAmount: number;
+			/** Format: int64 */
+			incomeTaxAmount: number;
+			/** Format: int64 */
+			localIncomeTaxAmount: number;
 			withdrawalMemo?: string;
 			depositMemo?: string;
 			/** Format: date-time */
 			createdAt: string;
 		};
+		/** PlatformPayoutAccount */
 		PlatformPayoutAccount: {
 			bank: components["schemas"]["Bank"];
 			number: string;
 			holder: string;
 		};
+		/** PlatformPayoutFilterInput */
 		PlatformPayoutFilterInput: {
 			statuses?: components["schemas"]["PlatformPayoutStatus"][];
 			partnerIds?: string[];
@@ -14629,8 +16214,12 @@ export interface components {
 			payoutId?: string;
 			bulkPayoutId?: string;
 		};
-		/** @enum {string} */
-		PlatformPayoutMethod: "AGENCY" | "DIRECT";
+		/**
+		 * PlatformPayoutMethod
+		 * @enum {string}
+		 */
+		PlatformPayoutMethod: "DIRECT" | "AGENCY";
+		/** PlatformPayoutNotFoundError */
 		PlatformPayoutNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14639,14 +16228,18 @@ export interface components {
 			type: "PLATFORM_PAYOUT_NOT_FOUND";
 			message?: string;
 		};
-		/** @enum {string} */
+		/**
+		 * PlatformPayoutStatus
+		 * @enum {string}
+		 */
 		PlatformPayoutStatus:
-			| "CANCELLED"
-			| "FAILED"
 			| "PREPARED"
-			| "PROCESSING"
+			| "CANCELLED"
 			| "STOPPED"
-			| "SUCCEEDED";
+			| "PROCESSING"
+			| "SUCCEEDED"
+			| "FAILED";
+		/** PlatformPayoutStatusStats */
 		PlatformPayoutStatusStats: {
 			/** Format: int64 */
 			prepared: number;
@@ -14668,21 +16261,28 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformPayoutsSheetField:
-			| "ACCOUNT_BANK"
-			| "ACCOUNT_HOLDER"
-			| "ACCOUNT_NUMBER"
-			| "AMOUNT"
-			| "CREATED_AT"
-			| "CURRENCY"
-			| "DEPOSIT_MEMO"
-			| "MEMO"
-			| "METHOD"
-			| "PARTNER_ID"
-			| "PARTNER_NAME"
 			| "PAYOUT_ID"
+			| "METHOD"
 			| "STATUS"
 			| "STATUS_UPDATED_AT"
-			| "WITHDRAWAL_MEMO";
+			| "PARTNER_ID"
+			| "PARTNER_NAME"
+			| "ACCOUNT_BANK"
+			| "ACCOUNT_NUMBER"
+			| "ACCOUNT_HOLDER"
+			| "CURRENCY"
+			| "AMOUNT"
+			| "SETTLEMENT_AMOUNT"
+			| "INCOME_TAX_AMOUNT"
+			| "LOCAL_INCOME_TAX_AMOUNT"
+			| "WITHDRAWAL_MEMO"
+			| "DEPOSIT_MEMO"
+			| "MEMO"
+			| "CREATED_AT"
+			| "PARTNER_TYPE"
+			| "TAXATION_TYPE"
+			| "INCOME_TYPE"
+			| "TAXATION_TYPE_OR_INCOME_TYPE";
 		/**
 		 * 포트원 결제 정보
 		 * @description <p>포트원 결제 정보</p>
@@ -14719,6 +16319,7 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformPortOnePaymentCancelAmountType: "SUPPLY_WITH_VAT" | "TAX_FREE";
+		/** PlatformProductIdDuplicatedError */
 		PlatformProductIdDuplicatedError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14728,6 +16329,7 @@ export interface components {
 			id: string;
 			message?: string;
 		};
+		/** PlatformProductIdNotFoundError */
 		PlatformProductIdNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14737,13 +16339,19 @@ export interface components {
 			id: string;
 			message?: string;
 		};
+		/** PlatformProperties */
+		PlatformProperties: {
+			[key: string]:
+				| components["schemas"]["PlatformUserDefinedPropertyValue"]
+				| undefined;
+		};
 		/**
 		 * 금액에 대한 소수점 처리 방식
 		 * @description <p>금액에 대한 소수점 처리 방식</p>
 		 *
 		 * @enum {string}
 		 */
-		PlatformRoundType: "DOWN" | "OFF" | "UP";
+		PlatformRoundType: "OFF" | "DOWN" | "UP";
 		/**
 		 * 정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우
 		 * @description <p>정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우</p>
@@ -14790,9 +16398,9 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformSettlementCycleDatePolicy:
-			| "CALENDAR_DAY"
+			| "HOLIDAY_BEFORE"
 			| "HOLIDAY_AFTER"
-			| "HOLIDAY_BEFORE";
+			| "CALENDAR_DAY";
 		/**
 		 * 플랫폼 정산 주기 입력 정보
 		 * @description <p>플랫폼 정산 주기 입력 정보</p>
@@ -14833,6 +16441,7 @@ export interface components {
 			 */
 			type: "DAILY";
 		};
+		/** PlatformSettlementCycleMethodDailyInput */
 		PlatformSettlementCycleMethodDailyInput: Record<string, never>;
 		/**
 		 * 플랫폼 정산 주기 계산 방식 입력 정보
@@ -14864,6 +16473,7 @@ export interface components {
 			/** 월 및 일자 정보 */
 			dates: components["schemas"]["MonthDay"][];
 		};
+		/** PlatformSettlementCycleMethodManualDatesInput */
 		PlatformSettlementCycleMethodManualDatesInput: {
 			/** 월 및 일자 정보 */
 			dates: components["schemas"]["MonthDay"][];
@@ -14881,6 +16491,7 @@ export interface components {
 			type: "MONTHLY";
 			daysOfMonth: number[];
 		};
+		/** PlatformSettlementCycleMethodMonthlyInput */
 		PlatformSettlementCycleMethodMonthlyInput: {
 			daysOfMonth: number[];
 		};
@@ -14898,6 +16509,7 @@ export interface components {
 			/** 요일 */
 			daysOfWeek: components["schemas"]["DayOfWeek"][];
 		};
+		/** PlatformSettlementCycleMethodWeeklyInput */
 		PlatformSettlementCycleMethodWeeklyInput: {
 			/** 요일 */
 			daysOfWeek: components["schemas"]["DayOfWeek"][];
@@ -14910,9 +16522,9 @@ export interface components {
 		 */
 		PlatformSettlementCycleType:
 			| "DAILY"
-			| "MANUAL_DATES"
+			| "WEEKLY"
 			| "MONTHLY"
-			| "WEEKLY";
+			| "MANUAL_DATES";
 		/**
 		 * 플랫폼 내 발생하는 여러 수수료 및 할인 분담에 관한 계산식 정보
 		 * @description <p>플랫폼 내 발생하는 여러 수수료 및 할인 분담에 관한 계산식 정보</p>
@@ -14926,6 +16538,7 @@ export interface components {
 			/** 추가 수수료 계산식 */
 			additionalFee: string;
 		};
+		/** PlatformSettlementFormulaError */
 		PlatformSettlementFormulaError:
 			| components["schemas"]["PlatformSettlementFormulaInvalidFunction"]
 			| components["schemas"]["PlatformSettlementFormulaInvalidOperator"]
@@ -14934,6 +16547,7 @@ export interface components {
 			| components["schemas"]["PlatformSettlementFormulaUnexpectedFunctionArguments"]
 			| components["schemas"]["PlatformSettlementFormulaUnknownError"]
 			| components["schemas"]["PlatformSettlementFormulaUnsupportedVariable"];
+		/** PlatformSettlementFormulaInvalidFunction */
 		PlatformSettlementFormulaInvalidFunction: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14943,6 +16557,7 @@ export interface components {
 			name: string;
 			position: components["schemas"]["PlatformSettlementFormulaPosition"];
 		};
+		/** PlatformSettlementFormulaInvalidOperator */
 		PlatformSettlementFormulaInvalidOperator: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14952,6 +16567,7 @@ export interface components {
 			operator: string;
 			position: components["schemas"]["PlatformSettlementFormulaPosition"];
 		};
+		/** PlatformSettlementFormulaInvalidSyntax */
 		PlatformSettlementFormulaInvalidSyntax: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14961,6 +16577,7 @@ export interface components {
 			syntax: string;
 			position: components["schemas"]["PlatformSettlementFormulaPosition"];
 		};
+		/** PlatformSettlementFormulaInvalidVariable */
 		PlatformSettlementFormulaInvalidVariable: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14970,6 +16587,7 @@ export interface components {
 			name: string;
 			position: components["schemas"]["PlatformSettlementFormulaPosition"];
 		};
+		/** PlatformSettlementFormulaPosition */
 		PlatformSettlementFormulaPosition: {
 			/** Format: int32 */
 			startLine: number;
@@ -14980,6 +16598,7 @@ export interface components {
 			/** Format: int32 */
 			endIndex: number;
 		};
+		/** PlatformSettlementFormulaUnexpectedFunctionArguments */
 		PlatformSettlementFormulaUnexpectedFunctionArguments: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -14993,6 +16612,7 @@ export interface components {
 			currentCount: number;
 			position: components["schemas"]["PlatformSettlementFormulaPosition"];
 		};
+		/** PlatformSettlementFormulaUnknownError */
 		PlatformSettlementFormulaUnknownError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15000,6 +16620,7 @@ export interface components {
 			 */
 			type: "UNKNOWN_ERROR";
 		};
+		/** PlatformSettlementFormulaUnsupportedVariable */
 		PlatformSettlementFormulaUnsupportedVariable: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15058,6 +16679,8 @@ export interface components {
 			supportsMultipleOrderTransfersPerPartner: boolean;
 			/** 정산일이 정산시작일보다 작거나 같을 경우 공휴일 후 영업일로 정산일 다시 계산 여부 */
 			adjustSettlementDateAfterHolidayIfEarlier: boolean;
+			/** 지급 금액에서 원천징수세 차감 여부 */
+			subtractWhtInPayoutAmount: boolean;
 		};
 		/**
 		 * 정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우
@@ -15121,6 +16744,7 @@ export interface components {
 			| components["schemas"]["PlatformManualTransfer"]
 			| components["schemas"]["PlatformOrderCancelTransfer"]
 			| components["schemas"]["PlatformOrderTransfer"];
+		/** PlatformTransferAlreadyExistsError */
 		PlatformTransferAlreadyExistsError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15131,6 +16755,7 @@ export interface components {
 			transferGraphqlId: string;
 			message?: string;
 		};
+		/** PlatformTransferDashboard */
 		PlatformTransferDashboard: {
 			/** Format: int64 */
 			totalSettlementAmount: number;
@@ -15140,6 +16765,7 @@ export interface components {
 			totalOrderAmount: number;
 			settlementStartDateRange?: components["schemas"]["DateRange"];
 		};
+		/** PlatformTransferDiscountSharePolicyNotFoundError */
 		PlatformTransferDiscountSharePolicyNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15250,6 +16876,7 @@ export interface components {
 			 *      */
 			partnerMemo?: string;
 		};
+		/** PlatformTransferFilterOptions */
 		PlatformTransferFilterOptions: {
 			partnerTags: string[];
 			contractIds: string[];
@@ -15258,6 +16885,7 @@ export interface components {
 			/** 채널 */
 			paymentChannels: components["schemas"]["PlatformPaymentChannel"][];
 		};
+		/** PlatformTransferNonDeletableStatusError */
 		PlatformTransferNonDeletableStatusError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15266,6 +16894,7 @@ export interface components {
 			type: "PLATFORM_TRANSFER_NON_DELETABLE_STATUS";
 			message?: string;
 		};
+		/** PlatformTransferNotFoundError */
 		PlatformTransferNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15281,29 +16910,33 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformTransferSheetField:
-			| "ORDER_NAME"
+			| "STATUS"
+			| "TRANSFER_ID"
 			| "PARTNER_NAME"
-			| "PAYMENT_ID"
-			| "PAYMENT_METHOD"
-			| "SETTLEMENT_ADDITIONAL_FEE_AMOUNT"
-			| "SETTLEMENT_ADDITIONAL_FEE_VAT_AMOUNT"
-			| "SETTLEMENT_AMOUNT"
-			| "SETTLEMENT_CURRENCY"
 			| "SETTLEMENT_DATE"
-			| "SETTLEMENT_DISCOUNT_AMOUNT"
-			| "SETTLEMENT_DISCOUNT_SHARE_AMOUNT"
+			| "SETTLEMENT_START_DATE"
+			| "TYPE"
+			| "PAYMENT_ID"
+			| "ORDER_NAME"
+			| "PAYMENT_METHOD"
+			| "SETTLEMENT_AMOUNT"
 			| "SETTLEMENT_ORDER_AMOUNT"
 			| "SETTLEMENT_PAYMENT_AMOUNT"
 			| "SETTLEMENT_PAYMENT_VAT_AMOUNT"
 			| "SETTLEMENT_PAYMENT_VAT_BURDEN_AMOUNT"
-			| "SETTLEMENT_PLATFORM_FEE_AMOUNT"
-			| "SETTLEMENT_PLATFORM_FEE_VAT_AMOUNT"
-			| "SETTLEMENT_START_DATE"
 			| "SETTLEMENT_SUPPLY_AMOUNT"
 			| "SETTLEMENT_TAX_FREE_AMOUNT"
-			| "STATUS"
-			| "TRANSFER_ID"
-			| "TYPE";
+			| "SETTLEMENT_PLATFORM_FEE_AMOUNT"
+			| "SETTLEMENT_PLATFORM_FEE_VAT_AMOUNT"
+			| "SETTLEMENT_DISCOUNT_AMOUNT"
+			| "SETTLEMENT_DISCOUNT_SHARE_AMOUNT"
+			| "SETTLEMENT_ADDITIONAL_FEE_AMOUNT"
+			| "SETTLEMENT_ADDITIONAL_FEE_VAT_AMOUNT"
+			| "SETTLEMENT_CURRENCY"
+			| "PARTNER_TYPE"
+			| "TAXATION_TYPE"
+			| "INCOME_TYPE"
+			| "TAXATION_TYPE_OR_INCOME_TYPE";
 		/**
 		 * 정산 상태
 		 * @description <p>정산 상태</p>
@@ -15311,15 +16944,17 @@ export interface components {
 		 * @enum {string}
 		 */
 		PlatformTransferStatus:
-			| "IN_PAYOUT"
-			| "IN_PROCESS"
-			| "PAID_OUT"
 			| "SCHEDULED"
-			| "SETTLED";
+			| "IN_PROCESS"
+			| "SETTLED"
+			| "IN_PAYOUT"
+			| "PAID_OUT";
+		/** PlatformTransferSummary */
 		PlatformTransferSummary:
 			| components["schemas"]["PlatformManualTransferSummary"]
 			| components["schemas"]["PlatformOrderCancelTransferSummary"]
 			| components["schemas"]["PlatformOrderTransferSummary"];
+		/** PlatformTransferSummaryExternalPayment */
 		PlatformTransferSummaryExternalPayment: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15331,14 +16966,29 @@ export interface components {
 			currency: components["schemas"]["Currency"];
 			methodType?: components["schemas"]["PaymentMethodType"];
 		};
+		/** PlatformTransferSummaryPartner */
 		PlatformTransferSummaryPartner: {
 			id: string;
 			graphqlId: string;
 			name: string;
+			type: components["schemas"]["PlatformTransferSummaryPartnerType"];
+			taxationType?: components["schemas"]["PlatformPartnerTaxationType"];
 		};
+		/**
+		 * 파트너 유형
+		 * @description <p>파트너 유형</p>
+		 *
+		 * @enum {string}
+		 */
+		PlatformTransferSummaryPartnerType:
+			| "BUSINESS"
+			| "WHT_PAYER"
+			| "NON_WHT_PAYER";
+		/** PlatformTransferSummaryPayment */
 		PlatformTransferSummaryPayment:
 			| components["schemas"]["PlatformTransferSummaryExternalPayment"]
 			| components["schemas"]["PlatformTransferSummaryPortOnePayment"];
+		/** PlatformTransferSummaryPortOnePayment */
 		PlatformTransferSummaryPortOnePayment: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
@@ -15350,24 +17000,38 @@ export interface components {
 			currency: components["schemas"]["Currency"];
 			methodType?: components["schemas"]["PaymentMethodType"];
 		};
-		/** @enum {string} */
-		PlatformTransferType: "MANUAL" | "ORDER" | "ORDER_CANCEL";
 		/**
-		 * 사용할 수 없는 정산일이 요청된 경우
-		 * @description <p>사용할 수 없는 정산일이 요청된 경우</p>
-		 *     <p>요청한 정산일에 이체되지 않은 주문 정산 건이 없을 때 발생합니다.</p>
+		 * PlatformTransferType
+		 * @enum {string}
+		 */
+		PlatformTransferType: "ORDER" | "ORDER_CANCEL" | "MANUAL";
+		/**
+		 * 사용자 정의 속성
+		 * @description <p>사용자 정의 속성</p>
 		 *
 		 */
-		PlatformUnavailableSettlementDateError: {
+		PlatformUserDefinedPropertyKeyValue: {
+			/** 사용자 정의 속성 키 */
+			key: string;
+			/** 사용자 정의 속성 값 */
+			value: components["schemas"]["PlatformUserDefinedPropertyValue"];
+		};
+		/**
+		 * 사용자 정의 속성이 존재 하지 않는 경우
+		 * @description <p>사용자 정의 속성이 존재 하지 않는 경우</p>
+		 *
+		 */
+		PlatformUserDefinedPropertyNotFoundError: {
 			/**
 			 * @description discriminator enum property added by openapi-typescript
 			 * @enum {string}
 			 */
-			type: "PLATFORM_UNAVAILABLE_SETTLEMENT_DATE";
-			/** @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
-			 *      */
-			settlementDate: string;
+			type: "PLATFORM_USER_DEFINED_PROPERTY_NOT_FOUND";
 			message?: string;
+		};
+		/** PlatformUserDefinedPropertyValue */
+		PlatformUserDefinedPropertyValue: {
+			string: string;
 		};
 		/**
 		 * 포트원 버전
@@ -15401,6 +17065,7 @@ export interface components {
 			/** 통화 단위 */
 			currency?: components["schemas"]["Currency"];
 		};
+		/** PreRegisterPaymentError */
 		PreRegisterPaymentError:
 			| components["schemas"]["AlreadyPaidError"]
 			| components["schemas"]["ForbiddenError"]
@@ -15412,6 +17077,98 @@ export interface components {
 		 *
 		 */
 		PreRegisterPaymentResponse: Record<string, never>;
+		/**
+		 * 프로모션
+		 * @description <p>프로모션</p>
+		 *
+		 */
+		Promotion: components["schemas"]["CardPromotion"];
+		/** PromotionAmountDiscount */
+		PromotionAmountDiscount: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "AMOUNT";
+			/** Format: int64 */
+			amount: number;
+		};
+		/**
+		 * 프로모션 적용 가능한 카드사
+		 * @description <p>프로모션 적용 가능한 카드사</p>
+		 *
+		 * @enum {string}
+		 */
+		PromotionCardCompany:
+			| "WOORI_CARD"
+			| "BC_CARD"
+			| "SAMSUNG_CARD"
+			| "SHINHAN_CARD"
+			| "HYUNDAI_CARD"
+			| "LOTTE_CARD"
+			| "NH_CARD"
+			| "HANA_CARD"
+			| "KOOKMIN_CARD";
+		/** PromotionDiscount */
+		PromotionDiscount:
+			| components["schemas"]["PromotionAmountDiscount"]
+			| components["schemas"]["PromotionPercentDiscount"];
+		/**
+		 * 프로모션이 존재하지 않는 경우
+		 * @description <p>프로모션이 존재하지 않는 경우</p>
+		 *
+		 */
+		PromotionNotFoundError: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "PROMOTION_NOT_FOUND_ERROR";
+			message?: string;
+		};
+		/**
+		 * 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
+		 * @description <p>결제수단이 프로모션에 지정된 것과 일치하지 않는 경우</p>
+		 *
+		 */
+		PromotionPayMethodDoesNotMatchError: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "PROMOTION_PAY_METHOD_DOES_NOT_MATCH";
+			message?: string;
+		};
+		/** PromotionPercentDiscount */
+		PromotionPercentDiscount: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "PERCENT";
+			/** Format: int32 */
+			percent: number;
+		};
+		/**
+		 * PromotionStatus
+		 * @enum {string}
+		 */
+		PromotionStatus:
+			| "SCHEDULED"
+			| "IN_PROGRESS"
+			| "PAUSED"
+			| "BUDGET_EXHAUSTED"
+			| "TERMINATED"
+			| "COMPLETED";
+		/**
+		 * PromotionTimeRangeField
+		 * @enum {string}
+		 */
+		PromotionTimeRangeField: "CREATED_AT" | "START_AT";
+		/** PromotionsExcelDownloadError */
+		PromotionsExcelDownloadError:
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 준비 상태의 본인인증 내역
 		 * @description <p>준비 상태의 본인인증 내역</p>
@@ -15537,6 +17294,266 @@ export interface components {
 			/** 국가 코드 */
 			country?: components["schemas"]["Country"];
 		};
+		/**
+		 * 거래 대사 날짜 범위 조회 필드
+		 * @description <p>거래 대사 날짜 범위 조회 필드</p>
+		 *     <p>필드 중 하나만 적용됩니다.</p>
+		 *
+		 */
+		ReconciliationDateConditionInput: {
+			/** 정산일 범위 */
+			settlementDateRange?: components["schemas"]["DateRange"];
+			/** 결제일 범위 */
+			transactionDateRange?: components["schemas"]["DateRange"];
+		};
+		/** ReconciliationEasyPayMethod */
+		ReconciliationEasyPayMethod:
+			| components["schemas"]["ReconciliationPaymentMethodCard"]
+			| components["schemas"]["ReconciliationPaymentMethodCharge"]
+			| components["schemas"]["ReconciliationPaymentMethodEtc"]
+			| components["schemas"]["ReconciliationPaymentMethodMobile"]
+			| components["schemas"]["ReconciliationPaymentMethodTransfer"]
+			| components["schemas"]["ReconciliationPaymentMethodVirtualAccount"];
+		/**
+		 * 대사용 간편 결제 PG사
+		 * @description <p>대사용 간편 결제 PG사</p>
+		 *
+		 * @enum {string}
+		 */
+		ReconciliationEasyPayProvider:
+			| "PAYCO"
+			| "SAMSUNGPAY"
+			| "SSGPAY"
+			| "KAKAOPAY"
+			| "NAVERPAY"
+			| "CHAI"
+			| "LPAY"
+			| "KPAY"
+			| "TOSSPAY"
+			| "TOSS_BRANDPAY"
+			| "LGPAY"
+			| "APPLEPAY"
+			| "PINPAY"
+			| "SKPAY"
+			| "WECHATPAY"
+			| "PAYPAL"
+			| "ALIPAY"
+			| "KB_APP"
+			| "TMONEYPAY";
+		/** ReconciliationPaymentMethod */
+		ReconciliationPaymentMethod:
+			| components["schemas"]["ReconciliationPaymentMethodArs"]
+			| components["schemas"]["ReconciliationPaymentMethodCard"]
+			| components["schemas"]["ReconciliationPaymentMethodCharge"]
+			| components["schemas"]["ReconciliationPaymentMethodEasyPay"]
+			| components["schemas"]["ReconciliationPaymentMethodEtc"]
+			| components["schemas"]["ReconciliationPaymentMethodGiftCertificate"]
+			| components["schemas"]["ReconciliationPaymentMethodMobile"]
+			| components["schemas"]["ReconciliationPaymentMethodTransfer"]
+			| components["schemas"]["ReconciliationPaymentMethodVirtualAccount"];
+		/**
+		 * ARS 결제
+		 * @description <p>ARS 결제</p>
+		 *
+		 */
+		ReconciliationPaymentMethodArs: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "ARS";
+		};
+		/**
+		 * 카드 결제
+		 * @description <p>카드 결제</p>
+		 *
+		 */
+		ReconciliationPaymentMethodCard: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "CARD";
+			/** 카드 발급사 */
+			issuer?: components["schemas"]["CardCompany"];
+			/** 카드 매입사 */
+			acquirer?: components["schemas"]["CardCompany"];
+			/** 카드 승인 번호 */
+			approvalNumber?: string;
+			/**
+			 * 카드 할부 개월 수
+			 * Format: int32
+			 */
+			installmentMonth?: number;
+		};
+		/**
+		 * 간편결제 충전
+		 * @description <p>간편결제 충전</p>
+		 *
+		 */
+		ReconciliationPaymentMethodCharge: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "CHARGE";
+		};
+		/**
+		 * 간편 결제
+		 * @description <p>간편 결제</p>
+		 *
+		 */
+		ReconciliationPaymentMethodEasyPay: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "EASY_PAY";
+			/** 간편 결제 PG사 */
+			provider?: components["schemas"]["ReconciliationEasyPayProvider"];
+			/** 간편 결제 결제 수단 */
+			method?: components["schemas"]["ReconciliationEasyPayMethod"];
+		};
+		/**
+		 * 기타 결제
+		 * @description <p>기타 결제</p>
+		 *
+		 */
+		ReconciliationPaymentMethodEtc: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "ETC";
+			/** 기타 결제 이름 */
+			name: string;
+		};
+		/**
+		 * 상품권 결제
+		 * @description <p>상품권 결제</p>
+		 *
+		 */
+		ReconciliationPaymentMethodGiftCertificate: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "GIFT_CERTIFICATE";
+			/** 상품권 승인 번호 */
+			approvalNumber?: string;
+			/** 상품권 종류 */
+			giftCertificateType?: components["schemas"]["GiftCertificateType"];
+		};
+		/**
+		 * 모바일 결제
+		 * @description <p>모바일 결제</p>
+		 *
+		 */
+		ReconciliationPaymentMethodMobile: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "MOBILE";
+			/** 통신사 */
+			carrier?: components["schemas"]["Carrier"];
+		};
+		/**
+		 * 계좌이체
+		 * @description <p>계좌이체</p>
+		 *
+		 */
+		ReconciliationPaymentMethodTransfer: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "TRANSFER";
+			/** 계좌 이체 은행 */
+			bank?: components["schemas"]["Bank"];
+			/** 계좌 이체 승인 번호 */
+			approvalNumber?: string;
+		};
+		/**
+		 * 대사용 결제수단 목록
+		 * @description <p>대사용 결제수단 목록</p>
+		 *
+		 * @enum {string}
+		 */
+		ReconciliationPaymentMethodType:
+			| "CARD"
+			| "CHARGE"
+			| "TRANSFER"
+			| "ARS"
+			| "GIFT_CERTIFICATE"
+			| "MOBILE"
+			| "VIRTUAL_ACCOUNT"
+			| "ETC"
+			| "EASY_PAY_ETC"
+			| "EASY_PAY_PAYCO"
+			| "EASY_PAY_SAMSUNGPAY"
+			| "EASY_PAY_SSGPAY"
+			| "EASY_PAY_KAKAOPAY"
+			| "EASY_PAY_NAVERPAY"
+			| "EASY_PAY_CHAI"
+			| "EASY_PAY_LPAY"
+			| "EASY_PAY_KPAY"
+			| "EASY_PAY_TOSSPAY"
+			| "EASY_PAY_LGPAY"
+			| "EASY_PAY_APPLEPAY"
+			| "EASY_PAY_PINPAY"
+			| "EASY_PAY_SKPAY"
+			| "EASY_PAY_WECHATPAY"
+			| "EASY_PAY_PAYPAL"
+			| "EASY_PAY_ALIPAY"
+			| "EASY_PAY_TOSS_BRANDPAY"
+			| "EASY_PAY_KB_APP"
+			| "EASY_PAY_TMONEYPAY";
+		/**
+		 * 가상계좌 결제
+		 * @description <p>가상계좌 결제</p>
+		 *
+		 */
+		ReconciliationPaymentMethodVirtualAccount: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "VIRTUAL_ACCOUNT";
+			/** 가상계좌  은행 */
+			bank?: components["schemas"]["Bank"];
+			/** 가상계좌 은행 */
+			approvalNumber?: string;
+		};
+		/**
+		 * ReconciliationPgProvider
+		 * @enum {string}
+		 */
+		ReconciliationPgProvider:
+			| "KAKAOPAY"
+			| "NICEPAY"
+			| "NAVERPAY"
+			| "UPLUS"
+			| "TOSSPAYMENTS"
+			| "TOSSPAY"
+			| "PAYCO"
+			| "KCP"
+			| "DANAL"
+			| "EXIMBAY"
+			| "INICIS"
+			| "HECTO";
+		/**
+		 * 대사용 PG사 가맹점 식별자
+		 * @description <p>대사용 PG사 가맹점 식별자</p>
+		 *
+		 */
+		ReconciliationPgSpecifier: {
+			/** PG사 가맹점 식별 아이디 */
+			pgMerchantId: string;
+			/** PG사 */
+			pgProvider: components["schemas"]["ReconciliationPgProvider"];
+		};
+		/** RecoverPlatformAdditionalFeePolicyError */
 		RecoverPlatformAdditionalFeePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -15552,6 +17569,7 @@ export interface components {
 			/** 복원된 추가 수수료 정책 */
 			additionalFeePolicy: components["schemas"]["PlatformAdditionalFeePolicy"];
 		};
+		/** RecoverPlatformContractError */
 		RecoverPlatformContractError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -15567,6 +17585,7 @@ export interface components {
 			/** 복원된 계약 */
 			contract: components["schemas"]["PlatformContract"];
 		};
+		/** RecoverPlatformDiscountSharePolicyError */
 		RecoverPlatformDiscountSharePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -15582,6 +17601,7 @@ export interface components {
 			/** 복원된 할인 분담 */
 			discountSharePolicy: components["schemas"]["PlatformDiscountSharePolicy"];
 		};
+		/** RecoverPlatformPartnerError */
 		RecoverPlatformPartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -15606,6 +17626,7 @@ export interface components {
 			/** 리프레시 토큰 */
 			refreshToken: string;
 		};
+		/** RefreshTokenError */
 		RefreshTokenError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
@@ -15647,6 +17668,7 @@ export interface components {
 			/** 메모 */
 			memo?: string;
 		};
+		/** RefuseB2bTaxInvoiceRequestError */
 		RefuseB2bTaxInvoiceRequestError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -15666,6 +17688,7 @@ export interface components {
 			/** 담당자 정보 */
 			contact: components["schemas"]["B2bCompanyContactInput"];
 		};
+		/** RegisterB2bMemberCompanyError */
 		RegisterB2bMemberCompanyError:
 			| components["schemas"]["B2bCompanyAlreadyRegisteredError"]
 			| components["schemas"]["B2bExternalServiceError"]
@@ -15755,6 +17778,7 @@ export interface components {
 			/** 통화 */
 			currency: components["schemas"]["Currency"];
 		};
+		/** RegisterStoreReceiptError */
 		RegisterStoreReceiptError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -15832,6 +17856,7 @@ export interface components {
 			/** 파트너 메모. 값이 명시되지 않은 경우 업데이트하지 않습니다. */
 			memo?: string;
 		};
+		/** RejectPlatformPartnerError */
 		RejectPlatformPartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -15875,6 +17900,19 @@ export interface components {
 			appliedAt?: string;
 		};
 		/**
+		 * 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
+		 * @description <p>부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우</p>
+		 *
+		 */
+		RemainedAmountLessThanPromotionMinPaymentAmountError: {
+			/**
+			 * @description discriminator enum property added by openapi-typescript
+			 * @enum {string}
+			 */
+			type: "REMAINED_AMOUNT_LESS_THAN_PROMOTION_MIN_PAYMENT_AMOUNT";
+			message?: string;
+		};
+		/**
 		 * 세금계산서 임시 저장 정보
 		 * @description <p>세금계산서 임시 저장 정보</p>
 		 *
@@ -15883,6 +17921,7 @@ export interface components {
 			/** 세금계산서 생성 요청 정보 */
 			taxInvoice: components["schemas"]["B2bTaxInvoiceInput"];
 		};
+		/** RequestB2bTaxInvoiceRegisterError */
 		RequestB2bTaxInvoiceRegisterError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -15909,6 +17948,7 @@ export interface components {
 			/** 메모 */
 			memo?: string;
 		};
+		/** RequestB2bTaxInvoiceReverseIssuanceError */
 		RequestB2bTaxInvoiceReverseIssuanceError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -15975,23 +18015,27 @@ export interface components {
 			 */
 			requestedAt: string;
 		};
+		/** RescheduleAdditionalFeePolicyError */
 		RescheduleAdditionalFeePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformAdditionalFeePolicyNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** RescheduleContractError */
 		RescheduleContractError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformContractNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** RescheduleDiscountSharePolicyError */
 		RescheduleDiscountSharePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformDiscountSharePolicyNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** ReschedulePartnerError */
 		ReschedulePartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -16091,6 +18135,7 @@ export interface components {
 			/** 예약된 파트너 정보 */
 			scheduledPartner: components["schemas"]["PlatformPartner"];
 		};
+		/** ResendIdentityVerificationError */
 		ResendIdentityVerificationError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["IdentityVerificationAlreadyVerifiedError"]
@@ -16105,8 +18150,11 @@ export interface components {
 		 *
 		 */
 		ResendIdentityVerificationResponse: Record<string, never>;
-		/** @description <p>웹훅 재발송을 위한 입력 정보</p>
-		 *      */
+		/**
+		 * ResendWebhookBody
+		 * @description <p>웹훅 재발송을 위한 입력 정보</p>
+		 *
+		 */
 		ResendWebhookBody: {
 			/**
 			 * 상점 아이디
@@ -16121,6 +18169,7 @@ export interface components {
 			 */
 			webhookId?: string;
 		};
+		/** ResendWebhookError */
 		ResendWebhookError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -16135,29 +18184,6 @@ export interface components {
 		ResendWebhookResponse: {
 			/** 재발송 웹훅 정보 */
 			webhook: components["schemas"]["PaymentWebhook"];
-		};
-		RevokePaymentScheduleError:
-			| components["schemas"]["BillingKeyAlreadyDeletedError"]
-			| components["schemas"]["BillingKeyNotFoundError"]
-			| components["schemas"]["ForbiddenError"]
-			| components["schemas"]["InvalidRequestError"]
-			| components["schemas"]["PaymentScheduleAlreadyProcessedError"]
-			| components["schemas"]["PaymentScheduleAlreadyRevokedError"]
-			| components["schemas"]["PaymentScheduleNotFoundError"]
-			| components["schemas"]["UnauthorizedError"];
-		/**
-		 * 결제 예약 건 취소 성공 응답
-		 * @description <p>결제 예약 건 취소 성공 응답</p>
-		 *
-		 */
-		RevokePaymentScheduleResponse: {
-			/** 취소 완료된 결제 예약 건 아이디 목록 */
-			revokedScheduleIds: string[];
-			/**
-			 * 결제 예약 건 취소 완료 시점
-			 * Format: date-time
-			 */
-			revokedAt?: string;
 		};
 		/**
 		 * 결제 예약 건 취소 요청 입력 정보
@@ -16180,6 +18206,30 @@ export interface components {
 			billingKey?: string;
 			/** 결제 예약 건 아이디 목록 */
 			scheduleIds?: string[];
+		};
+		/** RevokePaymentSchedulesError */
+		RevokePaymentSchedulesError:
+			| components["schemas"]["BillingKeyAlreadyDeletedError"]
+			| components["schemas"]["BillingKeyNotFoundError"]
+			| components["schemas"]["ForbiddenError"]
+			| components["schemas"]["InvalidRequestError"]
+			| components["schemas"]["PaymentScheduleAlreadyProcessedError"]
+			| components["schemas"]["PaymentScheduleAlreadyRevokedError"]
+			| components["schemas"]["PaymentScheduleNotFoundError"]
+			| components["schemas"]["UnauthorizedError"];
+		/**
+		 * 결제 예약 건 취소 성공 응답
+		 * @description <p>결제 예약 건 취소 성공 응답</p>
+		 *
+		 */
+		RevokePaymentSchedulesResponse: {
+			/** 취소 완료된 결제 예약 건 아이디 목록 */
+			revokedScheduleIds: string[];
+			/**
+			 * 결제 예약 건 취소 완료 시점
+			 * Format: date-time
+			 */
+			revokedAt?: string;
 		};
 		/**
 		 * 결제 예약 취소 상태
@@ -16254,6 +18304,7 @@ export interface components {
 			 */
 			revokedAt: string;
 		};
+		/** ScheduleAdditionalFeePolicyError */
 		ScheduleAdditionalFeePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -16262,6 +18313,7 @@ export interface components {
 			| components["schemas"]["PlatformArchivedAdditionalFeePolicyError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** ScheduleContractError */
 		ScheduleContractError:
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["PlatformArchivedContractError"]
@@ -16269,6 +18321,7 @@ export interface components {
 			| components["schemas"]["PlatformContractScheduleAlreadyExistsError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** ScheduleDiscountSharePolicyError */
 		ScheduleDiscountSharePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -16276,6 +18329,7 @@ export interface components {
 			| components["schemas"]["PlatformDiscountSharePolicyScheduleAlreadyExistsError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** SchedulePartnerError */
 		SchedulePartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -16288,6 +18342,7 @@ export interface components {
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerNotFoundError"]
 			| components["schemas"]["PlatformPartnerScheduleAlreadyExistsError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 추가 수수료 정책 업데이트 예약을 위한 입력 정보
@@ -16381,12 +18436,14 @@ export interface components {
 			/** 예약된 파트너 정보 */
 			scheduledPartner: components["schemas"]["PlatformPartner"];
 		};
+		/** SchedulePlatformPartnersBody */
 		SchedulePlatformPartnersBody: {
 			filter?: components["schemas"]["PlatformPartnerFilterInput"];
 			update: components["schemas"]["SchedulePlatformPartnersBodyUpdate"];
 			/** Format: date-time */
 			appliedAt: string;
 		};
+		/** SchedulePlatformPartnersBodyUpdate */
 		SchedulePlatformPartnersBodyUpdate: {
 			name?: string;
 			contact?: components["schemas"]["SchedulePlatformPartnersBodyUpdateContact"];
@@ -16395,6 +18452,7 @@ export interface components {
 			defaultContractId?: string;
 			memo?: string;
 			tags?: string[];
+			userDefinedProperties?: components["schemas"]["PlatformProperties"];
 		};
 		/**
 		 * 파트너 계좌 업데이트를 위한 입력 정보
@@ -16436,9 +18494,12 @@ export interface components {
 		SchedulePlatformPartnersBodyUpdateType: {
 			/** 사업자 추가 정보 */
 			business?: components["schemas"]["SchedulePlatformPartnersBodyUpdateTypeBusiness"];
-			/** 원천징수대상자 추가 정보 */
+			/** 원천징수 대상자 추가 정보 */
 			whtPayer?: components["schemas"]["SchedulePlatformPartnersBodyUpdateTypeWhtPayer"];
+			/** 원천징수 비대상자 추가 정보 */
+			nonWhtPayer?: components["schemas"]["SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer"];
 		};
+		/** SchedulePlatformPartnersBodyUpdateTypeBusiness */
 		SchedulePlatformPartnersBodyUpdateTypeBusiness: {
 			/** 상호명 */
 			companyName?: string;
@@ -16455,10 +18516,25 @@ export interface components {
 			/** 업종 */
 			businessClass?: string;
 		};
-		SchedulePlatformPartnersBodyUpdateTypeWhtPayer: {
-			/** 생년월일 */
+		/** SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer */
+		SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer: {
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
 			birthdate?: string;
 		};
+		/** SchedulePlatformPartnersBodyUpdateTypeWhtPayer */
+		SchedulePlatformPartnersBodyUpdateTypeWhtPayer: {
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
+			birthdate?: string;
+		};
+		/** SchedulePlatformPartnersError */
 		SchedulePlatformPartnersError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -16466,7 +18542,9 @@ export interface components {
 			| components["schemas"]["PlatformContractNotFoundError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerSchedulesAlreadyExistError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** SchedulePlatformPartnersResponse */
 		SchedulePlatformPartnersResponse: Record<string, never>;
 		/**
 		 * 결제 예약 완료 상태
@@ -16616,6 +18694,7 @@ export interface components {
 			 */
 			ipAddress: string;
 		};
+		/** SendIdentityVerificationError */
 		SendIdentityVerificationError:
 			| components["schemas"]["ChannelNotFoundError"]
 			| components["schemas"]["ForbiddenError"]
@@ -16675,12 +18754,42 @@ export interface components {
 			country?: components["schemas"]["Country"];
 		};
 		/**
+		 * 정산 정보
+		 * @description <p>정산 정보</p>
+		 *
+		 */
+		Settlement: {
+			/**
+			 * PG 수수료 요금
+			 * Format: int64
+			 */
+			feeAmount: number;
+			/**
+			 * PG 수수료 부가세
+			 * Format: int64
+			 */
+			feeVatAmount: number;
+			/**
+			 * 정산 금액
+			 * Format: int64
+			 */
+			settlementAmount: number;
+			/** 정산 통화 */
+			settlementCurrency: components["schemas"]["Currency"];
+			/**
+			 * 정산일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
+			settlementDate: string;
+		};
+		/**
 		 * 정렬 방식
 		 * @description <p>정렬 방식</p>
 		 *
 		 * @enum {string}
 		 */
-		SortOrder: "ASC" | "DESC";
+		SortOrder: "DESC" | "ASC";
 		/**
 		 * 결제 시작 상태
 		 * @description <p>결제 시작 상태</p>
@@ -16908,6 +19017,7 @@ export interface components {
 			type: "SUM_OF_PARTS_EXCEEDS_TOTAL_AMOUNT";
 			message?: string;
 		};
+		/** TransferParameters */
 		TransferParameters: {
 			[key: string]:
 				| components["schemas"]["PlatformSettlementParameterValue"]
@@ -16958,6 +19068,7 @@ export interface components {
 			/** 담당자 이메일 */
 			email?: string;
 		};
+		/** UpdateB2bMemberCompanyContactError */
 		UpdateB2bMemberCompanyContactError:
 			| components["schemas"]["B2bContactNotFoundError"]
 			| components["schemas"]["B2bExternalServiceError"]
@@ -16974,6 +19085,7 @@ export interface components {
 			/** 담당자 정보 */
 			contact: components["schemas"]["B2bCompanyContact"];
 		};
+		/** UpdateB2bMemberCompanyError */
 		UpdateB2bMemberCompanyError:
 			| components["schemas"]["B2bMemberCompanyNotFoundError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -17004,6 +19116,7 @@ export interface components {
 			/** 부가세를 부담할 주체 */
 			vatPayer?: components["schemas"]["PlatformPayer"];
 		};
+		/** UpdatePlatformAdditionalFeePolicyError */
 		UpdatePlatformAdditionalFeePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -17059,6 +19172,8 @@ export interface components {
 			supportsMultipleOrderTransfersPerPartner?: boolean;
 			/** 정산일이 정산시작일보다 작거나 같을 경우 공휴일 후 영업일로 정산일 다시 계산 여부 */
 			adjustSettlementDateAfterHolidayIfEarlier?: boolean;
+			/** 지급 금액에서 원천징수세 차감 여부 */
+			subtractWhtInPayoutAmount?: boolean;
 		};
 		/**
 		 * 계약 업데이트를 위한 입력 정보. 값이 명시되지 않은 필드는 업데이트되지 않습니다.
@@ -17080,6 +19195,7 @@ export interface components {
 			/** 정산 시 결제금액 부가세 감액 여부 */
 			subtractPaymentVatAmount?: boolean;
 		};
+		/** UpdatePlatformContractError */
 		UpdatePlatformContractError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -17115,6 +19231,7 @@ export interface components {
 			/** 해당 할인 분담에 대한 메모 */
 			memo?: string;
 		};
+		/** UpdatePlatformDiscountSharePolicyError */
 		UpdatePlatformDiscountSharePolicyError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -17131,6 +19248,7 @@ export interface components {
 			/** 업데이트된 할인 분담 정책 */
 			discountSharePolicy: components["schemas"]["PlatformDiscountSharePolicy"];
 		};
+		/** UpdatePlatformError */
 		UpdatePlatformError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -17158,6 +19276,8 @@ export interface components {
 			tags?: string[];
 			/** 파트너 유형별 정보 */
 			type?: components["schemas"]["UpdatePlatformPartnerBodyType"];
+			/** 사용자 정의 속성 */
+			userDefinedProperties?: components["schemas"]["PlatformProperties"];
 		};
 		/**
 		 * 파트너 계좌 업데이트를 위한 입력 정보
@@ -17199,9 +19319,12 @@ export interface components {
 		UpdatePlatformPartnerBodyType: {
 			/** 사업자 추가 정보 */
 			business?: components["schemas"]["UpdatePlatformPartnerBodyTypeBusiness"];
-			/** 원천징수대상자 추가 정보 */
+			/** 원천징수 대상자 추가 정보 */
 			whtPayer?: components["schemas"]["UpdatePlatformPartnerBodyTypeWhtPayer"];
+			/** 원천징수 비대상자 추가 정보 */
+			nonWhtPayer?: components["schemas"]["UpdatePlatformPartnerBodyTypeNonWhtPayer"];
 		};
+		/** UpdatePlatformPartnerBodyTypeBusiness */
 		UpdatePlatformPartnerBodyTypeBusiness: {
 			/** 상호명 */
 			companyName?: string;
@@ -17218,10 +19341,25 @@ export interface components {
 			/** 업종 */
 			businessClass?: string;
 		};
-		UpdatePlatformPartnerBodyTypeWhtPayer: {
-			/** 생년월일 */
+		/** UpdatePlatformPartnerBodyTypeNonWhtPayer */
+		UpdatePlatformPartnerBodyTypeNonWhtPayer: {
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
 			birthdate?: string;
 		};
+		/** UpdatePlatformPartnerBodyTypeWhtPayer */
+		UpdatePlatformPartnerBodyTypeWhtPayer: {
+			/**
+			 * 생년월일
+			 * @description <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+			 *
+			 */
+			birthdate?: string;
+		};
+		/** UpdatePlatformPartnerError */
 		UpdatePlatformPartnerError:
 			| components["schemas"]["ForbiddenError"]
 			| components["schemas"]["InvalidRequestError"]
@@ -17233,6 +19371,7 @@ export interface components {
 			| components["schemas"]["PlatformInsufficientDataToChangePartnerTypeError"]
 			| components["schemas"]["PlatformNotEnabledError"]
 			| components["schemas"]["PlatformPartnerNotFoundError"]
+			| components["schemas"]["PlatformUserDefinedPropertyNotFoundError"]
 			| components["schemas"]["UnauthorizedError"];
 		/**
 		 * 파트너 업데이트 성공 응답
@@ -17243,6 +19382,7 @@ export interface components {
 			/** 업데이트된 파트너 */
 			partner: components["schemas"]["PlatformPartner"];
 		};
+		/** UpdatePlatformPartnerSettlementStatusBody */
 		UpdatePlatformPartnerSettlementStatusBody: {
 			partnerSettlementId: string;
 			status: components["schemas"]["PlatformPartnerSettlementStatus"];
@@ -17414,11 +19554,13 @@ export interface components {
 			type: "WEBHOOK_NOT_FOUND";
 			message?: string;
 		};
+		/** getB2bContactIdExistenceError */
 		getB2bContactIdExistenceError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
 			| components["schemas"]["InvalidRequestError"]
 			| components["schemas"]["UnauthorizedError"];
+		/** requestB2bTaxInvoiceError */
 		requestB2bTaxInvoiceError:
 			| components["schemas"]["B2bExternalServiceError"]
 			| components["schemas"]["B2bNotEnabledError"]
@@ -17730,7 +19872,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformDiscountSharePoliciesBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 할인 분담 정책 리스트와 페이지 정보가 반환됩니다.</p>
 			 *      */
@@ -18504,7 +20650,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformAdditionalFeePoliciesBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 추가 수수료 정책 리스트와 페이지 정보를 반환합니다.</p>
 			 *      */
@@ -19342,7 +21492,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformPartnersBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 파트너 리스트와 페이지 정보가 반환됩니다.</p>
 			 *      */
@@ -19458,6 +21612,7 @@ export interface operations {
 			/** @description <ul>
 			 *     <li><code>PlatformContractNotFoundError</code></li>
 			 *     <li><code>PlatformAccountVerificationNotFoundError</code>: 파트너 계좌 검증 아이디를 찾을 수 없는 경우</li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -19627,6 +21782,7 @@ export interface operations {
 			 *     <li><code>PlatformPartnerNotFoundError</code></li>
 			 *     <li><code>PlatformContractNotFoundError</code></li>
 			 *     <li><code>PlatformAccountVerificationNotFoundError</code>: 파트너 계좌 검증 아이디를 찾을 수 없는 경우</li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -19716,6 +21872,7 @@ export interface operations {
 			};
 			/** @description <ul>
 			 *     <li><code>PlatformContractsNotFoundError</code></li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -19963,6 +22120,7 @@ export interface operations {
 			 *     <li><code>PlatformPartnerNotFoundError</code></li>
 			 *     <li><code>PlatformContractNotFoundError</code></li>
 			 *     <li><code>PlatformAccountVerificationNotFoundError</code>: 파트너 계좌 검증 아이디를 찾을 수 없는 경우</li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -20123,6 +22281,7 @@ export interface operations {
 			};
 			/** @description <ul>
 			 *     <li><code>PlatformContractNotFoundError</code></li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -20317,7 +22476,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformContractsBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 계약 리스트와 페이지 정보를 반환합니다.</p>
 			 *      */
@@ -21238,7 +23401,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformTransferSummariesBody"];
+			};
+		};
 		responses: {
 			200: {
 				headers: {
@@ -21360,6 +23527,7 @@ export interface operations {
 			 *     <li><code>PlatformAdditionalFeePoliciesNotFoundError</code></li>
 			 *     <li><code>PlatformDiscountSharePoliciesNotFoundError</code></li>
 			 *     <li><code>PlatformPaymentNotFoundError</code></li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -21460,6 +23628,7 @@ export interface operations {
 			 *     <li><code>PlatformPaymentNotFoundError</code></li>
 			 *     <li><code>PlatformProductIdNotFoundError</code></li>
 			 *     <li><code>PlatformTransferDiscountSharePolicyNotFoundError</code></li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -21507,7 +23676,6 @@ export interface operations {
 			};
 			/** @description <ul>
 			 *     <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 *     <li><code>PlatformUnavailableSettlementDateError</code>: 사용할 수 없는 정산일이 요청된 경우</li>
 			 *     </ul>
 			 *      */
 			400: {
@@ -21545,6 +23713,7 @@ export interface operations {
 			};
 			/** @description <ul>
 			 *     <li><code>PlatformPartnerNotFoundError</code></li>
+			 *     <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
 			 *     </ul>
 			 *      */
 			404: {
@@ -21559,14 +23728,18 @@ export interface operations {
 	};
 	downloadPlatformTransferSheet: {
 		parameters: {
-			query: {
-				requestBody: string;
+			query?: {
+				requestBody?: string;
 			};
 			header?: never;
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["DownloadPlatformTransferSheetBody"];
+			};
+		};
 		responses: {
 			200: {
 				headers: {
@@ -21598,6 +23771,186 @@ export interface operations {
 				};
 				content: {
 					"application/json": components["schemas"]["DownloadPlatformTransferSheetError"];
+				};
+			};
+		};
+	};
+	getPlatformPartnerSettlements: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		requestBody: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformPartnerSettlementsBody"];
+			};
+		};
+		responses: {
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPartnerSettlementsResponse"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			400: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPartnerSettlementsError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			401: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPartnerSettlementsError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
+			 *     <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
+			 *     </ul>
+			 *      */
+			403: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPartnerSettlementsError"];
+				};
+			};
+		};
+	};
+	getPlatformPayouts: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		requestBody: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformPayoutsBody"];
+			};
+		};
+		responses: {
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPayoutsResponse"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			400: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPayoutsError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			401: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPayoutsError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
+			 *     <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
+			 *     </ul>
+			 *      */
+			403: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformPayoutsError"];
+				};
+			};
+		};
+	};
+	getPlatformBulkPayouts: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		requestBody: {
+			content: {
+				"application/json": components["schemas"]["GetPlatformBulkPayoutsBody"];
+			};
+		};
+		responses: {
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformBulkPayoutsResponse"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			400: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformBulkPayoutsError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			401: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformBulkPayoutsError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
+			 *     <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
+			 *     </ul>
+			 *      */
+			403: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPlatformBulkPayoutsError"];
 				};
 			};
 		};
@@ -22351,7 +24704,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetBillingKeyInfosBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 빌링키 리스트와 페이지 정보가 반환됩니다.</p>
 			 *      */
@@ -22651,7 +25008,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetPaymentsBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 결제 건 리스트와 페이지 정보가 반환됩니다.</p>
 			 *      */
@@ -22710,7 +25071,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetAllPaymentsByCursorBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 결제 건 리스트와 커서 정보가 반환됩니다.</p>
 			 *      */
@@ -22847,7 +25212,11 @@ export interface operations {
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["GetPaymentSchedulesBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답으로 조회된 예약 결제 건 리스트가 반환됩니다.</p>
 			 *      */
@@ -22897,16 +25266,20 @@ export interface operations {
 			};
 		};
 	};
-	revokePaymentSchedule: {
+	revokePaymentSchedules: {
 		parameters: {
-			query: {
-				requestBody: string;
+			query?: {
+				requestBody?: string;
 			};
 			header?: never;
 			path?: never;
 			cookie?: never;
 		};
-		requestBody?: never;
+		requestBody?: {
+			content: {
+				"application/json": components["schemas"]["RevokePaymentSchedulesBody"];
+			};
+		};
 		responses: {
 			/** @description <p>성공 응답</p>
 			 *      */
@@ -22915,7 +25288,7 @@ export interface operations {
 					[name: string]: unknown;
 				};
 				content: {
-					"application/json": components["schemas"]["RevokePaymentScheduleResponse"];
+					"application/json": components["schemas"]["RevokePaymentSchedulesResponse"];
 				};
 			};
 			/** @description <ul>
@@ -22927,7 +25300,7 @@ export interface operations {
 					[name: string]: unknown;
 				};
 				content: {
-					"application/json": components["schemas"]["RevokePaymentScheduleError"];
+					"application/json": components["schemas"]["RevokePaymentSchedulesError"];
 				};
 			};
 			/** @description <ul>
@@ -22939,7 +25312,7 @@ export interface operations {
 					[name: string]: unknown;
 				};
 				content: {
-					"application/json": components["schemas"]["RevokePaymentScheduleError"];
+					"application/json": components["schemas"]["RevokePaymentSchedulesError"];
 				};
 			};
 			/** @description <ul>
@@ -22951,7 +25324,7 @@ export interface operations {
 					[name: string]: unknown;
 				};
 				content: {
-					"application/json": components["schemas"]["RevokePaymentScheduleError"];
+					"application/json": components["schemas"]["RevokePaymentSchedulesError"];
 				};
 			};
 			/** @description <ul>
@@ -22964,7 +25337,7 @@ export interface operations {
 					[name: string]: unknown;
 				};
 				content: {
-					"application/json": components["schemas"]["RevokePaymentScheduleError"];
+					"application/json": components["schemas"]["RevokePaymentSchedulesError"];
 				};
 			};
 			/** @description <ul>
@@ -22978,7 +25351,7 @@ export interface operations {
 					[name: string]: unknown;
 				};
 				content: {
-					"application/json": components["schemas"]["RevokePaymentScheduleError"];
+					"application/json": components["schemas"]["RevokePaymentSchedulesError"];
 				};
 			};
 		};
@@ -23158,6 +25531,7 @@ export interface operations {
 			 *     <li><code>SumOfPartsExceedsCancelAmountError</code>: 면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우</li>
 			 *     <li><code>CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError</code>: 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우</li>
 			 *     <li><code>CancelTaxAmountExceedsCancellableTaxAmountError</code>: 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우</li>
+			 *     <li><code>RemainedAmountLessThanPromotionMinPaymentAmountError</code>: 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우</li>
 			 *     </ul>
 			 *      */
 			409: {
@@ -23211,6 +25585,8 @@ export interface operations {
 			};
 			/** @description <ul>
 			 *     <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
+			 *     <li><code>PromotionPayMethodDoesNotMatchError</code>: 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우</li>
+			 *     <li><code>DiscountAmountExceedsTotalAmountError</code>: 프로모션 할인 금액이 결제 시도 금액 이상인 경우</li>
 			 *     </ul>
 			 *      */
 			400: {
@@ -23315,6 +25691,8 @@ export interface operations {
 			};
 			/** @description <ul>
 			 *     <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
+			 *     <li><code>PromotionPayMethodDoesNotMatchError</code>: 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우</li>
+			 *     <li><code>DiscountAmountExceedsTotalAmountError</code>: 프로모션 할인 금액이 결제 시도 금액 이상인 경우</li>
 			 *     </ul>
 			 *      */
 			400: {
@@ -27703,6 +30081,79 @@ export interface operations {
 				};
 				content: {
 					"application/json": components["schemas"]["RegisterStoreReceiptError"];
+				};
+			};
+		};
+	};
+	getPromotion: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path: {
+				/** @description <p>조회할 프로모션 아이디</p>
+				 *      */
+				promotionId: string;
+			};
+			cookie?: never;
+		};
+		requestBody?: never;
+		responses: {
+			/** @description <p>성공 응답으로 프로모션 객체를 반환합니다.</p>
+			 *      */
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["Promotion"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			400: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPromotionError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
+			 *     </ul>
+			 *      */
+			401: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPromotionError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
+			 *     </ul>
+			 *      */
+			403: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPromotionError"];
+				};
+			};
+			/** @description <ul>
+			 *     <li><code>PromotionNotFoundError</code>: 프로모션이 존재하지 않는 경우</li>
+			 *     </ul>
+			 *      */
+			404: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["GetPromotionError"];
 				};
 			};
 		};

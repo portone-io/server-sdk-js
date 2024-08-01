@@ -75,21 +75,6 @@ export type ApiErrorResponse = NonNullable<
 	>
 >["content"]["application/json"];
 
-export type SpecificApiErrorResponse<
-	Path extends keyof SdkPaths,
-	Method extends ApiRequestMethod,
-> = NonNullable<
-	TryPick<
-		TryPick<
-			ExtractValues<
-				Omit<NonNullable<SdkPaths[Path][Method]>["responses"], 200>
-			>,
-			"content"
-		>,
-		"application/json"
-	>
->;
-
 export type SuccessJson<
 	Path extends keyof SdkPaths,
 	Method extends ApiRequestMethod,

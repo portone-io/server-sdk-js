@@ -40,7 +40,7 @@ export class InvalidInputError extends PortOneError {
 }
 
 /**
- * 서버에 전달한 사용자 입력 정보가 올바르지 않은 경우에 발생하는 에러입니다.
+ * 요청된 입력 정보가 유효하지 않은 경우에 발생하는 에러입니다.
  */
 export class InvalidRequestError extends PortOneError {
 	readonly _tag = "PortOneInvalidRequestError";
@@ -332,6 +332,102 @@ export class WebhookNotFoundError extends PortOneError {
 		super(response.message ?? "웹훅 내역이 존재하지 않습니다.");
 		Object.setPrototypeOf(this, WebhookNotFoundError.prototype);
 		this.name = "WebhookNotFoundError";
+	}
+}
+
+/**
+ *
+ */
+export class BillingKeyNotIssuedError extends PortOneError {
+	readonly _tag = "PortOneBillingKeyNotIssuedError";
+
+	constructor(response: components["schemas"]["BillingKeyNotIssuedError"]) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, BillingKeyNotIssuedError.prototype);
+		this.name = "BillingKeyNotIssuedError";
+	}
+}
+
+/**
+ * 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우에 발생하는 에러입니다.
+ */
+export class ChannelSpecificError extends PortOneError {
+	readonly _tag = "PortOneChannelSpecificError";
+	readonly failures: components["schemas"]["ChannelSpecificFailure"][];
+	readonly succeededChannels: components["schemas"]["SelectedChannel"][];
+
+	constructor(response: components["schemas"]["ChannelSpecificError"]) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, ChannelSpecificError.prototype);
+		this.name = "ChannelSpecificError";
+		this.failures = response.failures;
+		this.succeededChannels = response.succeededChannels;
+	}
+}
+
+/**
+ * 결제 예약건이 이미 존재하는 경우에 발생하는 에러입니다.
+ */
+export class PaymentScheduleAlreadyExistsError extends PortOneError {
+	readonly _tag = "PortOnePaymentScheduleAlreadyExistsError";
+
+	constructor(
+		response: components["schemas"]["PaymentScheduleAlreadyExistsError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, PaymentScheduleAlreadyExistsError.prototype);
+		this.name = "PaymentScheduleAlreadyExistsError";
+	}
+}
+
+/**
+ * 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우에 발생하는 에러입니다.
+ */
+export class RemainedAmountLessThanPromotionMinPaymentAmountError extends PortOneError {
+	readonly _tag = "PortOneRemainedAmountLessThanPromotionMinPaymentAmountError";
+
+	constructor(
+		response: components["schemas"]["RemainedAmountLessThanPromotionMinPaymentAmountError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(
+			this,
+			RemainedAmountLessThanPromotionMinPaymentAmountError.prototype,
+		);
+		this.name = "RemainedAmountLessThanPromotionMinPaymentAmountError";
+	}
+}
+
+/**
+ * 프로모션 할인 금액이 결제 시도 금액 이상인 경우에 발생하는 에러입니다.
+ */
+export class DiscountAmountExceedsTotalAmountError extends PortOneError {
+	readonly _tag = "PortOneDiscountAmountExceedsTotalAmountError";
+
+	constructor(
+		response: components["schemas"]["DiscountAmountExceedsTotalAmountError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(
+			this,
+			DiscountAmountExceedsTotalAmountError.prototype,
+		);
+		this.name = "DiscountAmountExceedsTotalAmountError";
+	}
+}
+
+/**
+ * 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우에 발생하는 에러입니다.
+ */
+export class PromotionPayMethodDoesNotMatchError extends PortOneError {
+	readonly _tag = "PortOnePromotionPayMethodDoesNotMatchError";
+
+	constructor(
+		response: components["schemas"]["PromotionPayMethodDoesNotMatchError"],
+	) {
+		super(response.message ?? "");
+		Object.setPrototypeOf(this, PromotionPayMethodDoesNotMatchError.prototype);
+		this.name = "PromotionPayMethodDoesNotMatchError";
 	}
 }
 
