@@ -16,6 +16,15 @@
 		"turbo": "^2.0.11",
 		"typescript": "^5.5.4"
 	},
+	"pnpm": {
+		"packageExtensions": {
+			"unbuild@2.0.0": {
+				"dependencies": {
+					"mkdist": "^1.5.4"
+				}
+			}
+		}
+	},
 	"license": "(Apache-2.0 OR MIT)",
 	"packageManager": "pnpm@9.6.0"
 }
