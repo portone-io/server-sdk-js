@@ -3,23 +3,19 @@ export type Paths = {
 		/**
 		 * API secret 를 사용한 토큰 발급
 		 *
-		 * <p>API secret 를 통해 API 인증에 사용할 토큰을 가져옵니다.</p>
+		 * API secret 를 통해 API 인증에 사용할 토큰을 가져옵니다.
 		 */
 		post: {
 			parameters: {
 				body: LoginViaApiSecretBody;
 			};
 			/**
-			 * <p>성공 응답으로 토큰을 반환합니다.</p>
+			 * 성공 응답으로 토큰을 반환합니다.
 			 */
 			success: LoginViaApiSecretResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
 			 */
 			error: LoginViaApiSecretError;
 		};
@@ -28,7 +24,7 @@ export type Paths = {
 		/**
 		 * 토큰 갱신
 		 *
-		 * <p>리프레시 토큰을 사용해 유효기간이 연장된 새로운 토큰을 재발급합니다.</p>
+		 * 리프레시 토큰을 사용해 유효기간이 연장된 새로운 토큰을 재발급합니다.
 		 */
 		post: {
 			parameters: {
@@ -38,12 +34,8 @@ export type Paths = {
 			 */
 			success: RefreshTokenResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
 			 */
 			error: RefreshTokenError;
 		};
@@ -51,53 +43,39 @@ export type Paths = {
 	"/platform": {
 		/**
 		 *
-		 * <p>고객사의 플랫폼 정보를 조회합니다.
-		 * 요청된 Authorization header 를 통해 자동으로 요청자의 고객사를 특정합니다.</p>
+		 * 고객사의 플랫폼 정보를 조회합니다. 요청된 Authorization header 를 통해 자동으로 요청자의 고객사를 특정합니다.
 		 */
 		get: {
 			parameters: Record<string, never>;
 			/**
-			 * <p>성공 응답으로 플랫폼 객체를 반환합니다.</p>
+			 * 성공 응답으로 플랫폼 객체를 반환합니다.
 			 */
 			success: Platform;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
 			 */
 			error: GetPlatformError;
 		};
 		/**
 		 *
-		 * <p>고객사의 플랫폼 관련 정보를 업데이트합니다.
-		 * 요청된 Authorization header 를 통해 자동으로 요청자의 고객사를 특정합니다.</p>
+		 * 고객사의 플랫폼 관련 정보를 업데이트합니다. 요청된 Authorization header 를 통해 자동으로 요청자의 고객사를 특정합니다.
 		 */
 		patch: {
 			parameters: {
 				body: UpdatePlatformBody;
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: UpdatePlatformResponse;
 			/**
-			 * <ul>
-			 * <li><code>PlatformInvalidSettlementFormulaError</code></li>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `PlatformInvalidSettlementFormulaError`
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: UpdatePlatformError;
 		};
@@ -105,34 +83,29 @@ export type Paths = {
 	"/platform/discount-share-policy-filter-options": {
 		/**
 		 *
-		 * <p>할인 분담 정책 다건 조회 시 필요한 필터 옵션을 조회합니다.</p>
+		 * 할인 분담 정책 다건 조회 시 필요한 필터 옵션을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>보관 조회 여부</p>
-					 * <p>true 이면 보관된 할인 분담의 필터 옵션을 조회하고, false 이면 보관되지 않은 할인 분담의 필터 옵션을 조회합니다. 기본값은 false 입니다.</p>
+					 * 보관 조회 여부
+					 *
+					 * true 이면 보관된 할인 분담의 필터 옵션을 조회하고, false 이면 보관되지 않은 할인 분담의 필터 옵션을 조회합니다. 기본값은 false 입니다.
 					 */
 					isArchived?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 조회된 할인 분담 정책 필터 옵션을 반환합니다.</p>
+			 * 성공 응답으로 조회된 할인 분담 정책 필터 옵션을 반환합니다.
 			 */
 			success: PlatformDiscountSharePolicyFilterOptions;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformDiscountSharePolicyFilterOptionsError;
 		};
@@ -141,57 +114,43 @@ export type Paths = {
 		/**
 		 * 할인 분담 정책 다건 조회
 		 *
-		 * <p>여러 할인 분담을 조회합니다.</p>
+		 * 여러 할인 분담을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetPlatformDiscountSharePoliciesBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 할인 분담 정책 리스트와 페이지 정보가 반환됩니다.</p>
+			 * 성공 응답으로 조회된 할인 분담 정책 리스트와 페이지 정보가 반환됩니다.
 			 */
 			success: GetPlatformDiscountSharePoliciesResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformDiscountSharePoliciesError;
 		};
 		/**
 		 * 할인 분담 정책 생성
 		 *
-		 * <p>새로운 할인 분담을 생성합니다.</p>
+		 * 새로운 할인 분담을 생성합니다.
 		 */
 		post: {
 			parameters: {
 				body: CreatePlatformDiscountSharePolicyBody;
 			};
 			/**
-			 * <p>성공 응답으로 생성된 할인 분담 정책이 반환됩니다.</p>
+			 * 성공 응답으로 생성된 할인 분담 정책이 반환됩니다.
 			 */
 			success: CreatePlatformDiscountSharePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyAlreadyExistsError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyAlreadyExistsError`
 			 */
 			error: CreatePlatformDiscountSharePolicyError;
 		};
@@ -200,43 +159,35 @@ export type Paths = {
 		/**
 		 * 할인 분담 정책 조회
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담을 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>조회할 할인 분담 정책 아이디</p>
+					 * 조회할 할인 분담 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 할인 분담 정책을 반환합니다.</p>
+			 * 성공 응답으로 할인 분담 정책을 반환합니다.
 			 */
 			success: PlatformDiscountSharePolicy;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
 			 */
 			error: GetPlatformDiscountSharePolicyError;
 		};
 		/**
 		 * 할인 분담 정책 수정
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담을 업데이트합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담을 업데이트합니다.
 		 */
 		patch: {
 			parameters: {
@@ -244,32 +195,22 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>업데이트할 할인 분담 정책 아이디</p>
+					 * 업데이트할 할인 분담 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 업데이트된 할인 분담 정책을 반환합니다.</p>
+			 * 성공 응답으로 업데이트된 할인 분담 정책을 반환합니다.
 			 */
 			success: UpdatePlatformDiscountSharePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformArchivedDiscountSharePolicyError</code>: 보관된 할인 분담 정책을 업데이트하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
+			 * *   `PlatformArchivedDiscountSharePolicyError`: 보관된 할인 분담 정책을 업데이트하려고 하는 경우
 			 */
 			error: UpdatePlatformDiscountSharePolicyError;
 		};
@@ -277,42 +218,34 @@ export type Paths = {
 	"/platform/discount-share-policies/{id}/schedule": {
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담의 예약 업데이트를 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>할인 분담 정책 아이디</p>
+					 * 할인 분담 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 할인 분담 정책을 반환합니다.</p>
+			 * 성공 응답으로 예약된 할인 분담 정책을 반환합니다.
 			 */
 			success: PlatformDiscountSharePolicy;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
 			 */
 			error: GetPlatformDiscountSharePolicyScheduleError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담에 예약 업데이트를 재설정합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담에 예약 업데이트를 재설정합니다.
 		 */
 		put: {
 			parameters: {
@@ -320,35 +253,27 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>할인 분담 정책 아이디</p>
+					 * 할인 분담 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 할인 분담 정책을 반환합니다.</p>
+			 * 성공 응답으로 예약된 할인 분담 정책을 반환합니다.
 			 */
 			success: ReschedulePlatformDiscountSharePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
 			 */
 			error: RescheduleDiscountSharePolicyError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담에 업데이트를 예약합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담에 업데이트를 예약합니다.
 		 */
 		post: {
 			parameters: {
@@ -356,67 +281,49 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>할인 분담 정책 아이디</p>
+					 * 할인 분담 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 할인 분담 정책이 반환됩니다.</p>
+			 * 성공 응답으로 예약된 할인 분담 정책이 반환됩니다.
 			 */
 			success: SchedulePlatformDiscountSharePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyScheduleAlreadyExistsError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
+			 * *   `PlatformDiscountSharePolicyScheduleAlreadyExistsError`
 			 */
 			error: ScheduleDiscountSharePolicyError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담의 예약 업데이트를 취소합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>할인 분담 정책 아이디</p>
+					 * 할인 분담 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CancelPlatformDiscountSharePolicyScheduleResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
 			 */
 			error: CancelPlatformDiscountSharePolicyScheduleError;
 		};
@@ -425,39 +332,29 @@ export type Paths = {
 		/**
 		 * 할인 분담 정책 보관
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담을 보관합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담을 보관합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>할인 분담 아이디</p>
+					 * 할인 분담 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 보관된 할인 분담 객체를 반환합니다.</p>
+			 * 성공 응답으로 보관된 할인 분담 객체를 반환합니다.
 			 */
 			success: ArchivePlatformDiscountSharePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformCannotArchiveScheduledDiscountSharePolicyError</code>: 예약된 업데이트가 있는 할인 분담 정책을 보관하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
+			 * *   `PlatformCannotArchiveScheduledDiscountSharePolicyError`: 예약된 업데이트가 있는 할인 분담 정책을 보관하려고 하는 경우
 			 */
 			error: ArchivePlatformDiscountSharePolicyError;
 		};
@@ -466,36 +363,28 @@ export type Paths = {
 		/**
 		 * 할인 분담 정책 복원
 		 *
-		 * <p>주어진 아이디에 대응되는 할인 분담을 복원합니다.</p>
+		 * 주어진 아이디에 대응되는 할인 분담을 복원합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>할인 분담 아이디</p>
+					 * 할인 분담 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 복원된 할인 분담 객체를 반환합니다.</p>
+			 * 성공 응답으로 복원된 할인 분담 객체를 반환합니다.
 			 */
 			success: RecoverPlatformDiscountSharePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformDiscountSharePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformDiscountSharePolicyNotFoundError`
 			 */
 			error: RecoverPlatformDiscountSharePolicyError;
 		};
@@ -504,57 +393,43 @@ export type Paths = {
 		/**
 		 * 추가 수수료 정책 다건 조회
 		 *
-		 * <p>여러 추가 수수료 정책을 조회합니다.</p>
+		 * 여러 추가 수수료 정책을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetPlatformAdditionalFeePoliciesBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 추가 수수료 정책 리스트와 페이지 정보를 반환합니다.</p>
+			 * 성공 응답으로 조회된 추가 수수료 정책 리스트와 페이지 정보를 반환합니다.
 			 */
 			success: GetPlatformAdditionalFeePoliciesResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformAdditionalFeePoliciesError;
 		};
 		/**
 		 * 추가 수수료 정책 생성
 		 *
-		 * <p>새로운 추가 수수료 정책을 생성합니다.</p>
+		 * 새로운 추가 수수료 정책을 생성합니다.
 		 */
 		post: {
 			parameters: {
 				body: CreatePlatformAdditionalFeePolicyBody;
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CreatePlatformAdditionalFeePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyAlreadyExistsError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyAlreadyExistsError`
 			 */
 			error: CreatePlatformAdditionalFeePolicyError;
 		};
@@ -563,43 +438,35 @@ export type Paths = {
 		/**
 		 * 추가 수수료 정책 조회
 		 *
-		 * <p>주어진 아이디에 대응되는 추가 수수료 정책을 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 추가 수수료 정책을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>조회할 추가 수수료 정책 아이디</p>
+					 * 조회할 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 추가 수수료 정책을 반환합니다.</p>
+			 * 성공 응답으로 추가 수수료 정책을 반환합니다.
 			 */
 			success: PlatformAdditionalFeePolicy;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
 			 */
 			error: GetPlatformAdditionalFeePolicyError;
 		};
 		/**
 		 * 추가 수수료 정책 수정
 		 *
-		 * <p>주어진 아이디에 대응되는 추가 수수료 정책을 업데이트합니다.</p>
+		 * 주어진 아이디에 대응되는 추가 수수료 정책을 업데이트합니다.
 		 */
 		patch: {
 			parameters: {
@@ -607,32 +474,22 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>업데이트할 추가 수수료 정책 아이디</p>
+					 * 업데이트할 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 업데이트된 추가 수수료 정책이 반환됩니다.</p>
+			 * 성공 응답으로 업데이트된 추가 수수료 정책이 반환됩니다.
 			 */
 			success: UpdatePlatformAdditionalFeePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformArchivedAdditionalFeePolicyError</code>: 보관된 추가 수수료 정책을 업데이트하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
+			 * *   `PlatformArchivedAdditionalFeePolicyError`: 보관된 추가 수수료 정책을 업데이트하려고 하는 경우
 			 */
 			error: UpdatePlatformAdditionalFeePolicyError;
 		};
@@ -640,36 +497,28 @@ export type Paths = {
 	"/platform/additional-fee-policies/{id}/schedule": {
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 추가 수수료 정책의 예약 업데이트를 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 추가 수수료 정책의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>추가 수수료 정책 아이디</p>
+					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 추가 수수료 정책을 반환합니다.</p>
+			 * 성공 응답으로 예약된 추가 수수료 정책을 반환합니다.
 			 */
 			success: PlatformAdditionalFeePolicy;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
 			 */
 			error: GetPlatformAdditionalFeePolicyScheduleError;
 		};
@@ -682,35 +531,27 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>추가 수수료 정책 아이디</p>
+					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 추가 수수료 정책이 반환됩니다.</p>
+			 * 성공 응답으로 예약된 추가 수수료 정책이 반환됩니다.
 			 */
 			success: ReschedulePlatformAdditionalFeePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
 			 */
 			error: RescheduleAdditionalFeePolicyError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 추가 수수료 정책에 업데이트를 예약합니다.</p>
+		 * 주어진 아이디에 대응되는 추가 수수료 정책에 업데이트를 예약합니다.
 		 */
 		post: {
 			parameters: {
@@ -718,68 +559,50 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>추가 수수료 정책 아이디</p>
+					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 추가 수수료 정책을 반환합니다.</p>
+			 * 성공 응답으로 예약된 추가 수수료 정책을 반환합니다.
 			 */
 			success: SchedulePlatformAdditionalFeePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyScheduleAlreadyExistsError</code></li>
-			 * <li><code>PlatformArchivedAdditionalFeePolicyError</code>: 보관된 추가 수수료 정책을 업데이트하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
+			 * *   `PlatformAdditionalFeePolicyScheduleAlreadyExistsError`
+			 * *   `PlatformArchivedAdditionalFeePolicyError`: 보관된 추가 수수료 정책을 업데이트하려고 하는 경우
 			 */
 			error: ScheduleAdditionalFeePolicyError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 추가 수수료 정책의 예약 업데이트를 취소합니다.</p>
+		 * 주어진 아이디에 대응되는 추가 수수료 정책의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>추가 수수료 정책 아이디</p>
+					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CancelPlatformAdditionalFeePolicyScheduleResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
 			 */
 			error: CancelPlatformAdditionalFeePolicyScheduleError;
 		};
@@ -788,39 +611,29 @@ export type Paths = {
 		/**
 		 * 추가 수수료 정책 보관
 		 *
-		 * <p>주어진 아이디에 대응되는 추가 수수료 정책을 보관합니다.</p>
+		 * 주어진 아이디에 대응되는 추가 수수료 정책을 보관합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>추가 수수료 정책 아이디</p>
+					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 보관된 추가 수수료 정책 객체를 반환합니다.</p>
+			 * 성공 응답으로 보관된 추가 수수료 정책 객체를 반환합니다.
 			 */
 			success: ArchivePlatformAdditionalFeePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformCannotArchiveScheduledAdditionalFeePolicyError</code>: 예약된 업데이트가 있는 추가 수수료 정책을 보관하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
+			 * *   `PlatformCannotArchiveScheduledAdditionalFeePolicyError`: 예약된 업데이트가 있는 추가 수수료 정책을 보관하려고 하는 경우
 			 */
 			error: ArchivePlatformAdditionalFeePolicyError;
 		};
@@ -829,36 +642,28 @@ export type Paths = {
 		/**
 		 * 추가 수수료 정책 복원
 		 *
-		 * <p>주어진 아이디에 대응되는 추가 수수료 정책을 복원합니다.</p>
+		 * 주어진 아이디에 대응되는 추가 수수료 정책을 복원합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>추가 수수료 정책 아이디</p>
+					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 복원된 추가 수수료 정책 객체를 반환합니다.</p>
+			 * 성공 응답으로 복원된 추가 수수료 정책 객체를 반환합니다.
 			 */
 			success: RecoverPlatformAdditionalFeePolicyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformAdditionalFeePolicyNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformAdditionalFeePolicyNotFoundError`
 			 */
 			error: RecoverPlatformAdditionalFeePolicyError;
 		};
@@ -866,34 +671,29 @@ export type Paths = {
 	"/platform/partner-filter-options": {
 		/**
 		 *
-		 * <p>파트너 다건 조회 시 필요한 필터 옵션을 조회합니다.</p>
+		 * 파트너 다건 조회 시 필요한 필터 옵션을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>보관 조회 여부</p>
-					 * <p>true 이면 보관된 파트너의 필터 옵션을 조회하고, false 이면 보관되지 않은 파트너의 필터 옵션을 조회합니다. 기본값은 false 입니다.</p>
+					 * 보관 조회 여부
+					 *
+					 * true 이면 보관된 파트너의 필터 옵션을 조회하고, false 이면 보관되지 않은 파트너의 필터 옵션을 조회합니다. 기본값은 false 입니다.
 					 */
 					isArchived?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 조회된 파트너 필터 옵션을 반환합니다.</p>
+			 * 성공 응답으로 조회된 파트너 필터 옵션을 반환합니다.
 			 */
 			success: PlatformPartnerFilterOptions;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformPartnerFilterOptionsError;
 		};
@@ -902,65 +702,49 @@ export type Paths = {
 		/**
 		 * 파트너 다건 조회
 		 *
-		 * <p>여러 파트너를 조회합니다.</p>
+		 * 여러 파트너를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetPlatformPartnersBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 파트너 리스트와 페이지 정보가 반환됩니다.</p>
+			 * 성공 응답으로 조회된 파트너 리스트와 페이지 정보가 반환됩니다.
 			 */
 			success: GetPlatformPartnersResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformPartnersError;
 		};
 		/**
 		 * 파트너 생성
 		 *
-		 * <p>새로운 파트너를 생성합니다.</p>
+		 * 새로운 파트너를 생성합니다.
 		 */
 		post: {
 			parameters: {
 				body: CreatePlatformPartnerBody;
 			};
 			/**
-			 * <p>성공 응답으로 생성된 파트너 객체가 반환됩니다.</p>
+			 * 성공 응답으로 생성된 파트너 객체가 반환됩니다.
 			 */
 			success: CreatePlatformPartnerResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PlatformAccountVerificationFailedError</code>: 파트너 계좌 인증이 실패한 경우</li>
-			 * <li><code>PlatformCurrencyNotSupportedError</code>: 지원 되지 않는 통화를 선택한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * <li><code>PlatformAccountVerificationNotFoundError</code>: 파트너 계좌 검증 아이디를 찾을 수 없는 경우</li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerIdAlreadyExistsError</code></li>
-			 * <li><code>PlatformAccountVerificationAlreadyUsedError</code>: 파트너 계좌 검증 아이디를 이미 사용한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PlatformAccountVerificationFailedError`: 파트너 계좌 인증이 실패한 경우
+			 * *   `PlatformCurrencyNotSupportedError`: 지원 되지 않는 통화를 선택한 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformAccountVerificationNotFoundError`: 파트너 계좌 검증 아이디를 찾을 수 없는 경우
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
+			 * *   `PlatformPartnerIdAlreadyExistsError`
+			 * *   `PlatformAccountVerificationAlreadyUsedError`: 파트너 계좌 검증 아이디를 이미 사용한 경우
 			 */
 			error: CreatePlatformPartnerError;
 		};
@@ -969,43 +753,35 @@ export type Paths = {
 		/**
 		 * 파트너 조회
 		 *
-		 * <p>파트너 객체를 조회합니다.</p>
+		 * 파트너 객체를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>조회하고 싶은 파트너 아이디</p>
+					 * 조회하고 싶은 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 파트너 객체가 반환됩니다.</p>
+			 * 성공 응답으로 파트너 객체가 반환됩니다.
 			 */
 			success: PlatformPartner;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
 			 */
 			error: GetPlatformPartnerError;
 		};
 		/**
 		 * 파트너 수정
 		 *
-		 * <p>주어진 아이디에 대응되는 파트너 정보를 업데이트합니다.</p>
+		 * 주어진 아이디에 대응되는 파트너 정보를 업데이트합니다.
 		 */
 		patch: {
 			parameters: {
@@ -1013,38 +789,28 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>업데이트할 파트너 아이디</p>
+					 * 업데이트할 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 업데이트된 파트너 객체가 반환됩니다.</p>
+			 * 성공 응답으로 업데이트된 파트너 객체가 반환됩니다.
 			 */
 			success: UpdatePlatformPartnerResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PlatformAccountVerificationFailedError</code>: 파트너 계좌 인증이 실패한 경우</li>
-			 * <li><code>PlatformInsufficientDataToChangePartnerTypeError</code>: 파트너 타입 수정에 필요한 데이터가 부족한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * <li><code>PlatformAccountVerificationNotFoundError</code>: 파트너 계좌 검증 아이디를 찾을 수 없는 경우</li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformArchivedPartnerError</code>: 보관된 파트너를 업데이트하려고 하는 경우</li>
-			 * <li><code>PlatformAccountVerificationAlreadyUsedError</code>: 파트너 계좌 검증 아이디를 이미 사용한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PlatformAccountVerificationFailedError`: 파트너 계좌 인증이 실패한 경우
+			 * *   `PlatformInsufficientDataToChangePartnerTypeError`: 파트너 타입 수정에 필요한 데이터가 부족한 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformAccountVerificationNotFoundError`: 파트너 계좌 검증 아이디를 찾을 수 없는 경우
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
+			 * *   `PlatformArchivedPartnerError`: 보관된 파트너를 업데이트하려고 하는 경우
+			 * *   `PlatformAccountVerificationAlreadyUsedError`: 파트너 계좌 검증 아이디를 이미 사용한 경우
 			 */
 			error: UpdatePlatformPartnerError;
 		};
@@ -1053,36 +819,26 @@ export type Paths = {
 		/**
 		 * 파트너 다건 생성
 		 *
-		 * <p>새로운 파트너를 다건 생성합니다.</p>
+		 * 새로운 파트너를 다건 생성합니다.
 		 */
 		post: {
 			parameters: {
 				body: CreatePlatformPartnersBody;
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CreatePlatformPartnersResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PlatformPartnerIdsDuplicatedError</code></li>
-			 * <li><code>PlatformCurrencyNotSupportedError</code>: 지원 되지 않는 통화를 선택한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractsNotFoundError</code></li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerIdsAlreadyExistError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PlatformPartnerIdsDuplicatedError`
+			 * *   `PlatformCurrencyNotSupportedError`: 지원 되지 않는 통화를 선택한 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractsNotFoundError`
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
+			 * *   `PlatformPartnerIdsAlreadyExistError`
 			 */
 			error: CreatePlatformPartnersError;
 		};
@@ -1090,42 +846,34 @@ export type Paths = {
 	"/platform/partners/{id}/schedule": {
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 파트너의 예약 업데이트를 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 파트너의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>파트너 아이디</p>
+					 * 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 파트너 객체를 반환합니다.</p>
+			 * 성공 응답으로 예약된 파트너 객체를 반환합니다.
 			 */
 			success: PlatformPartner;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
 			 */
 			error: GetPlatformPartnerScheduleError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 파트너에 예약 업데이트를 재설정합니다.</p>
+		 * 주어진 아이디에 대응되는 파트너에 예약 업데이트를 재설정합니다.
 		 */
 		put: {
 			parameters: {
@@ -1133,36 +881,28 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>파트너 아이디</p>
+					 * 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 파트너 객체를 반환합니다.</p>
+			 * 성공 응답으로 예약된 파트너 객체를 반환합니다.
 			 */
 			success: ReschedulePlatformPartnerResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
+			 * *   `PlatformContractNotFoundError`
 			 */
 			error: ReschedulePartnerError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 파트너에 업데이트를 예약합니다.</p>
+		 * 주어진 아이디에 대응되는 파트너에 업데이트를 예약합니다.
 		 */
 		post: {
 			parameters: {
@@ -1170,74 +910,56 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>파트너 아이디</p>
+					 * 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 파트너 객체가 반환됩니다.</p>
+			 * 성공 응답으로 예약된 파트너 객체가 반환됩니다.
 			 */
 			success: SchedulePlatformPartnerResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PlatformAccountVerificationFailedError</code>: 파트너 계좌 인증이 실패한 경우</li>
-			 * <li><code>PlatformInsufficientDataToChangePartnerTypeError</code>: 파트너 타입 수정에 필요한 데이터가 부족한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * <li><code>PlatformAccountVerificationNotFoundError</code>: 파트너 계좌 검증 아이디를 찾을 수 없는 경우</li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerScheduleAlreadyExistsError</code></li>
-			 * <li><code>PlatformArchivedPartnerError</code>: 보관된 파트너를 업데이트하려고 하는 경우</li>
-			 * <li><code>PlatformAccountVerificationAlreadyUsedError</code>: 파트너 계좌 검증 아이디를 이미 사용한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PlatformAccountVerificationFailedError`: 파트너 계좌 인증이 실패한 경우
+			 * *   `PlatformInsufficientDataToChangePartnerTypeError`: 파트너 타입 수정에 필요한 데이터가 부족한 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformAccountVerificationNotFoundError`: 파트너 계좌 검증 아이디를 찾을 수 없는 경우
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
+			 * *   `PlatformPartnerScheduleAlreadyExistsError`
+			 * *   `PlatformArchivedPartnerError`: 보관된 파트너를 업데이트하려고 하는 경우
+			 * *   `PlatformAccountVerificationAlreadyUsedError`: 파트너 계좌 검증 아이디를 이미 사용한 경우
 			 */
 			error: SchedulePartnerError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 파트너의 예약 업데이트를 취소합니다.</p>
+		 * 주어진 아이디에 대응되는 파트너의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>파트너 아이디</p>
+					 * 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CancelPlatformPartnerScheduleResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
 			 */
 			error: CancelPlatformPartnerScheduleError;
 		};
@@ -1254,24 +976,14 @@ export type Paths = {
 			 */
 			success: SchedulePlatformPartnersResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerSchedulesAlreadyExistError</code></li>
-			 * <li><code>PlatformArchivedPartnersCannotBeScheduledError</code>: 보관된 파트너들을 예약 업데이트하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
+			 * *   `PlatformPartnerSchedulesAlreadyExistError`
+			 * *   `PlatformArchivedPartnersCannotBeScheduledError`: 보관된 파트너들을 예약 업데이트하려고 하는 경우
 			 */
 			error: SchedulePlatformPartnersError;
 		};
@@ -1280,39 +992,29 @@ export type Paths = {
 		/**
 		 * 파트너 복원
 		 *
-		 * <p>주어진 아이디에 대응되는 파트너를 보관합니다.</p>
+		 * 주어진 아이디에 대응되는 파트너를 보관합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>파트너 아이디</p>
+					 * 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 보관된 파트너 객체를 반환합니다.</p>
+			 * 성공 응답으로 보관된 파트너 객체를 반환합니다.
 			 */
 			success: ArchivePlatformPartnerResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformCannotArchiveScheduledPartnerError</code>: 예약된 업데이트가 있는 파트너를 보관하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
+			 * *   `PlatformCannotArchiveScheduledPartnerError`: 예약된 업데이트가 있는 파트너를 보관하려고 하는 경우
 			 */
 			error: ArchivePlatformPartnerError;
 		};
@@ -1321,36 +1023,28 @@ export type Paths = {
 		/**
 		 * 파트너 복원
 		 *
-		 * <p>주어진 아이디에 대응되는 파트너를 복원합니다.</p>
+		 * 주어진 아이디에 대응되는 파트너를 복원합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>파트너 아이디</p>
+					 * 파트너 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 복원된 파트너 객체를 반환합니다.</p>
+			 * 성공 응답으로 복원된 파트너 객체를 반환합니다.
 			 */
 			success: RecoverPlatformPartnerResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
 			 */
 			error: RecoverPlatformPartnerError;
 		};
@@ -1359,57 +1053,43 @@ export type Paths = {
 		/**
 		 * 계약 다건 조회
 		 *
-		 * <p>여러 계약을 조회합니다.</p>
+		 * 여러 계약을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetPlatformContractsBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 계약 리스트와 페이지 정보를 반환합니다.</p>
+			 * 성공 응답으로 조회된 계약 리스트와 페이지 정보를 반환합니다.
 			 */
 			success: GetPlatformContractsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformContractsError;
 		};
 		/**
 		 * 계약 생성
 		 *
-		 * <p>새로운 계약을 생성합니다.</p>
+		 * 새로운 계약을 생성합니다.
 		 */
 		post: {
 			parameters: {
 				body: CreatePlatformContractBody;
 			};
 			/**
-			 * <p>성공 응답으로 생성된 계약 객체가 반환됩니다.</p>
+			 * 성공 응답으로 생성된 계약 객체가 반환됩니다.
 			 */
 			success: CreatePlatformContractResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractAlreadyExistsError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractAlreadyExistsError`
 			 */
 			error: CreatePlatformContractError;
 		};
@@ -1418,43 +1098,35 @@ export type Paths = {
 		/**
 		 * 계약 조회
 		 *
-		 * <p>주어진 아이디에 대응되는 계약을 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 계약을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>조회할 계약 아이디</p>
+					 * 조회할 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 계약 객체를 반환합니다.</p>
+			 * 성공 응답으로 계약 객체를 반환합니다.
 			 */
 			success: PlatformContract;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
 			 */
 			error: GetPlatformContractError;
 		};
 		/**
 		 * 계약 수정
 		 *
-		 * <p>주어진 아이디에 대응되는 계약을 업데이트합니다.</p>
+		 * 주어진 아이디에 대응되는 계약을 업데이트합니다.
 		 */
 		patch: {
 			parameters: {
@@ -1462,32 +1134,22 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>업데이트할 계약 아이디</p>
+					 * 업데이트할 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 업데이트된 계약 객체가 반환됩니다.</p>
+			 * 성공 응답으로 업데이트된 계약 객체가 반환됩니다.
 			 */
 			success: UpdatePlatformContractResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformArchivedContractError</code>: 보관된 계약을 업데이트하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformArchivedContractError`: 보관된 계약을 업데이트하려고 하는 경우
 			 */
 			error: UpdatePlatformContractError;
 		};
@@ -1495,42 +1157,34 @@ export type Paths = {
 	"/platform/contracts/{id}/schedule": {
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 계약의 예약 업데이트를 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 계약의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>계약 아이디</p>
+					 * 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 계약 객체를 반환합니다.</p>
+			 * 성공 응답으로 예약된 계약 객체를 반환합니다.
 			 */
 			success: PlatformContract;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
 			 */
 			error: GetPlatformContractScheduleError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 계약에 예약 업데이트를 재설정합니다.</p>
+		 * 주어진 아이디에 대응되는 계약에 예약 업데이트를 재설정합니다.
 		 */
 		put: {
 			parameters: {
@@ -1538,34 +1192,26 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>계약 아이디</p>
+					 * 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 계약 객체를 반환합니다.</p>
+			 * 성공 응답으로 예약된 계약 객체를 반환합니다.
 			 */
 			success: ReschedulePlatformContractResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `PlatformContractNotFoundError`
 			 */
 			error: RescheduleContractError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 계약에 업데이트를 예약합니다.</p>
+		 * 주어진 아이디에 대응되는 계약에 업데이트를 예약합니다.
 		 */
 		post: {
 			parameters: {
@@ -1573,67 +1219,49 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>계약 아이디</p>
+					 * 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 예약된 계약 객체를 반환합니다.</p>
+			 * 성공 응답으로 예약된 계약 객체를 반환합니다.
 			 */
 			success: SchedulePlatformContractResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractScheduleAlreadyExistsError</code></li>
-			 * <li><code>PlatformArchivedContractError</code>: 보관된 계약을 업데이트하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformContractScheduleAlreadyExistsError`
+			 * *   `PlatformArchivedContractError`: 보관된 계약을 업데이트하려고 하는 경우
 			 */
 			error: ScheduleContractError;
 		};
 		/**
 		 *
-		 * <p>주어진 아이디에 대응되는 계약의 예약 업데이트를 취소합니다.</p>
+		 * 주어진 아이디에 대응되는 계약의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>계약 아이디</p>
+					 * 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CancelPlatformContractScheduleResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
 			 */
 			error: CancelPlatformContractScheduleError;
 		};
@@ -1642,39 +1270,29 @@ export type Paths = {
 		/**
 		 * 계약 보관
 		 *
-		 * <p>주어진 아이디에 대응되는 계약을 보관합니다.</p>
+		 * 주어진 아이디에 대응되는 계약을 보관합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>계약 아이디</p>
+					 * 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 보관된 계약 객체를 반환합니다.</p>
+			 * 성공 응답으로 보관된 계약 객체를 반환합니다.
 			 */
 			success: ArchivePlatformContractResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformCannotArchiveScheduledContractError</code>: 예약된 업데이트가 있는 계약을 보관하려고 하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformCannotArchiveScheduledContractError`: 예약된 업데이트가 있는 계약을 보관하려고 하는 경우
 			 */
 			error: ArchivePlatformContractError;
 		};
@@ -1683,36 +1301,28 @@ export type Paths = {
 		/**
 		 * 계약 복원
 		 *
-		 * <p>주어진 아이디에 대응되는 계약을 복원합니다.</p>
+		 * 주어진 아이디에 대응되는 계약을 복원합니다.
 		 */
 		post: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>계약 아이디</p>
+					 * 계약 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 복원된 계약 객체를 반환합니다.</p>
+			 * 성공 응답으로 복원된 계약 객체를 반환합니다.
 			 */
 			success: RecoverPlatformContractResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformContractNotFoundError`
 			 */
 			error: RecoverPlatformContractError;
 		};
@@ -1721,50 +1331,42 @@ export type Paths = {
 		/**
 		 * 정산건 조회
 		 *
-		 * <p>정산건을 조회합니다.</p>
+		 * 정산건을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>조회하고 싶은 정산건 아이디</p>
+					 * 조회하고 싶은 정산건 아이디
 					 */
 					id: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 정산건 객체가 반환됩니다.</p>
+			 * 성공 응답으로 정산건 객체가 반환됩니다.
 			 */
 			success: PlatformTransfer;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformTransferNotFoundError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformTransferNotFoundError`
 			 */
 			error: GetPlatformTransferError;
 		};
 		/**
 		 * 정산건 삭제
 		 *
-		 * <p>scheduled, in_process 상태의 정산건만 삭제가능합니다.</p>
+		 * scheduled, in\_process 상태의 정산건만 삭제가능합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>정산건 아이디</p>
+					 * 정산건 아이디
 					 */
 					id: string;
 				};
@@ -1773,21 +1375,13 @@ export type Paths = {
 			 */
 			success: DeletePlatformTransferResponse;
 			/**
-			 * <ul>
-			 * <li><code>PlatformCancelOrderTransfersExistsError</code></li>
-			 * <li><code>PlatformTransferNonDeletableStatusError</code></li>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformTransferNotFoundError</code></li>
-			 * </ul>
+			 * *   `PlatformCancelOrderTransfersExistsError`
+			 * *   `PlatformTransferNonDeletableStatusError`
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformTransferNotFoundError`
 			 */
 			error: DeletePlatformTransferError;
 		};
@@ -1796,7 +1390,7 @@ export type Paths = {
 		/**
 		 * 정산건 다건 조회
 		 *
-		 * <p>성공 응답으로 조회된 정산건 요약 리스트와 페이지 정보가 반환됩니다.</p>
+		 * 성공 응답으로 조회된 정산건 요약 리스트와 페이지 정보가 반환됩니다.
 		 */
 		get: {
 			parameters: {
@@ -1806,16 +1400,10 @@ export type Paths = {
 			 */
 			success: GetPlatformTransferSummariesResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformTransferSummariesError;
 		};
@@ -1824,7 +1412,7 @@ export type Paths = {
 		/**
 		 * 주문 정산건 생성
 		 *
-		 * <p>성공 응답으로 생성된 주문 정산건 객체가 반환됩니다.</p>
+		 * 성공 응답으로 생성된 주문 정산건 객체가 반환됩니다.
 		 */
 		post: {
 			parameters: {
@@ -1834,36 +1422,26 @@ export type Paths = {
 			 */
 			success: CreateOrderTransferResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PlatformDiscountExceededOrderAmountError</code></li>
-			 * <li><code>PlatformProductIdDuplicatedError</code></li>
-			 * <li><code>PlatformSettlementPaymentAmountExceededPortOnePaymentError</code>: 정산 요청 결제 금액이 포트원 결제 내역의 결제 금액을 초과한 경우</li>
-			 * <li><code>PlatformSettlementTaxFreeAmountExceededPortOnePaymentError</code>: 정산 요청 면세 금액이 포트원 결제 내역의 면세 금액을 초과한 경우</li>
-			 * <li><code>PlatformSettlementSupplyWithVatAmountExceededPortOnePaymentError</code>: 정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우</li>
-			 * <li><code>PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError</code></li>
-			 * <li><code>PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError</code></li>
-			 * <li><code>PlatformCurrencyNotSupportedError</code>: 지원 되지 않는 통화를 선택한 경우</li>
-			 * <li><code>PlatformTaxFreeAmountOverFlowError</code>: 면세 금액이 결제금액을 초과한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * <li><code>PlatformContractNotFoundError</code></li>
-			 * <li><code>PlatformAdditionalFeePoliciesNotFoundError</code></li>
-			 * <li><code>PlatformDiscountSharePoliciesNotFoundError</code></li>
-			 * <li><code>PlatformPaymentNotFoundError</code></li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformTransferAlreadyExistsError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PlatformDiscountExceededOrderAmountError`
+			 * *   `PlatformProductIdDuplicatedError`
+			 * *   `PlatformSettlementPaymentAmountExceededPortOnePaymentError`: 정산 요청 결제 금액이 포트원 결제 내역의 결제 금액을 초과한 경우
+			 * *   `PlatformSettlementTaxFreeAmountExceededPortOnePaymentError`: 정산 요청 면세 금액이 포트원 결제 내역의 면세 금액을 초과한 경우
+			 * *   `PlatformSettlementSupplyWithVatAmountExceededPortOnePaymentError`: 정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우
+			 * *   `PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError`
+			 * *   `PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError`
+			 * *   `PlatformCurrencyNotSupportedError`: 지원 되지 않는 통화를 선택한 경우
+			 * *   `PlatformTaxFreeAmountOverFlowError`: 면세 금액이 결제금액을 초과한 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
+			 * *   `PlatformContractNotFoundError`
+			 * *   `PlatformAdditionalFeePoliciesNotFoundError`
+			 * *   `PlatformDiscountSharePoliciesNotFoundError`
+			 * *   `PlatformPaymentNotFoundError`
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
+			 * *   `PlatformTransferAlreadyExistsError`
 			 */
 			error: CreatePlatformOrderTransferError;
 		};
@@ -1872,7 +1450,7 @@ export type Paths = {
 		/**
 		 * 주문 취소 정산건 생성
 		 *
-		 * <p>성공 응답으로 생성된 주문 취소 정산건 객체가 반환됩니다.</p>
+		 * 성공 응답으로 생성된 주문 취소 정산건 객체가 반환됩니다.
 		 */
 		post: {
 			parameters: {
@@ -1882,39 +1460,29 @@ export type Paths = {
 			 */
 			success: CreateOrderCancelTransferResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PlatformOrderDetailMismatchedError</code></li>
-			 * <li><code>PlatformDiscountSharePolicyIdDuplicatedError</code></li>
-			 * <li><code>PlatformCancellableAmountExceededError</code>: 취소 가능한 금액이 초과한 경우</li>
-			 * <li><code>PlatformCancellableDiscountAmountExceededError</code></li>
-			 * <li><code>PlatformProductIdDuplicatedError</code></li>
-			 * <li><code>PlatformCancellableProductQuantityExceededError</code></li>
-			 * <li><code>PlatformOrderTransferAlreadyCancelledError</code></li>
-			 * <li><code>PlatformDiscountCancelExceededOrderCancelAmountError</code></li>
-			 * <li><code>PlatformCancellationAndPaymentTypeMismatchedError</code></li>
-			 * <li><code>PlatformSettlementCancelAmountExceededPortOneCancelError</code>: 정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우</li>
-			 * <li><code>PlatformCannotSpecifyTransferError</code>: 정산 건 식별에 실패한 경우</li>
-			 * <li><code>PlatformTaxFreeAmountOverFlowError</code>: 면세 금액이 결제금액을 초과한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformTransferNotFoundError</code></li>
-			 * <li><code>PlatformCancellationNotFoundError</code></li>
-			 * <li><code>PlatformPaymentNotFoundError</code></li>
-			 * <li><code>PlatformProductIdNotFoundError</code></li>
-			 * <li><code>PlatformTransferDiscountSharePolicyNotFoundError</code></li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformTransferAlreadyExistsError</code></li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PlatformOrderDetailMismatchedError`
+			 * *   `PlatformDiscountSharePolicyIdDuplicatedError`
+			 * *   `PlatformCancellableAmountExceededError`: 취소 가능한 금액이 초과한 경우
+			 * *   `PlatformCancellableDiscountAmountExceededError`
+			 * *   `PlatformProductIdDuplicatedError`
+			 * *   `PlatformCancellableProductQuantityExceededError`
+			 * *   `PlatformOrderTransferAlreadyCancelledError`
+			 * *   `PlatformDiscountCancelExceededOrderCancelAmountError`
+			 * *   `PlatformCancellationAndPaymentTypeMismatchedError`
+			 * *   `PlatformSettlementCancelAmountExceededPortOneCancelError`: 정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우
+			 * *   `PlatformCannotSpecifyTransferError`: 정산 건 식별에 실패한 경우
+			 * *   `PlatformTaxFreeAmountOverFlowError`: 면세 금액이 결제금액을 초과한 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformTransferNotFoundError`
+			 * *   `PlatformCancellationNotFoundError`
+			 * *   `PlatformPaymentNotFoundError`
+			 * *   `PlatformProductIdNotFoundError`
+			 * *   `PlatformTransferDiscountSharePolicyNotFoundError`
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
+			 * *   `PlatformTransferAlreadyExistsError`
 			 */
 			error: CreatePlatformOrderCancelTransferError;
 		};
@@ -1923,7 +1491,7 @@ export type Paths = {
 		/**
 		 * 수기 정산건 생성
 		 *
-		 * <p>성공 응답으로 생성된 수기 정산건 객체가 반환됩니다.</p>
+		 * 성공 응답으로 생성된 수기 정산건 객체가 반환됩니다.
 		 */
 		post: {
 			parameters: {
@@ -1933,20 +1501,12 @@ export type Paths = {
 			 */
 			success: CreateManualTransferResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformPartnerNotFoundError</code></li>
-			 * <li><code>PlatformUserDefinedPropertyNotFoundError</code>: 사용자 정의 속성이 존재 하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformPartnerNotFoundError`
+			 * *   `PlatformUserDefinedPropertyNotFoundError`: 사용자 정의 속성이 존재 하지 않는 경우
 			 */
 			error: CreatePlatformManualTransferError;
 		};
@@ -1955,7 +1515,7 @@ export type Paths = {
 		/**
 		 * 정산 상세 내역 다운로드
 		 *
-		 * <p>정산 상세 내역을 csv 파일로 다운로드 합니다.</p>
+		 * 정산 상세 내역을 csv 파일로 다운로드 합니다.
 		 */
 		get: {
 			parameters: {
@@ -1965,12 +1525,8 @@ export type Paths = {
 			 */
 			success: {};
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
 			 */
 			error: DownloadPlatformTransferSheetError;
 		};
@@ -1987,16 +1543,10 @@ export type Paths = {
 			 */
 			success: GetPlatformPartnerSettlementsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformPartnerSettlementsError;
 		};
@@ -2013,16 +1563,10 @@ export type Paths = {
 			 */
 			success: GetPlatformPayoutsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformPayoutsError;
 		};
@@ -2039,16 +1583,10 @@ export type Paths = {
 			 */
 			success: GetPlatformBulkPayoutsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPlatformBulkPayoutsError;
 		};
@@ -2057,57 +1595,51 @@ export type Paths = {
 		/**
 		 * 예금주 조회
 		 *
-		 * <p>계좌의 예금주를 조회합니다.</p>
+		 * 계좌의 예금주를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>생년월일</p>
-					 * <p>실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.</p>
+					 * 생년월일
+					 *
+					 * 실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.
 					 */
 					birthdate?: string;
 					/**
 					 *
-					 * <p>사업자등록번호</p>
-					 * <p>실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.</p>
+					 * 사업자등록번호
+					 *
+					 * 실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.
 					 */
 					businessRegistrationNumber?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>은행</p>
+					 * 은행
 					 */
 					bank: Bank;
 					/**
 					 *
-					 * <p>'-'를 제외한 계좌 번호</p>
+					 * '-'를 제외한 계좌 번호
 					 */
 					accountNumber: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 조회된 예금주 명이 반환됩니다.</p>
+			 * 성공 응답으로 조회된 예금주 명이 반환됩니다.
 			 */
 			success: PlatformAccountHolder;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PlatformNotSupportedBankError</code>: 지원하지 않는 은행인 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformNotEnabledError</code>: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</li>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PlatformExternalApiTemporarilyFailedError</code>: 외부 api의 일시적인 오류</li>
-			 * <li><code>PlatformExternalApiFailedError</code>: 외부 api 오류</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PlatformNotSupportedBankError`: 지원하지 않는 은행인 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `PlatformNotEnabledError`: 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PlatformExternalApiTemporarilyFailedError`: 외부 api의 일시적인 오류
+			 * *   `PlatformExternalApiFailedError`: 외부 api 오류
 			 */
 			error: GetPlatformAccountHolderError;
 		};
@@ -2116,43 +1648,36 @@ export type Paths = {
 		/**
 		 * 본인인증 단건 조회
 		 *
-		 * <p>주어진 아이디에 대응되는 본인인증 내역을 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 본인인증 내역을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>조회할 본인인증 아이디</p>
+					 * 조회할 본인인증 아이디
 					 */
 					identityVerificationId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 본인 인증 객체를 반환합니다.</p>
+			 * 성공 응답으로 본인 인증 객체를 반환합니다.
 			 */
 			success: IdentityVerification;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>IdentityVerificationNotFoundError</code>: 요청된 본인인증 건이 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `IdentityVerificationNotFoundError`: 요청된 본인인증 건이 존재하지 않는 경우
 			 */
 			error: GetIdentityVerificationError;
 		};
@@ -2161,7 +1686,7 @@ export type Paths = {
 		/**
 		 * 본인인증 요청 전송
 		 *
-		 * <p>SMS 또는 APP 방식을 이용하여 본인인증 요청을 전송합니다.</p>
+		 * SMS 또는 APP 방식을 이용하여 본인인증 요청을 전송합니다.
 		 */
 		post: {
 			parameters: {
@@ -2169,36 +1694,24 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>본인인증 아이디</p>
+					 * 본인인증 아이디
 					 */
 					identityVerificationId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: SendIdentityVerificationResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>IdentityVerificationNotFoundError</code>: 요청된 본인인증 건이 존재하지 않는 경우</li>
-			 * <li><code>ChannelNotFoundError</code>: 요청된 채널이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>IdentityVerificationAlreadyVerifiedError</code>: 본인인증 건이 이미 인증 완료된 상태인 경우</li>
-			 * <li><code>IdentityVerificationAlreadySentError</code>: 본인인증 건이 이미 API로 요청된 상태인 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `IdentityVerificationNotFoundError`: 요청된 본인인증 건이 존재하지 않는 경우
+			 * *   `ChannelNotFoundError`: 요청된 채널이 존재하지 않는 경우
+			 * *   `IdentityVerificationAlreadyVerifiedError`: 본인인증 건이 이미 인증 완료된 상태인 경우
+			 * *   `IdentityVerificationAlreadySentError`: 본인인증 건이 이미 API로 요청된 상태인 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: SendIdentityVerificationError;
 		};
@@ -2207,7 +1720,7 @@ export type Paths = {
 		/**
 		 * 본인인증 확인
 		 *
-		 * <p>요청된 본인인증에 대한 확인을 진행합니다.</p>
+		 * 요청된 본인인증에 대한 확인을 진행합니다.
 		 */
 		post: {
 			parameters: {
@@ -2215,35 +1728,23 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>본인인증 아이디</p>
+					 * 본인인증 아이디
 					 */
 					identityVerificationId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: ConfirmIdentityVerificationResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>IdentityVerificationNotFoundError</code>: 요청된 본인인증 건이 존재하지 않는 경우</li>
-			 * <li><code>IdentityVerificationNotSentError</code>: 본인인증 건이 API로 요청된 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>IdentityVerificationAlreadyVerifiedError</code>: 본인인증 건이 이미 인증 완료된 상태인 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `IdentityVerificationNotFoundError`: 요청된 본인인증 건이 존재하지 않는 경우
+			 * *   `IdentityVerificationNotSentError`: 본인인증 건이 API로 요청된 상태가 아닌 경우
+			 * *   `IdentityVerificationAlreadyVerifiedError`: 본인인증 건이 이미 인증 완료된 상태인 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: ConfirmIdentityVerificationError;
 		};
@@ -2252,50 +1753,39 @@ export type Paths = {
 		/**
 		 * SMS 본인인증 요청 재전송
 		 *
-		 * <p>SMS 본인인증 요청을 재전송합니다.</p>
+		 * SMS 본인인증 요청을 재전송합니다.
 		 */
 		post: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>본인인증 아이디</p>
+					 * 본인인증 아이디
 					 */
 					identityVerificationId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: ResendIdentityVerificationResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>IdentityVerificationNotFoundError</code>: 요청된 본인인증 건이 존재하지 않는 경우</li>
-			 * <li><code>IdentityVerificationNotSentError</code>: 본인인증 건이 API로 요청된 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>IdentityVerificationAlreadyVerifiedError</code>: 본인인증 건이 이미 인증 완료된 상태인 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `IdentityVerificationNotFoundError`: 요청된 본인인증 건이 존재하지 않는 경우
+			 * *   `IdentityVerificationNotSentError`: 본인인증 건이 API로 요청된 상태가 아닌 경우
+			 * *   `IdentityVerificationAlreadyVerifiedError`: 본인인증 건이 이미 인증 완료된 상태인 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: ResendIdentityVerificationError;
 		};
@@ -2304,7 +1794,7 @@ export type Paths = {
 		/**
 		 * 결제 정보 사전 등록
 		 *
-		 * <p>결제 정보를 사전 등록합니다.</p>
+		 * 결제 정보를 사전 등록합니다.
 		 */
 		post: {
 			parameters: {
@@ -2312,28 +1802,20 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: PreRegisterPaymentResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>AlreadyPaidError</code>: 결제가 이미 완료된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `AlreadyPaidError`: 결제가 이미 완료된 경우
 			 */
 			error: PreRegisterPaymentError;
 		};
@@ -2342,95 +1824,77 @@ export type Paths = {
 		/**
 		 * 빌링키 단건 조회
 		 *
-		 * <p>주어진 빌링키에 대응되는 빌링키 정보를 조회합니다.</p>
+		 * 주어진 빌링키에 대응되는 빌링키 정보를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>조회할 빌링키</p>
+					 * 조회할 빌링키
 					 */
 					billingKey: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 빌링키 정보를 반환합니다.</p>
+			 * 성공 응답으로 빌링키 정보를 반환합니다.
 			 */
 			success: BillingKeyInfo;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>BillingKeyNotFoundError</code>: 빌링키가 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `BillingKeyNotFoundError`: 빌링키가 존재하지 않는 경우
 			 */
 			error: GetBillingKeyInfoError;
 		};
 		/**
 		 * 빌링키 삭제
 		 *
-		 * <p>빌링키를 삭제합니다.</p>
+		 * 빌링키를 삭제합니다.
 		 */
 		delete: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>삭제할 빌링키</p>
+					 * 삭제할 빌링키
 					 */
 					billingKey: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: DeleteBillingKeyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>BillingKeyNotIssuedError</code></li>
-			 * <li><code>BillingKeyNotFoundError</code>: 빌링키가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>BillingKeyAlreadyDeletedError</code>: 빌링키가 이미 삭제된 경우</li>
-			 * <li><code>PaymentScheduleAlreadyExistsError</code>: 결제 예약건이 이미 존재하는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * <li><code>ChannelSpecificError</code>: 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `BillingKeyNotIssuedError`
+			 * *   `BillingKeyNotFoundError`: 빌링키가 존재하지 않는 경우
+			 * *   `BillingKeyAlreadyDeletedError`: 빌링키가 이미 삭제된 경우
+			 * *   `PaymentScheduleAlreadyExistsError`: 결제 예약건이 이미 존재하는 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
+			 * *   `ChannelSpecificError`: 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
 			 */
 			error: DeleteBillingKeyError;
 		};
@@ -2439,59 +1903,43 @@ export type Paths = {
 		/**
 		 * 빌링키 다건 조회
 		 *
-		 * <p>주어진 조건에 맞는 빌링키들을 페이지 기반으로 조회합니다.</p>
+		 * 주어진 조건에 맞는 빌링키들을 페이지 기반으로 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetBillingKeyInfosBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 빌링키 리스트와 페이지 정보가 반환됩니다.</p>
+			 * 성공 응답으로 조회된 빌링키 리스트와 페이지 정보가 반환됩니다.
 			 */
 			success: GetBillingKeyInfosResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetBillingKeyInfosError;
 		};
 		/**
 		 * 빌링키 발급
 		 *
-		 * <p>빌링키 발급을 요청합니다.</p>
+		 * 빌링키 발급을 요청합니다.
 		 */
 		post: {
 			parameters: {
 				body: IssueBillingKeyBody;
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: IssueBillingKeyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ChannelNotFoundError</code>: 요청된 채널이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * <li><code>ChannelSpecificError</code>: 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `ChannelNotFoundError`: 요청된 채널이 존재하지 않는 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
+			 * *   `ChannelSpecificError`: 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
 			 */
 			error: IssueBillingKeyError;
 		};
@@ -2500,43 +1948,36 @@ export type Paths = {
 		/**
 		 * 현금 영수증 단건 조회
 		 *
-		 * <p>주어진 결제 아이디에 대응되는 현금 영수증 내역을 조회합니다.</p>
+		 * 주어진 결제 아이디에 대응되는 현금 영수증 내역을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 현금 영수증 객체를 반환합니다.</p>
+			 * 성공 응답으로 현금 영수증 객체를 반환합니다.
 			 */
 			success: CashReceipt;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>CashReceiptNotFoundError</code>: 현금영수증이 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `CashReceiptNotFoundError`: 현금영수증이 존재하지 않는 경우
 			 */
 			error: GetCashReceiptError;
 		};
@@ -2545,42 +1986,34 @@ export type Paths = {
 		/**
 		 * 결제 단건 조회
 		 *
-		 * <p>주어진 아이디에 대응되는 결제 건을 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 결제 건을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
+					 * 상점 아이디
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>조회할 결제 아이디</p>
+					 * 조회할 결제 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 결제 건 객체를 반환합니다.</p>
+			 * 성공 응답으로 결제 건 객체를 반환합니다.
 			 */
 			success: Payment;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
 			 */
 			error: GetPaymentError;
 		};
@@ -2589,26 +2022,20 @@ export type Paths = {
 		/**
 		 * 결제 다건 조회(페이지 기반)
 		 *
-		 * <p>주어진 조건에 맞는 결제 건들을 페이지 기반으로 조회합니다.</p>
+		 * 주어진 조건에 맞는 결제 건들을 페이지 기반으로 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetPaymentsBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 결제 건 리스트와 페이지 정보가 반환됩니다.</p>
+			 * 성공 응답으로 조회된 결제 건 리스트와 페이지 정보가 반환됩니다.
 			 */
 			success: GetPaymentsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentsError;
 		};
@@ -2617,26 +2044,20 @@ export type Paths = {
 		/**
 		 * 결제 대용량 다건 조회(커서 기반)
 		 *
-		 * <p>기간 내 모든 결제 건을 커서 기반으로 조회합니다. 결제 건의 생성일시를 기준으로 주어진 기간 내 존재하는 모든 결제 건이 조회됩니다.</p>
+		 * 기간 내 모든 결제 건을 커서 기반으로 조회합니다. 결제 건의 생성일시를 기준으로 주어진 기간 내 존재하는 모든 결제 건이 조회됩니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAllPaymentsByCursorBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 결제 건 리스트와 커서 정보가 반환됩니다.</p>
+			 * 성공 응답으로 조회된 결제 건 리스트와 커서 정보가 반환됩니다.
 			 */
 			success: GetAllPaymentsByCursorResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAllPaymentsError;
 		};
@@ -2645,43 +2066,36 @@ export type Paths = {
 		/**
 		 * 결제 예약 단건 조회
 		 *
-		 * <p>주어진 아이디에 대응되는 결제 예약 건을 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 결제 예약 건을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>조회할 결제 예약 건 아이디</p>
+					 * 조회할 결제 예약 건 아이디
 					 */
 					paymentScheduleId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 결제 예약 건 객체를 반환합니다.</p>
+			 * 성공 응답으로 결제 예약 건 객체를 반환합니다.
 			 */
 			success: PaymentSchedule;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentScheduleNotFoundError</code>: 결제 예약건이 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentScheduleNotFoundError`: 결제 예약건이 존재하지 않는 경우
 			 */
 			error: GetPaymentScheduleError;
 		};
@@ -2690,62 +2104,45 @@ export type Paths = {
 		/**
 		 * 결제 예약 다건 조회
 		 *
-		 * <p>주어진 조건에 맞는 결제 예약 건들을 조회합니다.
-		 * <code>filter.from</code>, <code>filter.until</code> 파라미터의 기본값이 결제 시점 기준 지난 90일에 속하는 건을 조회하도록 되어 있으니, 미래 예약 상태의 건을 조회하기 위해서는 해당 파라미터를 직접 설정해 주셔야 합니다.</p>
+		 * 주어진 조건에 맞는 결제 예약 건들을 조회합니다. `filter.from`, `filter.until` 파라미터의 기본값이 결제 시점 기준 지난 90일에 속하는 건을 조회하도록 되어 있으니, 미래 예약 상태의 건을 조회하기 위해서는 해당 파라미터를 직접 설정해 주셔야 합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetPaymentSchedulesBody;
 			};
 			/**
-			 * <p>성공 응답으로 조회된 예약 결제 건 리스트가 반환됩니다.</p>
+			 * 성공 응답으로 조회된 예약 결제 건 리스트가 반환됩니다.
 			 */
 			success: GetPaymentSchedulesResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentSchedulesError;
 		};
 		/**
 		 * 결제 예약 취소
 		 *
-		 * <p>결제 예약 건을 취소합니다.</p>
+		 * 결제 예약 건을 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				body: RevokePaymentSchedulesBody;
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: RevokePaymentSchedulesResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentScheduleNotFoundError</code>: 결제 예약건이 존재하지 않는 경우</li>
-			 * <li><code>BillingKeyNotFoundError</code>: 빌링키가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentScheduleAlreadyProcessedError</code>: 결제 예약건이 이미 처리된 경우</li>
-			 * <li><code>PaymentScheduleAlreadyRevokedError</code>: 결제 예약건이 이미 취소된 경우</li>
-			 * <li><code>BillingKeyAlreadyDeletedError</code>: 빌링키가 이미 삭제된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentScheduleNotFoundError`: 결제 예약건이 존재하지 않는 경우
+			 * *   `BillingKeyNotFoundError`: 빌링키가 존재하지 않는 경우
+			 * *   `PaymentScheduleAlreadyProcessedError`: 결제 예약건이 이미 처리된 경우
+			 * *   `PaymentScheduleAlreadyRevokedError`: 결제 예약건이 이미 취소된 경우
+			 * *   `BillingKeyAlreadyDeletedError`: 빌링키가 이미 삭제된 경우
 			 */
 			error: RevokePaymentSchedulesError;
 		};
@@ -2754,7 +2151,7 @@ export type Paths = {
 		/**
 		 * 결제 예약
 		 *
-		 * <p>결제를 예약합니다.</p>
+		 * 결제를 예약합니다.
 		 */
 		post: {
 			parameters: {
@@ -2762,34 +2159,24 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CreatePaymentScheduleResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>BillingKeyNotFoundError</code>: 빌링키가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>AlreadyPaidOrWaitingError</code>: 결제가 이미 완료되었거나 대기중인 경우</li>
-			 * <li><code>SumOfPartsExceedsTotalAmountError</code>: 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우</li>
-			 * <li><code>BillingKeyAlreadyDeletedError</code>: 빌링키가 이미 삭제된 경우</li>
-			 * <li><code>PaymentScheduleAlreadyExistsError</code>: 결제 예약건이 이미 존재하는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `BillingKeyNotFoundError`: 빌링키가 존재하지 않는 경우
+			 * *   `AlreadyPaidOrWaitingError`: 결제가 이미 완료되었거나 대기중인 경우
+			 * *   `SumOfPartsExceedsTotalAmountError`: 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우
+			 * *   `BillingKeyAlreadyDeletedError`: 빌링키가 이미 삭제된 경우
+			 * *   `PaymentScheduleAlreadyExistsError`: 결제 예약건이 이미 존재하는 경우
 			 */
 			error: CreatePaymentScheduleError;
 		};
@@ -2798,7 +2185,7 @@ export type Paths = {
 		/**
 		 * 결제 취소
 		 *
-		 * <p>결제 취소를 요청합니다.</p>
+		 * 결제 취소를 요청합니다.
 		 */
 		post: {
 			parameters: {
@@ -2806,41 +2193,29 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CancelPaymentResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotPaidError</code>: 결제가 완료되지 않은 경우</li>
-			 * <li><code>PaymentAlreadyCancelledError</code>: 결제가 이미 취소된 경우</li>
-			 * <li><code>CancellableAmountConsistencyBrokenError</code>: 취소 가능 잔액 검증에 실패한 경우</li>
-			 * <li><code>CancelAmountExceedsCancellableAmountError</code>: 결제 취소 금액이 취소 가능 금액을 초과한 경우</li>
-			 * <li><code>SumOfPartsExceedsCancelAmountError</code>: 면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우</li>
-			 * <li><code>CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError</code>: 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우</li>
-			 * <li><code>CancelTaxAmountExceedsCancellableTaxAmountError</code>: 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우</li>
-			 * <li><code>RemainedAmountLessThanPromotionMinPaymentAmountError</code>: 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
+			 * *   `PaymentNotPaidError`: 결제가 완료되지 않은 경우
+			 * *   `PaymentAlreadyCancelledError`: 결제가 이미 취소된 경우
+			 * *   `CancellableAmountConsistencyBrokenError`: 취소 가능 잔액 검증에 실패한 경우
+			 * *   `CancelAmountExceedsCancellableAmountError`: 결제 취소 금액이 취소 가능 금액을 초과한 경우
+			 * *   `SumOfPartsExceedsCancelAmountError`: 면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우
+			 * *   `CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError`: 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
+			 * *   `CancelTaxAmountExceedsCancellableTaxAmountError`: 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
+			 * *   `RemainedAmountLessThanPromotionMinPaymentAmountError`: 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: CancelPaymentError;
 		};
@@ -2849,7 +2224,7 @@ export type Paths = {
 		/**
 		 * 빌링키 결제
 		 *
-		 * <p>빌링키로 결제를 진행합니다.</p>
+		 * 빌링키로 결제를 진행합니다.
 		 */
 		post: {
 			parameters: {
@@ -2857,39 +2232,27 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: PayWithBillingKeyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PromotionPayMethodDoesNotMatchError</code>: 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우</li>
-			 * <li><code>DiscountAmountExceedsTotalAmountError</code>: 프로모션 할인 금액이 결제 시도 금액 이상인 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>BillingKeyNotFoundError</code>: 빌링키가 존재하지 않는 경우</li>
-			 * <li><code>ChannelNotFoundError</code>: 요청된 채널이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>AlreadyPaidError</code>: 결제가 이미 완료된 경우</li>
-			 * <li><code>SumOfPartsExceedsTotalAmountError</code>: 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우</li>
-			 * <li><code>BillingKeyAlreadyDeletedError</code>: 빌링키가 이미 삭제된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PromotionPayMethodDoesNotMatchError`: 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
+			 * *   `DiscountAmountExceedsTotalAmountError`: 프로모션 할인 금액이 결제 시도 금액 이상인 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `BillingKeyNotFoundError`: 빌링키가 존재하지 않는 경우
+			 * *   `ChannelNotFoundError`: 요청된 채널이 존재하지 않는 경우
+			 * *   `AlreadyPaidError`: 결제가 이미 완료된 경우
+			 * *   `SumOfPartsExceedsTotalAmountError`: 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우
+			 * *   `BillingKeyAlreadyDeletedError`: 빌링키가 이미 삭제된 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: PayWithBillingKeyError;
 		};
@@ -2898,7 +2261,7 @@ export type Paths = {
 		/**
 		 * 수기 결제
 		 *
-		 * <p>수기 결제를 진행합니다.</p>
+		 * 수기 결제를 진행합니다.
 		 */
 		post: {
 			parameters: {
@@ -2906,37 +2269,25 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: PayInstantlyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>PromotionPayMethodDoesNotMatchError</code>: 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우</li>
-			 * <li><code>DiscountAmountExceedsTotalAmountError</code>: 프로모션 할인 금액이 결제 시도 금액 이상인 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ChannelNotFoundError</code>: 요청된 채널이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>AlreadyPaidError</code>: 결제가 이미 완료된 경우</li>
-			 * <li><code>SumOfPartsExceedsTotalAmountError</code>: 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `PromotionPayMethodDoesNotMatchError`: 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
+			 * *   `DiscountAmountExceedsTotalAmountError`: 프로모션 할인 금액이 결제 시도 금액 이상인 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `ChannelNotFoundError`: 요청된 채널이 존재하지 않는 경우
+			 * *   `AlreadyPaidError`: 결제가 이미 완료된 경우
+			 * *   `SumOfPartsExceedsTotalAmountError`: 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: PayInstantlyError;
 		};
@@ -2945,35 +2296,23 @@ export type Paths = {
 		/**
 		 * 현금 영수증 수동 발급
 		 *
-		 * <p>현금 영수증 발급을 요청합니다.</p>
+		 * 현금 영수증 발급을 요청합니다.
 		 */
 		post: {
 			parameters: {
 				body: IssueCashReceiptBody;
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: IssueCashReceiptResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ChannelNotFoundError</code>: 요청된 채널이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>CashReceiptAlreadyIssuedError</code>: 현금영수증이 이미 발급된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `ChannelNotFoundError`: 요청된 채널이 존재하지 않는 경우
+			 * *   `CashReceiptAlreadyIssuedError`: 현금영수증이 이미 발급된 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: IssueCashReceiptError;
 		};
@@ -2982,47 +2321,38 @@ export type Paths = {
 		/**
 		 * 현금 영수증 취소
 		 *
-		 * <p>현금 영수증 취소를 요청합니다.</p>
+		 * 현금 영수증 취소를 요청합니다.
 		 */
 		post: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CancelCashReceiptResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>CashReceiptNotIssuedError</code>: 현금영수증이 발급되지 않은 경우</li>
-			 * <li><code>CashReceiptNotFoundError</code>: 현금영수증이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `CashReceiptNotIssuedError`: 현금영수증이 발급되지 않은 경우
+			 * *   `CashReceiptNotFoundError`: 현금영수증이 존재하지 않는 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: CancelCashReceiptError;
 		};
@@ -3031,49 +2361,38 @@ export type Paths = {
 		/**
 		 * 가상계좌 말소
 		 *
-		 * <p>발급된 가상계좌를 말소합니다.</p>
+		 * 발급된 가상계좌를 말소합니다.
 		 */
 		post: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>상점 아이디</p>
-					 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+					 * 상점 아이디
+					 *
+					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: CloseVirtualAccountResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotWaitingForDepositError</code>: 결제 건이 입금 대기 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
+			 * *   `PaymentNotWaitingForDepositError`: 결제 건이 입금 대기 상태가 아닌 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: CloseVirtualAccountError;
 		};
@@ -3082,7 +2401,7 @@ export type Paths = {
 		/**
 		 * 에스크로 배송 정보 등록
 		 *
-		 * <p>에스크로 배송 정보를 등록합니다.</p>
+		 * 에스크로 배송 정보를 등록합니다.
 		 */
 		post: {
 			parameters: {
@@ -3090,41 +2409,29 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: ApplyEscrowLogisticsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotPaidError</code>: 결제가 완료되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
+			 * *   `PaymentNotPaidError`: 결제가 완료되지 않은 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: ApplyEscrowLogisticsError;
 		};
 		/**
 		 * 에스크로 배송 정보 수정
 		 *
-		 * <p>에스크로 배송 정보를 수정합니다.</p>
+		 * 에스크로 배송 정보를 수정합니다.
 		 */
 		patch: {
 			parameters: {
@@ -3132,34 +2439,22 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: ModifyEscrowLogisticsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotPaidError</code>: 결제가 완료되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
+			 * *   `PaymentNotPaidError`: 결제가 완료되지 않은 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: ModifyEscrowLogisticsError;
 		};
@@ -3168,7 +2463,7 @@ export type Paths = {
 		/**
 		 * 에스크로 구매 확정
 		 *
-		 * <p>에스크로 결제를 구매 확정 처리합니다</p>
+		 * 에스크로 결제를 구매 확정 처리합니다
 		 */
 		post: {
 			parameters: {
@@ -3176,34 +2471,22 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: ConfirmEscrowResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotPaidError</code>: 결제가 완료되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
+			 * *   `PaymentNotPaidError`: 결제가 완료되지 않은 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: ConfirmEscrowError;
 		};
@@ -3212,7 +2495,7 @@ export type Paths = {
 		/**
 		 * 웹훅 재발송
 		 *
-		 * <p>웹훅을 재발송합니다.</p>
+		 * 웹훅을 재발송합니다.
 		 */
 		post: {
 			parameters: {
@@ -3220,29 +2503,21 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>결제 건 아이디</p>
+					 * 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: ResendWebhookResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * <li><code>WebhookNotFoundError</code>: 웹훅 내역이 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
+			 * *   `WebhookNotFoundError`: 웹훅 내역이 존재하지 않는 경우
 			 */
 			error: ResendWebhookError;
 		};
@@ -3250,26 +2525,20 @@ export type Paths = {
 	"/analytics/charts/payment": {
 		/**
 		 *
-		 * <p>고객사의 결제 현황을 조회합니다.</p>
+		 * 고객사의 결제 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제 현황을 반환합니다.</p>
+			 * 성공 응답으로 결제 현황을 반환합니다.
 			 */
 			success: AnalyticsPaymentChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsPaymentChartError;
 		};
@@ -3277,26 +2546,20 @@ export type Paths = {
 	"/analytics/charts/payment-insight": {
 		/**
 		 *
-		 * <p>고객사의 결제 현황 인사이트를 조회합니다.</p>
+		 * 고객사의 결제 현황 인사이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentChartInsightBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제 현황 인사이트를 반환합니다.</p>
+			 * 성공 응답으로 결제 현황 인사이트를 반환합니다.
 			 */
 			success: AnalyticsPaymentChartInsight;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsPaymentChartInsightError;
 		};
@@ -3304,26 +2567,20 @@ export type Paths = {
 	"/analytics/charts/average-amount": {
 		/**
 		 *
-		 * <p>고객사의 평균 거래액 현황을 조회합니다.</p>
+		 * 고객사의 평균 거래액 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsAverageAmountChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 평균 거래액 현황을 반환합니다.</p>
+			 * 성공 응답으로 평균 거래액 현황을 반환합니다.
 			 */
 			success: AnalyticsAverageAmountChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAverageAmountChartError;
 		};
@@ -3331,26 +2588,20 @@ export type Paths = {
 	"/analytics/charts/payment-method": {
 		/**
 		 *
-		 * <p>고객사의 결제수단 현황을 조회합니다.</p>
+		 * 고객사의 결제수단 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentMethodChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제수단 현황을 반환합니다.</p>
+			 * 성공 응답으로 결제수단 현황을 반환합니다.
 			 */
 			success: AnalyticsPaymentMethodChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentMethodChartError;
 		};
@@ -3358,26 +2609,20 @@ export type Paths = {
 	"/analytics/charts/payment-method-trend": {
 		/**
 		 *
-		 * <p>고객사의 결제수단 트렌드를 조회합니다.</p>
+		 * 고객사의 결제수단 트렌드를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentMethodTrendChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제수단 트렌드를 반환합니다.</p>
+			 * 성공 응답으로 결제수단 트렌드를 반환합니다.
 			 */
 			success: AnalyticsPaymentMethodTrendChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentMethodTrendChartError;
 		};
@@ -3385,26 +2630,20 @@ export type Paths = {
 	"/analytics/charts/card": {
 		/**
 		 *
-		 * <p>고객사의 카드결제 현황을 조회합니다.</p>
+		 * 고객사의 카드결제 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsCardChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 카드결제 현황을 반환합니다.</p>
+			 * 성공 응답으로 카드결제 현황을 반환합니다.
 			 */
 			success: AnalyticsCardChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsCardChartError;
 		};
@@ -3412,26 +2651,20 @@ export type Paths = {
 	"/analytics/charts/card-company": {
 		/**
 		 *
-		 * <p>고객사의 카드사별 결제 현황을 조회합니다.</p>
+		 * 고객사의 카드사별 결제 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsCardCompanyChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 카드사별 결제 현황을 반환합니다.</p>
+			 * 성공 응답으로 카드사별 결제 현황을 반환합니다.
 			 */
 			success: AnalyticsCardCompanyChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsCardCompanyChartError;
 		};
@@ -3439,26 +2672,20 @@ export type Paths = {
 	"/analytics/charts/easy-pay": {
 		/**
 		 *
-		 * <p>고객사의 간편결제 현황을 조회합니다.</p>
+		 * 고객사의 간편결제 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsEasyPayChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 간편결제 현황을 반환합니다.</p>
+			 * 성공 응답으로 간편결제 현황을 반환합니다.
 			 */
 			success: AnalyticsEasyPayChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsEasyPayChartError;
 		};
@@ -3466,26 +2693,20 @@ export type Paths = {
 	"/analytics/charts/easy-pay-provider": {
 		/**
 		 *
-		 * <p>고객사의 간편결제사별 결제 현황을 조회합니다.</p>
+		 * 고객사의 간편결제사별 결제 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsEasyPayProviderChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 간편결제사별 결제 현황을 반환합니다.</p>
+			 * 성공 응답으로 간편결제사별 결제 현황을 반환합니다.
 			 */
 			success: AnalyticsEasyPayProviderChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsEasyPayProviderChartError;
 		};
@@ -3493,26 +2714,20 @@ export type Paths = {
 	"/analytics/charts/pg-company": {
 		/**
 		 *
-		 * <p>고객사의 결제대행사 현황을 조회합니다.</p>
+		 * 고객사의 결제대행사 현황을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPgCompanyChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제대행사 현황을 반환합니다.</p>
+			 * 성공 응답으로 결제대행사 현황을 반환합니다.
 			 */
 			success: AnalyticsPgCompanyChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPgCompanyChartError;
 		};
@@ -3520,26 +2735,20 @@ export type Paths = {
 	"/analytics/charts/pg-company-trend": {
 		/**
 		 *
-		 * <p>고객사의 결제대행사별 거래 추이를 조회합니다.</p>
+		 * 고객사의 결제대행사별 거래 추이를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPgCompanyTrendChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제대행사별 거래 추이를 반환합니다.</p>
+			 * 성공 응답으로 결제대행사별 거래 추이를 반환합니다.
 			 */
 			success: AnalyticsPgCompanyTrendChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPgCompanyTrendChartError;
 		};
@@ -3547,21 +2756,17 @@ export type Paths = {
 	"/analytics/overseas-payment-usage": {
 		/**
 		 *
-		 * <p>고객사의 해외 결제 사용 여부를 조회합니다.</p>
+		 * 고객사의 해외 결제 사용 여부를 조회합니다.
 		 */
 		get: {
 			parameters: Record<string, never>;
 			/**
-			 * <p>성공 응답으로 해외 결제 사용 여부을 반환합니다.</p>
+			 * 성공 응답으로 해외 결제 사용 여부을 반환합니다.
 			 */
 			success: AnalyticsOverseasPaymentUsage;
 			/**
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsOverseasPaymentUsageError;
 		};
@@ -3569,26 +2774,20 @@ export type Paths = {
 	"/analytics/cancellation-rate": {
 		/**
 		 *
-		 * <p>고객사의 환불율을 조회합니다.</p>
+		 * 고객사의 환불율을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsCancellationRateBody;
 			};
 			/**
-			 * <p>성공 응답으로 환불율을 반환합니다.</p>
+			 * 성공 응답으로 환불율을 반환합니다.
 			 */
 			success: AnalyticsCancellationRate;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetAnalyticsCancellationRateError;
 		};
@@ -3596,26 +2795,20 @@ export type Paths = {
 	"/analytics/charts/payment-status": {
 		/**
 		 *
-		 * <p>고객사의 결제상태 이력 집계를 조회합니다.</p>
+		 * 고객사의 결제상태 이력 집계를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentStatusChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제상태 이력 집계 결과를 반환합니다.</p>
+			 * 성공 응답으로 결제상태 이력 집계 결과를 반환합니다.
 			 */
 			success: AnalyticsPaymentStatusChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentStatusChartError;
 		};
@@ -3623,26 +2816,20 @@ export type Paths = {
 	"/analytics/charts/payment-status/by-method": {
 		/**
 		 *
-		 * <p>고객사의 결제수단별 결제전환율을 조회합니다.</p>
+		 * 고객사의 결제수단별 결제전환율을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentStatusByPaymentMethodChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제수단별 결제전환율 조회 결과를 반환합니다.</p>
+			 * 성공 응답으로 결제수단별 결제전환율 조회 결과를 반환합니다.
 			 */
 			success: AnalyticsPaymentStatusByPaymentMethodChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentStatusByPaymentMethodChartError;
 		};
@@ -3650,26 +2837,20 @@ export type Paths = {
 	"/analytics/charts/payment-status/by-pg-company": {
 		/**
 		 *
-		 * <p>고객사의 PG사별 결제전환율을 조회합니다.</p>
+		 * 고객사의 PG사별 결제전환율을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentStatusByPgCompanyChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 PG사별 결제전환율 조회 결과를 반환합니다.</p>
+			 * 성공 응답으로 PG사별 결제전환율 조회 결과를 반환합니다.
 			 */
 			success: AnalyticsPaymentStatusByPgCompanyChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentStatusByPgCompanyChartError;
 		};
@@ -3677,26 +2858,20 @@ export type Paths = {
 	"/analytics/charts/payment-status/by-payment-client": {
 		/**
 		 *
-		 * <p>고객사의 결제환경별 결제전환율을 조회합니다.</p>
+		 * 고객사의 결제환경별 결제전환율을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				body: GetAnalyticsPaymentStatusByPaymentClientChartBody;
 			};
 			/**
-			 * <p>성공 응답으로 결제환경별 결제전환율 조회 결과를 반환합니다.</p>
+			 * 성공 응답으로 결제환경별 결제전환율 조회 결과를 반환합니다.
 			 */
 			success: AnalyticsPaymentStatusByPaymentClientChart;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
 			 */
 			error: GetPaymentStatusByPaymentClientChartError;
 		};
@@ -3705,53 +2880,44 @@ export type Paths = {
 		/**
 		 * 연동 사업자 조회
 		 *
-		 * <p>포트원 B2B 서비스에 연동된 사업자를 조회합니다.</p>
+		 * 포트원 B2B 서비스에 연동된 사업자를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 사업자 객체를 반환합니다.</p>
+			 * 성공 응답으로 사업자 객체를 반환합니다.
 			 */
 			success: B2bMemberCompany;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bMemberCompanyNotFoundError</code>: 연동 사업자가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bMemberCompanyNotFoundError`: 연동 사업자가 존재하지 않는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bMemberCompanyError;
 		};
 		/**
 		 * 연동 사업자 정보 수정
 		 *
-		 * <p>연동 사업자 정보를 수정합니다.</p>
+		 * 연동 사업자 정보를 수정합니다.
 		 */
 		patch: {
 			parameters: {
@@ -3759,36 +2925,29 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: UpdateB2bMemberCompanyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bMemberCompanyNotFoundError</code>: 연동 사업자가 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bMemberCompanyNotFoundError`: 연동 사업자가 존재하지 않는 경우
 			 */
 			error: UpdateB2bMemberCompanyError;
 		};
@@ -3797,7 +2956,7 @@ export type Paths = {
 		/**
 		 * 사업자 연동
 		 *
-		 * <p>포트원 B2B 서비스에 사업자를 연동합니다.</p>
+		 * 포트원 B2B 서비스에 사업자를 연동합니다.
 		 */
 		post: {
 			parameters: {
@@ -3805,33 +2964,24 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: RegisterB2bMemberCompanyResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bIdAlreadyExistsError</code>: ID가 이미 사용중인 경우</li>
-			 * <li><code>B2bCompanyAlreadyRegisteredError</code>: 사업자가 이미 연동되어 있는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bIdAlreadyExistsError`: ID가 이미 사용중인 경우
+			 * *   `B2bCompanyAlreadyRegisteredError`: 사업자가 이미 연동되어 있는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: RegisterB2bMemberCompanyError;
 		};
@@ -3840,59 +2990,50 @@ export type Paths = {
 		/**
 		 * 담당자 조회
 		 *
-		 * <p>연동 사업자에 등록된 담당자를 조회합니다.</p>
+		 * 연동 사업자에 등록된 담당자를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>담당자 ID</p>
+					 * 담당자 ID
 					 */
 					contactId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 담당자 객체를 반환합니다.</p>
+			 * 성공 응답으로 담당자 객체를 반환합니다.
 			 */
 			success: B2bCompanyContact;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bMemberCompanyNotFoundError</code>: 연동 사업자가 존재하지 않는 경우</li>
-			 * <li><code>B2bContactNotFoundError</code>: 담당자가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bMemberCompanyNotFoundError`: 연동 사업자가 존재하지 않는 경우
+			 * *   `B2bContactNotFoundError`: 담당자가 존재하지 않는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bMemberCompanyContactError;
 		};
 		/**
 		 * 담당자 정보 수정
 		 *
-		 * <p>담당자 정보를 수정합니다.</p>
+		 * 담당자 정보를 수정합니다.
 		 */
 		patch: {
 			parameters: {
@@ -3900,45 +3041,36 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>담당자 ID</p>
+					 * 담당자 ID
 					 */
 					contactId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: UpdateB2bMemberCompanyContactResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bContactNotFoundError</code>: 담당자가 존재하지 않는 경우</li>
-			 * <li><code>B2bMemberCompanyNotFoundError</code>: 연동 사업자가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bContactNotFoundError`: 담당자가 존재하지 않는 경우
+			 * *   `B2bMemberCompanyNotFoundError`: 연동 사업자가 존재하지 않는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: UpdateB2bMemberCompanyContactError;
 		};
@@ -3947,46 +3079,37 @@ export type Paths = {
 		/**
 		 * 사업자 인증서 등록 URL 조회
 		 *
-		 * <p>연동 사업자의 인증서를 등록하기 위한 URL을 조회합니다.</p>
+		 * 연동 사업자의 인증서를 등록하기 위한 URL을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 URL을 반환합니다.</p>
+			 * 성공 응답으로 URL을 반환합니다.
 			 */
 			success: GetB2bCertificateRegistrationUrlResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bMemberCompanyNotFoundError</code>: 연동 사업자가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bMemberCompanyNotFoundError`: 연동 사업자가 존재하지 않는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bCertificateRegistrationUrlError;
 		};
@@ -3995,47 +3118,38 @@ export type Paths = {
 		/**
 		 * 인증서 조회
 		 *
-		 * <p>연동 사업자의 인증서를 조회합니다.</p>
+		 * 연동 사업자의 인증서를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 인증서 객체를 반환합니다.</p>
+			 * 성공 응답으로 인증서 객체를 반환합니다.
 			 */
 			success: B2bCertificate;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bMemberCompanyNotFoundError</code>: 연동 사업자가 존재하지 않는 경우</li>
-			 * <li><code>B2bCertificateUnregisteredError</code>: 인증서가 등록되어 있지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bMemberCompanyNotFoundError`: 연동 사업자가 존재하지 않는 경우
+			 * *   `B2bCertificateUnregisteredError`: 인증서가 등록되어 있지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bCertificateError;
 		};
@@ -4044,41 +3158,34 @@ export type Paths = {
 		/**
 		 * 담당자 ID 존재 여부 확인
 		 *
-		 * <p>담당자 ID가 이미 사용중인지 확인합니다.</p>
+		 * 담당자 ID가 이미 사용중인지 확인합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>담당자 ID</p>
+					 * 담당자 ID
 					 */
 					contactId: string;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답입니다.</p>
+			 * 성공 응답입니다.
 			 */
 			success: GetB2bContactIdExistenceResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: getB2bContactIdExistenceError;
 		};
@@ -4087,59 +3194,48 @@ export type Paths = {
 		/**
 		 * 예금주 조회
 		 *
-		 * <p>원하는 계좌의 예금주를 조회합니다.</p>
+		 * 원하는 계좌의 예금주를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>은행</p>
+					 * 은행
 					 */
 					bank: Bank;
 					/**
 					 *
-					 * <p>'-'를 제외한 계좌 번호</p>
+					 * '-'를 제외한 계좌 번호
 					 */
 					accountNumber: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: GetB2bBankAccountHolderResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bBankAccountNotFoundError</code>: 계좌가 존재하지 않는 경우</li>
-			 * <li><code>B2bForeignExchangeAccountError</code>: 계좌 정보 조회가 불가능한 외화 계좌인 경우</li>
-			 * <li><code>B2bSuspendedAccountError</code>: 정지 계좌인 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bRegularMaintenanceTimeError</code>: 금융기관 시스템이 정기 점검 중인 경우</li>
-			 * <li><code>B2bFinancialSystemFailureError</code>: 금융기관 장애</li>
-			 * <li><code>B2bFinancialSystemUnderMaintenanceError</code>: 금융기관 시스템이 점검 중인 경우</li>
-			 * <li><code>B2bFinancialSystemCommunicationError</code>: 금융기관과의 통신에 실패한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bBankAccountNotFoundError`: 계좌가 존재하지 않는 경우
+			 * *   `B2bForeignExchangeAccountError`: 계좌 정보 조회가 불가능한 외화 계좌인 경우
+			 * *   `B2bSuspendedAccountError`: 정지 계좌인 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
+			 * *   `B2bRegularMaintenanceTimeError`: 금융기관 시스템이 정기 점검 중인 경우
+			 * *   `B2bFinancialSystemFailureError`: 금융기관 장애
+			 * *   `B2bFinancialSystemUnderMaintenanceError`: 금융기관 시스템이 점검 중인 경우
+			 * *   `B2bFinancialSystemCommunicationError`: 금융기관과의 통신에 실패한 경우
 			 */
 			error: GetB2bAccountHolderError;
 		};
@@ -4148,49 +3244,38 @@ export type Paths = {
 		/**
 		 * 사업자 상태 조회
 		 *
-		 * <p>원하는 사업자의 상태를 조회합니다. 포트원 B2B 서비스에 연동 및 등록되지 않은 사업자도 조회 가능합니다.</p>
+		 * 원하는 사업자의 상태를 조회합니다. 포트원 B2B 서비스에 연동 및 등록되지 않은 사업자도 조회 가능합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 사업자 상태 객체를 반환합니다.</p>
+			 * 성공 응답으로 사업자 상태 객체를 반환합니다.
 			 */
 			success: B2bCompanyState;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bCompanyNotFoundError</code>: 사업자가 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bHometaxUnderMaintenanceError</code>: 홈택스가 점검중이거나 순단이 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bCompanyNotFoundError`: 사업자가 존재하지 않는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
+			 * *   `B2bHometaxUnderMaintenanceError`: 홈택스가 점검중이거나 순단이 발생한 경우
 			 */
 			error: GetB2bCompanyStateError;
 		};
@@ -4199,7 +3284,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 역발행 요청
 		 *
-		 * <p>공급자에게 세금계산서 역발행을 요청합니다.</p>
+		 * 공급자에게 세금계산서 역발행을 요청합니다.
 		 */
 		post: {
 			parameters: {
@@ -4207,33 +3292,24 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bSupplierNotFoundError</code>: 공급자가 존재하지 않은 경우</li>
-			 * <li><code>B2bRecipientNotFoundError</code>: 공급받는자가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bSupplierNotFoundError`: 공급자가 존재하지 않은 경우
+			 * *   `B2bRecipientNotFoundError`: 공급받는자가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: RequestB2bTaxInvoiceReverseIssuanceError;
 		};
@@ -4242,111 +3318,95 @@ export type Paths = {
 		/**
 		 * 세금 계산서 조회
 		 *
-		 * <p>등록된 세금 계산서를 공급자 혹은 공급받는자 문서번호로 조회합니다.</p>
+		 * 등록된 세금 계산서를 공급자 혹은 공급받는자 문서번호로 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>세금계산서 문서 번호</p>
+					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bTaxInvoiceError;
 		};
 		/**
 		 * 세금계산서 삭제
 		 *
-		 * <p>세금계산서를 삭제합니다.</p>
+		 * 세금계산서를 삭제합니다.
 		 */
 		delete: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>세금계산서 문서 번호</p>
+					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
 			};
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNonDeletableStatusError</code>: 세금계산서가 삭제 가능한 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNonDeletableStatusError`: 세금계산서가 삭제 가능한 상태가 아닌 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: DeleteB2bTaxInvoiceError;
 		};
@@ -4355,7 +3415,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 발행
 		 *
-		 * <p>역발행의 경우 역발행요청(REQUESTED) 상태, 정발행의 경우 임시저장(REGISTERED) 상태의 세금계산서를 발행합니다.</p>
+		 * 역발행의 경우 역발행요청(REQUESTED) 상태, 정발행의 경우 임시저장(REGISTERED) 상태의 세금계산서를 발행합니다.
 		 */
 		post: {
 			parameters: {
@@ -4363,33 +3423,24 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNotRequestedStatusError</code>: 세금계산서가 역발행 대기 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNotRequestedStatusError`: 세금계산서가 역발행 대기 상태가 아닌 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: IssueB2bTaxInvoiceError;
 		};
@@ -4398,7 +3449,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 역발행 요청 취소
 		 *
-		 * <p>공급받는자가 공급자에게 세금계산서 역발행 요청한 것을 취소합니다.</p>
+		 * 공급받는자가 공급자에게 세금계산서 역발행 요청한 것을 취소합니다.
 		 */
 		post: {
 			parameters: {
@@ -4406,34 +3457,25 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNotRequestedStatusError</code>: 세금계산서가 역발행 대기 상태가 아닌 경우</li>
-			 * <li><code>B2bTaxInvoiceNoRecipientDocumentKeyError</code>: 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNotRequestedStatusError`: 세금계산서가 역발행 대기 상태가 아닌 경우
+			 * *   `B2bTaxInvoiceNoRecipientDocumentKeyError`: 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: CancelB2bTaxInvoiceRequestError;
 		};
@@ -4442,7 +3484,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 역발행 취소
 		 *
-		 * <p>공급자가 발행 완료한 세금계산서를 국세청 전송 전 취소합니다.</p>
+		 * 공급자가 발행 완료한 세금계산서를 국세청 전송 전 취소합니다.
 		 */
 		post: {
 			parameters: {
@@ -4450,30 +3492,23 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNotIssuedStatusError</code>: 세금계산서가 발행된(ISSUED) 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNotIssuedStatusError`: 세금계산서가 발행된(ISSUED) 상태가 아닌 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: CancelB2bTaxInvoiceIssuanceError;
 		};
@@ -4482,7 +3517,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 역발행 요청 거부
 		 *
-		 * <p>공급자가 공급받는자로부터 요청받은 세금계산서 역발행 건을 거부합니다.</p>
+		 * 공급자가 공급받는자로부터 요청받은 세금계산서 역발행 건을 거부합니다.
 		 */
 		post: {
 			parameters: {
@@ -4490,34 +3525,25 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNotRequestedStatusError</code>: 세금계산서가 역발행 대기 상태가 아닌 경우</li>
-			 * <li><code>B2bTaxInvoiceNoSupplierDocumentKeyError</code>: 세금계산서에 공급자 문서 번호가 기입되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNotRequestedStatusError`: 세금계산서가 역발행 대기 상태가 아닌 경우
+			 * *   `B2bTaxInvoiceNoSupplierDocumentKeyError`: 세금계산서에 공급자 문서 번호가 기입되지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: RefuseB2bTaxInvoiceRequestError;
 		};
@@ -4526,53 +3552,57 @@ export type Paths = {
 		/**
 		 * 세금 계산서 다건조회
 		 *
-		 * <p>조회 기간 내 등록된 세금 계산서를 다건 조회합니다.</p>
+		 * 조회 기간 내 등록된 세금 계산서를 다건 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>페이지 번호</p>
-					 * <p>0부터 시작하는 페이지 번호. 기본 값은 0.</p>
+					 * 페이지 번호
+					 *
+					 * 0부터 시작하는 페이지 번호. 기본 값은 0.
 					 */
 					pageNumber?: number;
 					/**
 					 *
-					 * <p>페이지 크기</p>
-					 * <p>각 페이지 당 포함할 객체 수. 기본 값은 500이며 최대 1000까지 요청가능합니다.</p>
+					 * 페이지 크기
+					 *
+					 * 각 페이지 당 포함할 객체 수. 기본 값은 500이며 최대 1000까지 요청가능합니다.
 					 */
 					pageSize?: number;
 					/**
 					 *
-					 * <p>조회 시작일</p>
+					 * 조회 시작일
 					 */
 					from: string;
 					/**
 					 *
-					 * <p>조회 종료일</p>
+					 * 조회 종료일
 					 */
 					until: string;
 					/**
 					 *
-					 * <p>조회 기간 기준</p>
+					 * 조회 기간 기준
 					 */
 					dateType: B2bSearchDateType;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
@@ -4581,18 +3611,10 @@ export type Paths = {
 			 */
 			success: GetB2bTaxInvoicesResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bTaxInvoicesError;
 		};
@@ -4601,39 +3623,42 @@ export type Paths = {
 		/**
 		 * 세금 계산서 팝업 URL 조회
 		 *
-		 * <p>등록된 세금 계산서 팝업 URL을 공급자 혹은 공급받는자 문서번호로 조회합니다.</p>
+		 * 등록된 세금 계산서 팝업 URL을 공급자 혹은 공급받는자 문서번호로 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>메뉴 포함 여부</p>
-					 * <p>팝업 URL에 메뉴 레이아웃을 포함 여부를 결정합니다. 기본 값은 true입니다.</p>
+					 * 메뉴 포함 여부
+					 *
+					 * 팝업 URL에 메뉴 레이아웃을 포함 여부를 결정합니다. 기본 값은 true입니다.
 					 */
 					includeMenu?: boolean;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>세금계산서 문서 번호</p>
+					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
@@ -4642,21 +3667,11 @@ export type Paths = {
 			 */
 			success: GetB2bTaxInvoicePopupUrlResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bTaxInvoicePopupUrlError;
 		};
@@ -4665,33 +3680,35 @@ export type Paths = {
 		/**
 		 * 세금 계산서 프린트 URL 조회
 		 *
-		 * <p>등록된 세금 계산서 프린트 URL을 공급자 혹은 공급받는자 문서번호로 조회합니다.</p>
+		 * 등록된 세금 계산서 프린트 URL을 공급자 혹은 공급받는자 문서번호로 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>세금계산서 문서 번호</p>
+					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
@@ -4700,21 +3717,11 @@ export type Paths = {
 			 */
 			success: GetB2bTaxInvoicePrintUrlResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bTaxInvoicePrintUrlError;
 		};
@@ -4723,33 +3730,35 @@ export type Paths = {
 		/**
 		 * 세금 계산서 PDF 다운로드 URL 조회
 		 *
-		 * <p>등록된 세금 계산서 PDF 다운로드 URL을 공급자 혹은 공급받는자 문서번호로 조회합니다.</p>
+		 * 등록된 세금 계산서 PDF 다운로드 URL을 공급자 혹은 공급받는자 문서번호로 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>세금계산서 문서 번호</p>
+					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
@@ -4758,21 +3767,11 @@ export type Paths = {
 			 */
 			success: GetB2bTaxInvoicePdfDownloadUrlResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bTaxInvoicePdfDownloadUrlError;
 		};
@@ -4781,7 +3780,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 임시 저장
 		 *
-		 * <p>세금계산서 임시 저장을 요청합니다.</p>
+		 * 세금계산서 임시 저장을 요청합니다.
 		 */
 		post: {
 			parameters: {
@@ -4789,33 +3788,24 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bSupplierNotFoundError</code>: 공급자가 존재하지 않은 경우</li>
-			 * <li><code>B2bRecipientNotFoundError</code>: 공급받는자가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bSupplierNotFoundError`: 공급자가 존재하지 않은 경우
+			 * *   `B2bRecipientNotFoundError`: 공급받는자가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: RequestB2bTaxInvoiceRegisterError;
 		};
@@ -4824,7 +3814,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 역발행 요청
 		 *
-		 * <p>임시저장(REGISTERED) 상태의 역발행 세금계산서를 공급자에게 발행 요청합니다.</p>
+		 * 임시저장(REGISTERED) 상태의 역발행 세금계산서를 공급자에게 발행 요청합니다.
 		 */
 		post: {
 			parameters: {
@@ -4832,34 +3822,25 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 세금계산서를 반환합니다.</p>
+			 * 성공 응답으로 세금계산서를 반환합니다.
 			 */
 			success: B2bTaxInvoice;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNotRegisteredStatusError</code>: 세금계산서가 임시저장 상태가 아닌 경우</li>
-			 * <li><code>B2bTaxInvoiceNoRecipientDocumentKeyError</code>: 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNotRegisteredStatusError`: 세금계산서가 임시저장 상태가 아닌 경우
+			 * *   `B2bTaxInvoiceNoRecipientDocumentKeyError`: 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: requestB2bTaxInvoiceError;
 		};
@@ -4868,7 +3849,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 파일 업로드 링크 생성
 		 *
-		 * <p>세금계산서의 첨부파일를 업로드할 링크를 생성합니다.</p>
+		 * 세금계산서의 첨부파일를 업로드할 링크를 생성합니다.
 		 */
 		post: {
 			parameters: {
@@ -4876,8 +3857,9 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
@@ -4886,15 +3868,9 @@ export type Paths = {
 			 */
 			success: CreateB2bTaxInvoiceFileUploadLinkResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
 			 */
 			error: CreateB2bTaxInvoiceFileUploadLinkCreateError;
 		};
@@ -4903,7 +3879,7 @@ export type Paths = {
 		/**
 		 * 세금계산서 파일 첨부
 		 *
-		 * <p>세금계산서에 파일을 첨부합니다.</p>
+		 * 세금계산서에 파일을 첨부합니다.
 		 */
 		post: {
 			parameters: {
@@ -4911,30 +3887,21 @@ export type Paths = {
 				query: {
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 			};
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNotRegisteredStatusError</code>: 세금계산서가 임시저장 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * <li><code>B2bFileNotFoundError</code>: 업로드한 파일을 찾을 수 없는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNotRegisteredStatusError`: 세금계산서가 임시저장 상태가 아닌 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bFileNotFoundError`: 업로드한 파일을 찾을 수 없는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: AttachB2bTaxInvoiceFileError;
 		};
@@ -4943,33 +3910,35 @@ export type Paths = {
 		/**
 		 * 세금계산서 첨부파일 목록 조회
 		 *
-		 * <p>세금계산서에 첨부된 파일 목록을 조회합니다.</p>
+		 * 세금계산서에 첨부된 파일 목록을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>세금계산서 문서 번호</p>
+					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
@@ -4978,21 +3947,11 @@ export type Paths = {
 			 */
 			success: GetB2bTaxInvoiceAttachmentsResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: GetB2bTaxInvoiceAttachmentsError;
 		};
@@ -5001,60 +3960,52 @@ export type Paths = {
 		/**
 		 * 세금계산서 첨부파일 삭제
 		 *
-		 * <p>세금계산서 첨부파일을 삭제합니다.</p>
+		 * 세금계산서 첨부파일을 삭제합니다.
 		 */
 		delete: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>사업자등록번호</p>
+					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
 					 *
-					 * <p>문서 번호 유형</p>
-					 * <p>path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+					 * 문서 번호 유형
+					 *
+					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 *
-					 * <p>테스트 모드 여부</p>
-					 * <p>true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.</p>
+					 * 테스트 모드 여부
+					 *
+					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
 				};
 				path: {
 					/**
 					 *
-					 * <p>세금계산서 문서 번호</p>
+					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 					/**
 					 *
-					 * <p>첨부파일 아이디</p>
+					 * 첨부파일 아이디
 					 */
 					attachmentId: string;
 				};
 			};
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceNotRegisteredStatusError</code>: 세금계산서가 임시저장 상태가 아닌 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bNotEnabledError</code>: B2B 기능이 활성화되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bTaxInvoiceNotFoundError</code>: 세금계산서가 존재하지 않은 경우</li>
-			 * <li><code>B2bTaxInvoiceAttachmentNotFoundError</code>: 세금계산서의 첨부파일을 찾을 수 없는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>B2bExternalServiceError</code>: 외부 서비스에서 에러가 발생한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `B2bTaxInvoiceNotRegisteredStatusError`: 세금계산서가 임시저장 상태가 아닌 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `B2bNotEnabledError`: B2B 기능이 활성화되지 않은 경우
+			 * *   `B2bTaxInvoiceNotFoundError`: 세금계산서가 존재하지 않은 경우
+			 * *   `B2bTaxInvoiceAttachmentNotFoundError`: 세금계산서의 첨부파일을 찾을 수 없는 경우
+			 * *   `B2bExternalServiceError`: 외부 서비스에서 에러가 발생한 경우
 			 */
 			error: DeleteB2bTaxInvoiceAttachmentError;
 		};
@@ -5063,35 +4014,30 @@ export type Paths = {
 		/**
 		 * 카카오페이 주문 조회 API
 		 *
-		 * <p>주어진 아이디에 대응되는 카카오페이 주문 건을 조회합니다.
-		 * 해당 API 사용이 필요한 경우 포트원 기술지원팀으로 문의 주시길 바랍니다.</p>
+		 * 주어진 아이디에 대응되는 카카오페이 주문 건을 조회합니다. 해당 API 사용이 필요한 경우 포트원 기술지원팀으로 문의 주시길 바랍니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
 					 *
-					 * <p>카카오페이 주문 번호 (tid)</p>
+					 * 카카오페이 주문 번호 (tid)
 					 */
 					pgTxId: string;
 					/**
 					 *
-					 * <p>채널 키</p>
+					 * 채널 키
 					 */
 					channelKey: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 카카오페이 주문 조회 응답 객체를 반환합니다.</p>
+			 * 성공 응답으로 카카오페이 주문 조회 응답 객체를 반환합니다.
 			 */
 			success: GetKakaopayPaymentOrderResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
 			 */
 			error: GetKakaopayPaymentOrderError;
 		};
@@ -5100,9 +4046,7 @@ export type Paths = {
 		/**
 		 * 영수증 내 하위 상점 거래 등록
 		 *
-		 * <p>결제 내역 매출전표에 하위 상점의 거래를 등록합니다.
-		 * 지원되는 PG사:
-		 * KG이니시스(이용 전 콘솔 -&gt; 결제연동 탭에서 INIApi Key 등록 필요)</p>
+		 * 결제 내역 매출전표에 하위 상점의 거래를 등록합니다. 지원되는 PG사: KG이니시스(이용 전 콘솔 -> 결제연동 탭에서 INIApi Key 등록 필요)
 		 */
 		post: {
 			parameters: {
@@ -5110,34 +4054,22 @@ export type Paths = {
 				path: {
 					/**
 					 *
-					 * <p>등록할 하위 상점 결제 건 아이디</p>
+					 * 등록할 하위 상점 결제 건 아이디
 					 */
 					paymentId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답</p>
+			 * 성공 응답
 			 */
 			success: RegisterStoreReceiptResponse;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotFoundError</code>: 결제 건이 존재하지 않는 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PaymentNotPaidError</code>: 결제가 완료되지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PgProviderError</code>: PG사에서 오류를 전달한 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PaymentNotFoundError`: 결제 건이 존재하지 않는 경우
+			 * *   `PaymentNotPaidError`: 결제가 완료되지 않은 경우
+			 * *   `PgProviderError`: PG사에서 오류를 전달한 경우
 			 */
 			error: RegisterStoreReceiptError;
 		};
@@ -5146,35 +4078,27 @@ export type Paths = {
 		/**
 		 * 프로모션 단건 조회
 		 *
-		 * <p>주어진 아이디에 대응되는 프로모션을 조회합니다.</p>
+		 * 주어진 아이디에 대응되는 프로모션을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
 					 *
-					 * <p>조회할 프로모션 아이디</p>
+					 * 조회할 프로모션 아이디
 					 */
 					promotionId: string;
 				};
 			};
 			/**
-			 * <p>성공 응답으로 프로모션 객체를 반환합니다.</p>
+			 * 성공 응답으로 프로모션 객체를 반환합니다.
 			 */
 			success: Promotion;
 			/**
-			 * <ul>
-			 * <li><code>InvalidRequestError</code>: 요청된 입력 정보가 유효하지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>UnauthorizedError</code>: 인증 정보가 올바르지 않은 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>ForbiddenError</code>: 요청이 거절된 경우</li>
-			 * </ul>
-			 * <ul>
-			 * <li><code>PromotionNotFoundError</code>: 프로모션이 존재하지 않는 경우</li>
-			 * </ul>
+			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
+			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
+			 * *   `ForbiddenError`: 요청이 거절된 경우
+			 * *   `PromotionNotFoundError`: 프로모션이 존재하지 않는 경우
 			 */
 			error: GetPromotionError;
 		};
@@ -5184,7 +4108,7 @@ export type Paths = {
 /**
  * API Secret 로그인을 위한 입력 정보
  *
- * <p>API Secret 로그인을 위한 입력 정보</p>
+ * API Secret 로그인을 위한 입력 정보
  */
 export type LoginViaApiSecretBody = {
 	/**
@@ -5197,19 +4121,19 @@ export type LoginViaApiSecretBody = {
 /**
  * API key 로그인 성공 응답
  *
- * <p>API key 로그인 성공 응답</p>
+ * API key 로그인 성공 응답
  */
 export type LoginViaApiSecretResponse = {
 	/**
 	 * 인증에 사용하는 엑세스 토큰
 	 *
-	 * <p>하루의 유효기간을 가지고 있습니다.</p>
+	 * 하루의 유효기간을 가지고 있습니다.
 	 */
 	accessToken: string;
 	/**
 	 * 토큰 재발급 및 유효기간 연장을 위해 사용하는 리프레시 토큰
 	 *
-	 * <p>일주일의 유효기간을 가지고 있으며, 리프레시 토큰을 통해 유효기간이 연장된 새로운 엑세스 토큰을 발급받을 수 있습니다.</p>
+	 * 일주일의 유효기간을 가지고 있으며, 리프레시 토큰을 통해 유효기간이 연장된 새로운 엑세스 토큰을 발급받을 수 있습니다.
 	 */
 	refreshToken: string;
 };
@@ -5223,7 +4147,7 @@ export type LoginViaApiSecretError = InvalidRequestError | UnauthorizedError;
 /**
  * 토큰 재발급을 위한 입력 정보
  *
- * <p>토큰 재발급을 위한 입력 정보</p>
+ * 토큰 재발급을 위한 입력 정보
  */
 export type RefreshTokenBody = {
 	/**
@@ -5236,19 +4160,19 @@ export type RefreshTokenBody = {
 /**
  * 토큰 재발급 성공 응답
  *
- * <p>토큰 재발급 성공 응답</p>
+ * 토큰 재발급 성공 응답
  */
 export type RefreshTokenResponse = {
 	/**
 	 * 인증에 사용하는 엑세스 토큰
 	 *
-	 * <p>하루의 유효기간을 가지고 있습니다.</p>
+	 * 하루의 유효기간을 가지고 있습니다.
 	 */
 	accessToken: string;
 	/**
 	 * 토큰 재발급 및 유효기간 연장을 위해 사용하는 리프레시 토큰
 	 *
-	 * <p>일주일의 유효기간을 가지고 있으며, 리프레시 토큰을 통해 유효기간이 연장된 새로운 엑세스 토큰을 발급받을 수 있습니다.</p>
+	 * 일주일의 유효기간을 가지고 있으며, 리프레시 토큰을 통해 유효기간이 연장된 새로운 엑세스 토큰을 발급받을 수 있습니다.
 	 */
 	refreshToken: string;
 };
@@ -5262,7 +4186,7 @@ export type RefreshTokenError = InvalidRequestError | UnauthorizedError;
 /**
  * 고객사의 플랫폼 기능 관련 정보
  *
- * <p>고객사의 플랫폼 기능 관련 정보</p>
+ * 고객사의 플랫폼 기능 관련 정보
  */
 export type Platform = {
 	/**
@@ -5303,8 +4227,9 @@ export type GetPlatformError =
 /**
  * 플랫폼 업데이트를 위한 입력 정보
  *
- * <p>플랫폼 업데이트를 위한 입력 정보</p>
- * <p>값이 명시되지 않은 필드는 업데이트하지 않습니다.</p>
+ * 플랫폼 업데이트를 위한 입력 정보
+ *
+ * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
  */
 export type UpdatePlatformBody = {
 	/**
@@ -5327,7 +4252,7 @@ export type UpdatePlatformBody = {
 /**
  * 플랫폼 업데이트 결과 정보
  *
- * <p>플랫폼 업데이트 결과 정보</p>
+ * 플랫폼 업데이트 결과 정보
  */
 export type UpdatePlatformResponse = {
 	/**
@@ -5351,7 +4276,7 @@ export type UpdatePlatformError =
 /**
  * 할인 분담 정책 필터 옵션 조회 성공 응답 정보
  *
- * <p>할인 분담 정책 필터 옵션 조회 성공 응답 정보</p>
+ * 할인 분담 정책 필터 옵션 조회 성공 응답 정보
  */
 export type PlatformDiscountSharePolicyFilterOptions = {
 	/**
@@ -5374,7 +4299,7 @@ export type GetPlatformDiscountSharePolicyFilterOptionsError =
 /**
  * 할인 분담 정책 다건 조회를 위한 입력 정보
  *
- * <p>할인 분담 정책 다건 조회를 위한 입력 정보</p>
+ * 할인 분담 정책 다건 조회를 위한 입력 정보
  */
 export type GetPlatformDiscountSharePoliciesBody = {
 	/**
@@ -5392,7 +4317,7 @@ export type GetPlatformDiscountSharePoliciesBody = {
 /**
  * 할인 분담 정책 다건 조회 성공 응답 정보
  *
- * <p>할인 분담 정책 다건 조회 성공 응답 정보</p>
+ * 할인 분담 정책 다건 조회 성공 응답 정보
  */
 export type GetPlatformDiscountSharePoliciesResponse = {
 	/**
@@ -5420,13 +4345,13 @@ export type GetPlatformDiscountSharePoliciesError =
 /**
  * 할인 분담 정책 생성을 위한 입력 정보
  *
- * <p>할인 분담 정책 생성을 위한 입력 정보</p>
+ * 할인 분담 정책 생성을 위한 입력 정보
  */
 export type CreatePlatformDiscountSharePolicyBody = {
 	/**
 	 * 할인 분담에 부여할 고유 아이디
 	 *
-	 * <p>명시하지 않는 경우 포트원이 임의의 아이디를 발급해드립니다.</p>
+	 * 명시하지 않는 경우 포트원이 임의의 아이디를 발급해드립니다.
 	 */
 	id?: string;
 	/**
@@ -5435,7 +4360,7 @@ export type CreatePlatformDiscountSharePolicyBody = {
 	 */
 	name: string;
 	/**
-	 * 파트너가 분담할 할인금액의 비율을 의미하는 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수이며, 파트너가 부담할 금액은 `할인금액 * partnerShareRate * 10^5` 로 책정합니다.
+	 * 파트너가 분담할 할인금액의 비율을 의미하는 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수이며, 파트너가 부담할 금액은 \`할인금액 \* partnerShareRate \* 10^5\` 로 책정합니다.
 	 *
 	 */
 	partnerShareRate: number;
@@ -5449,7 +4374,7 @@ export type CreatePlatformDiscountSharePolicyBody = {
 /**
  * 할인 분담 정책 생성 성공 응답
  *
- * <p>할인 분담 정책 생성 성공 응답</p>
+ * 할인 분담 정책 생성 성공 응답
  */
 export type CreatePlatformDiscountSharePolicyResponse = {
 	/**
@@ -5473,9 +4398,9 @@ export type CreatePlatformDiscountSharePolicyError =
 /**
  * 할인 분담 정책
  *
- * <p>할인 분담 정책</p>
- * <p>할인 분담은 고객사의 주문건에 쿠폰 및 포인트와 같은 할인금액이 적용될 때, 파트너 정산 시 할인금액에 대한 분담 정책을 가지는 객체입니다.
- * 할인 유형에 대한 아이디와 메모, 그리고 파트너 분담율을 가집니다.</p>
+ * 할인 분담 정책
+ *
+ * 할인 분담은 고객사의 주문건에 쿠폰 및 포인트와 같은 할인금액이 적용될 때, 파트너 정산 시 할인금액에 대한 분담 정책을 가지는 객체입니다. 할인 유형에 대한 아이디와 메모, 그리고 파트너 분담율을 가집니다.
  */
 export type PlatformDiscountSharePolicy = {
 	/**
@@ -5494,7 +4419,7 @@ export type PlatformDiscountSharePolicy = {
 	/**
 	 * 할인 분담율
 	 *
-	 * <p>파트너가 분담할 할인금액의 비율을 의미하는 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수이며, 파트너가 부담할 금액은 <code>할인금액 * partnerShareRate * 10^5</code> 로 책정합니다.</p>
+	 * 파트너가 분담할 할인금액의 비율을 의미하는 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수이며, 파트너가 부담할 금액은 `할인금액 * partnerShareRate * 10^5` 로 책정합니다.
 	 */
 	partnerShareRate: number;
 	/**
@@ -5528,8 +4453,9 @@ export type GetPlatformDiscountSharePolicyError =
 /**
  * 할인 분담 정책 업데이트를 위한 입력 정보
  *
- * <p>할인 분담 정책 업데이트를 위한 입력 정보</p>
- * <p>값이 명시되지 않은 필드는 업데이트하지 않습니다.</p>
+ * 할인 분담 정책 업데이트를 위한 입력 정보
+ *
+ * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
  */
 export type UpdatePlatformDiscountSharePolicyBody = {
 	/**
@@ -5540,7 +4466,7 @@ export type UpdatePlatformDiscountSharePolicyBody = {
 	/**
 	 * 할인 분담율
 	 *
-	 * <p>파트너가 분담할 할인금액의 비율을 의미하는 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수이며, 파트너가 부담할 금액은 <code>할인금액 * partnerShareRate * 10^5</code> 로 책정합니다.</p>
+	 * 파트너가 분담할 할인금액의 비율을 의미하는 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수이며, 파트너가 부담할 금액은 `할인금액 * partnerShareRate * 10^5` 로 책정합니다.
 	 */
 	partnerShareRate?: number;
 	/**
@@ -5553,7 +4479,7 @@ export type UpdatePlatformDiscountSharePolicyBody = {
 /**
  * 할인 분담 정책 업데이트 성공 응답
  *
- * <p>할인 분담 정책 업데이트 성공 응답</p>
+ * 할인 분담 정책 업데이트 성공 응답
  */
 export type UpdatePlatformDiscountSharePolicyResponse = {
 	/**
@@ -5589,7 +4515,7 @@ export type GetPlatformDiscountSharePolicyScheduleError =
 /**
  * 할인 분담 정책 예약 업데이트 재설정을 위한 입력 정보
  *
- * <p>할인 분담 정책 예약 업데이트 재설정을 위한 입력 정보</p>
+ * 할인 분담 정책 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformDiscountSharePolicyBody = {
 	/**
@@ -5607,7 +4533,7 @@ export type ReschedulePlatformDiscountSharePolicyBody = {
 /**
  * 할인 분담 정책 예약 업데이트 재설정 성공 응답
  *
- * <p>할인 분담 정책 예약 업데이트 재설정 성공 응답</p>
+ * 할인 분담 정책 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformDiscountSharePolicyResponse = {
 	/**
@@ -5631,7 +4557,7 @@ export type RescheduleDiscountSharePolicyError =
 /**
  * 할인 분담 정책 업데이트 예약을 위한 입력 정보
  *
- * <p>할인 분담 정책 업데이트 예약을 위한 입력 정보</p>
+ * 할인 분담 정책 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformDiscountSharePolicyBody = {
 	/**
@@ -5649,7 +4575,7 @@ export type SchedulePlatformDiscountSharePolicyBody = {
 /**
  * 할인 분담 정책 업데이트 예약 성공 응답
  *
- * <p>할인 분담 정책 업데이트 예약 성공 응답</p>
+ * 할인 분담 정책 업데이트 예약 성공 응답
  */
 export type SchedulePlatformDiscountSharePolicyResponse = {
 	/**
@@ -5674,7 +4600,7 @@ export type ScheduleDiscountSharePolicyError =
 /**
  * 할인 분담 정책 예약 업데이트 취소 성공 응답
  *
- * <p>할인 분담 정책 예약 업데이트 취소 성공 응답</p>
+ * 할인 분담 정책 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformDiscountSharePolicyScheduleResponse = {};
 
@@ -5692,7 +4618,7 @@ export type CancelPlatformDiscountSharePolicyScheduleError =
 /**
  * 할인 분담 보관 성공 응답
  *
- * <p>할인 분담 보관 성공 응답</p>
+ * 할인 분담 보관 성공 응답
  */
 export type ArchivePlatformDiscountSharePolicyResponse = {
 	/**
@@ -5717,7 +4643,7 @@ export type ArchivePlatformDiscountSharePolicyError =
 /**
  * 할인 분담 복원 성공 응답
  *
- * <p>할인 분담 복원 성공 응답</p>
+ * 할인 분담 복원 성공 응답
  */
 export type RecoverPlatformDiscountSharePolicyResponse = {
 	/**
@@ -5741,7 +4667,7 @@ export type RecoverPlatformDiscountSharePolicyError =
 /**
  * 추가 수수료 정책 다건 조회를 위한 입력 정보
  *
- * <p>추가 수수료 정책 다건 조회를 위한 입력 정보</p>
+ * 추가 수수료 정책 다건 조회를 위한 입력 정보
  */
 export type GetPlatformAdditionalFeePoliciesBody = {
 	/**
@@ -5759,7 +4685,7 @@ export type GetPlatformAdditionalFeePoliciesBody = {
 /**
  * 추가 수수료 정책 다건 조회 성공 응답 정보
  *
- * <p>추가 수수료 정책 다건 조회 성공 응답 정보</p>
+ * 추가 수수료 정책 다건 조회 성공 응답 정보
  */
 export type GetPlatformAdditionalFeePoliciesResponse = {
 	/**
@@ -5787,13 +4713,13 @@ export type GetPlatformAdditionalFeePoliciesError =
 /**
  * 추가 수수료 정책 생성을 위한 입력 정보
  *
- * <p>추가 수수료 정책 생성을 위한 입력 정보</p>
+ * 추가 수수료 정책 생성을 위한 입력 정보
  */
 export type CreatePlatformAdditionalFeePolicyBody = {
 	/**
 	 * 생성할 추가 수수료 정책 아이디
 	 *
-	 * <p>명시하지 않으면 id 가 임의로 생성됩니다.</p>
+	 * 명시하지 않으면 id 가 임의로 생성됩니다.
 	 */
 	id?: string;
 	/**
@@ -5821,7 +4747,7 @@ export type CreatePlatformAdditionalFeePolicyBody = {
 /**
  * 플랫폼 생성 성공 응답 정보
  *
- * <p>플랫폼 생성 성공 응답 정보</p>
+ * 플랫폼 생성 성공 응답 정보
  */
 export type CreatePlatformAdditionalFeePolicyResponse = {
 	/**
@@ -5845,8 +4771,9 @@ export type CreatePlatformAdditionalFeePolicyError =
 /**
  * 추가 수수료 정책
  *
- * <p>추가 수수료 정책</p>
- * <p>추가 수수료 정책는 고객사의 주문건에 대한 중개수수료에 별도로 추가로 부여되는 수수료입니다. 대표적인 사용 예시로 풀필먼트 수수료, 로켓배송 수수료, 마케팅 채널 수수료등이 있습니다.</p>
+ * 추가 수수료 정책
+ *
+ * 추가 수수료 정책는 고객사의 주문건에 대한 중개수수료에 별도로 추가로 부여되는 수수료입니다. 대표적인 사용 예시로 풀필먼트 수수료, 로켓배송 수수료, 마케팅 채널 수수료등이 있습니다.
  */
 export type PlatformAdditionalFeePolicy = {
 	/**
@@ -5904,8 +4831,9 @@ export type GetPlatformAdditionalFeePolicyError =
 /**
  * 추가 수수료 정책 업데이트를 위한 입력 정보
  *
- * <p>추가 수수료 정책 업데이트를 위한 입력 정보</p>
- * <p>값이 명시하지 않은 필드는 업데이트되지 않습니다.</p>
+ * 추가 수수료 정책 업데이트를 위한 입력 정보
+ *
+ * 값이 명시하지 않은 필드는 업데이트되지 않습니다.
  */
 export type UpdatePlatformAdditionalFeePolicyBody = {
 	/**
@@ -5933,7 +4861,7 @@ export type UpdatePlatformAdditionalFeePolicyBody = {
 /**
  * 추가 수수료 정책 업데이트 성공 응답
  *
- * <p>추가 수수료 정책 업데이트 성공 응답</p>
+ * 추가 수수료 정책 업데이트 성공 응답
  */
 export type UpdatePlatformAdditionalFeePolicyResponse = {
 	/**
@@ -5969,7 +4897,7 @@ export type GetPlatformAdditionalFeePolicyScheduleError =
 /**
  * 추가 수수료 정책 예약 업데이트 재설정을 위한 입력 정보
  *
- * <p>추가 수수료 정책 예약 업데이트 재설정을 위한 입력 정보</p>
+ * 추가 수수료 정책 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformAdditionalFeePolicyBody = {
 	/**
@@ -5987,7 +4915,7 @@ export type ReschedulePlatformAdditionalFeePolicyBody = {
 /**
  * 추가 수수료 정책 예약 업데이트 재설정 성공 응답
  *
- * <p>추가 수수료 정책 예약 업데이트 재설정 성공 응답</p>
+ * 추가 수수료 정책 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformAdditionalFeePolicyResponse = {
 	/**
@@ -6011,7 +4939,7 @@ export type RescheduleAdditionalFeePolicyError =
 /**
  * 추가 수수료 정책 업데이트 예약을 위한 입력 정보
  *
- * <p>추가 수수료 정책 업데이트 예약을 위한 입력 정보</p>
+ * 추가 수수료 정책 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformAdditionalFeePolicyBody = {
 	/**
@@ -6029,7 +4957,7 @@ export type SchedulePlatformAdditionalFeePolicyBody = {
 /**
  * 추가 수수료 정책 업데이트 예약 성공 응답
  *
- * <p>추가 수수료 정책 업데이트 예약 성공 응답</p>
+ * 추가 수수료 정책 업데이트 예약 성공 응답
  */
 export type SchedulePlatformAdditionalFeePolicyResponse = {
 	/**
@@ -6055,7 +4983,7 @@ export type ScheduleAdditionalFeePolicyError =
 /**
  * 추가 수수료 정책 예약 업데이트 취소 성공 응답
  *
- * <p>추가 수수료 정책 예약 업데이트 취소 성공 응답</p>
+ * 추가 수수료 정책 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformAdditionalFeePolicyScheduleResponse = {};
 
@@ -6073,7 +5001,7 @@ export type CancelPlatformAdditionalFeePolicyScheduleError =
 /**
  * 추가 수수료 정책 보관 성공 응답
  *
- * <p>추가 수수료 정책 보관 성공 응답</p>
+ * 추가 수수료 정책 보관 성공 응답
  */
 export type ArchivePlatformAdditionalFeePolicyResponse = {
 	/**
@@ -6098,7 +5026,7 @@ export type ArchivePlatformAdditionalFeePolicyError =
 /**
  * 추가 수수료 정책 복원 성공 응답
  *
- * <p>추가 수수료 정책 복원 성공 응답</p>
+ * 추가 수수료 정책 복원 성공 응답
  */
 export type RecoverPlatformAdditionalFeePolicyResponse = {
 	/**
@@ -6122,7 +5050,7 @@ export type RecoverPlatformAdditionalFeePolicyError =
 /**
  * 파트너 필터 옵션 조회 성공 응답 정보
  *
- * <p>파트너 필터 옵션 조회 성공 응답 정보</p>
+ * 파트너 필터 옵션 조회 성공 응답 정보
  */
 export type PlatformPartnerFilterOptions = {
 	/**
@@ -6150,7 +5078,7 @@ export type GetPlatformPartnerFilterOptionsError =
 /**
  * 파트너 다건 조회를 위한 입력 정보
  *
- * <p>파트너 다건 조회를 위한 입력 정보</p>
+ * 파트너 다건 조회를 위한 입력 정보
  */
 export type GetPlatformPartnersBody = {
 	/**
@@ -6168,7 +5096,7 @@ export type GetPlatformPartnersBody = {
 /**
  * 파트너 다건 조회 성공 응답 정보
  *
- * <p>파트너 다건 조회 성공 응답 정보</p>
+ * 파트너 다건 조회 성공 응답 정보
  */
 export type GetPlatformPartnersResponse = {
 	/**
@@ -6196,13 +5124,13 @@ export type GetPlatformPartnersError =
 /**
  * 파트너 생성을 위한 입력 정보
  *
- * <p>파트너 생성을 위한 입력 정보</p>
+ * 파트너 생성을 위한 입력 정보
  */
 export type CreatePlatformPartnerBody = {
 	/**
 	 * 파트너에 부여할 고유 아이디
 	 *
-	 * <p>고객사 서버에 등록된 파트너 지칭 아이디와 동일하게 설정하는 것을 권장합니다. 명시하지 않는 경우 포트원이 임의의 아이디를 발급해드립니다.</p>
+	 * 고객사 서버에 등록된 파트너 지칭 아이디와 동일하게 설정하는 것을 권장합니다. 명시하지 않는 경우 포트원이 임의의 아이디를 발급해드립니다.
 	 */
 	id?: string;
 	/**
@@ -6218,31 +5146,31 @@ export type CreatePlatformPartnerBody = {
 	/**
 	 * 정산 계좌
 	 *
-	 * <p>파트너의 사업자등록번호가 존재하는 경우 명시합니다. 별도로 검증하지는 않으며, 번호와 기호 모두 입력 가능합니다.</p>
+	 * 파트너의 사업자등록번호가 존재하는 경우 명시합니다. 별도로 검증하지는 않으며, 번호와 기호 모두 입력 가능합니다.
 	 */
 	account: CreatePlatformPartnerBodyAccount;
 	/**
 	 * 기본 계약 아이디
 	 *
-	 * <p>이미 존재하는 계약 아이디를 등록해야 합니다.</p>
+	 * 이미 존재하는 계약 아이디를 등록해야 합니다.
 	 */
 	defaultContractId: string;
 	/**
 	 * 파트너에 대한 메모
 	 *
-	 * <p>총 256자까지 입력할 수 있습니다.</p>
+	 * 총 256자까지 입력할 수 있습니다.
 	 */
 	memo?: string;
 	/**
 	 * 파트너에 부여할 태그 리스트
 	 *
-	 * <p>최대 10개까지 입력할 수 있습니다.</p>
+	 * 최대 10개까지 입력할 수 있습니다.
 	 */
 	tags: string[];
 	/**
 	 * 파트너 유형별 추가 정보
 	 *
-	 * <p>사업자/원천징수 대상자 중 추가할 파트너의 유형에 따른 정보를 입력해야 합니다.</p>
+	 * 사업자/원천징수 대상자 중 추가할 파트너의 유형에 따른 정보를 입력해야 합니다.
 	 */
 	type: CreatePlatformPartnerBodyType;
 	/**
@@ -6255,7 +5183,7 @@ export type CreatePlatformPartnerBody = {
 /**
  * 파트너 생성 성공 응답
  *
- * <p>파트너 생성 성공 응답</p>
+ * 파트너 생성 성공 응답
  */
 export type CreatePlatformPartnerResponse = {
 	/**
@@ -6285,9 +5213,9 @@ export type CreatePlatformPartnerError =
 /**
  * 파트너
  *
- * <p>파트너</p>
- * <p>파트너는 고객사가 정산해주어야 할 대상입니다.
- * 기본 사업자 정보와 정산정보, 그리고 적용될 계약의 정보를 등록 및 관리할 수 있습니다.</p>
+ * 파트너
+ *
+ * 파트너는 고객사가 정산해주어야 할 대상입니다. 기본 사업자 정보와 정산정보, 그리고 적용될 계약의 정보를 등록 및 관리할 수 있습니다.
  */
 export type PlatformPartner = {
 	/**
@@ -6370,8 +5298,9 @@ export type GetPlatformPartnerError =
 /**
  * 파트너 업데이트를 위한 입력 정보
  *
- * <p>파트너 업데이트를 위한 입력 정보</p>
- * <p>값이 명시되지 않은 필드는 업데이트되지 않습니다.</p>
+ * 파트너 업데이트를 위한 입력 정보
+ *
+ * 값이 명시되지 않은 필드는 업데이트되지 않습니다.
  */
 export type UpdatePlatformPartnerBody = {
 	/**
@@ -6419,7 +5348,7 @@ export type UpdatePlatformPartnerBody = {
 /**
  * 파트너 업데이트 성공 응답
  *
- * <p>파트너 업데이트 성공 응답</p>
+ * 파트너 업데이트 성공 응답
  */
 export type UpdatePlatformPartnerResponse = {
 	/**
@@ -6450,7 +5379,7 @@ export type UpdatePlatformPartnerError =
 /**
  * 파트너 다건 생성을 위한 입력 정보
  *
- * <p>파트너 다건 생성을 위한 입력 정보</p>
+ * 파트너 다건 생성을 위한 입력 정보
  */
 export type CreatePlatformPartnersBody = {
 	/**
@@ -6463,7 +5392,7 @@ export type CreatePlatformPartnersBody = {
 /**
  * 파트너 다건 생성 성공 응답
  *
- * <p>파트너 다건 생성 성공 응답</p>
+ * 파트너 다건 생성 성공 응답
  */
 export type CreatePlatformPartnersResponse = {
 	/**
@@ -6502,7 +5431,7 @@ export type GetPlatformPartnerScheduleError =
 /**
  * 파트너 예약 업데이트 재설정을 위한 입력 정보
  *
- * <p>파트너 예약 업데이트 재설정을 위한 입력 정보</p>
+ * 파트너 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformPartnerBody = {
 	/**
@@ -6520,7 +5449,7 @@ export type ReschedulePlatformPartnerBody = {
 /**
  * 파트너 예약 업데이트 재설정 성공 응답
  *
- * <p>파트너 예약 업데이트 재설정 성공 응답</p>
+ * 파트너 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformPartnerResponse = {
 	/**
@@ -6545,7 +5474,7 @@ export type ReschedulePartnerError =
 /**
  * 파트너 업데이트 예약을 위한 입력 정보
  *
- * <p>파트너 업데이트 예약을 위한 입력 정보</p>
+ * 파트너 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformPartnerBody = {
 	/**
@@ -6563,7 +5492,7 @@ export type SchedulePlatformPartnerBody = {
 /**
  * 파트너 업데이트 예약 성공 응답
  *
- * <p>파트너 업데이트 예약 성공 응답</p>
+ * 파트너 업데이트 예약 성공 응답
  */
 export type SchedulePlatformPartnerResponse = {
 	/**
@@ -6595,7 +5524,7 @@ export type SchedulePartnerError =
 /**
  * 파트너 예약 업데이트 취소 성공 응답
  *
- * <p>파트너 예약 업데이트 취소 성공 응답</p>
+ * 파트너 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformPartnerScheduleResponse = {};
 
@@ -6652,7 +5581,7 @@ export type SchedulePlatformPartnersError =
 /**
  * 파트너 보관 성공 응답
  *
- * <p>파트너 보관 성공 응답</p>
+ * 파트너 보관 성공 응답
  */
 export type ArchivePlatformPartnerResponse = {
 	/**
@@ -6677,7 +5606,7 @@ export type ArchivePlatformPartnerError =
 /**
  * 파트너 복원 성공 응답
  *
- * <p>파트너 복원 성공 응답</p>
+ * 파트너 복원 성공 응답
  */
 export type RecoverPlatformPartnerResponse = {
 	/**
@@ -6701,7 +5630,7 @@ export type RecoverPlatformPartnerError =
 /**
  * 계약 다건 조회를 위한 입력 정보
  *
- * <p>계약 다건 조회를 위한 입력 정보</p>
+ * 계약 다건 조회를 위한 입력 정보
  */
 export type GetPlatformContractsBody = {
 	/**
@@ -6719,7 +5648,7 @@ export type GetPlatformContractsBody = {
 /**
  * 계약 다건 조회 성공 응답
  *
- * <p>계약 다건 조회 성공 응답</p>
+ * 계약 다건 조회 성공 응답
  */
 export type GetPlatformContractsResponse = {
 	/**
@@ -6747,13 +5676,13 @@ export type GetPlatformContractsError =
 /**
  * 계약 객체 생성을 위한 입력 정보
  *
- * <p>계약 객체 생성을 위한 입력 정보</p>
+ * 계약 객체 생성을 위한 입력 정보
  */
 export type CreatePlatformContractBody = {
 	/**
 	 * 계약에 부여할 고유 아이디
 	 *
-	 * <p>명시하지 않는 경우 포트원이 임의의 아이디를 발급해드립니다.</p>
+	 * 명시하지 않는 경우 포트원이 임의의 아이디를 발급해드립니다.
 	 */
 	id?: string;
 	/**
@@ -6791,7 +5720,7 @@ export type CreatePlatformContractBody = {
 /**
  * 계약 객체 생성 성공 응답
  *
- * <p>계약 객체 생성 성공 응답</p>
+ * 계약 객체 생성 성공 응답
  */
 export type CreatePlatformContractResponse = {
 	/**
@@ -6815,9 +5744,9 @@ export type CreatePlatformContractError =
 /**
  * 계약
  *
- * <p>계약</p>
- * <p>계약은 플랫폼 고객사가 파트너에게 정산해줄 대금과 정산일을 계산하는 데 적용되는 정보입니다.
- * 고객사의 플랫폼에서 재화 및 서비스를 판매하기 위한 중개수수료와 판매금에 대한 정산일로 구성되어 있습니다.</p>
+ * 계약
+ *
+ * 계약은 플랫폼 고객사가 파트너에게 정산해줄 대금과 정산일을 계산하는 데 적용되는 정보입니다. 고객사의 플랫폼에서 재화 및 서비스를 판매하기 위한 중개수수료와 판매금에 대한 정산일로 구성되어 있습니다.
  */
 export type PlatformContract = {
 	/**
@@ -6857,7 +5786,7 @@ export type PlatformContract = {
 	/**
 	 * 정산 시 결제금액 부가세 감액 여부
 	 *
-	 * <p>false인 경우 정산금에서 결제 금액 부가세를 감액하지 않고, true인 경우 정산금에서 결제 금액 부가세를 감액합니다.</p>
+	 * false인 경우 정산금에서 결제 금액 부가세를 감액하지 않고, true인 경우 정산금에서 결제 금액 부가세를 감액합니다.
 	 */
 	subtractPaymentVatAmount: boolean;
 	/**
@@ -6886,8 +5815,9 @@ export type GetPlatformContractError =
 /**
  * 계약 업데이트를 위한 입력 정보. 값이 명시되지 않은 필드는 업데이트되지 않습니다.
  *
- * <p>계약 업데이트를 위한 입력 정보. 값이 명시되지 않은 필드는 업데이트되지 않습니다.</p>
- * <p>값이 명시되지 않은 필드는 업데이트되지 않습니다.</p>
+ * 계약 업데이트를 위한 입력 정보. 값이 명시되지 않은 필드는 업데이트되지 않습니다.
+ *
+ * 값이 명시되지 않은 필드는 업데이트되지 않습니다.
  */
 export type UpdatePlatformContractBody = {
 	/**
@@ -6925,7 +5855,7 @@ export type UpdatePlatformContractBody = {
 /**
  * 계약 객체 업데이트 성공 응답
  *
- * <p>계약 객체 업데이트 성공 응답</p>
+ * 계약 객체 업데이트 성공 응답
  */
 export type UpdatePlatformContractResponse = {
 	/**
@@ -6961,7 +5891,7 @@ export type GetPlatformContractScheduleError =
 /**
  * 계약 예약 업데이트 재설정을 위한 입력 정보
  *
- * <p>계약 예약 업데이트 재설정을 위한 입력 정보</p>
+ * 계약 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformContractBody = {
 	/**
@@ -6979,7 +5909,7 @@ export type ReschedulePlatformContractBody = {
 /**
  * 계약 예약 업데이트 재설정 성공 응답
  *
- * <p>계약 예약 업데이트 재설정 성공 응답</p>
+ * 계약 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformContractResponse = {
 	/**
@@ -7002,7 +5932,7 @@ export type RescheduleContractError =
 /**
  * 계약 업데이트 예약을 위한 입력 정보
  *
- * <p>계약 업데이트 예약을 위한 입력 정보</p>
+ * 계약 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformContractBody = {
 	/**
@@ -7020,7 +5950,7 @@ export type SchedulePlatformContractBody = {
 /**
  * 계약 업데이트 예약 성공 응답
  *
- * <p>계약 업데이트 예약 성공 응답</p>
+ * 계약 업데이트 예약 성공 응답
  */
 export type SchedulePlatformContractResponse = {
 	/**
@@ -7045,7 +5975,7 @@ export type ScheduleContractError =
 /**
  * 계약 예약 업데이트 취소 성공 응답
  *
- * <p>계약 예약 업데이트 취소 성공 응답</p>
+ * 계약 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformContractScheduleResponse = {};
 
@@ -7063,7 +5993,7 @@ export type CancelPlatformContractScheduleError =
 /**
  * 계약 보관 성공 응답
  *
- * <p>계약 보관 성공 응답</p>
+ * 계약 보관 성공 응답
  */
 export type ArchivePlatformContractResponse = {
 	/**
@@ -7088,7 +6018,7 @@ export type ArchivePlatformContractError =
 /**
  * 계약 복원 성공 응답
  *
- * <p>계약 복원 성공 응답</p>
+ * 계약 복원 성공 응답
  */
 export type RecoverPlatformContractResponse = {
 	/**
@@ -7112,9 +6042,9 @@ export type RecoverPlatformContractError =
 /**
  * 정산건
  *
- * <p>정산건</p>
- * <p>정산건은 파트너에 정산해줄 정산 금액과 정산 방식 등이 포함되어 있는 정산 정보입니다.
- * 정산 방식은은 주문 정산, 주문 취소 정산, 수기 정산이 있습니다.</p>
+ * 정산건
+ *
+ * 정산건은 파트너에 정산해줄 정산 금액과 정산 방식 등이 포함되어 있는 정산 정보입니다. 정산 방식은은 주문 정산, 주문 취소 정산, 수기 정산이 있습니다.
  */
 export type PlatformTransfer =
 	| PlatformManualTransfer
@@ -7154,7 +6084,7 @@ export type DeletePlatformTransferError =
 /**
  * 정산건 요약 다건 조회를 위한 입력 정보
  *
- * <p>정산건 요약 다건 조회를 위한 입력 정보</p>
+ * 정산건 요약 다건 조회를 위한 입력 정보
  */
 export type GetPlatformTransferSummariesBody = {
 	/**
@@ -7197,7 +6127,7 @@ export type GetPlatformTransferSummariesError =
 /**
  * 주문 정산건 생성을 위한 입력 정보
  *
- * <p>주문 정산건 생성을 위한 입력 정보</p>
+ * 주문 정산건 생성을 위한 입력 정보
  */
 export type CreatePlatformOrderTransferBody = {
 	/**
@@ -7208,7 +6138,7 @@ export type CreatePlatformOrderTransferBody = {
 	/**
 	 * 계약 아이디
 	 *
-	 * <p>기본값은 파트너의 기본 계약 아이디 입니다.</p>
+	 * 기본값은 파트너의 기본 계약 아이디 입니다.
 	 */
 	contractId?: string;
 	/**
@@ -7229,13 +6159,13 @@ export type CreatePlatformOrderTransferBody = {
 	/**
 	 * 주문 면세 금액
 	 *
-	 * <p>주문 항목과 면세 금액을 같이 전달하시면 최종 면세 금액은 주문 항목의 면세 금액이 아닌 전달해주신 면세 금액으로 적용됩니다.</p>
+	 * 주문 항목과 면세 금액을 같이 전달하시면 최종 면세 금액은 주문 항목의 면세 금액이 아닌 전달해주신 면세 금액으로 적용됩니다.
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 정산 시작일
 	 *
-	 * <p>기본값은 결제 일시 입니다.</p>
+	 * 기본값은 결제 일시 입니다.
 	 */
 	settlementStartDate?: string;
 	/**
@@ -7251,13 +6181,13 @@ export type CreatePlatformOrderTransferBody = {
 	/**
 	 * 외부 결제 상세 정보
 	 *
-	 * <p>해당 정보가 존재하는 경우 외부 결제 정산건 으로 등록되고, 존재하지않은 경우 포트원 결제 정산건으로 등록됩니다.</p>
+	 * 해당 정보가 존재하는 경우 외부 결제 정산건 으로 등록되고, 존재하지않은 경우 포트원 결제 정산건으로 등록됩니다.
 	 */
 	externalPaymentDetail?: CreatePlatformOrderTransferBodyExternalPaymentDetail;
 	/**
 	 * 테스트 모드 여부
 	 *
-	 * <p>기본값은 false 입니다.</p>
+	 * 기본값은 false 입니다.
 	 */
 	isForTest?: boolean;
 	/**
@@ -7312,10 +6242,9 @@ export type CreatePlatformOrderTransferError =
 /**
  * 주문 취소 정산 등록을 위한 입력 정보
  *
- * <p>주문 취소 정산 등록을 위한 입력 정보</p>
- * <p>하나의 payment에 하나의 정산 건만 존재하는 경우에는 (partnerId, paymentId)로 취소 정산을 등록하실 수 있습니다.
- * 하나의 payment에 여러 개의 정산 건이 존재하는 경우에는 transferId를 필수로 입력해야 합니다.
- * transferId를 입력한 경우 (partnerId, paymentId)는 생략 가능합니다.</p>
+ * 주문 취소 정산 등록을 위한 입력 정보
+ *
+ * 하나의 payment에 하나의 정산 건만 존재하는 경우에는 (partnerId, paymentId)로 취소 정산을 등록하실 수 있습니다. 하나의 payment에 여러 개의 정산 건이 존재하는 경우에는 transferId를 필수로 입력해야 합니다. transferId를 입력한 경우 (partnerId, paymentId)는 생략 가능합니다.
  */
 export type CreatePlatformOrderCancelTransferBody = {
 	/**
@@ -7351,7 +6280,7 @@ export type CreatePlatformOrderCancelTransferBody = {
 	/**
 	 * 주문 취소 면세 금액
 	 *
-	 * <p>주문 취소 항목과 취소 면세 금액을 같이 전달하시면 최종 취소 면세 금액은 주문 취소 항목의 면세 금액이 아닌 전달해주신 취소 면세 금액으로 적용됩니다.</p>
+	 * 주문 취소 항목과 취소 면세 금액을 같이 전달하시면 최종 취소 면세 금액은 주문 취소 항목의 면세 금액이 아닌 전달해주신 취소 면세 금액으로 적용됩니다.
 	 */
 	taxFreeAmount?: number;
 	/**
@@ -7362,19 +6291,19 @@ export type CreatePlatformOrderCancelTransferBody = {
 	/**
 	 * 정산 시작일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementStartDate?: string;
 	/**
 	 * 외부 결제 상세 정보
 	 *
-	 * <p>해당 정보가 존재하는 경우 외부 결제 취소 정산건으로 등록되고, 존재하지않은 경우 포트원 결제 취소 정산건으로 등록됩니다.</p>
+	 * 해당 정보가 존재하는 경우 외부 결제 취소 정산건으로 등록되고, 존재하지않은 경우 포트원 결제 취소 정산건으로 등록됩니다.
 	 */
 	externalCancellationDetail?: CreatePlatformOrderCancelTransferBodyExternalCancellationDetail;
 	/**
 	 * 테스트 모드 여부
 	 *
-	 * <p>기본값은 false 입니다.</p>
+	 * 기본값은 false 입니다.
 	 */
 	isForTest?: boolean;
 	/**
@@ -7427,7 +6356,7 @@ export type CreatePlatformOrderCancelTransferError =
 /**
  * 수기 정산건 생성을 위한 입력 정보
  *
- * <p>수기 정산건 생성을 위한 입력 정보</p>
+ * 수기 정산건 생성을 위한 입력 정보
  */
 export type CreatePlatformManualTransferBody = {
 	/**
@@ -7448,13 +6377,13 @@ export type CreatePlatformManualTransferBody = {
 	/**
 	 * 정산 일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
 	 * 테스트 모드 여부
 	 *
-	 * <p>기본값은 false 입니다.</p>
+	 * 기본값은 false 입니다.
 	 */
 	isForTest?: boolean;
 	/**
@@ -7522,7 +6451,7 @@ export type DownloadPlatformTransferSheetError =
 /**
  * 정산내역 다건 조회를 위한 입력 정보
  *
- * <p>정산내역 다건 조회를 위한 입력 정보</p>
+ * 정산내역 다건 조회를 위한 입력 정보
  */
 export type GetPlatformPartnerSettlementsBody = {
 	/**
@@ -7544,7 +6473,7 @@ export type GetPlatformPartnerSettlementsBody = {
 /**
  * 정산내역 다건 조회 성공 응답 정보
  *
- * <p>정산내역 다건 조회 성공 응답 정보</p>
+ * 정산내역 다건 조회 성공 응답 정보
  */
 export type GetPlatformPartnerSettlementsResponse = {
 	/**
@@ -7673,7 +6602,7 @@ export type GetPlatformBulkPayoutsError =
 /**
  * 은행
  *
- * <p>은행</p>
+ * 은행
  */
 export type Bank =
 	| "BANK_OF_KOREA"
@@ -7758,7 +6687,7 @@ export type Bank =
 /**
  * 예금주 조회 성공 응답 정보
  *
- * <p>예금주 조회 성공 응답 정보</p>
+ * 예금주 조회 성공 응답 정보
  */
 export type PlatformAccountHolder = {
 	/**
@@ -7789,7 +6718,7 @@ export type GetPlatformAccountHolderError =
 /**
  * 본인인증 내역
  *
- * <p>본인인증 내역</p>
+ * 본인인증 내역
  */
 export type IdentityVerification =
 	| FailedIdentityVerification
@@ -7809,13 +6738,13 @@ export type GetIdentityVerificationError =
 /**
  * 본인인증 요청을 위한 입력 정보
  *
- * <p>본인인증 요청을 위한 입력 정보</p>
+ * 본인인증 요청을 위한 입력 정보
  */
 export type SendIdentityVerificationBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -7853,7 +6782,7 @@ export type SendIdentityVerificationBody = {
 /**
  * 본인인증 요청 전송 성공 응답
  *
- * <p>본인인증 요청 전송 성공 응답</p>
+ * 본인인증 요청 전송 성공 응답
  */
 export type SendIdentityVerificationResponse = {};
 
@@ -7874,19 +6803,19 @@ export type SendIdentityVerificationError =
 /**
  * 본인인증 확인을 위한 입력 정보
  *
- * <p>본인인증 확인을 위한 입력 정보</p>
+ * 본인인증 확인을 위한 입력 정보
  */
 export type ConfirmIdentityVerificationBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
 	 * OTP (One-Time Password)
 	 *
-	 * <p>SMS 방식에서만 사용됩니다.</p>
+	 * SMS 방식에서만 사용됩니다.
 	 */
 	otp?: string;
 };
@@ -7894,7 +6823,7 @@ export type ConfirmIdentityVerificationBody = {
 /**
  * 본인인증 확인 성공 응답
  *
- * <p>본인인증 확인 성공 응답</p>
+ * 본인인증 확인 성공 응답
  */
 export type ConfirmIdentityVerificationResponse = {
 	/**
@@ -7920,7 +6849,7 @@ export type ConfirmIdentityVerificationError =
 /**
  * 본인인증 요청 재전송 성공 응답
  *
- * <p>본인인증 요청 재전송 성공 응답</p>
+ * 본인인증 요청 재전송 성공 응답
  */
 export type ResendIdentityVerificationResponse = {};
 
@@ -7940,13 +6869,13 @@ export type ResendIdentityVerificationError =
 /**
  * 결제 정보 사전 등록 입력 정보
  *
- * <p>결제 정보 사전 등록 입력 정보</p>
+ * 결제 정보 사전 등록 입력 정보
  */
 export type PreRegisterPaymentBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -7969,7 +6898,7 @@ export type PreRegisterPaymentBody = {
 /**
  * 결제 사전 등록 성공 응답
  *
- * <p>결제 사전 등록 성공 응답</p>
+ * 결제 사전 등록 성공 응답
  */
 export type PreRegisterPaymentResponse = {};
 
@@ -7986,7 +6915,7 @@ export type PreRegisterPaymentError =
 /**
  * 빌링키 정보
  *
- * <p>빌링키 정보</p>
+ * 빌링키 정보
  */
 export type BillingKeyInfo = DeletedBillingKeyInfo | IssuedBillingKeyInfo;
 
@@ -8003,7 +6932,7 @@ export type GetBillingKeyInfoError =
 /**
  * 빌링키 삭제 성공 응답
  *
- * <p>빌링키 삭제 성공 응답</p>
+ * 빌링키 삭제 성공 응답
  */
 export type DeleteBillingKeyResponse = {
 	/**
@@ -8031,25 +6960,25 @@ export type DeleteBillingKeyError =
 /**
  * GetBillingKeyInfosBody
  *
- * <p>빌링키 다건 조회를 위한 입력 정보</p>
+ * 빌링키 다건 조회를 위한 입력 정보
  */
 export type GetBillingKeyInfosBody = {
 	/**
 	 * 요청할 페이지 정보
 	 *
-	 * <p>미 입력 시 number: 0, size: 10 으로 기본값이 적용됩니다.</p>
+	 * 미 입력 시 number: 0, size: 10 으로 기본값이 적용됩니다.
 	 */
 	page?: PageInput;
 	/**
 	 * 정렬 조건
 	 *
-	 * <p>미 입력 시 sortBy: TIME_TO_PAY, sortOrder: DESC 으로 기본값이 적용됩니다.</p>
+	 * 미 입력 시 sortBy: TIME\_TO\_PAY, sortOrder: DESC 으로 기본값이 적용됩니다.
 	 */
 	sort?: BillingKeySortInput;
 	/**
 	 * 조회할 빌링키 조건 필터
 	 *
-	 * <p>V1 빌링키 건의 경우 일부 필드에 대해 필터가 적용되지 않을 수 있습니다.</p>
+	 * V1 빌링키 건의 경우 일부 필드에 대해 필터가 적용되지 않을 수 있습니다.
 	 */
 	filter?: BillingKeyFilterInput;
 };
@@ -8057,7 +6986,7 @@ export type GetBillingKeyInfosBody = {
 /**
  * 빌링키 다건 조회 성공 응답 정보
  *
- * <p>빌링키 다건 조회 성공 응답 정보</p>
+ * 빌링키 다건 조회 성공 응답 정보
  */
 export type GetBillingKeyInfosResponse = {
 	/**
@@ -8084,13 +7013,13 @@ export type GetBillingKeyInfosError =
 /**
  * 빌링키 발급 요청 양식
  *
- * <p>빌링키 발급 요청 양식</p>
+ * 빌링키 발급 요청 양식
  */
 export type IssueBillingKeyBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -8101,13 +7030,13 @@ export type IssueBillingKeyBody = {
 	/**
 	 * 채널 키
 	 *
-	 * <p>채널 키 또는 채널 그룹 ID 필수</p>
+	 * 채널 키 또는 채널 그룹 ID 필수
 	 */
 	channelKey?: string;
 	/**
 	 * 채널 그룹 ID
 	 *
-	 * <p>채널 키 또는 채널 그룹 ID 필수</p>
+	 * 채널 키 또는 채널 그룹 ID 필수
 	 */
 	channelGroupId?: string;
 	/**
@@ -8128,9 +7057,7 @@ export type IssueBillingKeyBody = {
 	/**
 	 * 웹훅 주소
 	 *
-	 * <p>빌링키 발급 시 요청을 받을 웹훅 주소입니다.
-	 * 상점에 설정되어 있는 값보다 우선적으로 적용됩니다.
-	 * 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.</p>
+	 * 빌링키 발급 시 요청을 받을 웹훅 주소입니다. 상점에 설정되어 있는 값보다 우선적으로 적용됩니다. 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.
 	 */
 	noticeUrls?: string[];
 };
@@ -8138,7 +7065,7 @@ export type IssueBillingKeyBody = {
 /**
  * 빌링키 발급 성공 응답
  *
- * <p>빌링키 발급 성공 응답</p>
+ * 빌링키 발급 성공 응답
  */
 export type IssueBillingKeyResponse = {
 	/**
@@ -8168,7 +7095,7 @@ export type IssueBillingKeyError =
 /**
  * 현금영수증 내역
  *
- * <p>현금영수증 내역</p>
+ * 현금영수증 내역
  */
 export type CashReceipt =
 	| CancelledCashReceipt
@@ -8188,7 +7115,7 @@ export type GetCashReceiptError =
 /**
  * 결제 건
  *
- * <p>결제 건</p>
+ * 결제 건
  */
 export type Payment =
 	| CancelledPayment
@@ -8212,19 +7139,19 @@ export type GetPaymentError =
 /**
  * GetPaymentsBody
  *
- * <p>결제 건 다건 조회를 위한 입력 정보</p>
+ * 결제 건 다건 조회를 위한 입력 정보
  */
 export type GetPaymentsBody = {
 	/**
 	 * 요청할 페이지 정보
 	 *
-	 * <p>미 입력 시 number: 0, size: 10 으로 기본값이 적용됩니다.</p>
+	 * 미 입력 시 number: 0, size: 10 으로 기본값이 적용됩니다.
 	 */
 	page?: PageInput;
 	/**
 	 * 조회할 결제 건 조건 필터
 	 *
-	 * <p>V1 결제 건의 경우 일부 필드에 대해 필터가 적용되지 않을 수 있습니다.</p>
+	 * V1 결제 건의 경우 일부 필드에 대해 필터가 적용되지 않을 수 있습니다.
 	 */
 	filter?: PaymentFilterInput;
 };
@@ -8232,7 +7159,7 @@ export type GetPaymentsBody = {
 /**
  * 결제 건 다건 조회 성공 응답 정보
  *
- * <p>결제 건 다건 조회 성공 응답 정보</p>
+ * 결제 건 다건 조회 성공 응답 정보
  */
 export type GetPaymentsResponse = {
 	/**
@@ -8259,37 +7186,37 @@ export type GetPaymentsError =
 /**
  * GetAllPaymentsByCursorBody
  *
- * <p>결제 건 커서 기반 대용량 다건 조회를 위한 입력 정보</p>
+ * 결제 건 커서 기반 대용량 다건 조회를 위한 입력 정보
  */
 export type GetAllPaymentsByCursorBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
 	 * 결제 건 생성시점 범위 조건의 시작
 	 *
-	 * <p>값을 입력하지 않으면 end의 90일 전으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 end의 90일 전으로 설정됩니다.
 	 */
 	from?: string;
 	/**
 	 * 결제 건 생성시점 범위 조건의 끝
 	 *
-	 * <p>값을 입력하지 않으면 현재 시점으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 현재 시점으로 설정됩니다.
 	 */
 	until?: string;
 	/**
 	 * 커서
 	 *
-	 * <p>결제 건 리스트 중 어디서부터 읽어야 할지 가리키는 값입니다. 최초 요청일 경우 값을 입력하지 마시되, 두번째 요청 부터는 이전 요청 응답값의 cursor를 입력해주시면 됩니다.</p>
+	 * 결제 건 리스트 중 어디서부터 읽어야 할지 가리키는 값입니다. 최초 요청일 경우 값을 입력하지 마시되, 두번째 요청 부터는 이전 요청 응답값의 cursor를 입력해주시면 됩니다.
 	 */
 	cursor?: string;
 	/**
 	 * 페이지 크기
 	 *
-	 * <p>미입력 시 기본값은 10 이며 최대 1000까지 허용</p>
+	 * 미입력 시 기본값은 10 이며 최대 1000까지 허용
 	 */
 	size?: number;
 };
@@ -8297,7 +7224,7 @@ export type GetAllPaymentsByCursorBody = {
 /**
  * 결제 건 커서 기반 대용량 다건 조회 성공 응답 정보
  *
- * <p>결제 건 커서 기반 대용량 다건 조회 성공 응답 정보</p>
+ * 결제 건 커서 기반 대용량 다건 조회 성공 응답 정보
  */
 export type GetAllPaymentsByCursorResponse = {
 	/**
@@ -8319,7 +7246,7 @@ export type GetAllPaymentsError =
 /**
  * 결제 예약 건
  *
- * <p>결제 예약 건</p>
+ * 결제 예약 건
  */
 export type PaymentSchedule =
 	| FailedPaymentSchedule
@@ -8342,20 +7269,21 @@ export type GetPaymentScheduleError =
 /**
  * 결제 예약 다건 조회를 위한 입력 정보
  *
- * <p>결제 예약 다건 조회를 위한 입력 정보</p>
- * <p>조회 결과는 결제 예정 시점(timeToPay) 기준 최신 순으로 정렬됩니다.</p>
+ * 결제 예약 다건 조회를 위한 입력 정보
+ *
+ * 조회 결과는 결제 예정 시점(timeToPay) 기준 최신 순으로 정렬됩니다.
  */
 export type GetPaymentSchedulesBody = {
 	/**
 	 * 요청할 페이지 정보
 	 *
-	 * <p>미 입력 시 number: 0, size: 10 으로 기본값이 적용됩니다.</p>
+	 * 미 입력 시 number: 0, size: 10 으로 기본값이 적용됩니다.
 	 */
 	page?: PageInput;
 	/**
 	 * 정렬 조건
 	 *
-	 * <p>미 입력 시 sortBy: TIME_TO_PAY, sortOrder: DESC 으로 기본값이 적용됩니다.</p>
+	 * 미 입력 시 sortBy: TIME\_TO\_PAY, sortOrder: DESC 으로 기본값이 적용됩니다.
 	 */
 	sort?: PaymentScheduleSortInput;
 	/**
@@ -8368,7 +7296,7 @@ export type GetPaymentSchedulesBody = {
 /**
  * 결제 예약 다건 조회 성공 응답 정보
  *
- * <p>결제 예약 다건 조회 성공 응답 정보</p>
+ * 결제 예약 다건 조회 성공 응답 정보
  */
 export type GetPaymentSchedulesResponse = {
 	/**
@@ -8395,18 +7323,15 @@ export type GetPaymentSchedulesError =
 /**
  * 결제 예약 건 취소 요청 입력 정보
  *
- * <p>결제 예약 건 취소 요청 입력 정보</p>
- * <p>billingKey, scheduleIds 중 하나 이상은 필수로 입력합니다.
- * billingKey 만 입력된 경우 -&gt; 해당 빌링키로 예약된 모든 결제 예약 건들이 취소됩니다.
- * scheduleIds 만 입력된 경우 -&gt; 입력된 결제 예약 건 아이디에 해당하는 예약 건들이 취소됩니다.
- * billingKey, scheduleIds 모두 입력된 경우 -&gt; 입력된 결제 예약 건 아이디에 해당하는 예약 건들이 취소됩니다. 그리고 예약한 빌링키가 입력된 빌링키와 일치하는지 검증합니다.
- * 위 정책에 따라 선택된 결제 예약 건들 중 하나라도 취소에 실패할 경우, 모든 취소 요청이 실패합니다.</p>
+ * 결제 예약 건 취소 요청 입력 정보
+ *
+ * billingKey, scheduleIds 중 하나 이상은 필수로 입력합니다. billingKey 만 입력된 경우 -> 해당 빌링키로 예약된 모든 결제 예약 건들이 취소됩니다. scheduleIds 만 입력된 경우 -> 입력된 결제 예약 건 아이디에 해당하는 예약 건들이 취소됩니다. billingKey, scheduleIds 모두 입력된 경우 -> 입력된 결제 예약 건 아이디에 해당하는 예약 건들이 취소됩니다. 그리고 예약한 빌링키가 입력된 빌링키와 일치하는지 검증합니다. 위 정책에 따라 선택된 결제 예약 건들 중 하나라도 취소에 실패할 경우, 모든 취소 요청이 실패합니다.
  */
 export type RevokePaymentSchedulesBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -8424,7 +7349,7 @@ export type RevokePaymentSchedulesBody = {
 /**
  * 결제 예약 건 취소 성공 응답
  *
- * <p>결제 예약 건 취소 성공 응답</p>
+ * 결제 예약 건 취소 성공 응답
  */
 export type RevokePaymentSchedulesResponse = {
 	/**
@@ -8456,7 +7381,7 @@ export type RevokePaymentSchedulesError =
 /**
  * 결제 예약 요청 입력 정보
  *
- * <p>결제 예약 요청 입력 정보</p>
+ * 결제 예약 요청 입력 정보
  */
 export type CreatePaymentScheduleBody = {
 	/**
@@ -8474,7 +7399,7 @@ export type CreatePaymentScheduleBody = {
 /**
  * 결제 예약 성공 응답
  *
- * <p>결제 예약 성공 응답</p>
+ * 결제 예약 성공 응답
  */
 export type CreatePaymentScheduleResponse = {
 	/**
@@ -8501,31 +7426,31 @@ export type CreatePaymentScheduleError =
 /**
  * 결제 취소 요청 입력 정보
  *
- * <p>결제 취소 요청 입력 정보</p>
+ * 결제 취소 요청 입력 정보
  */
 export type CancelPaymentBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
 	 * 취소 총 금액
 	 *
-	 * <p>값을 입력하지 않으면 전액 취소됩니다.</p>
+	 * 값을 입력하지 않으면 전액 취소됩니다.
 	 */
 	amount?: number;
 	/**
 	 * 취소 금액 중 면세 금액
 	 *
-	 * <p>값을 입력하지 않으면 전액 과세 취소됩니다.</p>
+	 * 값을 입력하지 않으면 전액 과세 취소됩니다.
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 취소 금액 중 부가세액
 	 *
-	 * <p>값을 입력하지 않으면 자동 계산됩니다.</p>
+	 * 값을 입력하지 않으면 자동 계산됩니다.
 	 */
 	vatAmount?: number;
 	/**
@@ -8536,19 +7461,19 @@ export type CancelPaymentBody = {
 	/**
 	 * 취소 요청자
 	 *
-	 * <p>고객에 의한 취소일 경우 Customer, 관리자에 의한 취소일 경우 Admin으로 입력합니다.</p>
+	 * 고객에 의한 취소일 경우 Customer, 관리자에 의한 취소일 경우 Admin으로 입력합니다.
 	 */
 	requester?: CancelRequester;
 	/**
 	 * 결제 건의 취소 가능 잔액
 	 *
-	 * <p>본 취소 요청 이전의 취소 가능 잔액으로써, 값을 입력하면 잔액이 일치하는 경우에만 취소가 진행됩니다. 값을 입력하지 않으면 별도의 검증 처리를 수행하지 않습니다.</p>
+	 * 본 취소 요청 이전의 취소 가능 잔액으로써, 값을 입력하면 잔액이 일치하는 경우에만 취소가 진행됩니다. 값을 입력하지 않으면 별도의 검증 처리를 수행하지 않습니다.
 	 */
 	currentCancellableAmount?: number;
 	/**
 	 * 환불 계좌
 	 *
-	 * <p>계좌 환불일 경우 입력합니다. 계좌 환불이 필요한 경우는 가상계좌 환불, 휴대폰 익월 환불 등이 있습니다.</p>
+	 * 계좌 환불일 경우 입력합니다. 계좌 환불이 필요한 경우는 가상계좌 환불, 휴대폰 익월 환불 등이 있습니다.
 	 */
 	refundAccount?: CancelPaymentBodyRefundAccount;
 };
@@ -8556,7 +7481,7 @@ export type CancelPaymentBody = {
 /**
  * 결제 취소 성공 응답
  *
- * <p>결제 취소 성공 응답</p>
+ * 결제 취소 성공 응답
  */
 export type CancelPaymentResponse = {
 	/**
@@ -8588,13 +7513,13 @@ export type CancelPaymentError =
 /**
  * 빌링키 결제 요청 입력 정보
  *
- * <p>빌링키 결제 요청 입력 정보</p>
+ * 빌링키 결제 요청 입력 정보
  */
 export type BillingKeyPaymentInput = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -8605,7 +7530,7 @@ export type BillingKeyPaymentInput = {
 	/**
 	 * 채널 키
 	 *
-	 * <p>다수 채널에 대해 발급된 빌링키에 대해, 결제 채널을 특정하고 싶을 때 명시</p>
+	 * 다수 채널에 대해 발급된 빌링키에 대해, 결제 채널을 특정하고 싶을 때 명시
 	 */
 	channelKey?: string;
 	/**
@@ -8661,15 +7586,13 @@ export type BillingKeyPaymentInput = {
 	/**
 	 * 웹훅 주소
 	 *
-	 * <p>결제 승인/실패 시 요청을 받을 웹훅 주소입니다.
-	 * 상점에 설정되어 있는 값보다 우선적으로 적용됩니다.
-	 * 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.</p>
+	 * 결제 승인/실패 시 요청을 받을 웹훅 주소입니다. 상점에 설정되어 있는 값보다 우선적으로 적용됩니다. 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
 	 *
-	 * <p>입력된 값이 없을 경우에는 빈 배열로 해석됩니다.</p>
+	 * 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.
 	 */
 	products?: PaymentProduct[];
 	/**
@@ -8702,7 +7625,7 @@ export type BillingKeyPaymentInput = {
 /**
  * 빌링키 결제 성공 응답
  *
- * <p>빌링키 결제 성공 응답</p>
+ * 빌링키 결제 성공 응답
  */
 export type PayWithBillingKeyResponse = {
 	/**
@@ -8732,25 +7655,25 @@ export type PayWithBillingKeyError =
 /**
  * 수기 결제 요청 정보
  *
- * <p>수기 결제 요청 정보</p>
+ * 수기 결제 요청 정보
  */
 export type InstantPaymentInput = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
 	 * 채널 키
 	 *
-	 * <p>채널 키 또는 채널 그룹 ID 필수</p>
+	 * 채널 키 또는 채널 그룹 ID 필수
 	 */
 	channelKey?: string;
 	/**
 	 * 채널 그룹 ID
 	 *
-	 * <p>채널 키 또는 채널 그룹 ID 필수</p>
+	 * 채널 키 또는 채널 그룹 ID 필수
 	 */
 	channelGroupId?: string;
 	/**
@@ -8766,13 +7689,13 @@ export type InstantPaymentInput = {
 	/**
 	 * 문화비 지출 여부
 	 *
-	 * <p>기본값은 false 입니다.</p>
+	 * 기본값은 false 입니다.
 	 */
 	isCulturalExpense?: boolean;
 	/**
 	 * 에스크로 결제 여부
 	 *
-	 * <p>기본값은 false 입니다.</p>
+	 * 기본값은 false 입니다.
 	 */
 	isEscrow?: boolean;
 	/**
@@ -8803,15 +7726,13 @@ export type InstantPaymentInput = {
 	/**
 	 * 웹훅 주소
 	 *
-	 * <p>결제 승인/실패 시 요청을 받을 웹훅 주소입니다.
-	 * 상점에 설정되어 있는 값보다 우선적으로 적용됩니다.
-	 * 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.</p>
+	 * 결제 승인/실패 시 요청을 받을 웹훅 주소입니다. 상점에 설정되어 있는 값보다 우선적으로 적용됩니다. 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
 	 *
-	 * <p>입력된 값이 없을 경우에는 빈 배열로 해석됩니다.</p>
+	 * 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.
 	 */
 	products?: PaymentProduct[];
 	/**
@@ -8839,7 +7760,7 @@ export type InstantPaymentInput = {
 /**
  * 수기 결제 성공 응답
  *
- * <p>수기 결제 성공 응답</p>
+ * 수기 결제 성공 응답
  */
 export type PayInstantlyResponse = {
 	/**
@@ -8867,19 +7788,19 @@ export type PayInstantlyError =
 /**
  * 현금영수증 발급 요청 양식
  *
- * <p>현금영수증 발급 요청 양식</p>
+ * 현금영수증 발급 요청 양식
  */
 export type IssueCashReceiptBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
 	 * 결제 건 아이디
 	 *
-	 * <p>외부 결제 건에 대한 수동 발급의 경우, 아이디를 직접 채번하여 입력합니다.</p>
+	 * 외부 결제 건에 대한 수동 발급의 경우, 아이디를 직접 채번하여 입력합니다.
 	 */
 	paymentId: string;
 	/**
@@ -8927,7 +7848,7 @@ export type IssueCashReceiptBody = {
 /**
  * 현금 영수증 발급 성공 응답
  *
- * <p>현금 영수증 발급 성공 응답</p>
+ * 현금 영수증 발급 성공 응답
  */
 export type IssueCashReceiptResponse = {
 	/**
@@ -8951,7 +7872,7 @@ export type IssueCashReceiptError =
 /**
  * 현금 영수증 취소 성공 응답
  *
- * <p>현금 영수증 취소 성공 응답</p>
+ * 현금 영수증 취소 성공 응답
  */
 export type CancelCashReceiptResponse = {
 	/**
@@ -8981,7 +7902,7 @@ export type CancelCashReceiptError =
 /**
  * 가상계좌 말소 성공 응답
  *
- * <p>가상계좌 말소 성공 응답</p>
+ * 가상계좌 말소 성공 응답
  */
 export type CloseVirtualAccountResponse = {
 	/**
@@ -9006,13 +7927,13 @@ export type CloseVirtualAccountError =
 /**
  * 에스크로 배송 정보 등록 입력 정보
  *
- * <p>에스크로 배송 정보 등록 입력 정보</p>
+ * 에스크로 배송 정보 등록 입력 정보
  */
 export type RegisterEscrowLogisticsBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -9033,7 +7954,7 @@ export type RegisterEscrowLogisticsBody = {
 	/**
 	 * 이메일 알림 전송 여부
 	 *
-	 * <p>에스크로 구매 확정 시 이메일로 알림을 보낼지 여부입니다.</p>
+	 * 에스크로 구매 확정 시 이메일로 알림을 보낼지 여부입니다.
 	 */
 	sendEmail?: boolean;
 	/**
@@ -9046,7 +7967,7 @@ export type RegisterEscrowLogisticsBody = {
 /**
  * 에스크로 배송 정보 등록 성공 응답
  *
- * <p>에스크로 배송 정보 등록 성공 응답</p>
+ * 에스크로 배송 정보 등록 성공 응답
  */
 export type ApplyEscrowLogisticsResponse = {
 	/**
@@ -9081,13 +8002,13 @@ export type ApplyEscrowLogisticsError =
 /**
  * 에스크로 배송 정보 수정 입력 정보
  *
- * <p>에스크로 배송 정보 수정 입력 정보</p>
+ * 에스크로 배송 정보 수정 입력 정보
  */
 export type ModifyEscrowLogisticsBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -9108,7 +8029,7 @@ export type ModifyEscrowLogisticsBody = {
 	/**
 	 * 이메일 알림 전송 여부
 	 *
-	 * <p>에스크로 구매 확정 시 이메일로 알림을 보낼지 여부입니다.</p>
+	 * 에스크로 구매 확정 시 이메일로 알림을 보낼지 여부입니다.
 	 */
 	sendEmail?: boolean;
 	/**
@@ -9121,7 +8042,7 @@ export type ModifyEscrowLogisticsBody = {
 /**
  * 에스크로 배송 정보 수정 성공 응답
  *
- * <p>에스크로 배송 정보 수정 성공 응답</p>
+ * 에스크로 배송 정보 수정 성공 응답
  */
 export type ModifyEscrowLogisticsResponse = {
 	/**
@@ -9156,20 +8077,19 @@ export type ModifyEscrowLogisticsError =
 /**
  * 에스크로 구매 확정 입력 정보
  *
- * <p>에스크로 구매 확정 입력 정보</p>
+ * 에스크로 구매 확정 입력 정보
  */
 export type ConfirmEscrowBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
 	 * 확인 주체가 상점인지 여부
 	 *
-	 * <p>구매확정요청 주체가 고객사 관리자인지 구매자인지 구분하기 위한 필드입니다.
-	 * 네이버페이 전용 파라미터이며, 구분이 모호한 경우 고객사 관리자(true)로 입력합니다.</p>
+	 * 구매확정요청 주체가 고객사 관리자인지 구매자인지 구분하기 위한 필드입니다. 네이버페이 전용 파라미터이며, 구분이 모호한 경우 고객사 관리자(true)로 입력합니다.
 	 */
 	fromStore?: boolean;
 };
@@ -9177,7 +8097,7 @@ export type ConfirmEscrowBody = {
 /**
  * 에스크로 구매 확정 성공 응답
  *
- * <p>에스크로 구매 확정 성공 응답</p>
+ * 에스크로 구매 확정 성공 응답
  */
 export type ConfirmEscrowResponse = {
 	/**
@@ -9202,19 +8122,19 @@ export type ConfirmEscrowError =
 /**
  * ResendWebhookBody
  *
- * <p>웹훅 재발송을 위한 입력 정보</p>
+ * 웹훅 재발송을 위한 입력 정보
  */
 export type ResendWebhookBody = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
 	 * 웹훅 아이디
 	 *
-	 * <p>입력하지 않으면 결제 건의 가장 최근 웹훅 아이디가 기본 적용됩니다</p>
+	 * 입력하지 않으면 결제 건의 가장 최근 웹훅 아이디가 기본 적용됩니다
 	 */
 	webhookId?: string;
 };
@@ -9222,7 +8142,7 @@ export type ResendWebhookBody = {
 /**
  * 웹훅 재발송 응답 정보
  *
- * <p>웹훅 재발송 응답 정보</p>
+ * 웹훅 재발송 응답 정보
  */
 export type ResendWebhookResponse = {
 	/**
@@ -9246,7 +8166,7 @@ export type ResendWebhookError =
 /**
  * 고객사의 결제 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 결제 현황 조회를 위한 입력 정보</p>
+ * 고객사의 결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentChartBody = {
 	/**
@@ -9262,19 +8182,19 @@ export type GetAnalyticsPaymentChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled?: boolean;
 	/**
 	 * 결제 현황 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 };
@@ -9282,7 +8202,7 @@ export type GetAnalyticsPaymentChartBody = {
 /**
  * 고객사의 결제 현황 차트 정보
  *
- * <p>고객사의 결제 현황 차트 정보</p>
+ * 고객사의 결제 현황 차트 정보
  */
 export type AnalyticsPaymentChart = {
 	/**
@@ -9303,7 +8223,7 @@ export type GetAnalyticsPaymentChartError =
 /**
  * 고객사의 결제 현황 인사이트 조회를 위한 입력 정보
  *
- * <p>고객사의 결제 현황 인사이트 조회를 위한 입력 정보</p>
+ * 고객사의 결제 현황 인사이트 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentChartInsightBody = {
 	/**
@@ -9319,19 +8239,19 @@ export type GetAnalyticsPaymentChartInsightBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled?: boolean;
 	/**
 	 * 타임존 시간 오프셋
 	 *
-	 * <p>입력된 시간 오프셋 기준으로 일, 주, 월이 집계 됩니다.</p>
+	 * 입력된 시간 오프셋 기준으로 일, 주, 월이 집계 됩니다.
 	 */
 	timezoneHourOffset: number;
 };
@@ -9339,7 +8259,7 @@ export type GetAnalyticsPaymentChartInsightBody = {
 /**
  * 고객사의 결제 현황 인사이트 정보
  *
- * <p>고객사의 결제 현황 인사이트 정보</p>
+ * 고객사의 결제 현황 인사이트 정보
  */
 export type AnalyticsPaymentChartInsight = {
 	/**
@@ -9386,7 +8306,7 @@ export type GetAnalyticsPaymentChartInsightError =
 /**
  * 고객사의 평균 거래액 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 평균 거래액 현황 조회를 위한 입력 정보</p>
+ * 고객사의 평균 거래액 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsAverageAmountChartBody = {
 	/**
@@ -9402,19 +8322,19 @@ export type GetAnalyticsAverageAmountChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 	/**
 	 * 평균 거래액 현황 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 };
@@ -9422,7 +8342,7 @@ export type GetAnalyticsAverageAmountChartBody = {
 /**
  * 고객사의 평균 거래액 현황 조회 응답
  *
- * <p>고객사의 평균 거래액 현황 조회 응답</p>
+ * 고객사의 평균 거래액 현황 조회 응답
  */
 export type AnalyticsAverageAmountChart = {
 	/**
@@ -9447,7 +8367,7 @@ export type GetAverageAmountChartError =
 /**
  * 고객사의 결제수단 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 결제수단 현황 조회를 위한 입력 정보</p>
+ * 고객사의 결제수단 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentMethodChartBody = {
 	/**
@@ -9463,13 +8383,13 @@ export type GetAnalyticsPaymentMethodChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 };
@@ -9477,7 +8397,7 @@ export type GetAnalyticsPaymentMethodChartBody = {
 /**
  * 고객사의 결제수단 현황 차트 정보
  *
- * <p>고객사의 결제수단 현황 차트 정보</p>
+ * 고객사의 결제수단 현황 차트 정보
  */
 export type AnalyticsPaymentMethodChart = {
 	/**
@@ -9498,7 +8418,7 @@ export type GetPaymentMethodChartError =
 /**
  * 고객사의 결제수단 트렌드 조회를 위한 입력 정보
  *
- * <p>고객사의 결제수단 트렌드 조회를 위한 입력 정보</p>
+ * 고객사의 결제수단 트렌드 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentMethodTrendChartBody = {
 	/**
@@ -9514,19 +8434,19 @@ export type GetAnalyticsPaymentMethodTrendChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 	/**
 	 * 결제 결제수단 트렌드 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 };
@@ -9534,13 +8454,13 @@ export type GetAnalyticsPaymentMethodTrendChartBody = {
 /**
  * 고객사의 결제수단 트렌드 차트 정보
  *
- * <p>고객사의 결제수단 트렌드 차트 정보</p>
+ * 고객사의 결제수단 트렌드 차트 정보
  */
 export type AnalyticsPaymentMethodTrendChart = {
 	/**
 	 * 결제수단별 결제금액, 결제 건수 데이터
 	 *
-	 * <p>(timestamp, paymentMethod) 를 기준으로 오름차순 정렬되어 주어집니다.</p>
+	 * (timestamp, paymentMethod) 를 기준으로 오름차순 정렬되어 주어집니다.
 	 */
 	stats: AnalyticsPaymentMethodTrendChartStat[];
 };
@@ -9557,7 +8477,7 @@ export type GetPaymentMethodTrendChartError =
 /**
  * 고객사의 카드결제 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 카드결제 현황 조회를 위한 입력 정보</p>
+ * 고객사의 카드결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsCardChartBody = {
 	/**
@@ -9573,19 +8493,19 @@ export type GetAnalyticsCardChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 	/**
 	 * 카드결제 현황 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 };
@@ -9593,7 +8513,7 @@ export type GetAnalyticsCardChartBody = {
 /**
  * 고객사의 카드결제 현황 차트 정보
  *
- * <p>고객사의 카드결제 현황 차트 정보</p>
+ * 고객사의 카드결제 현황 차트 정보
  */
 export type AnalyticsCardChart = {
 	/**
@@ -9614,7 +8534,7 @@ export type GetAnalyticsCardChartError =
 /**
  * 고객사의 카드사별 결제 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 카드사별 결제 현황 조회를 위한 입력 정보</p>
+ * 고객사의 카드사별 결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsCardCompanyChartBody = {
 	/**
@@ -9630,19 +8550,19 @@ export type GetAnalyticsCardCompanyChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 	/**
 	 * 카드사별 결제 현황 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 	/**
@@ -9660,7 +8580,7 @@ export type GetAnalyticsCardCompanyChartBody = {
 /**
  * 고객사의 카드사별 결제 현황 조회 응답
  *
- * <p>고객사의 카드사별 결제 현황 조회 응답</p>
+ * 고객사의 카드사별 결제 현황 조회 응답
  */
 export type AnalyticsCardCompanyChart = {
 	/**
@@ -9689,7 +8609,7 @@ export type GetAnalyticsCardCompanyChartError =
 /**
  * 고객사의 간편결제 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 간편결제 현황 조회를 위한 입력 정보</p>
+ * 고객사의 간편결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsEasyPayChartBody = {
 	/**
@@ -9705,19 +8625,19 @@ export type GetAnalyticsEasyPayChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 	/**
 	 * 간편결제 현황 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 };
@@ -9725,7 +8645,7 @@ export type GetAnalyticsEasyPayChartBody = {
 /**
  * 고객사의 간편결제 현황 차트 정보
  *
- * <p>고객사의 간편결제 현황 차트 정보</p>
+ * 고객사의 간편결제 현황 차트 정보
  */
 export type AnalyticsEasyPayChart = {
 	/**
@@ -9746,7 +8666,7 @@ export type GetAnalyticsEasyPayChartError =
 /**
  * 고객사의 간편결제사별 결제 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 간편결제사별 결제 현황 조회를 위한 입력 정보</p>
+ * 고객사의 간편결제사별 결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsEasyPayProviderChartBody = {
 	/**
@@ -9762,19 +8682,19 @@ export type GetAnalyticsEasyPayProviderChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 	/**
 	 * 간편결제사별 결제 현황 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 	/**
@@ -9792,7 +8712,7 @@ export type GetAnalyticsEasyPayProviderChartBody = {
 /**
  * 고객사의 간편결제사별 결제 현황 차트 정보
  *
- * <p>고객사의 간편결제사별 결제 현황 차트 정보</p>
+ * 고객사의 간편결제사별 결제 현황 차트 정보
  */
 export type AnalyticsEasyPayProviderChart = {
 	/**
@@ -9821,7 +8741,7 @@ export type GetAnalyticsEasyPayProviderChartError =
 /**
  * 고객사의 결제대행사 현황 조회를 위한 입력 정보
  *
- * <p>고객사의 결제대행사 현황 조회를 위한 입력 정보</p>
+ * 고객사의 결제대행사 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsPgCompanyChartBody = {
 	/**
@@ -9837,13 +8757,13 @@ export type GetAnalyticsPgCompanyChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 };
@@ -9851,7 +8771,7 @@ export type GetAnalyticsPgCompanyChartBody = {
 /**
  * 고객사의 결제대행사 현황 차트 정보
  *
- * <p>고객사의 결제대행사 현황 차트 정보</p>
+ * 고객사의 결제대행사 현황 차트 정보
  */
 export type AnalyticsPgCompanyChart = {
 	/**
@@ -9872,7 +8792,7 @@ export type GetPgCompanyChartError =
 /**
  * 고객사의 결제대행사별 거래 추이 조회를 위한 입력 정보
  *
- * <p>고객사의 결제대행사별 거래 추이 조회를 위한 입력 정보</p>
+ * 고객사의 결제대행사별 거래 추이 조회를 위한 입력 정보
  */
 export type GetAnalyticsPgCompanyTrendChartBody = {
 	/**
@@ -9888,19 +8808,19 @@ export type GetAnalyticsPgCompanyTrendChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 	/**
 	 * 결제취소건 제외 여부
 	 *
-	 * <p>true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.</p>
+	 * true 이면 결제취소내역은 응답에 포함 및 반영되지 않습니다. false 또는 값을 명시하지 않은 경우 결제취소내역이 응답에 반영됩니다.
 	 */
 	excludeCancelled: boolean;
 	/**
 	 * 결제 결제대행사별 거래 추이 조회 단위
 	 *
-	 * <p>시간별, 월별 단위만 지원됩니다.</p>
+	 * 시간별, 월별 단위만 지원됩니다.
 	 */
 	timeGranularity: AnalyticsTimeGranularity;
 	/**
@@ -9913,7 +8833,7 @@ export type GetAnalyticsPgCompanyTrendChartBody = {
 /**
  * 고객사의 결제대행사별 거래 추이 차트 정보
  *
- * <p>고객사의 결제대행사별 거래 추이 차트 정보</p>
+ * 고객사의 결제대행사별 거래 추이 차트 정보
  */
 export type AnalyticsPgCompanyTrendChart = {
 	/**
@@ -9934,7 +8854,7 @@ export type GetPgCompanyTrendChartError =
 /**
  * 고객사의 해외 결제 사용 여부
  *
- * <p>고객사의 해외 결제 사용 여부</p>
+ * 고객사의 해외 결제 사용 여부
  */
 export type AnalyticsOverseasPaymentUsage = {
 	/**
@@ -9954,7 +8874,7 @@ export type GetAnalyticsOverseasPaymentUsageError =
 /**
  * 고객사의 환불율 조회를 위한 입력 정보
  *
- * <p>고객사의 환불율 조회를 위한 입력 정보</p>
+ * 고객사의 환불율 조회를 위한 입력 정보
  */
 export type GetAnalyticsCancellationRateBody = {
 	/**
@@ -9970,7 +8890,7 @@ export type GetAnalyticsCancellationRateBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 };
@@ -9978,7 +8898,7 @@ export type GetAnalyticsCancellationRateBody = {
 /**
  * 고객사의 환불율 정보
  *
- * <p>고객사의 환불율 정보</p>
+ * 고객사의 환불율 정보
  */
 export type AnalyticsCancellationRate = {
 	/**
@@ -9999,7 +8919,7 @@ export type GetAnalyticsCancellationRateError =
 /**
  * 고객사의 결제상태 이력 집계 조회를 위한 입력 정보
  *
- * <p>고객사의 결제상태 이력 집계 조회를 위한 입력 정보</p>
+ * 고객사의 결제상태 이력 집계 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusChartBody = {
 	/**
@@ -10015,7 +8935,7 @@ export type GetAnalyticsPaymentStatusChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 };
@@ -10023,7 +8943,7 @@ export type GetAnalyticsPaymentStatusChartBody = {
 /**
  * 고객사의 결제 상태 차트 정보
  *
- * <p>고객사의 결제 상태 차트 정보</p>
+ * 고객사의 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusChart = {
 	/**
@@ -10044,7 +8964,7 @@ export type GetPaymentStatusChartError =
 /**
  * 고객사의 결제수단별 결제전환율 조회를 위한 입력 정보
  *
- * <p>고객사의 결제수단별 결제전환율 조회를 위한 입력 정보</p>
+ * 고객사의 결제수단별 결제전환율 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusByPaymentMethodChartBody = {
 	/**
@@ -10060,7 +8980,7 @@ export type GetAnalyticsPaymentStatusByPaymentMethodChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 };
@@ -10068,7 +8988,7 @@ export type GetAnalyticsPaymentStatusByPaymentMethodChartBody = {
 /**
  * 고객사의 결제 수단 별 결제 상태 차트 정보
  *
- * <p>고객사의 결제 수단 별 결제 상태 차트 정보</p>
+ * 고객사의 결제 수단 별 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusByPaymentMethodChart = {
 	/**
@@ -10089,7 +9009,7 @@ export type GetPaymentStatusByPaymentMethodChartError =
 /**
  * 고객사의 PG사별 결제전환율 조회를 위한 입력 정보
  *
- * <p>고객사의 PG사별 결제전환율 조회를 위한 입력 정보</p>
+ * 고객사의 PG사별 결제전환율 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusByPgCompanyChartBody = {
 	/**
@@ -10105,7 +9025,7 @@ export type GetAnalyticsPaymentStatusByPgCompanyChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 };
@@ -10113,7 +9033,7 @@ export type GetAnalyticsPaymentStatusByPgCompanyChartBody = {
 /**
  * 고객사의 PG사 별 결제 상태 차트 정보
  *
- * <p>고객사의 PG사 별 결제 상태 차트 정보</p>
+ * 고객사의 PG사 별 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusByPgCompanyChart = {
 	/**
@@ -10134,7 +9054,7 @@ export type GetPaymentStatusByPgCompanyChartError =
 /**
  * 고객사의 결제환경별 결제전환율 조회를 위한 입력 정보
  *
- * <p>고객사의 결제환경별 결제전환율 조회를 위한 입력 정보</p>
+ * 고객사의 결제환경별 결제전환율 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusByPaymentClientChartBody = {
 	/**
@@ -10150,7 +9070,7 @@ export type GetAnalyticsPaymentStatusByPaymentClientChartBody = {
 	/**
 	 * 조회할 결제 통화
 	 *
-	 * <p>입력된 통화로 발생한 결제내역만 응답에 포함됩니다.</p>
+	 * 입력된 통화로 발생한 결제내역만 응답에 포함됩니다.
 	 */
 	currency: Currency;
 };
@@ -10158,7 +9078,7 @@ export type GetAnalyticsPaymentStatusByPaymentClientChartBody = {
 /**
  * 고객사의 결제 환경 별 결제 상태 차트 정보
  *
- * <p>고객사의 결제 환경 별 결제 상태 차트 정보</p>
+ * 고객사의 결제 환경 별 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusByPaymentClientChart = {
 	/**
@@ -10184,9 +9104,7 @@ export type B2bMemberCompany = {
 	/**
 	 * 사업자등록번호
 	 *
-	 * <ul>
-	 * <li>없이 숫자로만 구성됩니다.</li>
-	 * </ul>
+	 * *   없이 숫자로만 구성됩니다.
 	 */
 	brn: string;
 	/**
@@ -10230,7 +9148,7 @@ export type GetB2bMemberCompanyError =
 /**
  * 연동 사업자 정보 수정 요청
  *
- * <p>연동 사업자 정보 수정 요청</p>
+ * 연동 사업자 정보 수정 요청
  */
 export type UpdateB2bMemberCompanyBody = {
 	/**
@@ -10263,7 +9181,7 @@ export type UpdateB2bMemberCompanyBody = {
 /**
  * 연동 사업자 정보 수정 응답
  *
- * <p>연동 사업자 정보 수정 응답</p>
+ * 연동 사업자 정보 수정 응답
  */
 export type UpdateB2bMemberCompanyResponse = {
 	/**
@@ -10286,7 +9204,7 @@ export type UpdateB2bMemberCompanyError =
 /**
  * 사업자 연동 요청 정보
  *
- * <p>사업자 연동 요청 정보</p>
+ * 사업자 연동 요청 정보
  */
 export type RegisterB2bMemberCompanyBody = {
 	/**
@@ -10304,7 +9222,7 @@ export type RegisterB2bMemberCompanyBody = {
 /**
  * 사업자 연동 응답 정보
  *
- * <p>사업자 연동 응답 정보</p>
+ * 사업자 연동 응답 정보
  */
 export type RegisterB2bMemberCompanyResponse = {
 	/**
@@ -10339,7 +9257,7 @@ export type B2bCompanyContact = {
 	/**
 	 * 담당자 ID
 	 *
-	 * <p>팝빌 로그인 계정으로 사용됩니다.</p>
+	 * 팝빌 로그인 계정으로 사용됩니다.
 	 */
 	id: string;
 	/**
@@ -10365,7 +9283,7 @@ export type B2bCompanyContact = {
 	/**
 	 * 관리자 여부
 	 *
-	 * <p>true일 경우 관리자, false일 경우 담당자입니다.</p>
+	 * true일 경우 관리자, false일 경우 담당자입니다.
 	 */
 	isManager: boolean;
 };
@@ -10385,7 +9303,7 @@ export type GetB2bMemberCompanyContactError =
 /**
  * 담당자 정보 수정 요청
  *
- * <p>담당자 정보 수정 요청</p>
+ * 담당자 정보 수정 요청
  */
 export type UpdateB2bMemberCompanyContactBody = {
 	/**
@@ -10413,7 +9331,7 @@ export type UpdateB2bMemberCompanyContactBody = {
 /**
  * 담당자 정보 수정 응답
  *
- * <p>담당자 정보 수정 응답</p>
+ * 담당자 정보 수정 응답
  */
 export type UpdateB2bMemberCompanyContactResponse = {
 	/**
@@ -10438,7 +9356,7 @@ export type UpdateB2bMemberCompanyContactError =
 /**
  * 인증서 등록 URL 조회 응답 정보
  *
- * <p>인증서 등록 URL 조회 응답 정보</p>
+ * 인증서 등록 URL 조회 응답 정보
  */
 export type GetB2bCertificateRegistrationUrlResponse = {
 	/**
@@ -10521,7 +9439,7 @@ export type GetB2bCertificateError =
 /**
  * 담당자 ID 존재 여부 응답 정보
  *
- * <p>담당자 ID 존재 여부 응답 정보</p>
+ * 담당자 ID 존재 여부 응답 정보
  */
 export type GetB2bContactIdExistenceResponse = {
 	/**
@@ -10544,7 +9462,7 @@ export type getB2bContactIdExistenceError =
 /**
  * 예금주 조회 응답 정보
  *
- * <p>예금주 조회 응답 정보</p>
+ * 예금주 조회 응답 정보
  */
 export type GetB2bBankAccountHolderResponse = {
 	/**
@@ -10574,7 +9492,7 @@ export type GetB2bAccountHolderError =
 /**
  * 사업자 상태
  *
- * <p>사업자 상태</p>
+ * 사업자 상태
  */
 export type B2bCompanyState = {
 	/**
@@ -10585,7 +9503,7 @@ export type B2bCompanyState = {
 	/**
 	 * 과세 유형 변경 일자
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	taxationTypeDate?: string;
 	/**
@@ -10596,7 +9514,7 @@ export type B2bCompanyState = {
 	/**
 	 * 휴폐업 일자
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	closedSuspendedDate?: string;
 };
@@ -10616,7 +9534,7 @@ export type GetB2bCompanyStateError =
 /**
  * 세금계산서 역발행 요청 정보
  *
- * <p>세금계산서 역발행 요청 정보</p>
+ * 세금계산서 역발행 요청 정보
  */
 export type RequestB2bTaxInvoiceReverseIssuanceRequestBody = {
 	/**
@@ -10663,7 +9581,7 @@ export type RequestB2bTaxInvoiceReverseIssuanceError =
 /**
  * 문서번호 유형
  *
- * <p>문서번호 유형</p>
+ * 문서번호 유형
  */
 export type B2bTaxInvoiceDocumentKeyType = "SUPPLIER" | "RECIPIENT";
 
@@ -10693,7 +9611,7 @@ export type DeleteB2bTaxInvoiceError =
 /**
  * 세금계산서 발행 정보
  *
- * <p>세금계산서 발행 정보</p>
+ * 세금계산서 발행 정보
  */
 export type IssueB2bTaxInvoiceRequestBody = {
 	/**
@@ -10709,7 +9627,7 @@ export type IssueB2bTaxInvoiceRequestBody = {
 	/**
 	 * 문서 번호 유형
 	 *
-	 * <p>기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+	 * 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 	 */
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
@@ -10739,7 +9657,7 @@ export type IssueB2bTaxInvoiceError =
 /**
  * 세금계산서 역발행 요청 취소 정보
  *
- * <p>세금계산서 역발행 요청 취소 정보</p>
+ * 세금계산서 역발행 요청 취소 정보
  */
 export type CancelB2bTaxInvoiceRequestBody = {
 	/**
@@ -10755,7 +9673,7 @@ export type CancelB2bTaxInvoiceRequestBody = {
 	/**
 	 * 문서 번호 유형
 	 *
-	 * <p>기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+	 * 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 	 */
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
@@ -10781,7 +9699,7 @@ export type CancelB2bTaxInvoiceRequestError =
 /**
  * 세금계산서 역발행 취소 정보
  *
- * <p>세금계산서 역발행 취소 정보</p>
+ * 세금계산서 역발행 취소 정보
  */
 export type CancelB2bTaxInvoiceIssuanceBody = {
 	/**
@@ -10797,7 +9715,7 @@ export type CancelB2bTaxInvoiceIssuanceBody = {
 	/**
 	 * 문서 번호 유형
 	 *
-	 * <p>기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+	 * 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 	 */
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
@@ -10821,7 +9739,7 @@ export type CancelB2bTaxInvoiceIssuanceError =
 /**
  * 세금계산서 역발행 요청 거부 정보
  *
- * <p>세금계산서 역발행 요청 거부 정보</p>
+ * 세금계산서 역발행 요청 거부 정보
  */
 export type RefuseB2bTaxInvoiceRequestBody = {
 	/**
@@ -10837,7 +9755,7 @@ export type RefuseB2bTaxInvoiceRequestBody = {
 	/**
 	 * 문서 번호 유형
 	 *
-	 * <p>기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+	 * 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 	 */
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
@@ -10863,14 +9781,14 @@ export type RefuseB2bTaxInvoiceRequestError =
 /**
  * 조회 기준
  *
- * <p>조회 기준</p>
+ * 조회 기준
  */
 export type B2bSearchDateType = "REGISTER" | "WRITE" | "ISSUE";
 
 /**
  * 세금계산서 다건 조회 성공 응답
  *
- * <p>세금계산서 다건 조회 성공 응답</p>
+ * 세금계산서 다건 조회 성공 응답
  */
 export type GetB2bTaxInvoicesResponse = {
 	/**
@@ -10898,7 +9816,7 @@ export type GetB2bTaxInvoicesError =
 /**
  * 세금계산서 팝업 URL 성공 응답
  *
- * <p>세금계산서 팝업 URL 성공 응답</p>
+ * 세금계산서 팝업 URL 성공 응답
  */
 export type GetB2bTaxInvoicePopupUrlResponse = {
 	/**
@@ -10922,7 +9840,7 @@ export type GetB2bTaxInvoicePopupUrlError =
 /**
  * 세금계산서 프린트 URL 성공 응답
  *
- * <p>세금계산서 프린트 URL 성공 응답</p>
+ * 세금계산서 프린트 URL 성공 응답
  */
 export type GetB2bTaxInvoicePrintUrlResponse = {
 	/**
@@ -10946,7 +9864,7 @@ export type GetB2bTaxInvoicePrintUrlError =
 /**
  * 세금계산서 PDF 다운로드 URL 성공 응답
  *
- * <p>세금계산서 PDF 다운로드 URL 성공 응답</p>
+ * 세금계산서 PDF 다운로드 URL 성공 응답
  */
 export type GetB2bTaxInvoicePdfDownloadUrlResponse = {
 	/**
@@ -10970,7 +9888,7 @@ export type GetB2bTaxInvoicePdfDownloadUrlError =
 /**
  * 세금계산서 임시 저장 정보
  *
- * <p>세금계산서 임시 저장 정보</p>
+ * 세금계산서 임시 저장 정보
  */
 export type RequestB2bTaxInvoiceRegisterBody = {
 	/**
@@ -10995,7 +9913,7 @@ export type RequestB2bTaxInvoiceRegisterError =
 /**
  * 세금계산서 역발행 요청 정보
  *
- * <p>세금계산서 역발행 요청 정보</p>
+ * 세금계산서 역발행 요청 정보
  */
 export type RequestB2bTaxInvoiceRequestBody = {
 	/**
@@ -11011,7 +9929,7 @@ export type RequestB2bTaxInvoiceRequestBody = {
 	/**
 	 * 문서 번호 유형
 	 *
-	 * <p>기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+	 * 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 	 */
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
@@ -11037,7 +9955,7 @@ export type requestB2bTaxInvoiceError =
 /**
  * 세금계산서 파일 업로드 링크 생성
  *
- * <p>세금계산서 파일 업로드 링크 생성</p>
+ * 세금계산서 파일 업로드 링크 생성
  */
 export type CreateB2bTaxInvoiceFileUploadLinkBody = {
 	/**
@@ -11050,7 +9968,7 @@ export type CreateB2bTaxInvoiceFileUploadLinkBody = {
 /**
  * 세금계산서 파일 업로드 링크 생성 성공 응답
  *
- * <p>세금계산서 파일 업로드 링크 생성 성공 응답</p>
+ * 세금계산서 파일 업로드 링크 생성 성공 응답
  */
 export type CreateB2bTaxInvoiceFileUploadLinkResponse = {
 	/**
@@ -11077,15 +9995,13 @@ export type CreateB2bTaxInvoiceFileUploadLinkCreateError =
 /**
  * 세금계산서 파일 첨부 정보
  *
- * <p>세금계산서 파일 첨부 정보</p>
+ * 세금계산서 파일 첨부 정보
  */
 export type AttachB2bTaxInvoiceFileBody = {
 	/**
 	 * 사업자등록번호
 	 *
-	 * <ul>
-	 * <li>없이 숫자 10자리로 구성됩니다.</li>
-	 * </ul>
+	 * *   없이 숫자 10자리로 구성됩니다.
 	 */
 	brn: string;
 	/**
@@ -11096,7 +10012,7 @@ export type AttachB2bTaxInvoiceFileBody = {
 	/**
 	 * 문서 번호 유형
 	 *
-	 * <p>기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.</p>
+	 * 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 	 */
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
@@ -11122,7 +10038,7 @@ export type AttachB2bTaxInvoiceFileError =
 /**
  * 세금계산서 첨부파일 목록 조회 성공 응답
  *
- * <p>세금계산서 첨부파일 목록 조회 성공 응답</p>
+ * 세금계산서 첨부파일 목록 조회 성공 응답
  */
 export type GetB2bTaxInvoiceAttachmentsResponse = {
 	/**
@@ -11159,7 +10075,7 @@ export type DeleteB2bTaxInvoiceAttachmentError =
 /**
  * 카카오페이 주문 조회 응답
  *
- * <p>카카오페이 주문 조회 응답</p>
+ * 카카오페이 주문 조회 응답
  */
 export type GetKakaopayPaymentOrderResponse = {
 	/**
@@ -11185,7 +10101,7 @@ export type GetKakaopayPaymentOrderError =
 /**
  * 영수증 내 하위 상점 거래 등록 정보
  *
- * <p>영수증 내 하위 상점 거래 등록 정보</p>
+ * 영수증 내 하위 상점 거래 등록 정보
  */
 export type RegisterStoreReceiptBody = {
 	/**
@@ -11203,7 +10119,7 @@ export type RegisterStoreReceiptBody = {
 /**
  * 영수증 내 하위 상점 거래 등록 응답
  *
- * <p>영수증 내 하위 상점 거래 등록 응답</p>
+ * 영수증 내 하위 상점 거래 등록 응답
  */
 export type RegisterStoreReceiptResponse = {
 	/**
@@ -11228,7 +10144,7 @@ export type RegisterStoreReceiptError =
 /**
  * 프로모션
  *
- * <p>프로모션</p>
+ * 프로모션
  */
 export type Promotion = CardPromotion;
 
@@ -11245,8 +10161,9 @@ export type GetPromotionError =
 /**
  * 요청된 입력 정보가 유효하지 않은 경우
  *
- * <p>요청된 입력 정보가 유효하지 않은 경우</p>
- * <p>허가되지 않은 값, 올바르지 않은 형식의 요청 등이 모두 해당됩니다.</p>
+ * 요청된 입력 정보가 유효하지 않은 경우
+ *
+ * 허가되지 않은 값, 올바르지 않은 형식의 요청 등이 모두 해당됩니다.
  */
 export type InvalidRequestError = {
 	/**
@@ -11262,7 +10179,7 @@ export type InvalidRequestError = {
 /**
  * 인증 정보가 올바르지 않은 경우
  *
- * <p>인증 정보가 올바르지 않은 경우</p>
+ * 인증 정보가 올바르지 않은 경우
  */
 export type UnauthorizedError = {
 	/**
@@ -11278,14 +10195,14 @@ export type UnauthorizedError = {
 /**
  * 금액에 대한 소수점 처리 방식
  *
- * <p>금액에 대한 소수점 처리 방식</p>
+ * 금액에 대한 소수점 처리 방식
  */
 export type PlatformRoundType = "OFF" | "DOWN" | "UP";
 
 /**
  * 플랫폼 내 발생하는 여러 수수료 및 할인 분담에 관한 계산식 정보
  *
- * <p>플랫폼 내 발생하는 여러 수수료 및 할인 분담에 관한 계산식 정보</p>
+ * 플랫폼 내 발생하는 여러 수수료 및 할인 분담에 관한 계산식 정보
  */
 export type PlatformSettlementFormula = {
 	/**
@@ -11308,7 +10225,7 @@ export type PlatformSettlementFormula = {
 /**
  * 플랫폼 정산건 처리 방식에 관한 규칙
  *
- * <p>플랫폼 정산건 처리 방식에 관한 규칙</p>
+ * 플랫폼 정산건 처리 방식에 관한 규칙
  */
 export type PlatformSettlementRule = {
 	/**
@@ -11331,7 +10248,7 @@ export type PlatformSettlementRule = {
 /**
  * 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
  *
- * <p>플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우</p>
+ * 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
  */
 export type PlatformNotEnabledError = {
 	/**
@@ -11347,8 +10264,9 @@ export type PlatformNotEnabledError = {
 /**
  * 플랫폼 업데이트 시 변경할 계산식 정보
  *
- * <p>플랫폼 업데이트 시 변경할 계산식 정보</p>
- * <p>값이 명시되지 않은 필드는 업데이트하지 않습니다.</p>
+ * 플랫폼 업데이트 시 변경할 계산식 정보
+ *
+ * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
  */
 export type UpdatePlatformBodySettlementFormula = {
 	/**
@@ -11371,8 +10289,9 @@ export type UpdatePlatformBodySettlementFormula = {
 /**
  * 플랫폼 업데이트 시 변경할 정산 규칙 정보
  *
- * <p>플랫폼 업데이트 시 변경할 정산 규칙 정보</p>
- * <p>값이 명시되지 않은 필드는 업데이트하지 않습니다.</p>
+ * 플랫폼 업데이트 시 변경할 정산 규칙 정보
+ *
+ * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
  */
 export type UpdatePlatformBodySettlementRule = {
 	/**
@@ -11395,7 +10314,7 @@ export type UpdatePlatformBodySettlementRule = {
 /**
  * 요청이 거절된 경우
  *
- * <p>요청이 거절된 경우</p>
+ * 요청이 거절된 경우
  */
 export type ForbiddenError = {
 	/**
@@ -11438,7 +10357,7 @@ export type PlatformInvalidSettlementFormulaError = {
 /**
  * 다건 조회 API 에 사용되는 페이지 입력 정보
  *
- * <p>다건 조회 API 에 사용되는 페이지 입력 정보</p>
+ * 다건 조회 API 에 사용되는 페이지 입력 정보
  */
 export type PageInput = {
 	/**
@@ -11456,18 +10375,18 @@ export type PageInput = {
 /**
  * 할인 분담 정책 다건 조회를 위한 필터 조건
  *
- * <p>할인 분담 정책 다건 조회를 위한 필터 조건</p>
+ * 할인 분담 정책 다건 조회를 위한 필터 조건
  */
 export type PlatformDiscountSharePolicyFilterInput = {
 	/**
 	 * 보관 조회 여부
 	 *
-	 * <p>true 이면 보관된 할인 분담 정책을 조회하고, false 이면 보관되지 않은 할인 분담 정책을 조회합니다. 기본값은 false 입니다.</p>
+	 * true 이면 보관된 할인 분담 정책을 조회하고, false 이면 보관되지 않은 할인 분담 정책을 조회합니다. 기본값은 false 입니다.
 	 */
 	isArchived?: boolean;
 	/**
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 파트너 분담율을 가진 할인 분담 정책만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 파트너 분담율을 가진 할인 분담 정책만 조회합니다.
 	 */
 	partnerShareRates?: number[];
 	/**
@@ -11480,7 +10399,7 @@ export type PlatformDiscountSharePolicyFilterInput = {
 /**
  * 반환된 페이지 결과 정보
  *
- * <p>반환된 페이지 결과 정보</p>
+ * 반환된 페이지 결과 정보
  */
 export type PageInfo = {
 	/**
@@ -11533,7 +10452,7 @@ export type PlatformDiscountSharePolicyNotFoundError = {
 /**
  * 보관된 할인 분담 정책을 업데이트하려고 하는 경우
  *
- * <p>보관된 할인 분담 정책을 업데이트하려고 하는 경우</p>
+ * 보관된 할인 분담 정책을 업데이트하려고 하는 경우
  */
 export type PlatformArchivedDiscountSharePolicyError = {
 	/**
@@ -11564,7 +10483,7 @@ export type PlatformDiscountSharePolicyScheduleAlreadyExistsError = {
 /**
  * 예약된 업데이트가 있는 할인 분담 정책을 보관하려고 하는 경우
  *
- * <p>예약된 업데이트가 있는 할인 분담 정책을 보관하려고 하는 경우</p>
+ * 예약된 업데이트가 있는 할인 분담 정책을 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledDiscountSharePolicyError = {
 	/**
@@ -11580,19 +10499,19 @@ export type PlatformCannotArchiveScheduledDiscountSharePolicyError = {
 /**
  * 추가 수수료 정책 다건 조회를 위한 필터 조건
  *
- * <p>추가 수수료 정책 다건 조회를 위한 필터 조건</p>
+ * 추가 수수료 정책 다건 조회를 위한 필터 조건
  */
 export type PlatformAdditionalFeePolicyFilterInput = {
 	/**
 	 * 보관 조회 여부
 	 *
-	 * <p>true 이면 보관된 추가 수수료 정책의 필터 옵션을 조회하고, false 이면 보관되지 않은 추가 수수료 정책의 필터 옵션을 조회합니다. 기본값은 false 입니다.</p>
+	 * true 이면 보관된 추가 수수료 정책의 필터 옵션을 조회하고, false 이면 보관되지 않은 추가 수수료 정책의 필터 옵션을 조회합니다. 기본값은 false 입니다.
 	 */
 	isArchived?: boolean;
 	/**
 	 * 금액 부담 주체
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 부가세 부담 주체에 해당하는 추가 수수료 정책만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 부가세 부담 주체에 해당하는 추가 수수료 정책만 조회합니다.
 	 */
 	vatPayers?: PlatformPayer[];
 	/**
@@ -11605,9 +10524,9 @@ export type PlatformAdditionalFeePolicyFilterInput = {
 /**
  * 수수료 계산 방식을 특정하기 위한 입력 정보
  *
- * <p>수수료 계산 방식을 특정하기 위한 입력 정보</p>
- * <p>정률 수수료를 설정하고 싶은 경우 <code>fixedRate</code> 필드에, 정액 수수료를 설정하고 싶은 경우 <code>fixedAmount</code> 필드에 값을 명시해 요청합니다.
- * 두 필드 모두 값이 들어있지 않은 경우 요청이 거절됩니다.</p>
+ * 수수료 계산 방식을 특정하기 위한 입력 정보
+ *
+ * 정률 수수료를 설정하고 싶은 경우 `fixedRate` 필드에, 정액 수수료를 설정하고 싶은 경우 `fixedAmount` 필드에 값을 명시해 요청합니다. 두 필드 모두 값이 들어있지 않은 경우 요청이 거절됩니다.
  */
 export type PlatformFeeInput = {
 	/**
@@ -11625,8 +10544,9 @@ export type PlatformFeeInput = {
 /**
  * 금액 부담 주체
  *
- * <p>금액 부담 주체</p>
- * <p>플랫폼에서 발생한 결제 수수료, 부가세 등 금액을 부담하는 주체를 나타냅니다.</p>
+ * 금액 부담 주체
+ *
+ * 플랫폼에서 발생한 결제 수수료, 부가세 등 금액을 부담하는 주체를 나타냅니다.
  */
 export type PlatformPayer = "PARTNER" | "MERCHANT";
 
@@ -11648,7 +10568,7 @@ export type PlatformAdditionalFeePolicyAlreadyExistsError = {
 /**
  * 플랫폼 중개수수료 정보
  *
- * <p>플랫폼 중개수수료 정보</p>
+ * 플랫폼 중개수수료 정보
  */
 export type PlatformFee = PlatformFixedAmountFee | PlatformFixedRateFee;
 
@@ -11670,7 +10590,7 @@ export type PlatformAdditionalFeePolicyNotFoundError = {
 /**
  * 보관된 추가 수수료 정책을 업데이트하려고 하는 경우
  *
- * <p>보관된 추가 수수료 정책을 업데이트하려고 하는 경우</p>
+ * 보관된 추가 수수료 정책을 업데이트하려고 하는 경우
  */
 export type PlatformArchivedAdditionalFeePolicyError = {
 	/**
@@ -11701,7 +10621,7 @@ export type PlatformAdditionalFeePolicyScheduleAlreadyExistsError = {
 /**
  * 예약된 업데이트가 있는 추가 수수료 정책을 보관하려고 하는 경우
  *
- * <p>예약된 업데이트가 있는 추가 수수료 정책을 보관하려고 하는 경우</p>
+ * 예약된 업데이트가 있는 추가 수수료 정책을 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledAdditionalFeePolicyError = {
 	/**
@@ -11717,7 +10637,7 @@ export type PlatformCannotArchiveScheduledAdditionalFeePolicyError = {
 /**
  * 파트너 계약 요약 정보
  *
- * <p>파트너 계약 요약 정보</p>
+ * 파트너 계약 요약 정보
  */
 export type PlatformPartnerContractSummary = {
 	/**
@@ -11735,40 +10655,40 @@ export type PlatformPartnerContractSummary = {
 /**
  * 파트너 필터 입력 정보
  *
- * <p>파트너 필터 입력 정보</p>
+ * 파트너 필터 입력 정보
  */
 export type PlatformPartnerFilterInput = {
 	/**
 	 * 보관 조회 여부
 	 *
-	 * <p>true 이면 보관된 파트너를 조회하고, false 이면 보관되지 않은 파트너를 조회합니다. 기본값은 false 입니다.</p>
+	 * true 이면 보관된 파트너를 조회하고, false 이면 보관되지 않은 파트너를 조회합니다. 기본값은 false 입니다.
 	 */
 	isArchived?: boolean;
 	/**
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 태그를 하나 이상 가지는 파트너만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 태그를 하나 이상 가지는 파트너만 조회합니다.
 	 */
 	tags?: string[];
 	/**
 	 * 은행
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우,  해당 리스트에 포함되는 계좌 은행을 가진 파트너만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우, 해당 리스트에 포함되는 계좌 은행을 가진 파트너만 조회합니다.
 	 */
 	banks?: Bank[];
 	/**
 	 * 통화 단위
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우,  해당 리스트에 포함되는 계좌 통화를 가진 파트너만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우, 해당 리스트에 포함되는 계좌 통화를 가진 파트너만 조회합니다.
 	 */
 	accountCurrencies?: Currency[];
 	/**
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우,  해당 리스트에 포함되는 아이디를 가진 파트너만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우, 해당 리스트에 포함되는 아이디를 가진 파트너만 조회합니다.
 	 */
 	ids?: string[];
 	/**
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우,  해당 리스트에 포함되는 기본 계약 id를 가진 파트너만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우, 해당 리스트에 포함되는 기본 계약 id를 가진 파트너만 조회합니다.
 	 */
 	contractIds?: string[];
 	/**
@@ -11781,7 +10701,7 @@ export type PlatformPartnerFilterInput = {
 /**
  * 파트너 담당자 정보
  *
- * <p>파트너 담당자 정보</p>
+ * 파트너 담당자 정보
  */
 export type CreatePlatformPartnerBodyContact = {
 	/**
@@ -11804,7 +10724,7 @@ export type CreatePlatformPartnerBodyContact = {
 /**
  * 파트너 계좌 등록을 위한 정보
  *
- * <p>파트너 계좌 등록을 위한 정보</p>
+ * 파트너 계좌 등록을 위한 정보
  */
 export type CreatePlatformPartnerBodyAccount = {
 	/**
@@ -11837,7 +10757,7 @@ export type CreatePlatformPartnerBodyAccount = {
 /**
  * 파트너 생성을 위한 유형별 추가 정보
  *
- * <p>파트너 생성을 위한 유형별 추가 정보</p>
+ * 파트너 생성을 위한 유형별 추가 정보
  */
 export type CreatePlatformPartnerBodyType = {
 	/**
@@ -11866,7 +10786,7 @@ export type PlatformProperties = {};
 /**
  * 파트너 계좌 검증 아이디를 이미 사용한 경우
  *
- * <p>파트너 계좌 검증 아이디를 이미 사용한 경우</p>
+ * 파트너 계좌 검증 아이디를 이미 사용한 경우
  */
 export type PlatformAccountVerificationAlreadyUsedError = {
 	/**
@@ -11882,7 +10802,7 @@ export type PlatformAccountVerificationAlreadyUsedError = {
 /**
  * 파트너 계좌 인증이 실패한 경우
  *
- * <p>파트너 계좌 인증이 실패한 경우</p>
+ * 파트너 계좌 인증이 실패한 경우
  */
 export type PlatformAccountVerificationFailedError = {
 	/**
@@ -11898,7 +10818,7 @@ export type PlatformAccountVerificationFailedError = {
 /**
  * 파트너 계좌 검증 아이디를 찾을 수 없는 경우
  *
- * <p>파트너 계좌 검증 아이디를 찾을 수 없는 경우</p>
+ * 파트너 계좌 검증 아이디를 찾을 수 없는 경우
  */
 export type PlatformAccountVerificationNotFoundError = {
 	/**
@@ -11929,7 +10849,7 @@ export type PlatformContractNotFoundError = {
 /**
  * 지원 되지 않는 통화를 선택한 경우
  *
- * <p>지원 되지 않는 통화를 선택한 경우</p>
+ * 지원 되지 않는 통화를 선택한 경우
  */
 export type PlatformCurrencyNotSupportedError = {
 	/**
@@ -11960,7 +10880,7 @@ export type PlatformPartnerIdAlreadyExistsError = {
 /**
  * 사용자 정의 속성이 존재 하지 않는 경우
  *
- * <p>사용자 정의 속성이 존재 하지 않는 경우</p>
+ * 사용자 정의 속성이 존재 하지 않는 경우
  */
 export type PlatformUserDefinedPropertyNotFoundError = {
 	/**
@@ -11976,8 +10896,9 @@ export type PlatformUserDefinedPropertyNotFoundError = {
 /**
  * 플랫폼 파트너 담당자 연락 정보
  *
- * <p>플랫폼 파트너 담당자 연락 정보</p>
- * <p>파트너 담당자에게 연락하기 위한 정보들 입니다.</p>
+ * 플랫폼 파트너 담당자 연락 정보
+ *
+ * 파트너 담당자에게 연락하기 위한 정보들 입니다.
  */
 export type PlatformContact = {
 	/**
@@ -12000,8 +10921,9 @@ export type PlatformContact = {
 /**
  * 플랫폼 정산 계좌
  *
- * <p>플랫폼 정산 계좌</p>
- * <p><code>currency</code> 가 KRW 일 경우 예금주 조회 API 를 통해 올바른 계좌인지 검증합니다. 그 외의 화폐일 경우 따로 검증하지는 않습니다.</p>
+ * 플랫폼 정산 계좌
+ *
+ * `currency` 가 KRW 일 경우 예금주 조회 API 를 통해 올바른 계좌인지 검증합니다. 그 외의 화폐일 경우 따로 검증하지는 않습니다.
  */
 export type PlatformAccount = {
 	/**
@@ -12034,14 +10956,14 @@ export type PlatformAccount = {
 /**
  * 플랫폼 파트너 상태
  *
- * <p>플랫폼 파트너 상태</p>
+ * 플랫폼 파트너 상태
  */
 export type PlatformPartnerStatus = "PENDING" | "APPROVED" | "REJECTED";
 
 /**
  * 파트너 유형별 추가 정보
  *
- * <p>파트너 유형별 추가 정보</p>
+ * 파트너 유형별 추가 정보
  */
 export type PlatformPartnerType =
 	| PlatformPartnerTypeBusiness
@@ -12066,7 +10988,7 @@ export type PlatformPartnerNotFoundError = {
 /**
  * 파트너 담당자 업데이트를 위한 정보
  *
- * <p>파트너 담당자 업데이트를 위한 정보</p>
+ * 파트너 담당자 업데이트를 위한 정보
  */
 export type UpdatePlatformPartnerBodyContact = {
 	/**
@@ -12089,7 +11011,7 @@ export type UpdatePlatformPartnerBodyContact = {
 /**
  * 파트너 계좌 업데이트를 위한 입력 정보
  *
- * <p>파트너 계좌 업데이트를 위한 입력 정보</p>
+ * 파트너 계좌 업데이트를 위한 입력 정보
  */
 export type UpdatePlatformPartnerBodyAccount = {
 	/**
@@ -12122,9 +11044,9 @@ export type UpdatePlatformPartnerBodyAccount = {
 /**
  * 파트너 업데이트를 위한 유형별 추가 정보
  *
- * <p>파트너 업데이트를 위한 유형별 추가 정보</p>
- * <p>파트너 유형별 추가 정보를 수정합니다.
- * 기존과 다른 파트너 유형 정보가 입력된 경우, 파트너의 유형 자체가 변경됩니다.</p>
+ * 파트너 업데이트를 위한 유형별 추가 정보
+ *
+ * 파트너 유형별 추가 정보를 수정합니다. 기존과 다른 파트너 유형 정보가 입력된 경우, 파트너의 유형 자체가 변경됩니다.
  */
 export type UpdatePlatformPartnerBodyType = {
 	/**
@@ -12147,7 +11069,7 @@ export type UpdatePlatformPartnerBodyType = {
 /**
  * 보관된 파트너를 업데이트하려고 하는 경우
  *
- * <p>보관된 파트너를 업데이트하려고 하는 경우</p>
+ * 보관된 파트너를 업데이트하려고 하는 경우
  */
 export type PlatformArchivedPartnerError = {
 	/**
@@ -12163,7 +11085,7 @@ export type PlatformArchivedPartnerError = {
 /**
  * 파트너 타입 수정에 필요한 데이터가 부족한 경우
  *
- * <p>파트너 타입 수정에 필요한 데이터가 부족한 경우</p>
+ * 파트너 타입 수정에 필요한 데이터가 부족한 경우
  */
 export type PlatformInsufficientDataToChangePartnerTypeError = {
 	/**
@@ -12302,7 +11224,7 @@ export type SchedulePlatformPartnersBodyUpdate = {
 /**
  * 보관된 파트너들을 예약 업데이트하려고 하는 경우
  *
- * <p>보관된 파트너들을 예약 업데이트하려고 하는 경우</p>
+ * 보관된 파트너들을 예약 업데이트하려고 하는 경우
  */
 export type PlatformArchivedPartnersCannotBeScheduledError = {
 	/**
@@ -12341,7 +11263,7 @@ export type PlatformPartnerSchedulesAlreadyExistError = {
 /**
  * 예약된 업데이트가 있는 파트너를 보관하려고 하는 경우
  *
- * <p>예약된 업데이트가 있는 파트너를 보관하려고 하는 경우</p>
+ * 예약된 업데이트가 있는 파트너를 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledPartnerError = {
 	/**
@@ -12357,31 +11279,31 @@ export type PlatformCannotArchiveScheduledPartnerError = {
 /**
  * 계약 다건 조회를 위한 필터 조건
  *
- * <p>계약 다건 조회를 위한 필터 조건</p>
+ * 계약 다건 조회를 위한 필터 조건
  */
 export type PlatformContractFilterInput = {
 	/**
 	 * 금액 부담 주체
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 수수료 부담 주체를 가진 계약만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 수수료 부담 주체를 가진 계약만 조회합니다.
 	 */
 	platformFeePayers?: PlatformPayer[];
 	/**
 	 * 플랫폼 정산 주기 계산 방식
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 주기 계산 방식을 가진 계약만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 주기 계산 방식을 가진 계약만 조회합니다.
 	 */
 	cycleTypes?: PlatformSettlementCycleType[];
 	/**
 	 * 플랫폼 정산 기준일
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 기준일을 가진 계약만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 기준일을 가진 계약만 조회합니다.
 	 */
 	datePolicies?: PlatformSettlementCycleDatePolicy[];
 	/**
 	 * 보관 조회 여부
 	 *
-	 * <p>true 이면 보관된 계약을 조회하고, false 이면 보관되지 않은 계약을 조회합니다. 기본값은 false 입니다.</p>
+	 * true 이면 보관된 계약을 조회하고, false 이면 보관되지 않은 계약을 조회합니다. 기본값은 false 입니다.
 	 */
 	isArchived?: boolean;
 	/**
@@ -12394,13 +11316,13 @@ export type PlatformContractFilterInput = {
 /**
  * 플랫폼 정산 주기 입력 정보
  *
- * <p>플랫폼 정산 주기 입력 정보</p>
+ * 플랫폼 정산 주기 입력 정보
  */
 export type PlatformSettlementCycleInput = {
 	/**
 	 * 지체일 (d+n 의 n)
 	 *
-	 * <p>정산시작일(통상 주문완료일)로부터 더해진 다음 날짜로부터 가장 가까운 날에 정산이 됩니다. 최소 1 에서 최대 10 까지 지정할 수 있습니다.</p>
+	 * 정산시작일(통상 주문완료일)로부터 더해진 다음 날짜로부터 가장 가까운 날에 정산이 됩니다. 최소 1 에서 최대 10 까지 지정할 수 있습니다.
 	 */
 	lagDays: number;
 	/**
@@ -12433,14 +11355,15 @@ export type PlatformContractAlreadyExistsError = {
 /**
  * 정산 주기
  *
- * <p>정산 주기</p>
- * <p>지체일, 정산일, 기준일로 구성되며, 해당 요소들의 조합으로 실제 정산일을 계산합니다.</p>
+ * 정산 주기
+ *
+ * 지체일, 정산일, 기준일로 구성되며, 해당 요소들의 조합으로 실제 정산일을 계산합니다.
  */
 export type PlatformSettlementCycle = {
 	/**
 	 * 지체일 (d+n 의 n)
 	 *
-	 * <p>정산시작일(통상 주문완료일)로부터 더해진 다음 날짜로부터 가장 가까운 날에 정산이 됩니다. 최소 1 에서 최대 10 까지 지정할 수 있습니다.</p>
+	 * 정산시작일(통상 주문완료일)로부터 더해진 다음 날짜로부터 가장 가까운 날에 정산이 됩니다. 최소 1 에서 최대 10 까지 지정할 수 있습니다.
 	 */
 	lagDays: number;
 	/**
@@ -12458,7 +11381,7 @@ export type PlatformSettlementCycle = {
 /**
  * 보관된 계약을 업데이트하려고 하는 경우
  *
- * <p>보관된 계약을 업데이트하려고 하는 경우</p>
+ * 보관된 계약을 업데이트하려고 하는 경우
  */
 export type PlatformArchivedContractError = {
 	/**
@@ -12489,7 +11412,7 @@ export type PlatformContractScheduleAlreadyExistsError = {
 /**
  * 예약된 업데이트가 있는 계약을 보관하려고 하는 경우
  *
- * <p>예약된 업데이트가 있는 계약을 보관하려고 하는 경우</p>
+ * 예약된 업데이트가 있는 계약을 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledContractError = {
 	/**
@@ -12505,7 +11428,7 @@ export type PlatformCannotArchiveScheduledContractError = {
 /**
  * 수기 정산건
  *
- * <p>수기 정산건</p>
+ * 수기 정산건
  */
 export type PlatformManualTransfer = {
 	/**
@@ -12539,7 +11462,7 @@ export type PlatformManualTransfer = {
 	/**
 	 * 정산 일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -12575,7 +11498,7 @@ export type PlatformManualTransfer = {
 /**
  * 주문 정산건
  *
- * <p>주문 정산건</p>
+ * 주문 정산건
  */
 export type PlatformOrderTransfer = {
 	/**
@@ -12609,7 +11532,7 @@ export type PlatformOrderTransfer = {
 	/**
 	 * 정산 일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -12653,7 +11576,7 @@ export type PlatformOrderTransfer = {
 	/**
 	 * 정산 시작일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementStartDate: string;
 	/**
@@ -12681,7 +11604,7 @@ export type PlatformOrderTransfer = {
 /**
  * 주문 취소 정산건
  *
- * <p>주문 취소 정산건</p>
+ * 주문 취소 정산건
  */
 export type PlatformOrderCancelTransfer = {
 	/**
@@ -12715,7 +11638,7 @@ export type PlatformOrderCancelTransfer = {
 	/**
 	 * 정산 일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -12759,7 +11682,7 @@ export type PlatformOrderCancelTransfer = {
 	/**
 	 * 정산 시작일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementStartDate: string;
 	/**
@@ -12837,8 +11760,9 @@ export type PlatformTransferNonDeletableStatusError = {
 /**
  * 정산건 필터 입력 정보
  *
- * <p>정산건 필터 입력 정보</p>
- * <p>정산 시작일 범위와 정산 일 범위는 둘 중 하나만 입력 가능합니다.</p>
+ * 정산건 필터 입력 정보
+ *
+ * 정산 시작일 범위와 정산 일 범위는 둘 중 하나만 입력 가능합니다.
  */
 export type PlatformTransferFilterInput = {
 	/**
@@ -12854,49 +11778,49 @@ export type PlatformTransferFilterInput = {
 	/**
 	 * 파트너 태그 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 태그를 하나 이상 가지는 파트너에 대한 정산건만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 태그를 하나 이상 가지는 파트너에 대한 정산건만 조회합니다.
 	 */
 	partnerTags?: string[];
 	/**
 	 * 계약 아이디 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 계약 아이디를 가지는 정산건만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 계약 아이디를 가지는 정산건만 조회합니다.
 	 */
 	contractIds?: string[];
 	/**
 	 * 할인 분담 정책 아이디 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 할인 분담 정책 아이디를 하나 이상 가지는 정산건만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 할인 분담 정책 아이디를 하나 이상 가지는 정산건만 조회합니다.
 	 */
 	discountSharePolicyIds?: string[];
 	/**
 	 * 추가 수수료 정책 아이디 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 추가 수수료 아이디를 하나 이상 가지는 정산건만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 추가 수수료 아이디를 하나 이상 가지는 정산건만 조회합니다.
 	 */
 	additionalFeePolicyIds?: string[];
 	/**
 	 * 결제 수단 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 결제 수단을 가지는 파트너만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 결제 수단을 가지는 파트너만 조회합니다.
 	 */
 	paymentMethodTypes?: PaymentMethodType[];
 	/**
 	 * 채널 키 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 채널 키를 가지는 정산건만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 채널 키를 가지는 정산건만 조회합니다.
 	 */
 	channelKeys?: string[];
 	/**
 	 * 정산 방식 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 방식의 정산건만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 방식의 정산건만 조회합니다.
 	 */
 	types?: PlatformTransferType[];
 	/**
 	 * 정산 상태 리스트
 	 *
-	 * <p>하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 상태인 정산건만 조회합니다.</p>
+	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 상태인 정산건만 조회합니다.
 	 */
 	statuses?: PlatformTransferStatus[];
 	/**
@@ -12923,8 +11847,9 @@ export type PlatformTransferSummary =
 /**
  * 주문 정보
  *
- * <p>주문 정보</p>
- * <p>주문 금액 또는 주문 항목 하나만 입력 가능합니다.</p>
+ * 주문 정보
+ *
+ * 주문 금액 또는 주문 항목 하나만 입력 가능합니다.
  */
 export type CreatePlatformOrderTransferBodyOrderDetail = {
 	/**
@@ -12942,7 +11867,7 @@ export type CreatePlatformOrderTransferBodyOrderDetail = {
 /**
  * 할인 정보
  *
- * <p>할인 정보</p>
+ * 할인 정보
  */
 export type CreatePlatformOrderTransferBodyDiscount = {
 	/**
@@ -12960,7 +11885,7 @@ export type CreatePlatformOrderTransferBodyDiscount = {
 /**
  * 추가 수수료 정보
  *
- * <p>추가 수수료 정보</p>
+ * 추가 수수료 정보
  */
 export type CreatePlatformOrderTransferBodyAdditionalFee = {
 	/**
@@ -12973,7 +11898,7 @@ export type CreatePlatformOrderTransferBodyAdditionalFee = {
 /**
  * 외부 결제 상세 정보
  *
- * <p>외부 결제 상세 정보</p>
+ * 외부 결제 상세 정보
  */
 export type CreatePlatformOrderTransferBodyExternalPaymentDetail = {
 	/**
@@ -13007,7 +11932,7 @@ export type TransferParameters = {};
 /**
  * 사용자 정의 속성
  *
- * <p>사용자 정의 속성</p>
+ * 사용자 정의 속성
  */
 export type PlatformUserDefinedPropertyKeyValue = {
 	/**
@@ -13184,7 +12109,7 @@ export type PlatformProductIdDuplicatedError = {
 /**
  * 정산 요청 결제 금액이 포트원 결제 내역의 결제 금액을 초과한 경우
  *
- * <p>정산 요청 결제 금액이 포트원 결제 내역의 결제 금액을 초과한 경우</p>
+ * 정산 요청 결제 금액이 포트원 결제 내역의 결제 금액을 초과한 경우
  */
 export type PlatformSettlementPaymentAmountExceededPortOnePaymentError = {
 	/**
@@ -13212,7 +12137,7 @@ export type PlatformSettlementPaymentAmountExceededPortOnePaymentError = {
 /**
  * 정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우
  *
- * <p>정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우</p>
+ * 정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우
  */
 export type PlatformSettlementSupplyWithVatAmountExceededPortOnePaymentError = {
 	/**
@@ -13240,7 +12165,7 @@ export type PlatformSettlementSupplyWithVatAmountExceededPortOnePaymentError = {
 /**
  * 정산 요청 면세 금액이 포트원 결제 내역의 면세 금액을 초과한 경우
  *
- * <p>정산 요청 면세 금액이 포트원 결제 내역의 면세 금액을 초과한 경우</p>
+ * 정산 요청 면세 금액이 포트원 결제 내역의 면세 금액을 초과한 경우
  */
 export type PlatformSettlementTaxFreeAmountExceededPortOnePaymentError = {
 	/**
@@ -13268,7 +12193,7 @@ export type PlatformSettlementTaxFreeAmountExceededPortOnePaymentError = {
 /**
  * 면세 금액이 결제금액을 초과한 경우
  *
- * <p>면세 금액이 결제금액을 초과한 경우</p>
+ * 면세 금액이 결제금액을 초과한 경우
  */
 export type PlatformTaxFreeAmountOverFlowError = {
 	/**
@@ -13307,8 +12232,9 @@ export type PlatformTransferAlreadyExistsError = {
 /**
  * 주문 취소 정보
  *
- * <p>주문 취소 정보</p>
- * <p>orderAmount, orderLines, all 중에서 하나만 입력하여야 합니다.</p>
+ * 주문 취소 정보
+ *
+ * orderAmount, orderLines, all 중에서 하나만 입력하여야 합니다.
  */
 export type CreatePlatformOrderCancelTransferBodyOrderDetail = {
 	/**
@@ -13331,7 +12257,7 @@ export type CreatePlatformOrderCancelTransferBodyOrderDetail = {
 /**
  * 할인 정보
  *
- * <p>할인 정보</p>
+ * 할인 정보
  */
 export type CreatePlatformOrderCancelTransferBodyDiscount = {
 	/**
@@ -13349,7 +12275,7 @@ export type CreatePlatformOrderCancelTransferBodyDiscount = {
 /**
  * 외부 결제 상세 정보
  *
- * <p>외부 결제 상세 정보</p>
+ * 외부 결제 상세 정보
  */
 export type CreatePlatformOrderCancelTransferBodyExternalCancellationDetail = {
 	/**
@@ -13362,7 +12288,7 @@ export type CreatePlatformOrderCancelTransferBodyExternalCancellationDetail = {
 /**
  * 취소 가능한 금액이 초과한 경우
  *
- * <p>취소 가능한 금액이 초과한 경우</p>
+ * 취소 가능한 금액이 초과한 경우
  */
 export type PlatformCancellableAmountExceededError = {
 	/**
@@ -13470,7 +12396,7 @@ export type PlatformCancellationNotFoundError = {
 /**
  * 정산 건 식별에 실패한 경우
  *
- * <p>정산 건 식별에 실패한 경우</p>
+ * 정산 건 식별에 실패한 경우
  */
 export type PlatformCannotSpecifyTransferError = {
 	/**
@@ -13573,7 +12499,7 @@ export type PlatformProductIdNotFoundError = {
 /**
  * 정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우
  *
- * <p>정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우</p>
+ * 정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우
  */
 export type PlatformSettlementCancelAmountExceededPortOneCancelError = {
 	/**
@@ -13632,7 +12558,7 @@ export type PlatformTransferDiscountSharePolicyNotFoundError = {
 /**
  * 다운로드 할 시트 컬럼
  *
- * <p>다운로드 할 시트 컬럼</p>
+ * 다운로드 할 시트 컬럼
  */
 export type PlatformTransferSheetField =
 	| "STATUS"
@@ -13986,7 +12912,7 @@ export type PlatformBulkPayoutStatusStats = {
 /**
  * 외부 api 오류
  *
- * <p>외부 api 오류</p>
+ * 외부 api 오류
  */
 export type PlatformExternalApiFailedError = {
 	/**
@@ -14002,7 +12928,7 @@ export type PlatformExternalApiFailedError = {
 /**
  * 외부 api의 일시적인 오류
  *
- * <p>외부 api의 일시적인 오류</p>
+ * 외부 api의 일시적인 오류
  */
 export type PlatformExternalApiTemporarilyFailedError = {
 	/**
@@ -14018,7 +12944,7 @@ export type PlatformExternalApiTemporarilyFailedError = {
 /**
  * 지원하지 않는 은행인 경우
  *
- * <p>지원하지 않는 은행인 경우</p>
+ * 지원하지 않는 은행인 경우
  */
 export type PlatformNotSupportedBankError = {
 	/**
@@ -14034,7 +12960,7 @@ export type PlatformNotSupportedBankError = {
 /**
  * 실패한 본인인증 내역
  *
- * <p>실패한 본인인증 내역</p>
+ * 실패한 본인인증 내역
  */
 export type FailedIdentityVerification = {
 	/**
@@ -14081,7 +13007,7 @@ export type FailedIdentityVerification = {
 /**
  * 준비 상태의 본인인증 내역
  *
- * <p>준비 상태의 본인인증 내역</p>
+ * 준비 상태의 본인인증 내역
  */
 export type ReadyIdentityVerification = {
 	/**
@@ -14128,7 +13054,7 @@ export type ReadyIdentityVerification = {
 /**
  * 완료된 본인인증 내역
  *
- * <p>완료된 본인인증 내역</p>
+ * 완료된 본인인증 내역
  */
 export type VerifiedIdentityVerification = {
 	/**
@@ -14190,7 +13116,7 @@ export type VerifiedIdentityVerification = {
 /**
  * 요청된 본인인증 건이 존재하지 않는 경우
  *
- * <p>요청된 본인인증 건이 존재하지 않는 경우</p>
+ * 요청된 본인인증 건이 존재하지 않는 경우
  */
 export type IdentityVerificationNotFoundError = {
 	/**
@@ -14206,7 +13132,7 @@ export type IdentityVerificationNotFoundError = {
 /**
  * 본인인증 요청을 위한 고객 정보
  *
- * <p>본인인증 요청을 위한 고객 정보</p>
+ * 본인인증 요청을 위한 고객 정보
  */
 export type SendIdentityVerificationBodyCustomer = {
 	/**
@@ -14222,19 +13148,19 @@ export type SendIdentityVerificationBodyCustomer = {
 	/**
 	 * 전화번호
 	 *
-	 * <p>특수 문자(-) 없이 숫자만 입력합니다.</p>
+	 * 특수 문자(-) 없이 숫자만 입력합니다.
 	 */
 	phoneNumber: string;
 	/**
 	 * 주민등록번호 앞 7자리
 	 *
-	 * <p>SMS 방식의 경우 필수로 입력합니다.</p>
+	 * SMS 방식의 경우 필수로 입력합니다.
 	 */
 	identityNumber?: string;
 	/**
 	 * IP 주소
 	 *
-	 * <p>고객의 요청 속도 제한에 사용됩니다.</p>
+	 * 고객의 요청 속도 제한에 사용됩니다.
 	 */
 	ipAddress: string;
 };
@@ -14242,7 +13168,7 @@ export type SendIdentityVerificationBodyCustomer = {
 /**
  * 본인인증 통신사
  *
- * <p>본인인증 통신사</p>
+ * 본인인증 통신사
  */
 export type IdentityVerificationOperator =
 	| "SKT"
@@ -14255,14 +13181,14 @@ export type IdentityVerificationOperator =
 /**
  * 본인인증 방식
  *
- * <p>본인인증 방식</p>
+ * 본인인증 방식
  */
 export type IdentityVerificationMethod = "SMS" | "APP";
 
 /**
  * 요청된 채널이 존재하지 않는 경우
  *
- * <p>요청된 채널이 존재하지 않는 경우</p>
+ * 요청된 채널이 존재하지 않는 경우
  */
 export type ChannelNotFoundError = {
 	/**
@@ -14278,7 +13204,7 @@ export type ChannelNotFoundError = {
 /**
  * 본인인증 건이 이미 API로 요청된 상태인 경우
  *
- * <p>본인인증 건이 이미 API로 요청된 상태인 경우</p>
+ * 본인인증 건이 이미 API로 요청된 상태인 경우
  */
 export type IdentityVerificationAlreadySentError = {
 	/**
@@ -14294,7 +13220,7 @@ export type IdentityVerificationAlreadySentError = {
 /**
  * 본인인증 건이 이미 인증 완료된 상태인 경우
  *
- * <p>본인인증 건이 이미 인증 완료된 상태인 경우</p>
+ * 본인인증 건이 이미 인증 완료된 상태인 경우
  */
 export type IdentityVerificationAlreadyVerifiedError = {
 	/**
@@ -14310,7 +13236,7 @@ export type IdentityVerificationAlreadyVerifiedError = {
 /**
  * PG사에서 오류를 전달한 경우
  *
- * <p>PG사에서 오류를 전달한 경우</p>
+ * PG사에서 오류를 전달한 경우
  */
 export type PgProviderError = {
 	/**
@@ -14334,7 +13260,7 @@ export type PgProviderError = {
 /**
  * 본인인증 건이 API로 요청된 상태가 아닌 경우
  *
- * <p>본인인증 건이 API로 요청된 상태가 아닌 경우</p>
+ * 본인인증 건이 API로 요청된 상태가 아닌 경우
  */
 export type IdentityVerificationNotSentError = {
 	/**
@@ -14350,7 +13276,7 @@ export type IdentityVerificationNotSentError = {
 /**
  * 통화 단위
  *
- * <p>통화 단위</p>
+ * 통화 단위
  */
 export type Currency =
 	| "KRW"
@@ -14538,7 +13464,7 @@ export type Currency =
 /**
  * 결제가 이미 완료된 경우
  *
- * <p>결제가 이미 완료된 경우</p>
+ * 결제가 이미 완료된 경우
  */
 export type AlreadyPaidError = {
 	/**
@@ -14554,7 +13480,7 @@ export type AlreadyPaidError = {
 /**
  * 빌링키 삭제 완료 상태 건
  *
- * <p>빌링키 삭제 완료 상태 건</p>
+ * 빌링키 삭제 완료 상태 건
  */
 export type DeletedBillingKeyInfo = {
 	/**
@@ -14579,13 +13505,13 @@ export type DeletedBillingKeyInfo = {
 	/**
 	 * 빌링키 결제수단 상세 정보
 	 *
-	 * <p>추후 슈퍼빌링키 기능 제공 시 여러 결제수단 정보가 담길 수 있습니다.</p>
+	 * 추후 슈퍼빌링키 기능 제공 시 여러 결제수단 정보가 담길 수 있습니다.
 	 */
 	methods?: BillingKeyPaymentMethod[];
 	/**
 	 * 빌링키 발급 시 사용된 채널
 	 *
-	 * <p>추후 슈퍼빌링키 기능 제공 시 여러 채널 정보가 담길 수 있습니다.</p>
+	 * 추후 슈퍼빌링키 기능 제공 시 여러 채널 정보가 담길 수 있습니다.
 	 */
 	channels: SelectedChannel[];
 	/**
@@ -14626,7 +13552,7 @@ export type DeletedBillingKeyInfo = {
 	/**
 	 * 채널 별 빌링키 발급 응답
 	 *
-	 * <p>슈퍼빌링키의 경우, 빌링키 발급이 성공하더라도 일부 채널에 대한 발급은 실패할 수 있습니다.</p>
+	 * 슈퍼빌링키의 경우, 빌링키 발급이 성공하더라도 일부 채널에 대한 발급은 실패할 수 있습니다.
 	 */
 	pgBillingKeyIssueResponses?: PgBillingKeyIssueResponse[];
 	/**
@@ -14639,7 +13565,7 @@ export type DeletedBillingKeyInfo = {
 /**
  * 빌링키 발급 완료 상태 건
  *
- * <p>빌링키 발급 완료 상태 건</p>
+ * 빌링키 발급 완료 상태 건
  */
 export type IssuedBillingKeyInfo = {
 	/**
@@ -14664,13 +13590,13 @@ export type IssuedBillingKeyInfo = {
 	/**
 	 * 빌링키 결제수단 상세 정보
 	 *
-	 * <p>추후 슈퍼빌링키 기능 제공 시 여러 결제수단 정보가 담길 수 있습니다.</p>
+	 * 추후 슈퍼빌링키 기능 제공 시 여러 결제수단 정보가 담길 수 있습니다.
 	 */
 	methods?: BillingKeyPaymentMethod[];
 	/**
 	 * 빌링키 발급 시 사용된 채널
 	 *
-	 * <p>추후 슈퍼빌링키 기능 제공 시 여러 채널 정보가 담길 수 있습니다.</p>
+	 * 추후 슈퍼빌링키 기능 제공 시 여러 채널 정보가 담길 수 있습니다.
 	 */
 	channels: SelectedChannel[];
 	/**
@@ -14711,7 +13637,7 @@ export type IssuedBillingKeyInfo = {
 	/**
 	 * 채널 별 빌링키 발급 응답
 	 *
-	 * <p>슈퍼빌링키의 경우, 빌링키 발급이 성공하더라도 일부 채널에 대한 빌링키 발급은 실패할 수 있습니다.</p>
+	 * 슈퍼빌링키의 경우, 빌링키 발급이 성공하더라도 일부 채널에 대한 빌링키 발급은 실패할 수 있습니다.
 	 */
 	pgBillingKeyIssueResponses?: PgBillingKeyIssueResponse[];
 };
@@ -14719,7 +13645,7 @@ export type IssuedBillingKeyInfo = {
 /**
  * 빌링키가 존재하지 않는 경우
  *
- * <p>빌링키가 존재하지 않는 경우</p>
+ * 빌링키가 존재하지 않는 경우
  */
 export type BillingKeyNotFoundError = {
 	/**
@@ -14735,7 +13661,7 @@ export type BillingKeyNotFoundError = {
 /**
  * 빌링키가 이미 삭제된 경우
  *
- * <p>빌링키가 이미 삭제된 경우</p>
+ * 빌링키가 이미 삭제된 경우
  */
 export type BillingKeyAlreadyDeletedError = {
 	/**
@@ -14766,7 +13692,7 @@ export type BillingKeyNotIssuedError = {
 /**
  * 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
  *
- * <p>여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우</p>
+ * 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
  */
 export type ChannelSpecificError = {
 	/**
@@ -14791,7 +13717,7 @@ export type ChannelSpecificError = {
 /**
  * 결제 예약건이 이미 존재하는 경우
  *
- * <p>결제 예약건이 이미 존재하는 경우</p>
+ * 결제 예약건이 이미 존재하는 경우
  */
 export type PaymentScheduleAlreadyExistsError = {
 	/**
@@ -14807,19 +13733,19 @@ export type PaymentScheduleAlreadyExistsError = {
 /**
  * 빌링키 다건 조회 시 정렬 조건
  *
- * <p>빌링키 다건 조회 시 정렬 조건</p>
+ * 빌링키 다건 조회 시 정렬 조건
  */
 export type BillingKeySortInput = {
 	/**
 	 * 정렬 기준 필드
 	 *
-	 * <p>어떤 필드를 기준으로 정렬할 지 결정합니다. 비워서 보낼 경우, REQUESTED_AT이 기본값으로 설정됩니다.</p>
+	 * 어떤 필드를 기준으로 정렬할 지 결정합니다. 비워서 보낼 경우, REQUESTED\_AT이 기본값으로 설정됩니다.
 	 */
 	by?: BillingKeySortBy;
 	/**
 	 * 정렬 순서
 	 *
-	 * <p>어떤 순서로 정렬할 지 결정합니다. 비워서 보낼 경우, DESC(내림차순)가 기본값으로 설정됩니다.</p>
+	 * 어떤 순서로 정렬할 지 결정합니다. 비워서 보낼 경우, DESC(내림차순)가 기본값으로 설정됩니다.
 	 */
 	order?: SortOrder;
 };
@@ -14827,13 +13753,13 @@ export type BillingKeySortInput = {
 /**
  * 빌링키 다건 조회를 위한 입력 정보
  *
- * <p>빌링키 다건 조회를 위한 입력 정보</p>
+ * 빌링키 다건 조회를 위한 입력 정보
  */
 export type BillingKeyFilterInput = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>Merchant 사용자만 사용가능하며, 지정되지 않은 경우 고객사 전체 빌링키를 조회합니다.</p>
+	 * Merchant 사용자만 사용가능하며, 지정되지 않은 경우 고객사 전체 빌링키를 조회합니다.
 	 */
 	storeId?: string;
 	/**
@@ -14844,25 +13770,25 @@ export type BillingKeyFilterInput = {
 	/**
 	 * 조회 기준 시점 범위의 시작
 	 *
-	 * <p>값을 입력하지 않으면 end의 90일 전으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 end의 90일 전으로 설정됩니다.
 	 */
 	from?: string;
 	/**
 	 * 조회 기준 시점 범위의 끝
 	 *
-	 * <p>값을 입력하지 않으면 현재 시점으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 현재 시점으로 설정됩니다.
 	 */
 	until?: string;
 	/**
 	 * 빌링키 상태 리스트
 	 *
-	 * <p>값을 입력하지 않으면 빌링키 상태 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 빌링키 상태 필터링이 적용되지 않습니다.
 	 */
 	status?: BillingKeyStatus[];
 	/**
 	 * 채널 그룹 아이디 리스트
 	 *
-	 * <p>값을 입력하지 않으면 스마트 라우팅 그룹 아이디 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 스마트 라우팅 그룹 아이디 필터링이 적용되지 않습니다.
 	 */
 	channelGroupIds?: string[];
 	/**
@@ -14883,19 +13809,19 @@ export type BillingKeyFilterInput = {
 	/**
 	 * PG사 결제 모듈 리스트
 	 *
-	 * <p>값을 입력하지 않으면 PG사 결제 모듈 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 PG사 결제 모듈 필터링이 적용되지 않습니다.
 	 */
 	pgProviders?: PgProvider[];
 	/**
 	 * PG사 리스트
 	 *
-	 * <p>값을 입력하지 않으면 PG사 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 PG사 필터링이 적용되지 않습니다.
 	 */
 	pgCompanies?: PgCompany[];
 	/**
 	 * 결제수단 리스트
 	 *
-	 * <p>값을 입력하지 않으면 결제수단 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 결제수단 필터링이 적용되지 않습니다.
 	 */
 	methods?: BillingKeyPaymentMethodType[];
 	/**
@@ -14908,7 +13834,7 @@ export type BillingKeyFilterInput = {
 /**
  * 빌링키 발급 시 결제 수단 입력 양식
  *
- * <p>빌링키 발급 시 결제 수단 입력 양식</p>
+ * 빌링키 발급 시 결제 수단 입력 양식
  */
 export type InstantBillingKeyPaymentMethodInput = {
 	/**
@@ -14920,13 +13846,13 @@ export type InstantBillingKeyPaymentMethodInput = {
 /**
  * 고객 정보 입력 정보
  *
- * <p>고객 정보 입력 정보</p>
+ * 고객 정보 입력 정보
  */
 export type CustomerInput = {
 	/**
 	 * 고객 아이디
 	 *
-	 * <p>고객사가 지정한 고객의 고유 식별자입니다.</p>
+	 * 고객사가 지정한 고객의 고유 식별자입니다.
 	 */
 	id?: string;
 	/**
@@ -15019,7 +13945,7 @@ export type ChannelSpecificFailure =
 /**
  * 발급 취소
  *
- * <p>발급 취소</p>
+ * 발급 취소
  */
 export type CancelledCashReceipt = {
 	/**
@@ -15111,7 +14037,7 @@ export type CancelledCashReceipt = {
 /**
  * 발급 완료
  *
- * <p>발급 완료</p>
+ * 발급 완료
  */
 export type IssuedCashReceipt = {
 	/**
@@ -15198,7 +14124,7 @@ export type IssuedCashReceipt = {
 /**
  * 발급 실패
  *
- * <p>발급 실패</p>
+ * 발급 실패
  */
 export type IssueFailedCashReceipt = {
 	/**
@@ -15240,7 +14166,7 @@ export type IssueFailedCashReceipt = {
 /**
  * 현금영수증이 존재하지 않는 경우
  *
- * <p>현금영수증이 존재하지 않는 경우</p>
+ * 현금영수증이 존재하지 않는 경우
  */
 export type CashReceiptNotFoundError = {
 	/**
@@ -15256,7 +14182,7 @@ export type CashReceiptNotFoundError = {
 /**
  * 결제 취소 상태 건
  *
- * <p>결제 취소 상태 건</p>
+ * 결제 취소 상태 건
  */
 export type CancelledPayment = {
 	/**
@@ -15271,7 +14197,7 @@ export type CancelledPayment = {
 	/**
 	 * 결제 건 포트원 채번 아이디
 	 *
-	 * <p>V1 결제 건의 경우 imp_uid에 해당합니다.</p>
+	 * V1 결제 건의 경우 imp\_uid에 해당합니다.
 	 */
 	transactionId: string;
 	/**
@@ -15307,13 +14233,13 @@ export type CancelledPayment = {
 	/**
 	 * 결제 예약 건 아이디
 	 *
-	 * <p>결제 예약을 이용한 경우에만 존재</p>
+	 * 결제 예약을 이용한 경우에만 존재
 	 */
 	scheduleId?: string;
 	/**
 	 * 결제 시 사용된 빌링키
 	 *
-	 * <p>빌링키 결제인 경우에만 존재</p>
+	 * 빌링키 결제인 경우에만 존재
 	 */
 	billingKey?: string;
 	/**
@@ -15369,7 +14295,7 @@ export type CancelledPayment = {
 	/**
 	 * 에스크로 결제 정보
 	 *
-	 * <p>에스크로 결제인 경우 존재합니다.</p>
+	 * 에스크로 결제인 경우 존재합니다.
 	 */
 	escrow?: PaymentEscrow;
 	/**
@@ -15427,7 +14353,7 @@ export type CancelledPayment = {
 /**
  * 결제 실패 상태 건
  *
- * <p>결제 실패 상태 건</p>
+ * 결제 실패 상태 건
  */
 export type FailedPayment = {
 	/**
@@ -15442,7 +14368,7 @@ export type FailedPayment = {
 	/**
 	 * 결제 건 포트원 채번 아이디
 	 *
-	 * <p>V1 결제 건의 경우 imp_uid에 해당합니다.</p>
+	 * V1 결제 건의 경우 imp\_uid에 해당합니다.
 	 */
 	transactionId: string;
 	/**
@@ -15478,13 +14404,13 @@ export type FailedPayment = {
 	/**
 	 * 결제 예약 건 아이디
 	 *
-	 * <p>결제 예약을 이용한 경우에만 존재</p>
+	 * 결제 예약을 이용한 경우에만 존재
 	 */
 	scheduleId?: string;
 	/**
 	 * 결제 시 사용된 빌링키
 	 *
-	 * <p>빌링키 결제인 경우에만 존재</p>
+	 * 빌링키 결제인 경우에만 존재
 	 */
 	billingKey?: string;
 	/**
@@ -15540,7 +14466,7 @@ export type FailedPayment = {
 	/**
 	 * 에스크로 결제 정보
 	 *
-	 * <p>에스크로 결제인 경우 존재합니다.</p>
+	 * 에스크로 결제인 경우 존재합니다.
 	 */
 	escrow?: PaymentEscrow;
 	/**
@@ -15573,7 +14499,7 @@ export type FailedPayment = {
 /**
  * 결제 완료 상태 건
  *
- * <p>결제 완료 상태 건</p>
+ * 결제 완료 상태 건
  */
 export type PaidPayment = {
 	/**
@@ -15588,7 +14514,7 @@ export type PaidPayment = {
 	/**
 	 * 결제 건 포트원 채번 아이디
 	 *
-	 * <p>V1 결제 건의 경우 imp_uid에 해당합니다.</p>
+	 * V1 결제 건의 경우 imp\_uid에 해당합니다.
 	 */
 	transactionId: string;
 	/**
@@ -15624,13 +14550,13 @@ export type PaidPayment = {
 	/**
 	 * 결제 예약 건 아이디
 	 *
-	 * <p>결제 예약을 이용한 경우에만 존재</p>
+	 * 결제 예약을 이용한 경우에만 존재
 	 */
 	scheduleId?: string;
 	/**
 	 * 결제 시 사용된 빌링키
 	 *
-	 * <p>빌링키 결제인 경우에만 존재</p>
+	 * 빌링키 결제인 경우에만 존재
 	 */
 	billingKey?: string;
 	/**
@@ -15686,7 +14612,7 @@ export type PaidPayment = {
 	/**
 	 * 에스크로 결제 정보
 	 *
-	 * <p>에스크로 결제인 경우 존재합니다.</p>
+	 * 에스크로 결제인 경우 존재합니다.
 	 */
 	escrow?: PaymentEscrow;
 	/**
@@ -15739,7 +14665,7 @@ export type PaidPayment = {
 /**
  * 결제 부분 취소 상태 건
  *
- * <p>결제 부분 취소 상태 건</p>
+ * 결제 부분 취소 상태 건
  */
 export type PartialCancelledPayment = {
 	/**
@@ -15754,7 +14680,7 @@ export type PartialCancelledPayment = {
 	/**
 	 * 결제 건 포트원 채번 아이디
 	 *
-	 * <p>V1 결제 건의 경우 imp_uid에 해당합니다.</p>
+	 * V1 결제 건의 경우 imp\_uid에 해당합니다.
 	 */
 	transactionId: string;
 	/**
@@ -15790,13 +14716,13 @@ export type PartialCancelledPayment = {
 	/**
 	 * 결제 예약 건 아이디
 	 *
-	 * <p>결제 예약을 이용한 경우에만 존재</p>
+	 * 결제 예약을 이용한 경우에만 존재
 	 */
 	scheduleId?: string;
 	/**
 	 * 결제 시 사용된 빌링키
 	 *
-	 * <p>빌링키 결제인 경우에만 존재</p>
+	 * 빌링키 결제인 경우에만 존재
 	 */
 	billingKey?: string;
 	/**
@@ -15852,7 +14778,7 @@ export type PartialCancelledPayment = {
 	/**
 	 * 에스크로 결제 정보
 	 *
-	 * <p>에스크로 결제인 경우 존재합니다.</p>
+	 * 에스크로 결제인 경우 존재합니다.
 	 */
 	escrow?: PaymentEscrow;
 	/**
@@ -15910,7 +14836,7 @@ export type PartialCancelledPayment = {
 /**
  * 결제 완료 대기 상태 건
  *
- * <p>결제 완료 대기 상태 건</p>
+ * 결제 완료 대기 상태 건
  */
 export type PayPendingPayment = {
 	/**
@@ -15955,13 +14881,13 @@ export type PayPendingPayment = {
 	/**
 	 * 결제 예약 건 아이디
 	 *
-	 * <p>결제 예약을 이용한 경우에만 존재</p>
+	 * 결제 예약을 이용한 경우에만 존재
 	 */
 	scheduleId?: string;
 	/**
 	 * 결제 시 사용된 빌링키
 	 *
-	 * <p>빌링키 결제인 경우에만 존재</p>
+	 * 빌링키 결제인 경우에만 존재
 	 */
 	billingKey?: string;
 	/**
@@ -16017,7 +14943,7 @@ export type PayPendingPayment = {
 	/**
 	 * 에스크로 결제 정보
 	 *
-	 * <p>에스크로 결제인 경우 존재합니다.</p>
+	 * 에스크로 결제인 경우 존재합니다.
 	 */
 	escrow?: PaymentEscrow;
 	/**
@@ -16050,7 +14976,7 @@ export type PayPendingPayment = {
 /**
  * 준비 상태의 결제 건
  *
- * <p>준비 상태의 결제 건</p>
+ * 준비 상태의 결제 건
  */
 export type ReadyPayment = {
 	/**
@@ -16065,7 +14991,7 @@ export type ReadyPayment = {
 	/**
 	 * 결제 건 포트원 채번 아이디
 	 *
-	 * <p>V1 결제 건의 경우 imp_uid에 해당합니다.</p>
+	 * V1 결제 건의 경우 imp\_uid에 해당합니다.
 	 */
 	transactionId: string;
 	/**
@@ -16101,13 +15027,13 @@ export type ReadyPayment = {
 	/**
 	 * 결제 예약 건 아이디
 	 *
-	 * <p>결제 예약을 이용한 경우에만 존재</p>
+	 * 결제 예약을 이용한 경우에만 존재
 	 */
 	scheduleId?: string;
 	/**
 	 * 결제 시 사용된 빌링키
 	 *
-	 * <p>빌링키 결제인 경우에만 존재</p>
+	 * 빌링키 결제인 경우에만 존재
 	 */
 	billingKey?: string;
 	/**
@@ -16163,7 +15089,7 @@ export type ReadyPayment = {
 	/**
 	 * 에스크로 결제의 배송 정보
 	 *
-	 * <p>에스크로 결제인 경우 존재합니다.</p>
+	 * 에스크로 결제인 경우 존재합니다.
 	 */
 	escrow?: PaymentEscrow;
 	/**
@@ -16191,7 +15117,7 @@ export type ReadyPayment = {
 /**
  * 가상계좌 발급 완료 상태 건
  *
- * <p>가상계좌 발급 완료 상태 건</p>
+ * 가상계좌 발급 완료 상태 건
  */
 export type VirtualAccountIssuedPayment = {
 	/**
@@ -16206,7 +15132,7 @@ export type VirtualAccountIssuedPayment = {
 	/**
 	 * 결제 건 포트원 채번 아이디
 	 *
-	 * <p>V1 결제 건의 경우 imp_uid에 해당합니다.</p>
+	 * V1 결제 건의 경우 imp\_uid에 해당합니다.
 	 */
 	transactionId: string;
 	/**
@@ -16242,13 +15168,13 @@ export type VirtualAccountIssuedPayment = {
 	/**
 	 * 결제 예약 건 아이디
 	 *
-	 * <p>결제 예약을 이용한 경우에만 존재</p>
+	 * 결제 예약을 이용한 경우에만 존재
 	 */
 	scheduleId?: string;
 	/**
 	 * 결제 시 사용된 빌링키
 	 *
-	 * <p>빌링키 결제인 경우에만 존재</p>
+	 * 빌링키 결제인 경우에만 존재
 	 */
 	billingKey?: string;
 	/**
@@ -16304,7 +15230,7 @@ export type VirtualAccountIssuedPayment = {
 	/**
 	 * 에스크로 결제 정보
 	 *
-	 * <p>에스크로 결제인 경우 존재합니다.</p>
+	 * 에스크로 결제인 경우 존재합니다.
 	 */
 	escrow?: PaymentEscrow;
 	/**
@@ -16337,7 +15263,7 @@ export type VirtualAccountIssuedPayment = {
 /**
  * 결제 건이 존재하지 않는 경우
  *
- * <p>결제 건이 존재하지 않는 경우</p>
+ * 결제 건이 존재하지 않는 경우
  */
 export type PaymentNotFoundError = {
 	/**
@@ -16353,7 +15279,7 @@ export type PaymentNotFoundError = {
 /**
  * 결제 건 다건 조회를 위한 입력 정보
  *
- * <p>결제 건 다건 조회를 위한 입력 정보</p>
+ * 결제 건 다건 조회를 위한 입력 정보
  */
 export type PaymentFilterInput = {
 	/**
@@ -16364,7 +15290,7 @@ export type PaymentFilterInput = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>Merchant 사용자만 사용가능하며, 지정되지 않은 경우 고객사 전체 결제 건을 조회합니다.</p>
+	 * Merchant 사용자만 사용가능하며, 지정되지 않은 경우 고객사 전체 결제 건을 조회합니다.
 	 */
 	storeId?: string;
 	/**
@@ -16375,31 +15301,31 @@ export type PaymentFilterInput = {
 	/**
 	 * 결제 요청/상태 승인 시점 범위의 시작
 	 *
-	 * <p>값을 입력하지 않으면 end의 90일 전으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 end의 90일 전으로 설정됩니다.
 	 */
 	from?: string;
 	/**
 	 * 결제 요청/상태 승인 시점 범위의 끝
 	 *
-	 * <p>값을 입력하지 않으면 현재 시점으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 현재 시점으로 설정됩니다.
 	 */
 	until?: string;
 	/**
 	 * 결제 상태 리스트
 	 *
-	 * <p>값을 입력하지 않으면 결제상태 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 결제상태 필터링이 적용되지 않습니다.
 	 */
 	status?: PaymentStatus[];
 	/**
 	 * 결제수단 리스트
 	 *
-	 * <p>값을 입력하지 않으면 결제수단 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 결제수단 필터링이 적용되지 않습니다.
 	 */
 	methods?: PaymentMethodType[];
 	/**
 	 * PG사 리스트
 	 *
-	 * <p>값을 입력하지 않으면 결제대행사 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 결제대행사 필터링이 적용되지 않습니다.
 	 */
 	pgProvider?: PgProvider[];
 	/**
@@ -16502,7 +15428,7 @@ export type PaymentFilterInput = {
 /**
  * 결제 건 및 커서 정보
  *
- * <p>결제 건 및 커서 정보</p>
+ * 결제 건 및 커서 정보
  */
 export type PaymentWithCursor = {
 	/**
@@ -16520,7 +15446,7 @@ export type PaymentWithCursor = {
 /**
  * 결제 실패 상태
  *
- * <p>결제 실패 상태</p>
+ * 결제 실패 상태
  */
 export type FailedPaymentSchedule = {
 	/**
@@ -16637,7 +15563,7 @@ export type FailedPaymentSchedule = {
 /**
  * 결제 대기 상태
  *
- * <p>결제 대기 상태</p>
+ * 결제 대기 상태
  */
 export type PendingPaymentSchedule = {
 	/**
@@ -16754,7 +15680,7 @@ export type PendingPaymentSchedule = {
 /**
  * 결제 예약 취소 상태
  *
- * <p>결제 예약 취소 상태</p>
+ * 결제 예약 취소 상태
  */
 export type RevokedPaymentSchedule = {
 	/**
@@ -16866,7 +15792,7 @@ export type RevokedPaymentSchedule = {
 /**
  * 결제 예약 완료 상태
  *
- * <p>결제 예약 완료 상태</p>
+ * 결제 예약 완료 상태
  */
 export type ScheduledPaymentSchedule = {
 	/**
@@ -16973,7 +15899,7 @@ export type ScheduledPaymentSchedule = {
 /**
  * 결제 시작 상태
  *
- * <p>결제 시작 상태</p>
+ * 결제 시작 상태
  */
 export type StartedPaymentSchedule = {
 	/**
@@ -17085,7 +16011,7 @@ export type StartedPaymentSchedule = {
 /**
  * 결제 성공 상태
  *
- * <p>결제 성공 상태</p>
+ * 결제 성공 상태
  */
 export type SucceededPaymentSchedule = {
 	/**
@@ -17202,7 +16128,7 @@ export type SucceededPaymentSchedule = {
 /**
  * 결제 예약건이 존재하지 않는 경우
  *
- * <p>결제 예약건이 존재하지 않는 경우</p>
+ * 결제 예약건이 존재하지 않는 경우
  */
 export type PaymentScheduleNotFoundError = {
 	/**
@@ -17218,19 +16144,19 @@ export type PaymentScheduleNotFoundError = {
 /**
  * 결제 예약 건 다건 조회 시 정렬 조건
  *
- * <p>결제 예약 건 다건 조회 시 정렬 조건</p>
+ * 결제 예약 건 다건 조회 시 정렬 조건
  */
 export type PaymentScheduleSortInput = {
 	/**
 	 * 정렬 기준 필드
 	 *
-	 * <p>어떤 필드를 기준으로 정렬할 지 결정합니다. 비워서 보낼 경우, TIME_TO_PAY가 기본값으로 설정됩니다.</p>
+	 * 어떤 필드를 기준으로 정렬할 지 결정합니다. 비워서 보낼 경우, TIME\_TO\_PAY가 기본값으로 설정됩니다.
 	 */
 	by?: PaymentScheduleSortBy;
 	/**
 	 * 정렬 순서
 	 *
-	 * <p>어떤 순서로 정렬할 지 결정합니다. 비워서 보낼 경우, DESC(내림차순)가 기본값으로 설정됩니다.</p>
+	 * 어떤 순서로 정렬할 지 결정합니다. 비워서 보낼 경우, DESC(내림차순)가 기본값으로 설정됩니다.
 	 */
 	order?: SortOrder;
 };
@@ -17238,13 +16164,13 @@ export type PaymentScheduleSortInput = {
 /**
  * 결제 예약 건 다건 조회를 위한 입력 정보
  *
- * <p>결제 예약 건 다건 조회를 위한 입력 정보</p>
+ * 결제 예약 건 다건 조회를 위한 입력 정보
  */
 export type PaymentScheduleFilterInput = {
 	/**
 	 * 상점 아이디
 	 *
-	 * <p>접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.</p>
+	 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 	 */
 	storeId?: string;
 	/**
@@ -17255,19 +16181,19 @@ export type PaymentScheduleFilterInput = {
 	/**
 	 * 결제 예정 시점 조건 범위의 시작
 	 *
-	 * <p>값을 입력하지 않으면 파라미터 end의 90일 전으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 파라미터 end의 90일 전으로 설정됩니다.
 	 */
 	from?: string;
 	/**
 	 * 결제 예정 시점 조건 범위의 끝
 	 *
-	 * <p>값을 입력하지 않으면 현재 시점으로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 현재 시점으로 설정됩니다.
 	 */
 	until?: string;
 	/**
 	 * 결제 예약 건 상태 리스트
 	 *
-	 * <p>값을 입력하지 않으면 상태 필터링이 적용되지 않습니다.</p>
+	 * 값을 입력하지 않으면 상태 필터링이 적용되지 않습니다.
 	 */
 	status?: PaymentScheduleStatus[];
 };
@@ -17275,7 +16201,7 @@ export type PaymentScheduleFilterInput = {
 /**
  * 결제 예약건이 이미 처리된 경우
  *
- * <p>결제 예약건이 이미 처리된 경우</p>
+ * 결제 예약건이 이미 처리된 경우
  */
 export type PaymentScheduleAlreadyProcessedError = {
 	/**
@@ -17291,7 +16217,7 @@ export type PaymentScheduleAlreadyProcessedError = {
 /**
  * 결제 예약건이 이미 취소된 경우
  *
- * <p>결제 예약건이 이미 취소된 경우</p>
+ * 결제 예약건이 이미 취소된 경우
  */
 export type PaymentScheduleAlreadyRevokedError = {
 	/**
@@ -17307,7 +16233,7 @@ export type PaymentScheduleAlreadyRevokedError = {
 /**
  * 결제 예약 건
  *
- * <p>결제 예약 건</p>
+ * 결제 예약 건
  */
 export type PaymentScheduleSummary = {
 	/**
@@ -17320,7 +16246,7 @@ export type PaymentScheduleSummary = {
 /**
  * 결제가 이미 완료되었거나 대기중인 경우
  *
- * <p>결제가 이미 완료되었거나 대기중인 경우</p>
+ * 결제가 이미 완료되었거나 대기중인 경우
  */
 export type AlreadyPaidOrWaitingError = {
 	/**
@@ -17336,7 +16262,7 @@ export type AlreadyPaidOrWaitingError = {
 /**
  * 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우
  *
- * <p>면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우</p>
+ * 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우
  */
 export type SumOfPartsExceedsTotalAmountError = {
 	/**
@@ -17358,7 +16284,7 @@ export type CancelRequester = "CUSTOMER" | "ADMIN";
 /**
  * 고객 정보 입력 형식
  *
- * <p>고객 정보 입력 형식</p>
+ * 고객 정보 입력 형식
  */
 export type CancelPaymentBodyRefundAccount = {
 	/**
@@ -17386,7 +16312,7 @@ export type CancelPaymentBodyRefundAccount = {
 /**
  * 결제 취소 내역
  *
- * <p>결제 취소 내역</p>
+ * 결제 취소 내역
  */
 export type PaymentCancellation =
 	| FailedPaymentCancellation
@@ -17396,7 +16322,7 @@ export type PaymentCancellation =
 /**
  * 취소 가능 잔액 검증에 실패한 경우
  *
- * <p>취소 가능 잔액 검증에 실패한 경우</p>
+ * 취소 가능 잔액 검증에 실패한 경우
  */
 export type CancellableAmountConsistencyBrokenError = {
 	/**
@@ -17412,7 +16338,7 @@ export type CancellableAmountConsistencyBrokenError = {
 /**
  * 결제 취소 금액이 취소 가능 금액을 초과한 경우
  *
- * <p>결제 취소 금액이 취소 가능 금액을 초과한 경우</p>
+ * 결제 취소 금액이 취소 가능 금액을 초과한 경우
  */
 export type CancelAmountExceedsCancellableAmountError = {
 	/**
@@ -17428,7 +16354,7 @@ export type CancelAmountExceedsCancellableAmountError = {
 /**
  * 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
  *
- * <p>취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우</p>
+ * 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
  */
 export type CancelTaxAmountExceedsCancellableTaxAmountError = {
 	/**
@@ -17444,7 +16370,7 @@ export type CancelTaxAmountExceedsCancellableTaxAmountError = {
 /**
  * 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
  *
- * <p>취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우</p>
+ * 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
  */
 export type CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError = {
 	/**
@@ -17460,7 +16386,7 @@ export type CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError = {
 /**
  * 결제가 이미 취소된 경우
  *
- * <p>결제가 이미 취소된 경우</p>
+ * 결제가 이미 취소된 경우
  */
 export type PaymentAlreadyCancelledError = {
 	/**
@@ -17476,7 +16402,7 @@ export type PaymentAlreadyCancelledError = {
 /**
  * 결제가 완료되지 않은 경우
  *
- * <p>결제가 완료되지 않은 경우</p>
+ * 결제가 완료되지 않은 경우
  */
 export type PaymentNotPaidError = {
 	/**
@@ -17492,7 +16418,7 @@ export type PaymentNotPaidError = {
 /**
  * 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
  *
- * <p>부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우</p>
+ * 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
  */
 export type RemainedAmountLessThanPromotionMinPaymentAmountError = {
 	/**
@@ -17508,7 +16434,7 @@ export type RemainedAmountLessThanPromotionMinPaymentAmountError = {
 /**
  * 면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우
  *
- * <p>면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우</p>
+ * 면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우
  */
 export type SumOfPartsExceedsCancelAmountError = {
 	/**
@@ -17524,7 +16450,7 @@ export type SumOfPartsExceedsCancelAmountError = {
 /**
  * 금액 세부 입력 정보
  *
- * <p>금액 세부 입력 정보</p>
+ * 금액 세부 입력 정보
  */
 export type PaymentAmountInput = {
 	/**
@@ -17540,8 +16466,7 @@ export type PaymentAmountInput = {
 	/**
 	 * 부가세액
 	 *
-	 * <p>고객사에서 직접 계산이 필요한 경우 입력합니다.
-	 * 입력하지 않으면 면세 금액을 제외한 금액의 1/11 로 자동 계산됩니다.</p>
+	 * 고객사에서 직접 계산이 필요한 경우 입력합니다. 입력하지 않으면 면세 금액을 제외한 금액의 1/11 로 자동 계산됩니다.
 	 */
 	vat?: number;
 };
@@ -17549,7 +16474,7 @@ export type PaymentAmountInput = {
 /**
  * 현금영수증 입력 정보
  *
- * <p>현금영수증 입력 정보</p>
+ * 현금영수증 입력 정보
  */
 export type CashReceiptInput = {
 	/**
@@ -17560,7 +16485,7 @@ export type CashReceiptInput = {
 	/**
 	 * 사용자 식별 번호
 	 *
-	 * <p>미발행 유형 선택 시 입력하지 않습니다.</p>
+	 * 미발행 유형 선택 시 입력하지 않습니다.
 	 */
 	customerIdentityNumber?: string;
 };
@@ -17568,7 +16493,7 @@ export type CashReceiptInput = {
 /**
  * 국가
  *
- * <p>국가</p>
+ * 국가
  */
 export type Country =
 	| "AD"
@@ -17824,13 +16749,13 @@ export type Country =
 /**
  * 상품 정보
  *
- * <p>상품 정보</p>
+ * 상품 정보
  */
 export type PaymentProduct = {
 	/**
 	 * 상품 고유 식별자
 	 *
-	 * <p>고객사가 직접 부여한 식별자입니다.</p>
+	 * 고객사가 직접 부여한 식별자입니다.
 	 */
 	id: string;
 	/**
@@ -17841,7 +16766,7 @@ export type PaymentProduct = {
 	/**
 	 * 상품 태그
 	 *
-	 * <p>카테고리 등으로 활용될 수 있습니다.</p>
+	 * 카테고리 등으로 활용될 수 있습니다.
 	 */
 	tag?: string;
 	/**
@@ -17864,14 +16789,14 @@ export type PaymentProduct = {
 /**
  * 상품 유형
  *
- * <p>상품 유형</p>
+ * 상품 유형
  */
 export type PaymentProductType = "PHYSICAL" | "DIGITAL";
 
 /**
  * 분리 형식 주소 입력 정보
  *
- * <p>분리 형식 주소 입력 정보</p>
+ * 분리 형식 주소 입력 정보
  */
 export type SeparatedAddressInput = {
 	/**
@@ -17904,7 +16829,7 @@ export type SeparatedAddressInput = {
 /**
  * 빌링키 결제 완료된 결제 건 요약 정보
  *
- * <p>빌링키 결제 완료된 결제 건 요약 정보</p>
+ * 빌링키 결제 완료된 결제 건 요약 정보
  */
 export type BillingKeyPaymentSummary = {
 	/**
@@ -17922,7 +16847,7 @@ export type BillingKeyPaymentSummary = {
 /**
  * 프로모션 할인 금액이 결제 시도 금액 이상인 경우
  *
- * <p>프로모션 할인 금액이 결제 시도 금액 이상인 경우</p>
+ * 프로모션 할인 금액이 결제 시도 금액 이상인 경우
  */
 export type DiscountAmountExceedsTotalAmountError = {
 	/**
@@ -17938,7 +16863,7 @@ export type DiscountAmountExceedsTotalAmountError = {
 /**
  * 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
  *
- * <p>결제수단이 프로모션에 지정된 것과 일치하지 않는 경우</p>
+ * 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
  */
 export type PromotionPayMethodDoesNotMatchError = {
 	/**
@@ -17954,8 +16879,9 @@ export type PromotionPayMethodDoesNotMatchError = {
 /**
  * 수기 결제 수단 입력 정보
  *
- * <p>수기 결제 수단 입력 정보</p>
- * <p>하나의 필드만 입력합니다.</p>
+ * 수기 결제 수단 입력 정보
+ *
+ * 하나의 필드만 입력합니다.
  */
 export type InstantPaymentMethodInput = {
 	/**
@@ -17973,7 +16899,7 @@ export type InstantPaymentMethodInput = {
 /**
  * 수기 결제가 완료된 결제 건 요약 정보
  *
- * <p>수기 결제가 완료된 결제 건 요약 정보</p>
+ * 수기 결제가 완료된 결제 건 요약 정보
  */
 export type InstantPaymentSummary = {
 	/**
@@ -17991,14 +16917,14 @@ export type InstantPaymentSummary = {
 /**
  * 발급 유형
  *
- * <p>발급 유형</p>
+ * 발급 유형
  */
 export type CashReceiptType = "PERSONAL" | "CORPORATE";
 
 /**
  * 현금영수증 발급 시 고객 관련 입력 정보
  *
- * <p>현금영수증 발급 시 고객 관련 입력 정보</p>
+ * 현금영수증 발급 시 고객 관련 입력 정보
  */
 export type IssueCashReceiptCustomerInput = {
 	/**
@@ -18026,7 +16952,7 @@ export type IssueCashReceiptCustomerInput = {
 /**
  * 현금영수증 내역
  *
- * <p>현금영수증 내역</p>
+ * 현금영수증 내역
  */
 export type CashReceiptSummary = {
 	/**
@@ -18049,7 +16975,7 @@ export type CashReceiptSummary = {
 /**
  * 현금영수증이 이미 발급된 경우
  *
- * <p>현금영수증이 이미 발급된 경우</p>
+ * 현금영수증이 이미 발급된 경우
  */
 export type CashReceiptAlreadyIssuedError = {
 	/**
@@ -18065,7 +16991,7 @@ export type CashReceiptAlreadyIssuedError = {
 /**
  * 현금영수증이 발급되지 않은 경우
  *
- * <p>현금영수증이 발급되지 않은 경우</p>
+ * 현금영수증이 발급되지 않은 경우
  */
 export type CashReceiptNotIssuedError = {
 	/**
@@ -18081,7 +17007,7 @@ export type CashReceiptNotIssuedError = {
 /**
  * 결제 건이 입금 대기 상태가 아닌 경우
  *
- * <p>결제 건이 입금 대기 상태가 아닌 경우</p>
+ * 결제 건이 입금 대기 상태가 아닌 경우
  */
 export type PaymentNotWaitingForDepositError = {
 	/**
@@ -18097,7 +17023,7 @@ export type PaymentNotWaitingForDepositError = {
 /**
  * 에스크로 발송자 정보
  *
- * <p>에스크로 발송자 정보</p>
+ * 에스크로 발송자 정보
  */
 export type PaymentEscrowSenderInput = {
 	/**
@@ -18130,7 +17056,7 @@ export type PaymentEscrowSenderInput = {
 /**
  * 에스크로 수취인 정보
  *
- * <p>에스크로 수취인 정보</p>
+ * 에스크로 수취인 정보
  */
 export type PaymentEscrowReceiverInput = {
 	/**
@@ -18158,7 +17084,7 @@ export type PaymentEscrowReceiverInput = {
 /**
  * 배송정보
  *
- * <p>배송정보</p>
+ * 배송정보
  */
 export type PaymentLogistics = {
 	/**
@@ -18191,13 +17117,13 @@ export type PaymentLogistics = {
 /**
  * 성공 웹훅 내역
  *
- * <p>성공 웹훅 내역</p>
+ * 성공 웹훅 내역
  */
 export type PaymentWebhook = {
 	/**
 	 * 웹훅 발송 시 결제 건 상태
 	 *
-	 * <p>V1 결제 건인 경우, 값이 존재하지 않습니다.</p>
+	 * V1 결제 건인 경우, 값이 존재하지 않습니다.
 	 */
 	paymentStatus?: PaymentWebhookPaymentStatus;
 	/**
@@ -18213,13 +17139,13 @@ export type PaymentWebhook = {
 	/**
 	 * 웹훅이 발송된 url
 	 *
-	 * <p>V1 결제 건인 경우, 값이 존재하지 않습니다.</p>
+	 * V1 결제 건인 경우, 값이 존재하지 않습니다.
 	 */
 	url: string;
 	/**
 	 * 비동기 웹훅 여부
 	 *
-	 * <p>V1 결제 건인 경우, 값이 존재하지 않습니다.</p>
+	 * V1 결제 건인 경우, 값이 존재하지 않습니다.
 	 */
 	isAsync?: boolean;
 	/**
@@ -18257,7 +17183,7 @@ export type PaymentWebhook = {
 /**
  * 웹훅 내역이 존재하지 않는 경우
  *
- * <p>웹훅 내역이 존재하지 않는 경우</p>
+ * 웹훅 내역이 존재하지 않는 경우
  */
 export type WebhookNotFoundError = {
 	/**
@@ -18273,8 +17199,9 @@ export type WebhookNotFoundError = {
 /**
  * 조회 시간 단위
  *
- * <p>조회 시간 단위</p>
- * <p>하나의 단위 필드만 선택하여 입력합니다.</p>
+ * 조회 시간 단위
+ *
+ * 하나의 단위 필드만 선택하여 입력합니다.
  */
 export type AnalyticsTimeGranularity = {
 	/**
@@ -18302,7 +17229,7 @@ export type AnalyticsTimeGranularity = {
 /**
  * AnalyticsPaymentChartStat
  *
- * <p>특정 시점의 거래 건 수와 금액을 나타냅니다.</p>
+ * 특정 시점의 거래 건 수와 금액을 나타냅니다.
  */
 export type AnalyticsPaymentChartStat = {
 	/**
@@ -18325,14 +17252,14 @@ export type AnalyticsPaymentChartStat = {
 /**
  * 요일
  *
- * <p>요일</p>
+ * 요일
  */
 export type DayOfWeek = "SUN" | "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT";
 
 /**
  * AnalyticsAverageAmountChartStat
  *
- * <p>특정 시점의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.</p>
+ * 특정 시점의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.
  */
 export type AnalyticsAverageAmountChartStat = {
 	/**
@@ -18355,7 +17282,7 @@ export type AnalyticsAverageAmountChartStat = {
 /**
  * AnalyticsAverageAmountChartSummary
  *
- * <p>전체 구간의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.</p>
+ * 전체 구간의 건별 평균 거래액, 고객 당 평균 거래액을 나타냅니다.
  */
 export type AnalyticsAverageAmountChartSummary = {
 	/**
@@ -18373,7 +17300,7 @@ export type AnalyticsAverageAmountChartSummary = {
 /**
  * AnalyticsPaymentMethodChartStat
  *
- * <p>결제수단별 결제금액, 결제 건수를 나타냅니다.</p>
+ * 결제수단별 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsPaymentMethodChartStat = {
 	/**
@@ -18396,7 +17323,7 @@ export type AnalyticsPaymentMethodChartStat = {
 /**
  * AnalyticsPaymentMethodTrendChartStat
  *
- * <p>특정 시점의 결제수단별 결제금액, 결제 건수를 나타냅니다.</p>
+ * 특정 시점의 결제수단별 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsPaymentMethodTrendChartStat = {
 	/**
@@ -18424,7 +17351,7 @@ export type AnalyticsPaymentMethodTrendChartStat = {
 /**
  * AnalyticsCardChartStat
  *
- * <p>특정 시점의 카드결제 거래 건 수와 금액을 나타냅니다.</p>
+ * 특정 시점의 카드결제 거래 건 수와 금액을 나타냅니다.
  */
 export type AnalyticsCardChartStat = {
 	/**
@@ -18447,7 +17374,7 @@ export type AnalyticsCardChartStat = {
 /**
  * 카드사
  *
- * <p>카드사</p>
+ * 카드사
  */
 export type CardCompany =
 	| "KOREA_DEVELOPMENT_BANK"
@@ -18529,7 +17456,7 @@ export type CardCompany =
 /**
  * AnalyticsCardCompanyChartStat
  *
- * <p>특정 시점의 카드사 별 결제금액, 결제 건수를 나타냅니다.</p>
+ * 특정 시점의 카드사 별 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsCardCompanyChartStat = {
 	/**
@@ -18557,7 +17484,7 @@ export type AnalyticsCardCompanyChartStat = {
 /**
  * AnalyticsCardCompanyChartRemainderStat
  *
- * <p>특정 시점의 나머지 카드사들의 결제금액, 결제 건수를 나타냅니다.</p>
+ * 특정 시점의 나머지 카드사들의 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsCardCompanyChartRemainderStat = {
 	/**
@@ -18580,7 +17507,7 @@ export type AnalyticsCardCompanyChartRemainderStat = {
 /**
  * AnalyticsCardCompanyChartSummary
  *
- * <p>결제금액, 결제 건수의 총합을 나타냅니다.</p>
+ * 결제금액, 결제 건수의 총합을 나타냅니다.
  */
 export type AnalyticsCardCompanyChartSummary = {
 	/**
@@ -18598,7 +17525,7 @@ export type AnalyticsCardCompanyChartSummary = {
 /**
  * AnalyticsEasyPayChartStat
  *
- * <p>특정 시점의 간편결제 거래 건수와 금액을 나타냅니다.</p>
+ * 특정 시점의 간편결제 거래 건수와 금액을 나타냅니다.
  */
 export type AnalyticsEasyPayChartStat = {
 	/**
@@ -18621,7 +17548,7 @@ export type AnalyticsEasyPayChartStat = {
 /**
  * 간편 결제사
  *
- * <p>간편 결제사</p>
+ * 간편 결제사
  */
 export type EasyPayProvider =
 	| "SAMSUNGPAY"
@@ -18645,7 +17572,7 @@ export type EasyPayProvider =
 /**
  * AnalyticsEasyPayProviderChartStat
  *
- * <p>특정 시점의 간편결제사별 결제금액, 결제 건수를 나타냅니다.</p>
+ * 특정 시점의 간편결제사별 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsEasyPayProviderChartStat = {
 	/**
@@ -18673,7 +17600,7 @@ export type AnalyticsEasyPayProviderChartStat = {
 /**
  * AnalyticsEasyPayProviderChartRemainderStat
  *
- * <p>특정 시점의 나머지 간편결제사들의 결제금액, 결제 건수를 나타냅니다.</p>
+ * 특정 시점의 나머지 간편결제사들의 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsEasyPayProviderChartRemainderStat = {
 	/**
@@ -18696,7 +17623,7 @@ export type AnalyticsEasyPayProviderChartRemainderStat = {
 /**
  * AnalyticsEasyPayProviderChartSummary
  *
- * <p>결제금액, 결제 건수의 총합을 나타냅니다.</p>
+ * 결제금액, 결제 건수의 총합을 나타냅니다.
  */
 export type AnalyticsEasyPayProviderChartSummary = {
 	/**
@@ -18714,7 +17641,7 @@ export type AnalyticsEasyPayProviderChartSummary = {
 /**
  * AnalyticsPgCompanyChartStat
  *
- * <p>결제대행사별 결제금액, 결제 건수를 나타냅니다.</p>
+ * 결제대행사별 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsPgCompanyChartStat = {
 	/**
@@ -18737,7 +17664,7 @@ export type AnalyticsPgCompanyChartStat = {
 /**
  * PG사
  *
- * <p>PG사</p>
+ * PG사
  */
 export type PgCompany =
 	| "INICIS"
@@ -18774,7 +17701,7 @@ export type PgCompany =
 /**
  * AnalyticsPgCompanyTrendChartStat
  *
- * <p>특정 시점의 결제대행사 별 결제금액, 결제 건수를 나타냅니다.</p>
+ * 특정 시점의 결제대행사 별 결제금액, 결제 건수를 나타냅니다.
  */
 export type AnalyticsPgCompanyTrendChartStat = {
 	/**
@@ -18802,7 +17729,7 @@ export type AnalyticsPgCompanyTrendChartStat = {
 /**
  * AnalyticsPaymentStatusChartStat
  *
- * <p>각 상태의 건수와 금액, 사분위수를 나타냅니다.</p>
+ * 각 상태의 건수와 금액, 사분위수를 나타냅니다.
  */
 export type AnalyticsPaymentStatusChartStat = {
 	/**
@@ -18845,7 +17772,7 @@ export type AnalyticsPaymentStatusChartStat = {
 /**
  * AnalyticsPaymentStatusByPaymentMethodChartStat
  *
- * <p>각 결제수단, 상태 별 건수와 금액을 나타냅니다.</p>
+ * 각 결제수단, 상태 별 건수와 금액을 나타냅니다.
  */
 export type AnalyticsPaymentStatusByPaymentMethodChartStat = {
 	/**
@@ -18873,7 +17800,7 @@ export type AnalyticsPaymentStatusByPaymentMethodChartStat = {
 /**
  * AnalyticsPaymentStatusByPgCompanyChartStat
  *
- * <p>각 상태의 건수와 금액, 사분위수를 나타냅니다.</p>
+ * 각 상태의 건수와 금액, 사분위수를 나타냅니다.
  */
 export type AnalyticsPaymentStatusByPgCompanyChartStat = {
 	/**
@@ -18901,7 +17828,7 @@ export type AnalyticsPaymentStatusByPgCompanyChartStat = {
 /**
  * AnalyticsPaymentStatusByPaymentClientChartStat
  *
- * <p>고객사의 결제 환경 별 결제 상태 차트 정보</p>
+ * 고객사의 결제 환경 별 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusByPaymentClientChartStat = {
 	/**
@@ -18929,7 +17856,7 @@ export type AnalyticsPaymentStatusByPaymentClientChartStat = {
 /**
  * 외부 서비스에서 에러가 발생한 경우
  *
- * <p>외부 서비스에서 에러가 발생한 경우</p>
+ * 외부 서비스에서 에러가 발생한 경우
  */
 export type B2bExternalServiceError = {
 	/**
@@ -18945,7 +17872,7 @@ export type B2bExternalServiceError = {
 /**
  * 연동 사업자가 존재하지 않는 경우
  *
- * <p>연동 사업자가 존재하지 않는 경우</p>
+ * 연동 사업자가 존재하지 않는 경우
  */
 export type B2bMemberCompanyNotFoundError = {
 	/**
@@ -18961,7 +17888,7 @@ export type B2bMemberCompanyNotFoundError = {
 /**
  * B2B 기능이 활성화되지 않은 경우
  *
- * <p>B2B 기능이 활성화되지 않은 경우</p>
+ * B2B 기능이 활성화되지 않은 경우
  */
 export type B2bNotEnabledError = {
 	/**
@@ -18982,7 +17909,7 @@ export type B2bCompanyContactInput = {
 	/**
 	 * 담당자 ID
 	 *
-	 * <p>팝빌 로그인 계정으로 사용됩니다.</p>
+	 * 팝빌 로그인 계정으로 사용됩니다.
 	 */
 	id: string;
 	/**
@@ -19010,7 +17937,7 @@ export type B2bCompanyContactInput = {
 /**
  * 사업자가 이미 연동되어 있는 경우
  *
- * <p>사업자가 이미 연동되어 있는 경우</p>
+ * 사업자가 이미 연동되어 있는 경우
  */
 export type B2bCompanyAlreadyRegisteredError = {
 	/**
@@ -19026,7 +17953,7 @@ export type B2bCompanyAlreadyRegisteredError = {
 /**
  * ID가 이미 사용중인 경우
  *
- * <p>ID가 이미 사용중인 경우</p>
+ * ID가 이미 사용중인 경우
  */
 export type B2bIdAlreadyExistsError = {
 	/**
@@ -19042,7 +17969,7 @@ export type B2bIdAlreadyExistsError = {
 /**
  * 담당자가 존재하지 않는 경우
  *
- * <p>담당자가 존재하지 않는 경우</p>
+ * 담당자가 존재하지 않는 경우
  */
 export type B2bContactNotFoundError = {
 	/**
@@ -19058,14 +17985,14 @@ export type B2bContactNotFoundError = {
 /**
  * 인증서 타입
  *
- * <p>인증서 타입</p>
+ * 인증서 타입
  */
 export type B2bCertificateType = "E_TAX" | "POP_BILL" | "ETC";
 
 /**
  * 인증서가 등록되어 있지 않은 경우
  *
- * <p>인증서가 등록되어 있지 않은 경우</p>
+ * 인증서가 등록되어 있지 않은 경우
  */
 export type B2bCertificateUnregisteredError = {
 	/**
@@ -19081,7 +18008,7 @@ export type B2bCertificateUnregisteredError = {
 /**
  * 계좌가 존재하지 않는 경우
  *
- * <p>계좌가 존재하지 않는 경우</p>
+ * 계좌가 존재하지 않는 경우
  */
 export type B2bBankAccountNotFoundError = {
 	/**
@@ -19097,7 +18024,7 @@ export type B2bBankAccountNotFoundError = {
 /**
  * 금융기관과의 통신에 실패한 경우
  *
- * <p>금융기관과의 통신에 실패한 경우</p>
+ * 금융기관과의 통신에 실패한 경우
  */
 export type B2bFinancialSystemCommunicationError = {
 	/**
@@ -19113,7 +18040,7 @@ export type B2bFinancialSystemCommunicationError = {
 /**
  * 금융기관 장애
  *
- * <p>금융기관 장애</p>
+ * 금융기관 장애
  */
 export type B2bFinancialSystemFailureError = {
 	/**
@@ -19129,7 +18056,7 @@ export type B2bFinancialSystemFailureError = {
 /**
  * 금융기관 시스템이 점검 중인 경우
  *
- * <p>금융기관 시스템이 점검 중인 경우</p>
+ * 금융기관 시스템이 점검 중인 경우
  */
 export type B2bFinancialSystemUnderMaintenanceError = {
 	/**
@@ -19145,7 +18072,7 @@ export type B2bFinancialSystemUnderMaintenanceError = {
 /**
  * 계좌 정보 조회가 불가능한 외화 계좌인 경우
  *
- * <p>계좌 정보 조회가 불가능한 외화 계좌인 경우</p>
+ * 계좌 정보 조회가 불가능한 외화 계좌인 경우
  */
 export type B2bForeignExchangeAccountError = {
 	/**
@@ -19161,7 +18088,7 @@ export type B2bForeignExchangeAccountError = {
 /**
  * 금융기관 시스템이 정기 점검 중인 경우
  *
- * <p>금융기관 시스템이 정기 점검 중인 경우</p>
+ * 금융기관 시스템이 정기 점검 중인 경우
  */
 export type B2bRegularMaintenanceTimeError = {
 	/**
@@ -19177,7 +18104,7 @@ export type B2bRegularMaintenanceTimeError = {
 /**
  * 정지 계좌인 경우
  *
- * <p>정지 계좌인 경우</p>
+ * 정지 계좌인 경우
  */
 export type B2bSuspendedAccountError = {
 	/**
@@ -19193,7 +18120,7 @@ export type B2bSuspendedAccountError = {
 /**
  * 사업자 과세 유형
  *
- * <p>사업자 과세 유형</p>
+ * 사업자 과세 유형
  */
 export type B2bCompanyStateTaxationType =
 	| "NORMAL"
@@ -19205,7 +18132,7 @@ export type B2bCompanyStateTaxationType =
 /**
  * 영업 상태
  *
- * <p>영업 상태</p>
+ * 영업 상태
  */
 export type B2bCompanyStateBusinessStatus =
 	| "IN_BUSINESS"
@@ -19215,7 +18142,7 @@ export type B2bCompanyStateBusinessStatus =
 /**
  * 사업자가 존재하지 않는 경우
  *
- * <p>사업자가 존재하지 않는 경우</p>
+ * 사업자가 존재하지 않는 경우
  */
 export type B2bCompanyNotFoundError = {
 	/**
@@ -19231,7 +18158,7 @@ export type B2bCompanyNotFoundError = {
 /**
  * 홈택스가 점검중이거나 순단이 발생한 경우
  *
- * <p>홈택스가 점검중이거나 순단이 발생한 경우</p>
+ * 홈택스가 점검중이거나 순단이 발생한 경우
  */
 export type B2bHometaxUnderMaintenanceError = {
 	/**
@@ -19247,7 +18174,7 @@ export type B2bHometaxUnderMaintenanceError = {
 /**
  * 세금계산서 생성 요청 정보
  *
- * <p>세금계산서 생성 요청 정보</p>
+ * 세금계산서 생성 요청 정보
  */
 export type B2bTaxInvoiceInput = {
 	/**
@@ -19273,7 +18200,7 @@ export type B2bTaxInvoiceInput = {
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -19319,13 +18246,13 @@ export type B2bTaxInvoiceInput = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks?: string[];
 	/**
 	 * 공급자 문서번호
 	 *
-	 * <p>영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능</p>
+	 * 영문 대소문자, 숫자, 특수문자('-','\_')만 이용 가능
 	 */
 	supplierDocumentKey?: string;
 	/**
@@ -19336,7 +18263,7 @@ export type B2bTaxInvoiceInput = {
 	/**
 	 * 공급받는자 문서번호
 	 *
-	 * <p>영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능</p>
+	 * 영문 대소문자, 숫자, 특수문자('-','\_')만 이용 가능
 	 */
 	recipientDocumentKey?: string;
 	/**
@@ -19347,7 +18274,7 @@ export type B2bTaxInvoiceInput = {
 	/**
 	 * 문자 전송 여부
 	 *
-	 * <p>공급자 담당자 휴대폰번호 {supplier.contact.mobile_phone_number} 값으로 문자 전송 전송시 포인트 차감되며, 실패시 환불 처리 기본값은 false</p>
+	 * 공급자 담당자 휴대폰번호 {supplier.contact.mobile\_phone\_number} 값으로 문자 전송 전송시 포인트 차감되며, 실패시 환불 처리 기본값은 false
 	 */
 	sendSms?: boolean;
 	/**
@@ -19358,13 +18285,13 @@ export type B2bTaxInvoiceInput = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items?: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts?: B2bTaxInvoiceAdditionalContact[];
 };
@@ -19391,19 +18318,19 @@ export type B2bTaxInvoiceBeforeSending = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -19449,7 +18376,7 @@ export type B2bTaxInvoiceBeforeSending = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -19485,13 +18412,13 @@ export type B2bTaxInvoiceBeforeSending = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -19507,7 +18434,7 @@ export type B2bTaxInvoiceBeforeSending = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber: string;
 };
@@ -19534,19 +18461,19 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -19592,7 +18519,7 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -19628,13 +18555,13 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -19650,7 +18577,7 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber: string;
 	/**
@@ -19661,7 +18588,7 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	/**
 	 * 공급받는자 휴폐업일자
 	 *
-	 * <p>상태가 CLOSED, SUSPENDED 상태인 경우에만 결과값 반환</p>
+	 * 상태가 CLOSED, SUSPENDED 상태인 경우에만 결과값 반환
 	 */
 	recipientClosedSuspendedDate?: string;
 };
@@ -19688,19 +18615,19 @@ export type B2bTaxInvoiceRequestRefused = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -19746,7 +18673,7 @@ export type B2bTaxInvoiceRequestRefused = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -19782,13 +18709,13 @@ export type B2bTaxInvoiceRequestRefused = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -19820,19 +18747,19 @@ export type B2bTaxInvoiceIssued = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -19878,7 +18805,7 @@ export type B2bTaxInvoiceIssued = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -19914,13 +18841,13 @@ export type B2bTaxInvoiceIssued = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -19936,7 +18863,7 @@ export type B2bTaxInvoiceIssued = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber: string;
 };
@@ -19963,19 +18890,19 @@ export type B2bTaxInvoiceRegistered = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -20021,7 +18948,7 @@ export type B2bTaxInvoiceRegistered = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -20057,13 +18984,13 @@ export type B2bTaxInvoiceRegistered = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -20095,19 +19022,19 @@ export type B2bTaxInvoiceRequested = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -20153,7 +19080,7 @@ export type B2bTaxInvoiceRequested = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -20189,13 +19116,13 @@ export type B2bTaxInvoiceRequested = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -20227,19 +19154,19 @@ export type B2bTaxInvoiceRequestCancelled = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -20285,7 +19212,7 @@ export type B2bTaxInvoiceRequestCancelled = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -20321,13 +19248,13 @@ export type B2bTaxInvoiceRequestCancelled = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -20359,19 +19286,19 @@ export type B2bTaxInvoiceSending = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -20417,7 +19344,7 @@ export type B2bTaxInvoiceSending = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -20453,13 +19380,13 @@ export type B2bTaxInvoiceSending = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -20475,7 +19402,7 @@ export type B2bTaxInvoiceSending = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber: string;
 	/**
@@ -20507,19 +19434,19 @@ export type B2bTaxInvoiceSendingCompleted = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -20565,7 +19492,7 @@ export type B2bTaxInvoiceSendingCompleted = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -20601,13 +19528,13 @@ export type B2bTaxInvoiceSendingCompleted = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -20623,7 +19550,7 @@ export type B2bTaxInvoiceSendingCompleted = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber: string;
 	/**
@@ -20639,7 +19566,7 @@ export type B2bTaxInvoiceSendingCompleted = {
 	/**
 	 * 국세청 결과 코드
 	 *
-	 * <p>국세청 발급 결과 코드로 영문 3자리 + 숫자 3자리로 구성됨</p>
+	 * 국세청 발급 결과 코드로 영문 3자리 + 숫자 3자리로 구성됨
 	 */
 	ntsResultCode?: string;
 	/**
@@ -20671,19 +19598,19 @@ export type B2bTaxInvoiceSendingFailed = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -20729,7 +19656,7 @@ export type B2bTaxInvoiceSendingFailed = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -20765,13 +19692,13 @@ export type B2bTaxInvoiceSendingFailed = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -20787,7 +19714,7 @@ export type B2bTaxInvoiceSendingFailed = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber: string;
 	/**
@@ -20803,7 +19730,7 @@ export type B2bTaxInvoiceSendingFailed = {
 	/**
 	 * 국세청 결과 코드
 	 *
-	 * <p>국세청 발급 결과 코드로 영문 3자리 + 숫자 3자리로 구성됨</p>
+	 * 국세청 발급 결과 코드로 영문 3자리 + 숫자 3자리로 구성됨
 	 */
 	ntsResultCode?: string;
 	/**
@@ -20835,19 +19762,19 @@ export type B2bTaxInvoiceWaitingSending = {
 	/**
 	 * 책번호 - 권
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookVolume?: number;
 	/**
 	 * 책번호 - 호
 	 *
-	 * <p>입력 범위(4자리) : 0 ~ 9999</p>
+	 * 입력 범위(4자리) : 0 ~ 9999
 	 */
 	bookIssue?: number;
 	/**
 	 * 작성일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	writeDate: string;
 	/**
@@ -20893,7 +19820,7 @@ export type B2bTaxInvoiceWaitingSending = {
 	/**
 	 * 비고
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	remarks: string[];
 	/**
@@ -20929,13 +19856,13 @@ export type B2bTaxInvoiceWaitingSending = {
 	/**
 	 * 품목
 	 *
-	 * <p>최대 99개</p>
+	 * 최대 99개
 	 */
 	items: B2bTaxInvoiceItem[];
 	/**
 	 * 추가 담당자
 	 *
-	 * <p>최대 3개</p>
+	 * 최대 3개
 	 */
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
@@ -20951,7 +19878,7 @@ export type B2bTaxInvoiceWaitingSending = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber: string;
 };
@@ -20959,7 +19886,7 @@ export type B2bTaxInvoiceWaitingSending = {
 /**
  * 공급받는자가 존재하지 않은 경우
  *
- * <p>공급받는자가 존재하지 않은 경우</p>
+ * 공급받는자가 존재하지 않은 경우
  */
 export type B2bRecipientNotFoundError = {
 	/**
@@ -20975,7 +19902,7 @@ export type B2bRecipientNotFoundError = {
 /**
  * 공급자가 존재하지 않은 경우
  *
- * <p>공급자가 존재하지 않은 경우</p>
+ * 공급자가 존재하지 않은 경우
  */
 export type B2bSupplierNotFoundError = {
 	/**
@@ -20991,7 +19918,7 @@ export type B2bSupplierNotFoundError = {
 /**
  * 세금계산서가 존재하지 않은 경우
  *
- * <p>세금계산서가 존재하지 않은 경우</p>
+ * 세금계산서가 존재하지 않은 경우
  */
 export type B2bTaxInvoiceNotFoundError = {
 	/**
@@ -21007,8 +19934,9 @@ export type B2bTaxInvoiceNotFoundError = {
 /**
  * 세금계산서가 삭제 가능한 상태가 아닌 경우
  *
- * <p>세금계산서가 삭제 가능한 상태가 아닌 경우</p>
- * <p>삭제 가능한 상태는 <code>REGISTERED</code>, <code>ISSUE_REFUSED</code>, <code>REQUEST_CANCELLED_BY_RECIPIENT</code>, <code>ISSUE_CANCELLED_BY_SUPPLIER</code>, <code>SENDING_FAILED</code> 입니다.</p>
+ * 세금계산서가 삭제 가능한 상태가 아닌 경우
+ *
+ * 삭제 가능한 상태는 `REGISTERED`, `ISSUE_REFUSED`, `REQUEST_CANCELLED_BY_RECIPIENT`, `ISSUE_CANCELLED_BY_SUPPLIER`, `SENDING_FAILED` 입니다.
  */
 export type B2bTaxInvoiceNonDeletableStatusError = {
 	/**
@@ -21024,7 +19952,7 @@ export type B2bTaxInvoiceNonDeletableStatusError = {
 /**
  * 세금계산서가 역발행 대기 상태가 아닌 경우
  *
- * <p>세금계산서가 역발행 대기 상태가 아닌 경우</p>
+ * 세금계산서가 역발행 대기 상태가 아닌 경우
  */
 export type B2bTaxInvoiceNotRequestedStatusError = {
 	/**
@@ -21040,7 +19968,7 @@ export type B2bTaxInvoiceNotRequestedStatusError = {
 /**
  * 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우
  *
- * <p>세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우</p>
+ * 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우
  */
 export type B2bTaxInvoiceNoRecipientDocumentKeyError = {
 	/**
@@ -21056,7 +19984,7 @@ export type B2bTaxInvoiceNoRecipientDocumentKeyError = {
 /**
  * 세금계산서가 발행된(ISSUED) 상태가 아닌 경우
  *
- * <p>세금계산서가 발행된(ISSUED) 상태가 아닌 경우</p>
+ * 세금계산서가 발행된(ISSUED) 상태가 아닌 경우
  */
 export type B2bTaxInvoiceNotIssuedStatusError = {
 	/**
@@ -21072,7 +20000,7 @@ export type B2bTaxInvoiceNotIssuedStatusError = {
 /**
  * 세금계산서에 공급자 문서 번호가 기입되지 않은 경우
  *
- * <p>세금계산서에 공급자 문서 번호가 기입되지 않은 경우</p>
+ * 세금계산서에 공급자 문서 번호가 기입되지 않은 경우
  */
 export type B2bTaxInvoiceNoSupplierDocumentKeyError = {
 	/**
@@ -21088,7 +20016,7 @@ export type B2bTaxInvoiceNoSupplierDocumentKeyError = {
 /**
  * 세금계산서 요약
  *
- * <p>세금계산서 요약</p>
+ * 세금계산서 요약
  */
 export type B2bTaxInvoiceSummary = {
 	/**
@@ -21149,7 +20077,7 @@ export type B2bTaxInvoiceSummary = {
 	/**
 	 * 공급받는자 휴폐업일자
 	 *
-	 * <p>상태가 CLOSED, SUSPENDED 상태인 경우에만 결과값 반환</p>
+	 * 상태가 CLOSED, SUSPENDED 상태인 경우에만 결과값 반환
 	 */
 	recipientClosedSuspendedDate?: string;
 	/**
@@ -21175,7 +20103,7 @@ export type B2bTaxInvoiceSummary = {
 	/**
 	 * 국세청 승인번호
 	 *
-	 * <p>세금계산서 발행(전자서명) 시점에 자동으로 부여</p>
+	 * 세금계산서 발행(전자서명) 시점에 자동으로 부여
 	 */
 	ntsApproveNumber?: string;
 	/**
@@ -21196,7 +20124,7 @@ export type B2bTaxInvoiceSummary = {
 	/**
 	 * 국세청 결과 코드
 	 *
-	 * <p>국세청 발급 결과 코드로 영문 3자리 + 숫자 3자리로 구성됨</p>
+	 * 국세청 발급 결과 코드로 영문 3자리 + 숫자 3자리로 구성됨
 	 */
 	ntsResultCode?: string;
 };
@@ -21204,7 +20132,7 @@ export type B2bTaxInvoiceSummary = {
 /**
  * 세금계산서가 임시저장 상태가 아닌 경우
  *
- * <p>세금계산서가 임시저장 상태가 아닌 경우</p>
+ * 세금계산서가 임시저장 상태가 아닌 경우
  */
 export type B2bTaxInvoiceNotRegisteredStatusError = {
 	/**
@@ -21220,7 +20148,7 @@ export type B2bTaxInvoiceNotRegisteredStatusError = {
 /**
  * 업로드한 파일을 찾을 수 없는 경우
  *
- * <p>업로드한 파일을 찾을 수 없는 경우</p>
+ * 업로드한 파일을 찾을 수 없는 경우
  */
 export type B2bFileNotFoundError = {
 	/**
@@ -21236,7 +20164,7 @@ export type B2bFileNotFoundError = {
 /**
  * 세금계산서 첨부파일
  *
- * <p>세금계산서 첨부파일</p>
+ * 세금계산서 첨부파일
  */
 export type B2bTaxInvoiceAttachment = {
 	/**
@@ -21259,7 +20187,7 @@ export type B2bTaxInvoiceAttachment = {
 /**
  * 세금계산서의 첨부파일을 찾을 수 없는 경우
  *
- * <p>세금계산서의 첨부파일을 찾을 수 없는 경우</p>
+ * 세금계산서의 첨부파일을 찾을 수 없는 경우
  */
 export type B2bTaxInvoiceAttachmentNotFoundError = {
 	/**
@@ -21275,7 +20203,7 @@ export type B2bTaxInvoiceAttachmentNotFoundError = {
 /**
  * 하위 상점 거래 정보
  *
- * <p>하위 상점 거래 정보</p>
+ * 하위 상점 거래 정보
  */
 export type RegisterStoreReceiptBodyItem = {
 	/**
@@ -21318,7 +20246,7 @@ export type RegisterStoreReceiptBodyItem = {
 /**
  * 카드 프로모션
  *
- * <p>카드 프로모션</p>
+ * 카드 프로모션
  */
 export type CardPromotion = {
 	/**
@@ -21405,7 +20333,7 @@ export type CardPromotion = {
 /**
  * 프로모션이 존재하지 않는 경우
  *
- * <p>프로모션이 존재하지 않는 경우</p>
+ * 프로모션이 존재하지 않는 경우
  */
 export type PromotionNotFoundError = {
 	/**
@@ -21434,18 +20362,19 @@ export type PlatformSettlementFormulaError =
 /**
  * 검색 키워드 입력 정보
  *
- * <p>검색 키워드 입력 정보</p>
- * <p>검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 할인 분담 정책만 조회합니다. 하위 필드는 명시된 값 중 한 가지만 적용됩니다.</p>
+ * 검색 키워드 입력 정보
+ *
+ * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 할인 분담 정책만 조회합니다. 하위 필드는 명시된 값 중 한 가지만 적용됩니다.
  */
 export type PlatformDiscountSharePolicyFilterInputKeyword = {
 	/**
 	 *
-	 * <p>해당 값이 포함된 id 를 가진 할인 분담 정책만 조회합니다.</p>
+	 * 해당 값이 포함된 id 를 가진 할인 분담 정책만 조회합니다.
 	 */
 	id?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 name 을 가진 할인 분담만 조회합니다.</p>
+	 * 해당 값이 포함된 name 을 가진 할인 분담만 조회합니다.
 	 */
 	name?: string;
 };
@@ -21453,23 +20382,24 @@ export type PlatformDiscountSharePolicyFilterInputKeyword = {
 /**
  * 검색 키워드 입력 정보
  *
- * <p>검색 키워드 입력 정보</p>
- * <p>검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 추가 수수료 정책만 조회합니다. 하위 필드는 명시된 값 중 한 가지만 적용됩니다.</p>
+ * 검색 키워드 입력 정보
+ *
+ * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 추가 수수료 정책만 조회합니다. 하위 필드는 명시된 값 중 한 가지만 적용됩니다.
  */
 export type PlatformAdditionalFeePolicyFilterInputKeyword = {
 	/**
 	 *
-	 * <p>해당 값이 포함된 name 을 가진 추가 수수료 정책만 조회합니다.</p>
+	 * 해당 값이 포함된 name 을 가진 추가 수수료 정책만 조회합니다.
 	 */
 	name?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 id 를 가진 추가 수수료 정책만 조회합니다.</p>
+	 * 해당 값이 포함된 id 를 가진 추가 수수료 정책만 조회합니다.
 	 */
 	id?: string;
 	/**
 	 *
-	 * <p>해당 값과 같은 수수료 를 가진 추가 수수료 정책만 조회합니다.</p>
+	 * 해당 값과 같은 수수료 를 가진 추가 수수료 정책만 조회합니다.
 	 */
 	fee?: string;
 };
@@ -21477,8 +20407,9 @@ export type PlatformAdditionalFeePolicyFilterInputKeyword = {
 /**
  * 정액 수수료
  *
- * <p>정액 수수료</p>
- * <p>총 금액에 무관하게 정해진 수수료 금액을 책정합니다.</p>
+ * 정액 수수료
+ *
+ * 총 금액에 무관하게 정해진 수수료 금액을 책정합니다.
  */
 export type PlatformFixedAmountFee = {
 	/**
@@ -21495,8 +20426,9 @@ export type PlatformFixedAmountFee = {
 /**
  * 정률 수수료
  *
- * <p>정률 수수료</p>
- * <p>총 금액에 정해진 비율을 곱한 만큼의 수수료를 책정합니다.</p>
+ * 정률 수수료
+ *
+ * 총 금액에 정해진 비율을 곱한 만큼의 수수료를 책정합니다.
  */
 export type PlatformFixedRateFee = {
 	/**
@@ -21506,7 +20438,7 @@ export type PlatformFixedRateFee = {
 	/**
 	 * 수수료율
 	 *
-	 * <p>총 금액 대비 수수료 비율을 의미하며, 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수입니다. <code>총 금액 * rate * 10^5</code> (<code>rate * 10^3 %</code>) 만큼 수수료를 책정합니다.</p>
+	 * 총 금액 대비 수수료 비율을 의미하며, 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수입니다. `총 금액 * rate * 10^5` (`rate * 10^3 %`) 만큼 수수료를 책정합니다.
 	 */
 	rate: number;
 };
@@ -21514,48 +20446,49 @@ export type PlatformFixedRateFee = {
 /**
  * 파트너 검색 키워드 입력 정보
  *
- * <p>파트너 검색 키워드 입력 정보</p>
- * <p>검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 파트너만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.</p>
+ * 파트너 검색 키워드 입력 정보
+ *
+ * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 파트너만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformPartnerFilterInputKeyword = {
 	/**
 	 *
-	 * <p>해당 값이 포함된 id 를 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 id 를 가진 파트너만 조회합니다.
 	 */
 	id?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 이름 을 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 이름 을 가진 파트너만 조회합니다.
 	 */
 	name?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 이메일 주소를 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 이메일 주소를 가진 파트너만 조회합니다.
 	 */
 	email?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 사업자등록번호를 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 사업자등록번호를 가진 파트너만 조회합니다.
 	 */
 	businessRegistrationNumber?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 기본 계약 아이디를 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 기본 계약 아이디를 가진 파트너만 조회합니다.
 	 */
 	defaultContractId?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 메모를 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 메모를 가진 파트너만 조회합니다.
 	 */
 	memo?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 계좌번호를 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 계좌번호를 가진 파트너만 조회합니다.
 	 */
 	accountNumber?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 계좌 예금주명을 가진 파트너만 조회합니다.</p>
+	 * 해당 값이 포함된 계좌 예금주명을 가진 파트너만 조회합니다.
 	 */
 	accountHolder?: string;
 };
@@ -21573,7 +20506,7 @@ export type CreatePlatformPartnerBodyTypeBusiness = {
 	/**
 	 * 사업자 유형
 	 *
-	 * <p>값을 입력하지 않으면 일반 과세로 설정됩니다.</p>
+	 * 값을 입력하지 않으면 일반 과세로 설정됩니다.
 	 */
 	taxationType?: PlatformPartnerTaxationType;
 	/**
@@ -21611,7 +20544,7 @@ export type CreatePlatformPartnerBodyTypeWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -21624,7 +20557,7 @@ export type CreatePlatformPartnerBodyTypeNonWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -21632,7 +20565,7 @@ export type CreatePlatformPartnerBodyTypeNonWhtPayer = {
 /**
  * 플랫폼 계좌 상태
  *
- * <p>플랫폼 계좌 상태</p>
+ * 플랫폼 계좌 상태
  */
 export type PlatformAccountStatus =
 	| "VERIFYING"
@@ -21645,8 +20578,9 @@ export type PlatformAccountStatus =
 /**
  * 사업자 파트너 정보
  *
- * <p>사업자 파트너 정보</p>
- * <p>사업자 유형의 파트너 추가 정보 입니다.</p>
+ * 사업자 파트너 정보
+ *
+ * 사업자 유형의 파트너 추가 정보 입니다.
  */
 export type PlatformPartnerTypeBusiness = {
 	/**
@@ -21698,8 +20632,9 @@ export type PlatformPartnerTypeBusiness = {
 /**
  * 원천징수 비대상자 파트너 정보
  *
- * <p>원천징수 비대상자 파트너 정보</p>
- * <p>비사업자 유형의 파트너 추가 정보 입니다.</p>
+ * 원천징수 비대상자 파트너 정보
+ *
+ * 비사업자 유형의 파트너 추가 정보 입니다.
  */
 export type PlatformPartnerTypeNonWhtPayer = {
 	/**
@@ -21709,7 +20644,7 @@ export type PlatformPartnerTypeNonWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -21717,8 +20652,9 @@ export type PlatformPartnerTypeNonWhtPayer = {
 /**
  * 원천징수 대상자 파트너 정보
  *
- * <p>원천징수 대상자 파트너 정보</p>
- * <p>비사업자 유형의 파트너 추가 정보 입니다.</p>
+ * 원천징수 대상자 파트너 정보
+ *
+ * 비사업자 유형의 파트너 추가 정보 입니다.
  */
 export type PlatformPartnerTypeWhtPayer = {
 	/**
@@ -21728,7 +20664,7 @@ export type PlatformPartnerTypeWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -21783,7 +20719,7 @@ export type UpdatePlatformPartnerBodyTypeWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -21796,7 +20732,7 @@ export type UpdatePlatformPartnerBodyTypeNonWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -21804,7 +20740,7 @@ export type UpdatePlatformPartnerBodyTypeNonWhtPayer = {
 /**
  * 파트너 업데이트를 위한 유형별 추가 정보
  *
- * <p>파트너 업데이트를 위한 유형별 추가 정보</p>
+ * 파트너 업데이트를 위한 유형별 추가 정보
  */
 export type SchedulePlatformPartnersBodyUpdateContact = {
 	/**
@@ -21827,9 +20763,9 @@ export type SchedulePlatformPartnersBodyUpdateContact = {
 /**
  * 파트너 유형별 정보 업데이트를 위한 입력 정보
  *
- * <p>파트너 유형별 정보 업데이트를 위한 입력 정보</p>
- * <p>파트너 유형별 추가 정보를 수정합니다.
- * 최초 생성된 유형 내에서 세부 정보만 수정할 수 있고 파트너의 유형 자체를 수정할 수는 없습니다.</p>
+ * 파트너 유형별 정보 업데이트를 위한 입력 정보
+ *
+ * 파트너 유형별 추가 정보를 수정합니다. 최초 생성된 유형 내에서 세부 정보만 수정할 수 있고 파트너의 유형 자체를 수정할 수는 없습니다.
  */
 export type SchedulePlatformPartnersBodyUpdateType = {
 	/**
@@ -21852,7 +20788,7 @@ export type SchedulePlatformPartnersBodyUpdateType = {
 /**
  * 파트너 계좌 업데이트를 위한 입력 정보
  *
- * <p>파트너 계좌 업데이트를 위한 입력 정보</p>
+ * 파트너 계좌 업데이트를 위한 입력 정보
  */
 export type SchedulePlatformPartnersBodyUpdateAccount = {
 	/**
@@ -21885,7 +20821,7 @@ export type SchedulePlatformPartnersBodyUpdateAccount = {
 /**
  * 플랫폼 정산 주기 계산 방식
  *
- * <p>플랫폼 정산 주기 계산 방식</p>
+ * 플랫폼 정산 주기 계산 방식
  */
 export type PlatformSettlementCycleType =
 	| "DAILY"
@@ -21896,7 +20832,7 @@ export type PlatformSettlementCycleType =
 /**
  * 플랫폼 정산 기준일
  *
- * <p>플랫폼 정산 기준일</p>
+ * 플랫폼 정산 기준일
  */
 export type PlatformSettlementCycleDatePolicy =
 	| "HOLIDAY_BEFORE"
@@ -21906,18 +20842,19 @@ export type PlatformSettlementCycleDatePolicy =
 /**
  * 검색 키워드 입력 정보
  *
- * <p>검색 키워드 입력 정보</p>
- * <p>검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 계약만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.</p>
+ * 검색 키워드 입력 정보
+ *
+ * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 계약만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformContractFilterInputKeyword = {
 	/**
 	 *
-	 * <p>해당 값이 포함된 id 를 가진 계약만 조회합니다.</p>
+	 * 해당 값이 포함된 id 를 가진 계약만 조회합니다.
 	 */
 	id?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 name 을 가진 계약만 조회합니다.</p>
+	 * 해당 값이 포함된 name 을 가진 계약만 조회합니다.
 	 */
 	name?: string;
 };
@@ -21925,8 +20862,9 @@ export type PlatformContractFilterInputKeyword = {
 /**
  * 플랫폼 정산 주기 계산 방식 입력 정보
  *
- * <p>플랫폼 정산 주기 계산 방식 입력 정보</p>
- * <p>하나의 하위 필드에만 값을 명시하여 요청합니다.</p>
+ * 플랫폼 정산 주기 계산 방식 입력 정보
+ *
+ * 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformSettlementCycleMethodInput = {
 	/**
@@ -21954,7 +20892,7 @@ export type PlatformSettlementCycleMethodInput = {
 /**
  * 플랫폼 정산 주기 계산 방식
  *
- * <p>플랫폼 정산 주기 계산 방식</p>
+ * 플랫폼 정산 주기 계산 방식
  */
 export type PlatformSettlementCycleMethod =
 	| PlatformSettlementCycleMethodDaily
@@ -21965,7 +20903,7 @@ export type PlatformSettlementCycleMethod =
 /**
  * 정산 상태
  *
- * <p>정산 상태</p>
+ * 정산 상태
  */
 export type PlatformTransferStatus =
 	| "SCHEDULED"
@@ -21977,8 +20915,9 @@ export type PlatformTransferStatus =
 /**
  * 정산 금액 정보
  *
- * <p>정산 금액 정보</p>
- * <p>정산 금액과 정산 금액 계산에 사용된 금액 정보들 입니다.</p>
+ * 정산 금액 정보
+ *
+ * 정산 금액과 정산 금액 계산에 사용된 금액 정보들 입니다.
  */
 export type PlatformOrderSettlementAmount = {
 	/**
@@ -21999,7 +20938,7 @@ export type PlatformOrderSettlementAmount = {
 	/**
 	 * 결제 금액 부가세 부담금액
 	 *
-	 * <p>참조된 계약의 결제 금액 부가세 감액 여부에 따라 false인 경우 0원, true인 경우 결제 금액 부가세입니다.</p>
+	 * 참조된 계약의 결제 금액 부가세 감액 여부에 따라 false인 경우 0원, true인 경우 결제 금액 부가세입니다.
 	 */
 	paymentVatBurden: number;
 	/**
@@ -22052,14 +20991,14 @@ export type PlatformOrderSettlementAmount = {
 /**
  * 결제 정보
  *
- * <p>결제 정보</p>
+ * 결제 정보
  */
 export type PlatformPayment = PlatformExternalPayment | PlatformPortOnePayment;
 
 /**
  * 주문 항목
  *
- * <p>주문 항목</p>
+ * 주문 항목
  */
 export type PlatformOrderTransferOrderLine = {
 	/**
@@ -22092,7 +21031,7 @@ export type PlatformOrderTransferOrderLine = {
 /**
  * 추가 수수료 정보
  *
- * <p>추가 수수료 정보</p>
+ * 추가 수수료 정보
  */
 export type PlatformOrderTransferAdditionalFee = {
 	/**
@@ -22115,7 +21054,7 @@ export type PlatformOrderTransferAdditionalFee = {
 /**
  * 할인 정보
  *
- * <p>할인 정보</p>
+ * 할인 정보
  */
 export type PlatformOrderTransferDiscount = {
 	/**
@@ -22138,7 +21077,7 @@ export type PlatformOrderTransferDiscount = {
 /**
  * 주문 취소 정보
  *
- * <p>주문 취소 정보</p>
+ * 주문 취소 정보
  */
 export type PlatformOrderTransferCancellation = {
 	/**
@@ -22160,12 +21099,12 @@ export type PlatformOrderTransferCancellation = {
 export type DateRange = {
 	/**
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	from: string;
 	/**
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	until: string;
 };
@@ -22191,53 +21130,54 @@ export type PlatformTransferType = "ORDER" | "ORDER_CANCEL" | "MANUAL";
 /**
  * 정산건 검색 키워드 입력 정보
  *
- * <p>정산건 검색 키워드 입력 정보</p>
- * <p>검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 정산건만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.</p>
+ * 정산건 검색 키워드 입력 정보
+ *
+ * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 정산건만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformTransferFilterInputKeyword = {
 	/**
 	 *
-	 * <p>해당 값이 포함된 정보를 가진 정산건만 조회합니다.</p>
+	 * 해당 값이 포함된 정보를 가진 정산건만 조회합니다.
 	 */
 	all?: string;
 	/**
 	 *
-	 * <p>해당 값이랑 일치하는 paymentId 를 가진 정산건만 조회합니다.</p>
+	 * 해당 값이랑 일치하는 paymentId 를 가진 정산건만 조회합니다.
 	 */
 	paymentId?: string;
 	/**
 	 *
-	 * <p>해당 값이랑 일치하는 transferId 를 가진 정산건만 조회합니다.</p>
+	 * 해당 값이랑 일치하는 transferId 를 가진 정산건만 조회합니다.
 	 */
 	transferId?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 transferMemo 를 가진 정산건만 조회합니다.</p>
+	 * 해당 값이 포함된 transferMemo 를 가진 정산건만 조회합니다.
 	 */
 	transferMemo?: string;
 	/**
 	 *
-	 * <p>해당 값이랑 일치하는 productId 를 가진 정산건만 조회합니다.</p>
+	 * 해당 값이랑 일치하는 productId 를 가진 정산건만 조회합니다.
 	 */
 	productId?: string;
 	/**
 	 *
-	 * <p>해당 값이랑 일치하는 productName 을 가진 정산건만 조회합니다.</p>
+	 * 해당 값이랑 일치하는 productName 을 가진 정산건만 조회합니다.
 	 */
 	productName?: string;
 	/**
 	 *
-	 * <p>해당 값이랑 일치하는 partnerId 를 가진 정산건만 조회합니다.</p>
+	 * 해당 값이랑 일치하는 partnerId 를 가진 정산건만 조회합니다.
 	 */
 	partnerId?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 partnerName 을 가진 정산건만 조회합니다.</p>
+	 * 해당 값이 포함된 partnerName 을 가진 정산건만 조회합니다.
 	 */
 	partnerName?: string;
 	/**
 	 *
-	 * <p>해당 값이 포함된 partnerMemo 를 가진 정산건만 조회합니다.</p>
+	 * 해당 값이 포함된 partnerMemo 를 가진 정산건만 조회합니다.
 	 */
 	partnerMemo?: string;
 };
@@ -22273,7 +21213,7 @@ export type PlatformManualTransferSummary = {
 	memo?: string;
 	/**
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -22335,7 +21275,7 @@ export type PlatformOrderTransferSummary = {
 	memo?: string;
 	/**
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -22366,7 +21306,7 @@ export type PlatformOrderTransferSummary = {
 	payment: PlatformTransferSummaryPayment;
 	/**
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementStartDate: string;
 };
@@ -22406,7 +21346,7 @@ export type PlatformOrderCancelTransferSummary = {
 	memo?: string;
 	/**
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -22437,7 +21377,7 @@ export type PlatformOrderCancelTransferSummary = {
 	payment: PlatformTransferSummaryPayment;
 	/**
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementStartDate: string;
 };
@@ -22445,7 +21385,7 @@ export type PlatformOrderCancelTransferSummary = {
 /**
  * 주문 항목
  *
- * <p>주문 항목</p>
+ * 주문 항목
  */
 export type CreatePlatformOrderTransferBodyOrderLine = {
 	/**
@@ -22473,7 +21413,7 @@ export type CreatePlatformOrderTransferBodyOrderLine = {
 /**
  * 결제 수단 입력 정보
  *
- * <p>결제 수단 입력 정보</p>
+ * 결제 수단 입력 정보
  */
 export type PlatformPaymentMethodInput = {
 	/**
@@ -22522,7 +21462,7 @@ export type PlatformUserDefinedPropertyValue = {
 /**
  * 주문 취소 항목 리스트
  *
- * <p>주문 취소 항목 리스트</p>
+ * 주문 취소 항목 리스트
  */
 export type CreatePlatformOrderCancelTransferBodyOrderLine = {
 	/**
@@ -22545,21 +21485,21 @@ export type CreatePlatformOrderCancelTransferBodyOrderLine = {
 /**
  * 전체 금액 취소
  *
- * <p>전체 금액 취소</p>
+ * 전체 금액 취소
  */
 export type CreatePlatformOrderCancelTransferBodyOrderDetailAll = {};
 
 /**
  * 금액 타입
  *
- * <p>금액 타입</p>
+ * 금액 타입
  */
 export type PlatformCancellableAmountType = "SUPPLY_WITH_VAT" | "TAX_FREE";
 
 /**
  * 금액 타입
  *
- * <p>금액 타입</p>
+ * 금액 타입
  */
 export type PlatformPortOnePaymentCancelAmountType =
 	| "SUPPLY_WITH_VAT"
@@ -22568,7 +21508,7 @@ export type PlatformPortOnePaymentCancelAmountType =
 /**
  * 정산 상태
  *
- * <p>정산 상태</p>
+ * 정산 상태
  */
 export type PlatformPartnerSettlementStatus =
 	| "PAYOUT_PREPARED"
@@ -22580,7 +21520,7 @@ export type PlatformPartnerSettlementStatus =
 /**
  * 정산 유형
  *
- * <p>정산 유형</p>
+ * 정산 유형
  */
 export type PlatformPartnerSettlementType = "MANUAL" | "ORDER" | "ORDER_CANCEL";
 
@@ -22629,7 +21569,7 @@ export type PlatformPartnerManualSettlement = {
 	/**
 	 * 정산 일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -22685,7 +21625,7 @@ export type PlatformPartnerOrderSettlement = {
 	/**
 	 * 정산 일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -22751,7 +21691,7 @@ export type PlatformPartnerOrderCancelSettlement = {
 	/**
 	 * 정산 일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
 	/**
@@ -22806,7 +21746,7 @@ export type PlatformPayoutStatus =
 /**
  * 검색 기준 입력 정보
  *
- * <p>검색 기준 입력 정보</p>
+ * 검색 기준 입력 정보
  */
 export type PlatformPayoutFilterInputCriteria = {
 	/**
@@ -22893,7 +21833,7 @@ export type PlatformBulkPayoutStats = {
 /**
  * (결제, 본인인증 등에) 선택된 채널 정보
  *
- * <p>(결제, 본인인증 등에) 선택된 채널 정보</p>
+ * (결제, 본인인증 등에) 선택된 채널 정보
  */
 export type SelectedChannel = {
 	/**
@@ -22931,7 +21871,7 @@ export type SelectedChannel = {
 /**
  * 요청 시 고객 정보
  *
- * <p>요청 시 고객 정보</p>
+ * 요청 시 고객 정보
  */
 export type IdentityVerificationRequestedCustomer = {
 	/**
@@ -22947,7 +21887,7 @@ export type IdentityVerificationRequestedCustomer = {
 	/**
 	 * 전화번호
 	 *
-	 * <p>특수 문자(-) 없이 숫자로만 이루어진 번호 형식입니다.</p>
+	 * 특수 문자(-) 없이 숫자로만 이루어진 번호 형식입니다.
 	 */
 	phoneNumber?: string;
 };
@@ -22955,7 +21895,7 @@ export type IdentityVerificationRequestedCustomer = {
 /**
  * 인증된 고객 정보
  *
- * <p>인증된 고객 정보</p>
+ * 인증된 고객 정보
  */
 export type IdentityVerificationVerifiedCustomer = {
 	/**
@@ -22976,13 +21916,13 @@ export type IdentityVerificationVerifiedCustomer = {
 	/**
 	 * 전화번호
 	 *
-	 * <p>특수 문자(-) 없이 숫자로만 이루어진 번호 형식입니다.</p>
+	 * 특수 문자(-) 없이 숫자로만 이루어진 번호 형식입니다.
 	 */
 	phoneNumber?: string;
 	/**
 	 * 생년월일 (yyyy-MM-dd)
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthDate: string;
 	/**
@@ -23010,7 +21950,7 @@ export type IdentityVerificationVerifiedCustomer = {
 /**
  * 빌링키 발급 수단 정보
  *
- * <p>빌링키 발급 수단 정보</p>
+ * 빌링키 발급 수단 정보
  */
 export type BillingKeyPaymentMethod =
 	| BillingKeyPaymentMethodCard
@@ -23022,13 +21962,13 @@ export type BillingKeyPaymentMethod =
 /**
  * 고객 정보
  *
- * <p>고객 정보</p>
+ * 고객 정보
  */
 export type Customer = {
 	/**
 	 * 고객 아이디
 	 *
-	 * <p>고객사가 지정한 고객의 고유 식별자입니다.</p>
+	 * 고객사가 지정한 고객의 고유 식별자입니다.
 	 */
 	id?: string;
 	/**
@@ -23071,7 +22011,7 @@ export type Customer = {
 /**
  * 채널 그룹 정보
  *
- * <p>채널 그룹 정보</p>
+ * 채널 그룹 정보
  */
 export type ChannelGroupSummary = {
 	/**
@@ -23094,7 +22034,7 @@ export type ChannelGroupSummary = {
 /**
  * 채널 별 빌링키 발급 응답
  *
- * <p>채널 별 빌링키 발급 응답</p>
+ * 채널 별 빌링키 발급 응답
  */
 export type PgBillingKeyIssueResponse =
 	| FailedPgBillingKeyIssueResponse
@@ -23103,7 +22043,7 @@ export type PgBillingKeyIssueResponse =
 /**
  * 빌링키 정렬 기준
  *
- * <p>빌링키 정렬 기준</p>
+ * 빌링키 정렬 기준
  */
 export type BillingKeySortBy =
 	| "REQUESTED_AT"
@@ -23114,14 +22054,14 @@ export type BillingKeySortBy =
 /**
  * 정렬 방식
  *
- * <p>정렬 방식</p>
+ * 정렬 방식
  */
 export type SortOrder = "DESC" | "ASC";
 
 /**
  * 빌링키 다건 조회 시, 시각 범위를 적용할 필드
  *
- * <p>빌링키 다건 조회 시, 시각 범위를 적용할 필드</p>
+ * 빌링키 다건 조회 시, 시각 범위를 적용할 필드
  */
 export type BillingKeyTimeRangeField =
 	| "REQUESTED_AT"
@@ -23132,21 +22072,21 @@ export type BillingKeyTimeRangeField =
 /**
  * 빌링키 상태
  *
- * <p>빌링키 상태</p>
+ * 빌링키 상태
  */
 export type BillingKeyStatus = "ISSUED" | "DELETED";
 
 /**
  * 결제가 발생한 클라이언트 환경
  *
- * <p>결제가 발생한 클라이언트 환경</p>
+ * 결제가 발생한 클라이언트 환경
  */
 export type PaymentClientType = "SDK_MOBILE" | "SDK_PC" | "API";
 
 /**
  * 통합검색 입력 정보
  *
- * <p>통합검색 입력 정보</p>
+ * 통합검색 입력 정보
  */
 export type BillingKeyTextSearch = {
 	/**
@@ -23162,7 +22102,7 @@ export type BillingKeyTextSearch = {
 /**
  * PG사 결제 모듈
  *
- * <p>PG사 결제 모듈</p>
+ * PG사 결제 모듈
  */
 export type PgProvider =
 	| "HTML5_INICIS"
@@ -23217,7 +22157,7 @@ export type PgProvider =
 /**
  * 빌링키 결제 수단
  *
- * <p>빌링키 결제 수단</p>
+ * 빌링키 결제 수단
  */
 export type BillingKeyPaymentMethodType =
 	| "CARD"
@@ -23228,14 +22168,14 @@ export type BillingKeyPaymentMethodType =
 /**
  * 포트원 버전
  *
- * <p>포트원 버전</p>
+ * 포트원 버전
  */
 export type PortOneVersion = "V1" | "V2";
 
 /**
  * 카드 수단 정보 입력 양식
  *
- * <p>카드 수단 정보 입력 양식</p>
+ * 카드 수단 정보 입력 양식
  */
 export type InstantBillingKeyPaymentMethodInputCard = {
 	/**
@@ -23247,8 +22187,9 @@ export type InstantBillingKeyPaymentMethodInputCard = {
 /**
  * 고객 이름 입력 정보
  *
- * <p>고객 이름 입력 정보</p>
- * <p>두 개의 이름 형식 중 한 가지만 선택하여 입력해주세요.</p>
+ * 고객 이름 입력 정보
+ *
+ * 두 개의 이름 형식 중 한 가지만 선택하여 입력해주세요.
  */
 export type CustomerNameInput = {
 	/**
@@ -23266,15 +22207,16 @@ export type CustomerNameInput = {
 /**
  * 성별
  *
- * <p>성별</p>
+ * 성별
  */
 export type Gender = "MALE" | "FEMALE" | "OTHER";
 
 /**
  * 요청된 입력 정보가 유효하지 않은 경우
  *
- * <p>요청된 입력 정보가 유효하지 않은 경우</p>
- * <p>허가되지 않은 값, 올바르지 않은 형식의 요청 등이 모두 해당됩니다.</p>
+ * 요청된 입력 정보가 유효하지 않은 경우
+ *
+ * 허가되지 않은 값, 올바르지 않은 형식의 요청 등이 모두 해당됩니다.
  */
 export type ChannelSpecificFailureInvalidRequest = {
 	/**
@@ -23294,7 +22236,7 @@ export type ChannelSpecificFailureInvalidRequest = {
 /**
  * PG사에서 오류를 전달한 경우
  *
- * <p>PG사에서 오류를 전달한 경우</p>
+ * PG사에서 오류를 전달한 경우
  */
 export type ChannelSpecificFailurePgProvider = {
 	/**
@@ -23322,7 +22264,7 @@ export type ChannelSpecificFailurePgProvider = {
 /**
  * 결제수단 정보
  *
- * <p>결제수단 정보</p>
+ * 결제수단 정보
  */
 export type PaymentMethod =
 	| PaymentMethodCard
@@ -23335,7 +22277,7 @@ export type PaymentMethod =
 /**
  * 결제 금액 세부 정보
  *
- * <p>결제 금액 세부 정보</p>
+ * 결제 금액 세부 정보
  */
 export type PaymentAmount = {
 	/**
@@ -23361,7 +22303,7 @@ export type PaymentAmount = {
 	/**
 	 * 할인금액
 	 *
-	 * <p>카드사 프로모션, 포트원 프로모션, 적립형 포인트 결제, 쿠폰 할인 등을 포함합니다.</p>
+	 * 카드사 프로모션, 포트원 프로모션, 적립형 포인트 결제, 쿠폰 할인 등을 포함합니다.
 	 */
 	discount: number;
 	/**
@@ -23384,8 +22326,9 @@ export type PaymentAmount = {
 /**
  * 에스크로 정보
  *
- * <p>에스크로 정보</p>
- * <p>V1 결제 건의 경우 타입이 REGISTERED 로 고정됩니다.</p>
+ * 에스크로 정보
+ *
+ * V1 결제 건의 경우 타입이 REGISTERED 로 고정됩니다.
  */
 export type PaymentEscrow =
 	| BeforeRegisteredPaymentEscrow
@@ -23399,7 +22342,7 @@ export type PaymentEscrow =
 /**
  * 결제 건 내 현금영수증 정보
  *
- * <p>결제 건 내 현금영수증 정보</p>
+ * 결제 건 내 현금영수증 정보
  */
 export type PaymentCashReceipt =
 	| CancelledPaymentCashReceipt
@@ -23408,22 +22351,16 @@ export type PaymentCashReceipt =
 /**
  * 조회 시점 기준
  *
- * <p>조회 시점 기준</p>
- * <p>어떤 시점을 기준으로 조회를 할 것인지 선택합니다.
- * CREATED_AT: 결제 건 생성 시점을 기준으로 조회합니다.
- * STATUS_CHANGED_AT: 상태 승인 시점을 기준으로 조회합니다. 결제 건의 최종 상태에 따라 검색 기준이 다르게 적용됩니다.
- * ready -&gt; 결제 요청 시점 기준
- * paid -&gt; 결제 완료 시점 기준
- * cancelled -&gt; 결제 취소 시점 기준
- * failed -&gt; 결제 실패 시점 기준
- * 값을 입력하지 않으면 STATUS_CHANGED_AT 으로 자동 적용됩니다.</p>
+ * 조회 시점 기준
+ *
+ * 어떤 시점을 기준으로 조회를 할 것인지 선택합니다. CREATED\_AT: 결제 건 생성 시점을 기준으로 조회합니다. STATUS\_CHANGED\_AT: 상태 승인 시점을 기준으로 조회합니다. 결제 건의 최종 상태에 따라 검색 기준이 다르게 적용됩니다. ready -> 결제 요청 시점 기준 paid -> 결제 완료 시점 기준 cancelled -> 결제 취소 시점 기준 failed -> 결제 실패 시점 기준 값을 입력하지 않으면 STATUS\_CHANGED\_AT 으로 자동 적용됩니다.
  */
 export type PaymentTimestampType = "CREATED_AT" | "STATUS_CHANGED_AT";
 
 /**
  * 결제 건 상태
  *
- * <p>결제 건 상태</p>
+ * 결제 건 상태
  */
 export type PaymentStatus =
 	| "READY"
@@ -23437,14 +22374,14 @@ export type PaymentStatus =
 /**
  * 결제 건 정렬 기준
  *
- * <p>결제 건 정렬 기준</p>
+ * 결제 건 정렬 기준
  */
 export type PaymentSortBy = "REQUESTED_AT" | "STATUS_CHANGED_AT";
 
 /**
  * 웹훅 전송 상태
  *
- * <p>웹훅 전송 상태</p>
+ * 웹훅 전송 상태
  */
 export type PaymentWebhookStatus =
 	| "SUCCEEDED"
@@ -23454,7 +22391,7 @@ export type PaymentWebhookStatus =
 /**
  * 에스크로 상태
  *
- * <p>에스크로 상태</p>
+ * 에스크로 상태
  */
 export type PaymentFilterInputEscrowStatus =
 	| "REGISTERED"
@@ -23467,7 +22404,7 @@ export type PaymentFilterInputEscrowStatus =
 /**
  * 카드 브랜드
  *
- * <p>카드 브랜드</p>
+ * 카드 브랜드
  */
 export type CardBrand =
 	| "LOCAL"
@@ -23481,21 +22418,21 @@ export type CardBrand =
 /**
  * 카드 유형
  *
- * <p>카드 유형</p>
+ * 카드 유형
  */
 export type CardType = "CREDIT" | "DEBIT" | "GIFT";
 
 /**
  * 카드 소유주 유형
  *
- * <p>카드 소유주 유형</p>
+ * 카드 소유주 유형
  */
 export type CardOwnerType = "PERSONAL" | "CORPORATE";
 
 /**
  * 상품권 종류
  *
- * <p>상품권 종류</p>
+ * 상품권 종류
  */
 export type PaymentMethodGiftCertificateType =
 	| "BOOKNLIFE"
@@ -23507,21 +22444,21 @@ export type PaymentMethodGiftCertificateType =
 /**
  * 입력 시 발급 유형
  *
- * <p>입력 시 발급 유형</p>
+ * 입력 시 발급 유형
  */
 export type CashReceiptInputType = "PERSONAL" | "CORPORATE" | "NO_RECEIPT";
 
 /**
  * 결제건 내 현금영수증 상태
  *
- * <p>결제건 내 현금영수증 상태</p>
+ * 결제건 내 현금영수증 상태
  */
 export type PaymentCashReceiptStatus = "ISSUED" | "CANCELLED";
 
 /**
  * 시간 범위
  *
- * <p>시간 범위</p>
+ * 시간 범위
  */
 export type DateTimeRange = {
 	/**
@@ -23537,7 +22474,7 @@ export type DateTimeRange = {
 /**
  * 통합검색 입력 정보
  *
- * <p>통합검색 입력 정보</p>
+ * 통합검색 입력 정보
  */
 export type PaymentTextSearch = {
 	/**
@@ -23553,7 +22490,7 @@ export type PaymentTextSearch = {
 /**
  * 결제 예약 건 정렬 기준
  *
- * <p>결제 예약 건 정렬 기준</p>
+ * 결제 예약 건 정렬 기준
  */
 export type PaymentScheduleSortBy =
 	| "CREATED_AT"
@@ -23563,7 +22500,7 @@ export type PaymentScheduleSortBy =
 /**
  * 결제 예약 건 상태
  *
- * <p>결제 예약 건 상태</p>
+ * 결제 예약 건 상태
  */
 export type PaymentScheduleStatus =
 	| "SCHEDULED"
@@ -23576,7 +22513,7 @@ export type PaymentScheduleStatus =
 /**
  * 취소 실패 상태
  *
- * <p>취소 실패 상태</p>
+ * 취소 실패 상태
  */
 export type FailedPaymentCancellation = {
 	/**
@@ -23633,7 +22570,7 @@ export type FailedPaymentCancellation = {
 /**
  * 취소 요청 상태
  *
- * <p>취소 요청 상태</p>
+ * 취소 요청 상태
  */
 export type RequestedPaymentCancellation = {
 	/**
@@ -23690,7 +22627,7 @@ export type RequestedPaymentCancellation = {
 /**
  * 취소 완료 상태
  *
- * <p>취소 완료 상태</p>
+ * 취소 완료 상태
  */
 export type SucceededPaymentCancellation = {
 	/**
@@ -23752,7 +22689,7 @@ export type SucceededPaymentCancellation = {
 /**
  * 카드 수단 정보 입력 정보
  *
- * <p>카드 수단 정보 입력 정보</p>
+ * 카드 수단 정보 입력 정보
  */
 export type InstantPaymentMethodInputCard = {
 	/**
@@ -23785,7 +22722,7 @@ export type InstantPaymentMethodInputCard = {
 /**
  * 가상계좌 수단 정보 입력 정보
  *
- * <p>가상계좌 수단 정보 입력 정보</p>
+ * 가상계좌 수단 정보 입력 정보
  */
 export type InstantPaymentMethodInputVirtualAccount = {
 	/**
@@ -23818,7 +22755,7 @@ export type InstantPaymentMethodInputVirtualAccount = {
 /**
  * 물류 회사
  *
- * <p>물류 회사</p>
+ * 물류 회사
  */
 export type PaymentLogisticsCompany =
 	| "LOTTE"
@@ -23855,7 +22792,7 @@ export type PaymentLogisticsCompany =
 /**
  * 웹훅 발송 시 결제 건 상태
  *
- * <p>웹훅 발송 시 결제 건 상태</p>
+ * 웹훅 발송 시 결제 건 상태
  */
 export type PaymentWebhookPaymentStatus =
 	| "READY"
@@ -23869,8 +22806,9 @@ export type PaymentWebhookPaymentStatus =
 /**
  * 웹훅 실행 트리거
  *
- * <p>웹훅 실행 트리거</p>
- * <p>수동 웹훅 재발송, 가상계좌 입금, 비동기 취소 승인 시 발생한 웹훅일 때 필드의 값이 존재합니다.</p>
+ * 웹훅 실행 트리거
+ *
+ * 수동 웹훅 재발송, 가상계좌 입금, 비동기 취소 승인 시 발생한 웹훅일 때 필드의 값이 존재합니다.
  */
 export type PaymentWebhookTrigger =
 	| "MANUAL"
@@ -23883,7 +22821,7 @@ export type PaymentWebhookTrigger =
 /**
  * 웹훅 요청 정보
  *
- * <p>웹훅 요청 정보</p>
+ * 웹훅 요청 정보
  */
 export type PaymentWebhookRequest = {
 	/**
@@ -23906,7 +22844,7 @@ export type PaymentWebhookRequest = {
 /**
  * 웹훅 응답 정보
  *
- * <p>웹훅 응답 정보</p>
+ * 웹훅 응답 정보
  */
 export type PaymentWebhookResponse = {
 	/**
@@ -23934,21 +22872,21 @@ export type PaymentWebhookResponse = {
 /**
  * 분
  *
- * <p>분</p>
+ * 분
  */
 export type AnalyticsTimeGranularityMinute = {};
 
 /**
  * 시간
  *
- * <p>시간</p>
+ * 시간
  */
 export type AnalyticsTimeGranularityHour = {};
 
 /**
  * 일
  *
- * <p>일</p>
+ * 일
  */
 export type AnalyticsTimeGranularityDay = {
 	/**
@@ -23960,7 +22898,7 @@ export type AnalyticsTimeGranularityDay = {
 /**
  * 주
  *
- * <p>주</p>
+ * 주
  */
 export type AnalyticsTimeGranularityWeek = {
 	/**
@@ -23972,7 +22910,7 @@ export type AnalyticsTimeGranularityWeek = {
 /**
  * 월
  *
- * <p>월</p>
+ * 월
  */
 export type AnalyticsTimeGranularityMonth = {
 	/**
@@ -23984,14 +22922,14 @@ export type AnalyticsTimeGranularityMonth = {
 /**
  * 과세 유형
  *
- * <p>과세 유형</p>
+ * 과세 유형
  */
 export type B2bTaxType = "TAXABLE" | "ZERO_RATED" | "FREE";
 
 /**
  * 영수/청구
  *
- * <p>영수/청구</p>
+ * 영수/청구
  */
 export type B2bTaxInvoicePurposeType = "RECEIPT" | "INVOICE" | "NONE";
 
@@ -24003,45 +22941,43 @@ export type B2bTaxInvoiceCompany = {
 	/**
 	 * 사업자등록번호
 	 *
-	 * <ul>
-	 * <li>를 제외한 10자리</li>
-	 * </ul>
+	 * *   를 제외한 10자리
 	 */
 	brn: string;
 	/**
 	 * 종사업자 식별 번호
 	 *
-	 * <p>4자리 고정</p>
+	 * 4자리 고정
 	 */
 	taxRegistrationId?: string;
 	/**
 	 * 상호명
 	 *
-	 * <p>최대 200자</p>
+	 * 최대 200자
 	 */
 	name?: string;
 	/**
 	 * 대표자 성명
 	 *
-	 * <p>최대 100자</p>
+	 * 최대 100자
 	 */
 	ceoName?: string;
 	/**
 	 * 주소
 	 *
-	 * <p>최대 300자</p>
+	 * 최대 300자
 	 */
 	address?: string;
 	/**
 	 * 업태
 	 *
-	 * <p>최대 100자</p>
+	 * 최대 100자
 	 */
 	businessType?: string;
 	/**
 	 * 종목
 	 *
-	 * <p>최대 100자</p>
+	 * 최대 100자
 	 */
 	businessClass?: string;
 	/**
@@ -24054,7 +22990,7 @@ export type B2bTaxInvoiceCompany = {
 /**
  * 세금 계산서 수정
  *
- * <p>세금 계산서 수정</p>
+ * 세금 계산서 수정
  */
 export type B2bModification = {
 	/**
@@ -24072,49 +23008,49 @@ export type B2bModification = {
 /**
  * 품목
  *
- * <p>품목</p>
+ * 품목
  */
 export type B2bTaxInvoiceItem = {
 	/**
 	 * 결제일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	purchaseDate?: string;
 	/**
 	 * 품명
 	 *
-	 * <p>최대 100자</p>
+	 * 최대 100자
 	 */
 	name?: string;
 	/**
 	 * 규격
 	 *
-	 * <p>최대 100자</p>
+	 * 최대 100자
 	 */
 	spec?: string;
 	/**
 	 * 수량
 	 *
-	 * <p>입력 범위 : -99999999.99 ~ 999999999.99, 10^-quantityScale 단위로 치환됨</p>
+	 * 입력 범위 : -99999999.99 ~ 999999999.99, 10^-quantityScale 단위로 치환됨
 	 */
 	quantity?: number;
 	/**
 	 * 수량 단위
 	 *
-	 * <p>입력 범위 : 0 ~ 2, 기본값: 0</p>
+	 * 입력 범위 : 0 ~ 2, 기본값: 0
 	 */
 	quantityScale?: number;
 	/**
 	 * 단가
 	 *
-	 * <p>입력 범위 : -99999999999999.99 ~ 999999999999999.99</p>
+	 * 입력 범위 : -99999999999999.99 ~ 999999999999999.99
 	 */
 	unitCostAmount?: number;
 	/**
 	 * 단가 단위
 	 *
-	 * <p>입력 범위 : 0 ~ 2, 기본값: 0</p>
+	 * 입력 범위 : 0 ~ 2, 기본값: 0
 	 */
 	unitCostAmountScale?: number;
 	/**
@@ -24137,13 +23073,13 @@ export type B2bTaxInvoiceItem = {
 /**
  * 추가 담당자
  *
- * <p>추가 담당자</p>
+ * 추가 담당자
  */
 export type B2bTaxInvoiceAdditionalContact = {
 	/**
 	 * 성명
 	 *
-	 * <p>최대 100자</p>
+	 * 최대 100자
 	 */
 	name?: string;
 	/**
@@ -24181,7 +23117,7 @@ export type PromotionDiscount =
 /**
  * 프로모션 적용 가능한 카드사
  *
- * <p>프로모션 적용 가능한 카드사</p>
+ * 프로모션 적용 가능한 카드사
  */
 export type PromotionCardCompany =
 	| "WOORI_CARD"
@@ -24342,7 +23278,7 @@ export type PlatformSettlementFormulaUnsupportedVariable = {
 /**
  * 플랫폼 파트너 과세 유형
  *
- * <p>플랫폼 파트너 과세 유형</p>
+ * 플랫폼 파트너 과세 유형
  */
 export type PlatformPartnerTaxationType =
 	| "NORMAL"
@@ -24353,7 +23289,7 @@ export type PlatformPartnerTaxationType =
 /**
  * 플랫폼 파트너 사업자 상태
  *
- * <p>플랫폼 파트너 사업자 상태</p>
+ * 플랫폼 파트너 사업자 상태
  */
 export type PlatformPartnerBusinessStatus =
 	| "NOT_VERIFIED"
@@ -24414,7 +23350,7 @@ export type SchedulePlatformPartnersBodyUpdateTypeWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -24427,7 +23363,7 @@ export type SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer = {
 	/**
 	 * 생년월일
 	 *
-	 * <p>날짜를 나타내는 문자열로, <code>yyyy-MM-dd</code> 형식을 따릅니다.</p>
+	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	birthdate?: string;
 };
@@ -24476,7 +23412,7 @@ export type PlatformSettlementCycleMethodManualDatesInput = {
 /**
  * 매일 정산
  *
- * <p>매일 정산</p>
+ * 매일 정산
  */
 export type PlatformSettlementCycleMethodDaily = {
 	/**
@@ -24488,7 +23424,7 @@ export type PlatformSettlementCycleMethodDaily = {
 /**
  * 정해진 날짜(월, 일)에 정산
  *
- * <p>정해진 날짜(월, 일)에 정산</p>
+ * 정해진 날짜(월, 일)에 정산
  */
 export type PlatformSettlementCycleMethodManualDates = {
 	/**
@@ -24505,7 +23441,7 @@ export type PlatformSettlementCycleMethodManualDates = {
 /**
  * 매월 정해진 날(일)에 정산
  *
- * <p>매월 정해진 날(일)에 정산</p>
+ * 매월 정해진 날(일)에 정산
  */
 export type PlatformSettlementCycleMethodMonthly = {
 	/**
@@ -24521,7 +23457,7 @@ export type PlatformSettlementCycleMethodMonthly = {
 /**
  * 매주 정해진 요일에 정산
  *
- * <p>매주 정해진 요일에 정산</p>
+ * 매주 정해진 요일에 정산
  */
 export type PlatformSettlementCycleMethodWeekly = {
 	/**
@@ -24538,7 +23474,7 @@ export type PlatformSettlementCycleMethodWeekly = {
 /**
  * 외부 결제 정보
  *
- * <p>외부 결제 정보</p>
+ * 외부 결제 정보
  */
 export type PlatformExternalPayment = {
 	/**
@@ -24575,7 +23511,7 @@ export type PlatformExternalPayment = {
 /**
  * 포트원 결제 정보
  *
- * <p>포트원 결제 정보</p>
+ * 포트원 결제 정보
  */
 export type PlatformPortOnePayment = {
 	/**
@@ -24622,7 +23558,7 @@ export type PlatformPortOnePayment = {
 /**
  * 상품
  *
- * <p>상품</p>
+ * 상품
  */
 export type PlatformOrderTransferProduct = {
 	/**
@@ -24690,7 +23626,7 @@ export type PlatformTransferSummaryPayment =
 /**
  * 상품
  *
- * <p>상품</p>
+ * 상품
  */
 export type CreatePlatformOrderTransferBodyProduct = {
 	/**
@@ -24753,7 +23689,7 @@ export type PlatformPaymentMethodMobileInput = {};
 /**
  * 간편 결제 입력 정보
  *
- * <p>간편 결제 입력 정보</p>
+ * 간편 결제 입력 정보
  */
 export type PlatformPaymentMethodEasyPayInput = {
 	/**
@@ -24771,14 +23707,14 @@ export type PlatformPaymentMethodEasyPayInput = {
 /**
  * 채널 타입
  *
- * <p>채널 타입</p>
+ * 채널 타입
  */
 export type SelectedChannelType = "LIVE" | "TEST";
 
 /**
  * 카드 정보
  *
- * <p>카드 정보</p>
+ * 카드 정보
  */
 export type BillingKeyPaymentMethodCard = {
 	/**
@@ -24795,7 +23731,7 @@ export type BillingKeyPaymentMethodCard = {
 /**
  * 간편 결제 정보
  *
- * <p>간편 결제 정보</p>
+ * 간편 결제 정보
  */
 export type BillingKeyPaymentMethodEasyPay = {
 	/**
@@ -24817,7 +23753,7 @@ export type BillingKeyPaymentMethodEasyPay = {
 /**
  * 모바일 정보
  *
- * <p>모바일 정보</p>
+ * 모바일 정보
  */
 export type BillingKeyPaymentMethodMobile = {
 	/**
@@ -24834,7 +23770,7 @@ export type BillingKeyPaymentMethodMobile = {
 /**
  * 페이팔 정보
  *
- * <p>페이팔 정보</p>
+ * 페이팔 정보
  */
 export type BillingKeyPaymentMethodPaypal = {
 	/**
@@ -24846,7 +23782,7 @@ export type BillingKeyPaymentMethodPaypal = {
 /**
  * 계좌이체 정보
  *
- * <p>계좌이체 정보</p>
+ * 계좌이체 정보
  */
 export type BillingKeyPaymentMethodTransfer = {
 	/**
@@ -24868,15 +23804,16 @@ export type BillingKeyPaymentMethodTransfer = {
 /**
  * 분리 형식 주소
  *
- * <p>분리 형식 주소</p>
- * <p>oneLine(한 줄 형식 주소) 필드는 항상 존재합니다.</p>
+ * 분리 형식 주소
+ *
+ * oneLine(한 줄 형식 주소) 필드는 항상 존재합니다.
  */
 export type Address = OneLineAddress | SeparatedAddress;
 
 /**
  * 빌링키 발급 실패 채널 응답
  *
- * <p>빌링키 발급 실패 채널 응답</p>
+ * 빌링키 발급 실패 채널 응답
  */
 export type FailedPgBillingKeyIssueResponse = {
 	/**
@@ -24886,7 +23823,7 @@ export type FailedPgBillingKeyIssueResponse = {
 	/**
 	 * 채널
 	 *
-	 * <p>빌링키 발급을 시도한 채널입니다.</p>
+	 * 빌링키 발급을 시도한 채널입니다.
 	 */
 	channel: SelectedChannel;
 	/**
@@ -24899,7 +23836,7 @@ export type FailedPgBillingKeyIssueResponse = {
 /**
  * 빌링키 발급 성공 채널 응답
  *
- * <p>빌링키 발급 성공 채널 응답</p>
+ * 빌링키 발급 성공 채널 응답
  */
 export type IssuedPgBillingKeyIssueResponse = {
 	/**
@@ -24909,7 +23846,7 @@ export type IssuedPgBillingKeyIssueResponse = {
 	/**
 	 * 채널
 	 *
-	 * <p>빌링키 발급을 시도한 채널입니다.</p>
+	 * 빌링키 발급을 시도한 채널입니다.
 	 */
 	channel: SelectedChannel;
 	/**
@@ -24920,7 +23857,7 @@ export type IssuedPgBillingKeyIssueResponse = {
 	/**
 	 * 빌링키 결제수단 상세 정보
 	 *
-	 * <p>채널에 대응되는 PG사에서 응답한 빌링키 발급 수단 정보입니다.</p>
+	 * 채널에 대응되는 PG사에서 응답한 빌링키 발급 수단 정보입니다.
 	 */
 	method?: BillingKeyPaymentMethod;
 };
@@ -24928,7 +23865,7 @@ export type IssuedPgBillingKeyIssueResponse = {
 /**
  * 통합검색 항목
  *
- * <p>통합검색 항목</p>
+ * 통합검색 항목
  */
 export type BillingKeyTextSearchField =
 	| "CARD_BIN"
@@ -24946,7 +23883,7 @@ export type BillingKeyTextSearchField =
 /**
  * 카드 인증 관련 정보
  *
- * <p>카드 인증 관련 정보</p>
+ * 카드 인증 관련 정보
  */
 export type CardCredential = {
 	/**
@@ -24979,7 +23916,7 @@ export type CardCredential = {
 /**
  * 고객 분리형 이름
  *
- * <p>고객 분리형 이름</p>
+ * 고객 분리형 이름
  */
 export type CustomerSeparatedName = {
 	/**
@@ -24997,7 +23934,7 @@ export type CustomerSeparatedName = {
 /**
  * 결제수단 카드 정보
  *
- * <p>결제수단 카드 정보</p>
+ * 결제수단 카드 정보
  */
 export type PaymentMethodCard = {
 	/**
@@ -25029,7 +23966,7 @@ export type PaymentMethodCard = {
 /**
  * 간편 결제 상세 정보
  *
- * <p>간편 결제 상세 정보</p>
+ * 간편 결제 상세 정보
  */
 export type PaymentMethodEasyPay = {
 	/**
@@ -25051,7 +23988,7 @@ export type PaymentMethodEasyPay = {
 /**
  * 상품권 상세 정보
  *
- * <p>상품권 상세 정보</p>
+ * 상품권 상세 정보
  */
 export type PaymentMethodGiftCertificate = {
 	/**
@@ -25073,7 +24010,7 @@ export type PaymentMethodGiftCertificate = {
 /**
  * 모바일 상세 정보
  *
- * <p>모바일 상세 정보</p>
+ * 모바일 상세 정보
  */
 export type PaymentMethodMobile = {
 	/**
@@ -25090,7 +24027,7 @@ export type PaymentMethodMobile = {
 /**
  * 계좌 이체 상세 정보
  *
- * <p>계좌 이체 상세 정보</p>
+ * 계좌 이체 상세 정보
  */
 export type PaymentMethodTransfer = {
 	/**
@@ -25107,7 +24044,7 @@ export type PaymentMethodTransfer = {
 /**
  * 가상계좌 상세 정보
  *
- * <p>가상계좌 상세 정보</p>
+ * 가상계좌 상세 정보
  */
 export type PaymentMethodVirtualAccount = {
 	/**
@@ -25159,7 +24096,7 @@ export type PaymentMethodVirtualAccount = {
 /**
  * 배송 정보 등록 전
  *
- * <p>배송 정보 등록 전</p>
+ * 배송 정보 등록 전
  */
 export type BeforeRegisteredPaymentEscrow = {
 	/**
@@ -25171,7 +24108,7 @@ export type BeforeRegisteredPaymentEscrow = {
 /**
  * 거래 취소
  *
- * <p>거래 취소</p>
+ * 거래 취소
  */
 export type CancelledPaymentEscrow = {
 	/**
@@ -25203,7 +24140,7 @@ export type CancelledPaymentEscrow = {
 /**
  * 구매 확정
  *
- * <p>구매 확정</p>
+ * 구매 확정
  */
 export type ConfirmedPaymentEscrow = {
 	/**
@@ -25240,7 +24177,7 @@ export type ConfirmedPaymentEscrow = {
 /**
  * 배송 완료
  *
- * <p>배송 완료</p>
+ * 배송 완료
  */
 export type DeliveredPaymentEscrow = {
 	/**
@@ -25272,7 +24209,7 @@ export type DeliveredPaymentEscrow = {
 /**
  * 배송 정보 등록 완료
  *
- * <p>배송 정보 등록 완료</p>
+ * 배송 정보 등록 완료
  */
 export type RegisteredPaymentEscrow = {
 	/**
@@ -25304,7 +24241,7 @@ export type RegisteredPaymentEscrow = {
 /**
  * 구매 거절
  *
- * <p>구매 거절</p>
+ * 구매 거절
  */
 export type RejectedPaymentEscrow = {
 	/**
@@ -25336,7 +24273,7 @@ export type RejectedPaymentEscrow = {
 /**
  * 구매 거절 확정
  *
- * <p>구매 거절 확정</p>
+ * 구매 거절 확정
  */
 export type RejectConfirmedPaymentEscrow = {
 	/**
@@ -25368,7 +24305,7 @@ export type RejectConfirmedPaymentEscrow = {
 /**
  * 취소된 현금영수증
  *
- * <p>취소된 현금영수증</p>
+ * 취소된 현금영수증
  */
 export type CancelledPaymentCashReceipt = {
 	/**
@@ -25425,7 +24362,7 @@ export type CancelledPaymentCashReceipt = {
 /**
  * 발급 완료된 현금영수증
  *
- * <p>발급 완료된 현금영수증</p>
+ * 발급 완료된 현금영수증
  */
 export type IssuedPaymentCashReceipt = {
 	/**
@@ -25477,7 +24414,7 @@ export type IssuedPaymentCashReceipt = {
 /**
  * 통합검색 항목
  *
- * <p>통합검색 항목</p>
+ * 통합검색 항목
  */
 export type PaymentTextSearchField =
 	| "ALL"
@@ -25516,14 +24453,15 @@ export type PaymentTextSearchField =
 /**
  * 입금 만료 기한
  *
- * <p>입금 만료 기한</p>
- * <p>validHours와 dueDate 둘 중 하나의 필드만 입력합니다.</p>
+ * 입금 만료 기한
+ *
+ * validHours와 dueDate 둘 중 하나의 필드만 입력합니다.
  */
 export type InstantPaymentMethodInputVirtualAccountExpiry = {
 	/**
 	 * 유효 시간
 	 *
-	 * <p>시간 단위로 입력합니다.</p>
+	 * 시간 단위로 입력합니다.
 	 */
 	validHours?: number;
 	/**
@@ -25536,7 +24474,7 @@ export type InstantPaymentMethodInputVirtualAccountExpiry = {
 /**
  * 가상계좌 발급 방식
  *
- * <p>가상계좌 발급 방식</p>
+ * 가상계좌 발급 방식
  */
 export type InstantPaymentMethodInputVirtualAccountOption = {
 	/**
@@ -25547,7 +24485,7 @@ export type InstantPaymentMethodInputVirtualAccountOption = {
 	/**
 	 * 고정식 가상계좌 발급 방식
 	 *
-	 * <p>발급 유형을 FIXED 로 선택했을 시에만 입력합니다.</p>
+	 * 발급 유형을 FIXED 로 선택했을 시에만 입력합니다.
 	 */
 	fixed?: InstantPaymentMethodInputVirtualAccountOptionFixed;
 };
@@ -25555,7 +24493,7 @@ export type InstantPaymentMethodInputVirtualAccountOption = {
 /**
  * 가상계좌 결제 시 현금영수증 정보
  *
- * <p>가상계좌 결제 시 현금영수증 정보</p>
+ * 가상계좌 결제 시 현금영수증 정보
  */
 export type InstantPaymentMethodInputVirtualAccountCashReceiptInfo = {
 	/**
@@ -25573,7 +24511,7 @@ export type InstantPaymentMethodInputVirtualAccountCashReceiptInfo = {
 /**
  * 세금계산서 담당자
  *
- * <p>세금계산서 담당자</p>
+ * 세금계산서 담당자
  */
 export type B2bTaxInvoiceContact = {
 	/**
@@ -25606,7 +24544,7 @@ export type B2bTaxInvoiceContact = {
 /**
  * 수정 사유
  *
- * <p>수정 사유</p>
+ * 수정 사유
  */
 export type B2bTaxInvoiceModificationType =
 	| "CORRECTION_OF_ENTRY_ERRORS"
@@ -25672,7 +24610,7 @@ export type PlatformSettlementFormulaPosition = {
 /**
  * 월 및 일자 정보
  *
- * <p>월 및 일자 정보</p>
+ * 월 및 일자 정보
  */
 export type MonthDay = {
 	/**
@@ -25688,7 +24626,7 @@ export type MonthDay = {
 /**
  * 결제 수단
  *
- * <p>결제 수단</p>
+ * 결제 수단
  */
 export type PlatformPaymentMethod =
 	| PlatformPaymentMethodCard
@@ -25701,7 +24639,7 @@ export type PlatformPaymentMethod =
 /**
  * 파트너 유형
  *
- * <p>파트너 유형</p>
+ * 파트너 유형
  */
 export type PlatformTransferSummaryPartnerType =
 	| "BUSINESS"
@@ -25765,14 +24703,14 @@ export type PlatformTransferSummaryPortOnePayment = {
 /**
  * 간편 결제 수단
  *
- * <p>간편 결제 수단</p>
+ * 간편 결제 수단
  */
 export type EasyPayMethodType = "CARD" | "TRANSFER" | "CHARGE";
 
 /**
  * 카드 상세 정보
  *
- * <p>카드 상세 정보</p>
+ * 카드 상세 정보
  */
 export type Card = {
 	/**
@@ -25820,7 +24758,7 @@ export type Card = {
 /**
  * 간편 결제 수단
  *
- * <p>간편 결제 수단</p>
+ * 간편 결제 수단
  */
 export type BillingKeyPaymentMethodEasyPayMethod =
 	| BillingKeyPaymentMethodCard
@@ -25830,8 +24768,9 @@ export type BillingKeyPaymentMethodEasyPayMethod =
 /**
  * 한 줄 형식 주소
  *
- * <p>한 줄 형식 주소</p>
- * <p>한 줄 형식 주소만 존재합니다.</p>
+ * 한 줄 형식 주소
+ *
+ * 한 줄 형식 주소만 존재합니다.
  */
 export type OneLineAddress = {
 	/**
@@ -25848,9 +24787,9 @@ export type OneLineAddress = {
 /**
  * 분리 형식 주소
  *
- * <p>분리 형식 주소</p>
- * <p>한 줄 형식 주소와 분리 형식 주소 모두 존재합니다.
- * 한 줄 형식 주소는 분리 형식 주소를 이어 붙인 형태로 생성됩니다.</p>
+ * 분리 형식 주소
+ *
+ * 한 줄 형식 주소와 분리 형식 주소 모두 존재합니다. 한 줄 형식 주소는 분리 형식 주소를 이어 붙인 형태로 생성됩니다.
  */
 export type SeparatedAddress = {
 	/**
@@ -25892,7 +24831,7 @@ export type SeparatedAddress = {
 /**
  * 발급 실패 상세 정보
  *
- * <p>발급 실패 상세 정보</p>
+ * 발급 실패 상세 정보
  */
 export type BillingKeyFailure = {
 	/**
@@ -25920,7 +24859,7 @@ export type BillingKeyFailure = {
 /**
  * 할부 정보
  *
- * <p>할부 정보</p>
+ * 할부 정보
  */
 export type PaymentInstallment = {
 	/**
@@ -25938,7 +24877,7 @@ export type PaymentInstallment = {
 /**
  * 간편 결제 수단
  *
- * <p>간편 결제 수단</p>
+ * 간편 결제 수단
  */
 export type PaymentMethodEasyPayMethod =
 	| PaymentMethodCard
@@ -25948,14 +24887,14 @@ export type PaymentMethodEasyPayMethod =
 /**
  * 가상계좌 유형
  *
- * <p>가상계좌 유형</p>
+ * 가상계좌 유형
  */
 export type PaymentMethodVirtualAccountType = "FIXED" | "NORMAL";
 
 /**
  * 가상계좌 환불 상태
  *
- * <p>가상계좌 환불 상태</p>
+ * 가상계좌 환불 상태
  */
 export type PaymentMethodVirtualAccountRefundStatus =
 	| "PENDING"
@@ -25966,7 +24905,7 @@ export type PaymentMethodVirtualAccountRefundStatus =
 /**
  * 가상계좌 발급 유형
  *
- * <p>가상계좌 발급 유형</p>
+ * 가상계좌 발급 유형
  */
 export type InstantPaymentMethodInputVirtualAccountOptionType =
 	| "NORMAL"
@@ -25975,21 +24914,21 @@ export type InstantPaymentMethodInputVirtualAccountOptionType =
 /**
  * 고정식 가상계좌 발급 유형
  *
- * <p>고정식 가상계좌 발급 유형</p>
- * <p>pgAccountId, accountNumber 유형 중 한 개의 필드만 입력합니다.</p>
+ * 고정식 가상계좌 발급 유형
+ *
+ * pgAccountId, accountNumber 유형 중 한 개의 필드만 입력합니다.
  */
 export type InstantPaymentMethodInputVirtualAccountOptionFixed = {
 	/**
 	 * Account ID 고정식 가상계좌
 	 *
-	 * <p>고객사가 가상계좌번호를 직접 관리하지 않고 PG사가 pgAccountId에 매핑되는 가상계좌번호를 내려주는 방식입니다.
-	 * 동일한 pgAccountId로 가상계좌 발급 요청시에는 항상 같은 가상계좌번호가 내려옵니다.</p>
+	 * 고객사가 가상계좌번호를 직접 관리하지 않고 PG사가 pgAccountId에 매핑되는 가상계좌번호를 내려주는 방식입니다. 동일한 pgAccountId로 가상계좌 발급 요청시에는 항상 같은 가상계좌번호가 내려옵니다.
 	 */
 	pgAccountId?: string;
 	/**
 	 * Account Number 고정식 가상계좌
 	 *
-	 * <p>PG사가 일정 개수만큼의 가상계좌번호를 발급하여 고객사에게 미리 전달하고 고객사가 그 중 하나를 선택하여 사용하는 방식입니다.</p>
+	 * PG사가 일정 개수만큼의 가상계좌번호를 발급하여 고객사에게 미리 전달하고 고객사가 그 중 하나를 선택하여 사용하는 방식입니다.
 	 */
 	accountNumber?: string;
 };
@@ -25997,7 +24936,7 @@ export type InstantPaymentMethodInputVirtualAccountOptionFixed = {
 /**
  * 카드
  *
- * <p>카드</p>
+ * 카드
  */
 export type PlatformPaymentMethodCard = {
 	/**
@@ -26009,7 +24948,7 @@ export type PlatformPaymentMethodCard = {
 /**
  * 간편 결제
  *
- * <p>간편 결제</p>
+ * 간편 결제
  */
 export type PlatformPaymentMethodEasyPay = {
 	/**
@@ -26031,7 +24970,7 @@ export type PlatformPaymentMethodEasyPay = {
 /**
  * 상품권
  *
- * <p>상품권</p>
+ * 상품권
  */
 export type PlatformPaymentMethodGiftCertificate = {
 	/**
@@ -26043,7 +24982,7 @@ export type PlatformPaymentMethodGiftCertificate = {
 /**
  * 모바일
  *
- * <p>모바일</p>
+ * 모바일
  */
 export type PlatformPaymentMethodMobile = {
 	/**
@@ -26055,7 +24994,7 @@ export type PlatformPaymentMethodMobile = {
 /**
  * 계좌이체
  *
- * <p>계좌이체</p>
+ * 계좌이체
  */
 export type PlatformPaymentMethodTransfer = {
 	/**
@@ -26067,7 +25006,7 @@ export type PlatformPaymentMethodTransfer = {
 /**
  * 가상계좌
  *
- * <p>가상계좌</p>
+ * 가상계좌
  */
 export type PlatformPaymentMethodVirtualAccount = {
 	/**
@@ -26079,7 +25018,7 @@ export type PlatformPaymentMethodVirtualAccount = {
 /**
  * 충전식 포인트 결제 정보
  *
- * <p>충전식 포인트 결제 정보</p>
+ * 충전식 포인트 결제 정보
  */
 export type BillingKeyPaymentMethodEasyPayCharge = {
 	/**
@@ -26091,7 +25030,7 @@ export type BillingKeyPaymentMethodEasyPayCharge = {
 /**
  * 충전식 포인트 결제 정보
  *
- * <p>충전식 포인트 결제 정보</p>
+ * 충전식 포인트 결제 정보
  */
 export type PaymentMethodEasyPayMethodCharge = {
 	/**

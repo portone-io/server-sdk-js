@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import SwaggerParser from "@apidevtools/swagger-parser";
 import type { OpenAPIV3 } from "openapi-types";
+import TurndownService from "turndown";
 
 type TypeSchema = {
 	title?: string;
@@ -363,10 +364,12 @@ function extractNameFromRef(ref: string) {
 	return name;
 }
 
+const turndown = new TurndownService();
 function makeComment(lines?: string) {
 	return !lines
 		? []
-		: lines
+		: turndown
+				.turndown(lines)
 				.trim()
 				.split("\n")
 				.map((line) => ` * ${line}`);
