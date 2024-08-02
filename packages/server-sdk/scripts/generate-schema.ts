@@ -1,5 +1,5 @@
-import SwaggerParser from "@apidevtools/swagger-parser";
 import fs from "node:fs/promises";
+import SwaggerParser from "@apidevtools/swagger-parser";
 
 export async function generateSchema() {
 	const json = await SwaggerParser.parse(process.argv[3]);
