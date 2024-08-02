@@ -1,4 +1,9 @@
-import type { components } from "../__generated__/schema";
+import type {
+	BillingKeyFilterInput,
+	BillingKeySortInput,
+	InstantBillingKeyPaymentMethodInput,
+	IssueBillingKeyBody,
+} from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	BillingKeyAlreadyDeletedError,
@@ -13,7 +18,6 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { Prettify } from "./utils/types";
 
 export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 	return {
@@ -125,13 +129,11 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 				/**
 				 * 빌링키 다건 조회 시 정렬 조건
 				 */
-				sort?: components["schemas"]["BillingKeySortInput"];
+				sort?: BillingKeySortInput;
 				/**
 				 * 빌링키 다건 조회를 위한 입력 정보
 				 */
-				filter?: Prettify<
-					Omit<components["schemas"]["BillingKeyFilterInput"], "storeId">
-				>;
+				filter?: Omit<BillingKeyFilterInput, "storeId">;
 			},
 		) {
 			const response = await client.send("/billing-keys", "get", {
@@ -176,10 +178,8 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async issueBillingKey(
-			method: components["schemas"]["InstantBillingKeyPaymentMethodInput"],
-			options?: Prettify<
-				Omit<components["schemas"]["IssueBillingKeyBody"], "storeId" | "method">
-			>,
+			method: InstantBillingKeyPaymentMethodInput,
+			options?: Omit<IssueBillingKeyBody, "storeId" | "method">,
 		) {
 			const response = await client.send("/billing-keys", "post", {
 				body: {

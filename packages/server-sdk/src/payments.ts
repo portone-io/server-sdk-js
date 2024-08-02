@@ -1,4 +1,13 @@
-import type { components } from "../__generated__/schema";
+import type {
+	BillingKeyPaymentInput,
+	CancelPaymentBody,
+	InstantPaymentInput,
+	ModifyEscrowLogisticsBody,
+	PaymentFilterInput,
+	PreRegisterPaymentBody,
+	RegisterEscrowLogisticsBody,
+	RegisterStoreReceiptBodyItem,
+} from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	AlreadyPaidError,
@@ -25,7 +34,6 @@ import {
 	UnknownError,
 	WebhookNotFoundError,
 } from "./error";
-import type { Prettify } from "./utils/types";
 
 export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 	return {
@@ -79,7 +87,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		async getPayments(
 			pageNumber: number,
 			pageSize: number,
-			filter?: components["schemas"]["PaymentFilterInput"],
+			filter?: Omit<PaymentFilterInput, "storeId">,
 		) {
 			const response = await client.send("/payments", "get", {
 				body: {
@@ -120,9 +128,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async preRegisterPayment(
 			paymentId: string,
-			options?: Prettify<
-				Omit<components["schemas"]["PreRegisterPaymentBody"], "storeId">
-			>,
+			options?: Omit<PreRegisterPaymentBody, "storeId">,
 		) {
 			const response = await client.send(
 				"/payments/{paymentId}/pre-register",
@@ -175,9 +181,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async cancelPayment(
 			paymentId: string,
-			options: Prettify<
-				Omit<components["schemas"]["CancelPaymentBody"], "storeId">
-			>,
+			options: Omit<CancelPaymentBody, "storeId">,
 		) {
 			const response = await client.send(
 				"/payments/{paymentId}/cancel",
@@ -253,9 +257,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async payWithBillingKey(
 			paymentId: string,
-			options: Prettify<
-				Omit<components["schemas"]["BillingKeyPaymentInput"], "storeId">
-			>,
+			options: Omit<BillingKeyPaymentInput, "storeId">,
 		) {
 			const response = await client.send(
 				"/payments/{paymentId}/billing-key",
@@ -319,9 +321,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async instantPay(
 			paymentId: string,
-			options: Prettify<
-				Omit<components["schemas"]["InstantPaymentInput"], "storeId">
-			>,
+			options: Omit<InstantPaymentInput, "storeId">,
 		) {
 			const response = await client.send(
 				"/payments/{paymentId}/instant",
@@ -424,9 +424,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async registerEscrowLogistics(
 			paymentId: string,
-			options: Prettify<
-				Omit<components["schemas"]["RegisterEscrowLogisticsBody"], "storeId">
-			>,
+			options: Omit<RegisterEscrowLogisticsBody, "storeId">,
 		) {
 			const response = await client.send(
 				"/payments/{paymentId}/escrow/logistics",
@@ -477,9 +475,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async modifyEscrowLogsitics(
 			paymentId: string,
-			options: Prettify<
-				Omit<components["schemas"]["ModifyEscrowLogisticsBody"], "storeId">
-			>,
+			options: Omit<ModifyEscrowLogisticsBody, "storeId">,
 		) {
 			const response = await client.send(
 				"/payments/{paymentId}/escrow/logistics",
@@ -637,7 +633,7 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async registerStoreReceipt(
 			paymentId: string,
-			items: components["schemas"]["RegisterStoreReceiptBodyItem"][],
+			items: RegisterStoreReceiptBodyItem[],
 		) {
 			const response = await client.send(
 				"/payments/{paymentId}/register-store-receipt",

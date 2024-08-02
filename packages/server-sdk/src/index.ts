@@ -7,7 +7,7 @@ import { PaymentApi } from "./payments";
 import { PgProviderApi } from "./pg-providers";
 export type * from "./error";
 export { InvalidInputError } from "./error";
-
+export * as Schema from "../__generated__/schema.js";
 export * as Webhook from "./webhook";
 
 export function PortOneApi(secret: string, init?: ApiRequestClientInit) {

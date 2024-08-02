@@ -1,4 +1,4 @@
-import type { components } from "../__generated__/schema";
+import type { IssueCashReceiptBody } from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	CashReceiptAlreadyIssuedError,
@@ -11,7 +11,6 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { Prettify } from "./utils/types";
 
 export function CashReceiptApi(client: ReturnType<typeof ApiClient>) {
 	return {
@@ -66,11 +65,7 @@ export function CashReceiptApi(client: ReturnType<typeof ApiClient>) {
 		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
 		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
-		async issueCashReceipt(
-			options: Prettify<
-				Omit<components["schemas"]["IssueCashReceiptBody"], "storeId">
-			>,
-		) {
+		async issueCashReceipt(options: Omit<IssueCashReceiptBody, "storeId">) {
 			const response = await client.send("/cash-receipts", "post", {
 				body: {
 					storeId: client.storeId,

@@ -1,4 +1,4 @@
-import type { components } from "../__generated__/schema";
+import type Schema from "../__generated__/schema";
 
 /**
  * 포트원 SDK에서 발생하는 모든 에러의 기반 타입입니다.
@@ -45,7 +45,7 @@ export class InvalidInputError extends PortOneError {
 export class InvalidRequestError extends PortOneError {
 	readonly _tag = "PortOneInvalidRequestError";
 
-	constructor(response: components["schemas"]["InvalidRequestError"]) {
+	constructor(response: Schema.InvalidRequestError) {
 		super(response.message ?? "입력 정보가 올바르지 않습니다.");
 		Object.setPrototypeOf(this, InvalidRequestError.prototype);
 		this.name = "InvalidRequestError";
@@ -61,7 +61,7 @@ export class InvalidRequestError extends PortOneError {
 export class UnauthorizedError extends PortOneError {
 	readonly _tag = "PortOneUnauthorizedError";
 
-	constructor(response: components["schemas"]["UnauthorizedError"]) {
+	constructor(response: Schema.UnauthorizedError) {
 		super(response.message ?? "인증 정보가 유효하지 않습니다.");
 		Object.setPrototypeOf(this, UnauthorizedError.prototype);
 		this.name = "UnauthorizedError";
@@ -74,7 +74,7 @@ export class UnauthorizedError extends PortOneError {
 export class ForbiddenError extends PortOneError {
 	readonly _tag = "PortOneForbiddenError";
 
-	constructor(response: components["schemas"]["ForbiddenError"]) {
+	constructor(response: Schema.ForbiddenError) {
 		super(response.message ?? "서버로부터 요청이 거절되었습니다.");
 		Object.setPrototypeOf(this, ForbiddenError.prototype);
 		this.name = "ForbiddenError";
@@ -87,7 +87,7 @@ export class ForbiddenError extends PortOneError {
 export class AlreadyPaidError extends PortOneError {
 	readonly _tag = "PortOneAlreadyPaidError";
 
-	constructor(response: components["schemas"]["AlreadyPaidError"]) {
+	constructor(response: Schema.AlreadyPaidError) {
 		super(response.message ?? "이미 결제가 완료되었습니다.");
 		Object.setPrototypeOf(this, AlreadyPaidError.prototype);
 		this.name = "AlreadyPaidError";
@@ -100,9 +100,7 @@ export class AlreadyPaidError extends PortOneError {
 export class CancelAmountExceedsCancellableAmountError extends PortOneError {
 	readonly _tag = "PortOneCancelAmountExceedsCancellableAmountError";
 
-	constructor(
-		response: components["schemas"]["CancelAmountExceedsCancellableAmountError"],
-	) {
+	constructor(response: Schema.CancelAmountExceedsCancellableAmountError) {
 		super(
 			response.message ?? "결제 취소 금액이 취소 가능 금액을 초과했습니다.",
 		);
@@ -121,7 +119,7 @@ export class CancelTaxAmountExceedsCancellableTaxAmountError extends PortOneErro
 	readonly _tag = "PortOneCancelTaxAmountExceedsCancellableTaxAmountError";
 
 	constructor(
-		response: components["schemas"]["CancelTaxAmountExceedsCancellableTaxAmountError"],
+		response: Schema.CancelTaxAmountExceedsCancellableTaxAmountError,
 	) {
 		super(
 			response.message ??
@@ -143,7 +141,7 @@ export class CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError extends Por
 		"PortOneCancelTaxFreeAmountExceedsCancellableTaxFreeAmountError";
 
 	constructor(
-		response: components["schemas"]["CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError"],
+		response: Schema.CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError,
 	) {
 		super(
 			response.message ??
@@ -163,9 +161,7 @@ export class CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError extends Por
 export class CancellableAmountConsistencyBrokenError extends PortOneError {
 	readonly _tag = "PortOneCancellableAmountConsistencyBrokenError";
 
-	constructor(
-		response: components["schemas"]["CancellableAmountConsistencyBrokenError"],
-	) {
+	constructor(response: Schema.CancellableAmountConsistencyBrokenError) {
 		super(response.message ?? "취소 가능 잔액 검증에 실패했습니다.");
 		Object.setPrototypeOf(
 			this,
@@ -181,7 +177,7 @@ export class CancellableAmountConsistencyBrokenError extends PortOneError {
 export class PaymentAlreadyCancelledError extends PortOneError {
 	readonly _tag = "PortOnePaymentAlreadyCancelledError";
 
-	constructor(response: components["schemas"]["PaymentAlreadyCancelledError"]) {
+	constructor(response: Schema.PaymentAlreadyCancelledError) {
 		super(response.message ?? "결제가 이미 취소되었습니다.");
 		Object.setPrototypeOf(this, PaymentAlreadyCancelledError.prototype);
 		this.name = "PaymentAlreadyCancelledError";
@@ -194,7 +190,7 @@ export class PaymentAlreadyCancelledError extends PortOneError {
 export class PaymentNotFoundError extends PortOneError {
 	readonly _tag = "PortOnePaymentNotFoundError";
 
-	constructor(response: components["schemas"]["PaymentNotFoundError"]) {
+	constructor(response: Schema.PaymentNotFoundError) {
 		super(response.message ?? "결제 건이 존재하지 않습니다.");
 		Object.setPrototypeOf(this, PaymentNotFoundError.prototype);
 		this.name = "PaymentNotFoundError";
@@ -207,7 +203,7 @@ export class PaymentNotFoundError extends PortOneError {
 export class PaymentNotPaidError extends PortOneError {
 	readonly _tag = "PortOnePaymentNotPaidError";
 
-	constructor(response: components["schemas"]["PaymentNotPaidError"]) {
+	constructor(response: Schema.PaymentNotPaidError) {
 		super(response.message ?? "결제가 완료되지 않았습니다.");
 		Object.setPrototypeOf(this, PaymentNotPaidError.prototype);
 		this.name = "PaymentNotPaidError";
@@ -223,7 +219,7 @@ export class PgProviderError extends PortOneError {
 	readonly pgCode: string;
 	readonly pgMessage: string;
 
-	constructor(response: components["schemas"]["PgProviderError"]) {
+	constructor(response: Schema.PgProviderError) {
 		super(response.message ?? "PG사에서 오류를 전달했습니다.");
 		Object.setPrototypeOf(this, PgProviderError.prototype);
 		this.name = "PgProviderError";
@@ -238,9 +234,7 @@ export class PgProviderError extends PortOneError {
 export class SumOfPartsExceedsCancelAmountError extends PortOneError {
 	readonly _tag = "PortOneSumOfPartsExceedsCancelAmountError";
 
-	constructor(
-		response: components["schemas"]["SumOfPartsExceedsCancelAmountError"],
-	) {
+	constructor(response: Schema.SumOfPartsExceedsCancelAmountError) {
 		super(
 			response.message ?? "하위 항목들의 합이 전체 취소 금액을 초과했습니다.",
 		);
@@ -255,9 +249,7 @@ export class SumOfPartsExceedsCancelAmountError extends PortOneError {
 export class BillingKeyAlreadyDeletedError extends PortOneError {
 	readonly _tag = "PortOneBillingKeyAlreadyDeletedError";
 
-	constructor(
-		response: components["schemas"]["BillingKeyAlreadyDeletedError"],
-	) {
+	constructor(response: Schema.BillingKeyAlreadyDeletedError) {
 		super(response.message ?? "빌링키가 이미 삭제되었습니다.");
 		Object.setPrototypeOf(this, BillingKeyAlreadyDeletedError.prototype);
 		this.name = "BillingKeyAlreadyDeletedError";
@@ -270,7 +262,7 @@ export class BillingKeyAlreadyDeletedError extends PortOneError {
 export class BillingKeyNotFoundError extends PortOneError {
 	readonly _tag = "PortOneBillingKeyNotFoundError";
 
-	constructor(response: components["schemas"]["BillingKeyNotFoundError"]) {
+	constructor(response: Schema.BillingKeyNotFoundError) {
 		super(response.message ?? "빌링키가 존재하지 않습니다.");
 		Object.setPrototypeOf(this, BillingKeyNotFoundError.prototype);
 		this.name = "BillingKeyNotFoundError";
@@ -283,7 +275,7 @@ export class BillingKeyNotFoundError extends PortOneError {
 export class ChannelNotFoundError extends PortOneError {
 	readonly _tag = "PortOneChannelNotFoundError";
 
-	constructor(response: components["schemas"]["ChannelNotFoundError"]) {
+	constructor(response: Schema.ChannelNotFoundError) {
 		super(response.message ?? "요청된 채널이 존재하지 않습니다.");
 		Object.setPrototypeOf(this, ChannelNotFoundError.prototype);
 		this.name = "ChannelNotFoundError";
@@ -296,9 +288,7 @@ export class ChannelNotFoundError extends PortOneError {
 export class SumOfPartsExceedsTotalAmountError extends PortOneError {
 	readonly _tag = "PortOneSumOfPartsExceedsTotalAmountError";
 
-	constructor(
-		response: components["schemas"]["SumOfPartsExceedsTotalAmountError"],
-	) {
+	constructor(response: Schema.SumOfPartsExceedsTotalAmountError) {
 		super(
 			response.message ?? "하위 항목들의 합이 전체 결제 금액을 초과했습니다.",
 		);
@@ -313,9 +303,7 @@ export class SumOfPartsExceedsTotalAmountError extends PortOneError {
 export class PaymentNotWaitingForDepositError extends PortOneError {
 	readonly _tag = "PortOnePaymentNotWaitingForDepositError";
 
-	constructor(
-		response: components["schemas"]["PaymentNotWaitingForDepositError"],
-	) {
+	constructor(response: Schema.PaymentNotWaitingForDepositError) {
 		super(response.message ?? "결제 건이 입금 대기 상태가 아닙니다.");
 		Object.setPrototypeOf(this, PaymentNotWaitingForDepositError.prototype);
 		this.name = "PaymentNotWaitingForDepositError";
@@ -328,7 +316,7 @@ export class PaymentNotWaitingForDepositError extends PortOneError {
 export class WebhookNotFoundError extends PortOneError {
 	readonly _tag = "PortOneWebhookNotFoundError";
 
-	constructor(response: components["schemas"]["WebhookNotFoundError"]) {
+	constructor(response: Schema.WebhookNotFoundError) {
 		super(response.message ?? "웹훅 내역이 존재하지 않습니다.");
 		Object.setPrototypeOf(this, WebhookNotFoundError.prototype);
 		this.name = "WebhookNotFoundError";
@@ -341,7 +329,7 @@ export class WebhookNotFoundError extends PortOneError {
 export class BillingKeyNotIssuedError extends PortOneError {
 	readonly _tag = "PortOneBillingKeyNotIssuedError";
 
-	constructor(response: components["schemas"]["BillingKeyNotIssuedError"]) {
+	constructor(response: Schema.BillingKeyNotIssuedError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, BillingKeyNotIssuedError.prototype);
 		this.name = "BillingKeyNotIssuedError";
@@ -353,10 +341,10 @@ export class BillingKeyNotIssuedError extends PortOneError {
  */
 export class ChannelSpecificError extends PortOneError {
 	readonly _tag = "PortOneChannelSpecificError";
-	readonly failures: components["schemas"]["ChannelSpecificFailure"][];
-	readonly succeededChannels: components["schemas"]["SelectedChannel"][];
+	readonly failures: Schema.ChannelSpecificFailure[];
+	readonly succeededChannels: Schema.SelectedChannel[];
 
-	constructor(response: components["schemas"]["ChannelSpecificError"]) {
+	constructor(response: Schema.ChannelSpecificError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, ChannelSpecificError.prototype);
 		this.name = "ChannelSpecificError";
@@ -371,9 +359,7 @@ export class ChannelSpecificError extends PortOneError {
 export class PaymentScheduleAlreadyExistsError extends PortOneError {
 	readonly _tag = "PortOnePaymentScheduleAlreadyExistsError";
 
-	constructor(
-		response: components["schemas"]["PaymentScheduleAlreadyExistsError"],
-	) {
+	constructor(response: Schema.PaymentScheduleAlreadyExistsError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, PaymentScheduleAlreadyExistsError.prototype);
 		this.name = "PaymentScheduleAlreadyExistsError";
@@ -387,7 +373,7 @@ export class RemainedAmountLessThanPromotionMinPaymentAmountError extends PortOn
 	readonly _tag = "PortOneRemainedAmountLessThanPromotionMinPaymentAmountError";
 
 	constructor(
-		response: components["schemas"]["RemainedAmountLessThanPromotionMinPaymentAmountError"],
+		response: Schema.RemainedAmountLessThanPromotionMinPaymentAmountError,
 	) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(
@@ -404,9 +390,7 @@ export class RemainedAmountLessThanPromotionMinPaymentAmountError extends PortOn
 export class DiscountAmountExceedsTotalAmountError extends PortOneError {
 	readonly _tag = "PortOneDiscountAmountExceedsTotalAmountError";
 
-	constructor(
-		response: components["schemas"]["DiscountAmountExceedsTotalAmountError"],
-	) {
+	constructor(response: Schema.DiscountAmountExceedsTotalAmountError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(
 			this,
@@ -422,9 +406,7 @@ export class DiscountAmountExceedsTotalAmountError extends PortOneError {
 export class PaymentScheduleAlreadyProcessedError extends PortOneError {
 	readonly _tag = "PortOnePaymentScheduleAlreadyProcessedError";
 
-	constructor(
-		response: components["schemas"]["PaymentScheduleAlreadyProcessedError"],
-	) {
+	constructor(response: Schema.PaymentScheduleAlreadyProcessedError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, PaymentScheduleAlreadyProcessedError.prototype);
 		this.name = "PaymentScheduleAlreadyProcessedError";
@@ -437,9 +419,7 @@ export class PaymentScheduleAlreadyProcessedError extends PortOneError {
 export class PromotionPayMethodDoesNotMatchError extends PortOneError {
 	readonly _tag = "PortOnePromotionPayMethodDoesNotMatchError";
 
-	constructor(
-		response: components["schemas"]["PromotionPayMethodDoesNotMatchError"],
-	) {
+	constructor(response: Schema.PromotionPayMethodDoesNotMatchError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, PromotionPayMethodDoesNotMatchError.prototype);
 		this.name = "PromotionPayMethodDoesNotMatchError";
@@ -452,9 +432,7 @@ export class PromotionPayMethodDoesNotMatchError extends PortOneError {
 export class PaymentScheduleAlreadyRevokedError extends PortOneError {
 	readonly _tag = "PortOnePaymentScheduleAlreadyRevokedError";
 
-	constructor(
-		response: components["schemas"]["PaymentScheduleAlreadyRevokedError"],
-	) {
+	constructor(response: Schema.PaymentScheduleAlreadyRevokedError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, PaymentScheduleAlreadyRevokedError.prototype);
 		this.name = "PaymentScheduleAlreadyRevokedError";
@@ -467,7 +445,7 @@ export class PaymentScheduleAlreadyRevokedError extends PortOneError {
 export class PaymentScheduleNotFoundError extends PortOneError {
 	readonly _tag = "PortOnePaymentScheduleNotFoundError";
 
-	constructor(response: components["schemas"]["PaymentScheduleNotFoundError"]) {
+	constructor(response: Schema.PaymentScheduleNotFoundError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, PaymentScheduleNotFoundError.prototype);
 		this.name = "PaymentScheduleNotFoundError";
@@ -480,7 +458,7 @@ export class PaymentScheduleNotFoundError extends PortOneError {
 export class AlreadyPaidOrWaitingError extends PortOneError {
 	readonly _tag = "PortOneAlreadyPaidOrWaitingError";
 
-	constructor(response: components["schemas"]["AlreadyPaidOrWaitingError"]) {
+	constructor(response: Schema.AlreadyPaidOrWaitingError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, AlreadyPaidOrWaitingError.prototype);
 		this.name = "AlreadyPaidOrWaitingError";
@@ -493,9 +471,7 @@ export class AlreadyPaidOrWaitingError extends PortOneError {
 export class IdentityVerificationAlreadySentError extends PortOneError {
 	readonly _tag = "PortOneIdentityVerificationAlreadySentError";
 
-	constructor(
-		response: components["schemas"]["IdentityVerificationAlreadySentError"],
-	) {
+	constructor(response: Schema.IdentityVerificationAlreadySentError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, IdentityVerificationAlreadySentError.prototype);
 		this.name = "IdentityVerificationAlreadySentError";
@@ -508,9 +484,7 @@ export class IdentityVerificationAlreadySentError extends PortOneError {
 export class IdentityVerificationAlreadyVerifiedError extends PortOneError {
 	readonly _tag = "PortOneIdentityVerificationAlreadyVerifiedError";
 
-	constructor(
-		response: components["schemas"]["IdentityVerificationAlreadyVerifiedError"],
-	) {
+	constructor(response: Schema.IdentityVerificationAlreadyVerifiedError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(
 			this,
@@ -526,9 +500,7 @@ export class IdentityVerificationAlreadyVerifiedError extends PortOneError {
 export class IdentityVerificationNotFoundError extends PortOneError {
 	readonly _tag = "PortOneIdentityVerificationNotFoundError";
 
-	constructor(
-		response: components["schemas"]["IdentityVerificationNotFoundError"],
-	) {
+	constructor(response: Schema.IdentityVerificationNotFoundError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, IdentityVerificationNotFoundError.prototype);
 		this.name = "IdentityVerificationNotFoundError";
@@ -541,9 +513,7 @@ export class IdentityVerificationNotFoundError extends PortOneError {
 export class IdentityVerificationNotSentError extends PortOneError {
 	readonly _tag = "PortOneIdentityVerificationNotSentError";
 
-	constructor(
-		response: components["schemas"]["IdentityVerificationNotSentError"],
-	) {
+	constructor(response: Schema.IdentityVerificationNotSentError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, IdentityVerificationNotSentError.prototype);
 		this.name = "IdentityVerificationNotSentError";
@@ -556,7 +526,7 @@ export class IdentityVerificationNotSentError extends PortOneError {
 export class CashReceiptNotIssuedError extends PortOneError {
 	readonly _tag = "PortOneCashReceiptNotIssuedError";
 
-	constructor(response: components["schemas"]["CashReceiptNotIssuedError"]) {
+	constructor(response: Schema.CashReceiptNotIssuedError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, CashReceiptNotIssuedError.prototype);
 		this.name = "CashReceiptNotIssuedError";
@@ -569,7 +539,7 @@ export class CashReceiptNotIssuedError extends PortOneError {
 export class CashReceiptNotFoundError extends PortOneError {
 	readonly _tag = "PortOneCashReceiptNotFoundError";
 
-	constructor(response: components["schemas"]["CashReceiptNotFoundError"]) {
+	constructor(response: Schema.CashReceiptNotFoundError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, CashReceiptNotFoundError.prototype);
 		this.name = "CashReceiptNotFoundError";
@@ -582,9 +552,7 @@ export class CashReceiptNotFoundError extends PortOneError {
 export class CashReceiptAlreadyIssuedError extends PortOneError {
 	readonly _tag = "PortOneCashReceiptAlreadyIssuedError";
 
-	constructor(
-		response: components["schemas"]["CashReceiptAlreadyIssuedError"],
-	) {
+	constructor(response: Schema.CashReceiptAlreadyIssuedError) {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, CashReceiptAlreadyIssuedError.prototype);
 		this.name = "CashReceiptAlreadyIssuedError";

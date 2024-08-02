@@ -1,24 +1,20 @@
-import type {
-	AvailableMethods,
-	EffectiveQuerySchema,
-	ErrorJson,
-	MergedBody,
-	PathSchema,
-	SdkPaths,
-	SuccessJson,
-} from "./api";
+import type { MethodType, SdkPaths } from "./api";
 
 export type ApiRequestClientInit = {
 	apiBase?: string;
 	storeId?: string;
 };
 
-type ApiResponse<T, E> =
+type TryIndex<T, U extends PropertyKey> = U extends keyof T ? T[U] : never;
+type PortOneResult<
+	Path extends keyof SdkPaths,
+	Method extends keyof SdkPaths[Path],
+> =
 	| {
-			success: T;
+			success: TryIndex<SdkPaths[Path][Method], "success">;
 	  }
 	| {
-			error: E;
+			error: TryIndex<SdkPaths[Path][Method], "error">;
 	  };
 
 export function ApiClient(secret: string, init?: ApiRequestClientInit) {
@@ -27,28 +23,12 @@ export function ApiClient(secret: string, init?: ApiRequestClientInit) {
 		storeId: init?.storeId,
 		async send<
 			Path extends keyof SdkPaths,
-			Method extends AvailableMethods<SdkPaths[Path]>,
+			Method extends string & keyof SdkPaths[Path],
 		>(
 			path: Path,
 			method: Method,
-			args: (PathSchema<Path, Method> extends object
-				? {
-						path: PathSchema<Path, Method>;
-					}
-				: object) &
-				(EffectiveQuerySchema<Path, Method> extends never
-					? object
-					: keyof EffectiveQuerySchema<Path, Method> extends never
-						? object
-						: {
-								query: EffectiveQuerySchema<Path, Method>;
-							}) &
-				(MergedBody<Path, Method> extends never
-					? object
-					: { body: MergedBody<Path, Method> }),
-		): Promise<
-			ApiResponse<SuccessJson<Path, Method>, ErrorJson<Path, Method>>
-		> {
+			args: Extract<SdkPaths[Path][Method], MethodType>["parameters"],
+		): Promise<PortOneResult<Path, Method>> {
 			let replacedPath: string = path;
 			if ("path" in args) {
 				for (const [key, value] of Object.entries(args.path)) {

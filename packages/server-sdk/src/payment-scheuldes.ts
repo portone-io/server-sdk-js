@@ -1,4 +1,9 @@
-import type { components } from "../__generated__/schema";
+import type {
+	BillingKeyPaymentInput,
+	PaymentScheduleFilterInput,
+	PaymentScheduleSortInput,
+	RevokePaymentSchedulesBody,
+} from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	AlreadyPaidOrWaitingError,
@@ -14,7 +19,6 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { Prettify } from "./utils/types";
 
 export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 	return {
@@ -77,8 +81,8 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 			pageNumber: number,
 			pageSize: number,
 			options?: {
-				sort?: components["schemas"]["PaymentScheduleSortInput"];
-				filter?: components["schemas"]["PaymentScheduleFilterInput"];
+				sort?: PaymentScheduleSortInput;
+				filter?: Omit<PaymentScheduleFilterInput, "storeId">;
 			},
 		) {
 			const response = await client.send("/payment-schedules", "get", {
@@ -124,9 +128,7 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async revokePaymentSchedules(
-			options?: Prettify<
-				Omit<components["schemas"]["RevokePaymentSchedulesBody"], "storeId">
-			>,
+			options?: Omit<RevokePaymentSchedulesBody, "storeId">,
 		) {
 			const response = await client.send("/payment-schedules", "delete", {
 				body: {
@@ -177,7 +179,7 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async schedulePayment(
 			paymentId: string,
-			payment: components["schemas"]["BillingKeyPaymentInput"],
+			payment: Omit<BillingKeyPaymentInput, "storeId">,
 			timeToPay: string,
 		) {
 			const response = await client.send(

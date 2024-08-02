@@ -1,4 +1,4 @@
-import type { components } from "../__generated__/schema";
+import type { SendIdentityVerificationBody } from "../__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	ChannelNotFoundError,
@@ -12,7 +12,6 @@ import {
 	UnauthorizedError,
 	UnknownError,
 } from "./error";
-import type { Prettify } from "./utils/types";
 
 export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 	return {
@@ -71,9 +70,7 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 		 */
 		async sendIdentityVerification(
 			identityVerificationId: string,
-			options: Prettify<
-				Omit<components["schemas"]["SendIdentityVerificationBody"], "storeId">
-			>,
+			options: Omit<SendIdentityVerificationBody, "storeId">,
 		) {
 			const response = await client.send(
 				"/identity-verifications/{identityVerificationId}/send",
