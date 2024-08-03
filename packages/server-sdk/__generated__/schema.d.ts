@@ -30,8 +30,6 @@ export type Paths = {
 			parameters: {
 				body: RefreshTokenBody;
 			};
-			/**
-			 */
 			success: RefreshTokenResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -42,7 +40,6 @@ export type Paths = {
 	};
 	"/platform": {
 		/**
-		 *
 		 * 고객사의 플랫폼 정보를 조회합니다. 요청된 Authorization header 를 통해 자동으로 요청자의 고객사를 특정합니다.
 		 */
 		get: {
@@ -59,7 +56,6 @@ export type Paths = {
 			error: GetPlatformError;
 		};
 		/**
-		 *
 		 * 고객사의 플랫폼 관련 정보를 업데이트합니다. 요청된 Authorization header 를 통해 자동으로 요청자의 고객사를 특정합니다.
 		 */
 		patch: {
@@ -82,14 +78,12 @@ export type Paths = {
 	};
 	"/platform/discount-share-policy-filter-options": {
 		/**
-		 *
 		 * 할인 분담 정책 다건 조회 시 필요한 필터 옵션을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 보관 조회 여부
 					 *
 					 * true 이면 보관된 할인 분담의 필터 옵션을 조회하고, false 이면 보관되지 않은 할인 분담의 필터 옵션을 조회합니다. 기본값은 false 입니다.
@@ -165,7 +159,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 조회할 할인 분담 정책 아이디
 					 */
 					id: string;
@@ -194,7 +187,6 @@ export type Paths = {
 				body: UpdatePlatformDiscountSharePolicyBody;
 				path: {
 					/**
-					 *
 					 * 업데이트할 할인 분담 정책 아이디
 					 */
 					id: string;
@@ -217,14 +209,12 @@ export type Paths = {
 	};
 	"/platform/discount-share-policies/{id}/schedule": {
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 할인 분담의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 할인 분담 정책 아이디
 					 */
 					id: string;
@@ -244,7 +234,6 @@ export type Paths = {
 			error: GetPlatformDiscountSharePolicyScheduleError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 할인 분담에 예약 업데이트를 재설정합니다.
 		 */
 		put: {
@@ -252,7 +241,6 @@ export type Paths = {
 				body: ReschedulePlatformDiscountSharePolicyBody;
 				path: {
 					/**
-					 *
 					 * 할인 분담 정책 아이디
 					 */
 					id: string;
@@ -272,7 +260,6 @@ export type Paths = {
 			error: RescheduleDiscountSharePolicyError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 할인 분담에 업데이트를 예약합니다.
 		 */
 		post: {
@@ -280,7 +267,6 @@ export type Paths = {
 				body: SchedulePlatformDiscountSharePolicyBody;
 				path: {
 					/**
-					 *
 					 * 할인 분담 정책 아이디
 					 */
 					id: string;
@@ -301,14 +287,12 @@ export type Paths = {
 			error: ScheduleDiscountSharePolicyError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 할인 분담의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 할인 분담 정책 아이디
 					 */
 					id: string;
@@ -338,7 +322,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 할인 분담 아이디
 					 */
 					id: string;
@@ -369,7 +352,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 할인 분담 아이디
 					 */
 					id: string;
@@ -444,7 +426,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 조회할 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -473,7 +454,6 @@ export type Paths = {
 				body: UpdatePlatformAdditionalFeePolicyBody;
 				path: {
 					/**
-					 *
 					 * 업데이트할 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -496,14 +476,12 @@ export type Paths = {
 	};
 	"/platform/additional-fee-policies/{id}/schedule": {
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 추가 수수료 정책의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -522,15 +500,11 @@ export type Paths = {
 			 */
 			error: GetPlatformAdditionalFeePolicyScheduleError;
 		};
-		/**
-		 *
-		 */
 		put: {
 			parameters: {
 				body: ReschedulePlatformAdditionalFeePolicyBody;
 				path: {
 					/**
-					 *
 					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -550,7 +524,6 @@ export type Paths = {
 			error: RescheduleAdditionalFeePolicyError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 추가 수수료 정책에 업데이트를 예약합니다.
 		 */
 		post: {
@@ -558,7 +531,6 @@ export type Paths = {
 				body: SchedulePlatformAdditionalFeePolicyBody;
 				path: {
 					/**
-					 *
 					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -580,14 +552,12 @@ export type Paths = {
 			error: ScheduleAdditionalFeePolicyError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 추가 수수료 정책의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -617,7 +587,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -648,7 +617,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 추가 수수료 정책 아이디
 					 */
 					id: string;
@@ -670,14 +638,12 @@ export type Paths = {
 	};
 	"/platform/partner-filter-options": {
 		/**
-		 *
 		 * 파트너 다건 조회 시 필요한 필터 옵션을 조회합니다.
 		 */
 		get: {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 보관 조회 여부
 					 *
 					 * true 이면 보관된 파트너의 필터 옵션을 조회하고, false 이면 보관되지 않은 파트너의 필터 옵션을 조회합니다. 기본값은 false 입니다.
@@ -759,7 +725,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 조회하고 싶은 파트너 아이디
 					 */
 					id: string;
@@ -788,7 +753,6 @@ export type Paths = {
 				body: UpdatePlatformPartnerBody;
 				path: {
 					/**
-					 *
 					 * 업데이트할 파트너 아이디
 					 */
 					id: string;
@@ -845,14 +809,12 @@ export type Paths = {
 	};
 	"/platform/partners/{id}/schedule": {
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 파트너의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 파트너 아이디
 					 */
 					id: string;
@@ -872,7 +834,6 @@ export type Paths = {
 			error: GetPlatformPartnerScheduleError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 파트너에 예약 업데이트를 재설정합니다.
 		 */
 		put: {
@@ -880,7 +841,6 @@ export type Paths = {
 				body: ReschedulePlatformPartnerBody;
 				path: {
 					/**
-					 *
 					 * 파트너 아이디
 					 */
 					id: string;
@@ -901,7 +861,6 @@ export type Paths = {
 			error: ReschedulePartnerError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 파트너에 업데이트를 예약합니다.
 		 */
 		post: {
@@ -909,7 +868,6 @@ export type Paths = {
 				body: SchedulePlatformPartnerBody;
 				path: {
 					/**
-					 *
 					 * 파트너 아이디
 					 */
 					id: string;
@@ -937,14 +895,12 @@ export type Paths = {
 			error: SchedulePartnerError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 파트너의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 파트너 아이디
 					 */
 					id: string;
@@ -965,15 +921,10 @@ export type Paths = {
 		};
 	};
 	"/platform/partners/schedule": {
-		/**
-		 *
-		 */
 		post: {
 			parameters: {
 				body: SchedulePlatformPartnersBody;
 			};
-			/**
-			 */
 			success: SchedulePlatformPartnersResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -998,7 +949,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 파트너 아이디
 					 */
 					id: string;
@@ -1029,7 +979,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 파트너 아이디
 					 */
 					id: string;
@@ -1104,7 +1053,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 조회할 계약 아이디
 					 */
 					id: string;
@@ -1133,7 +1081,6 @@ export type Paths = {
 				body: UpdatePlatformContractBody;
 				path: {
 					/**
-					 *
 					 * 업데이트할 계약 아이디
 					 */
 					id: string;
@@ -1156,14 +1103,12 @@ export type Paths = {
 	};
 	"/platform/contracts/{id}/schedule": {
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 계약의 예약 업데이트를 조회합니다.
 		 */
 		get: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 계약 아이디
 					 */
 					id: string;
@@ -1183,7 +1128,6 @@ export type Paths = {
 			error: GetPlatformContractScheduleError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 계약에 예약 업데이트를 재설정합니다.
 		 */
 		put: {
@@ -1191,7 +1135,6 @@ export type Paths = {
 				body: ReschedulePlatformContractBody;
 				path: {
 					/**
-					 *
 					 * 계약 아이디
 					 */
 					id: string;
@@ -1210,7 +1153,6 @@ export type Paths = {
 			error: RescheduleContractError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 계약에 업데이트를 예약합니다.
 		 */
 		post: {
@@ -1218,7 +1160,6 @@ export type Paths = {
 				body: SchedulePlatformContractBody;
 				path: {
 					/**
-					 *
 					 * 계약 아이디
 					 */
 					id: string;
@@ -1239,14 +1180,12 @@ export type Paths = {
 			error: ScheduleContractError;
 		};
 		/**
-		 *
 		 * 주어진 아이디에 대응되는 계약의 예약 업데이트를 취소합니다.
 		 */
 		delete: {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 계약 아이디
 					 */
 					id: string;
@@ -1276,7 +1215,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 계약 아이디
 					 */
 					id: string;
@@ -1307,7 +1245,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 계약 아이디
 					 */
 					id: string;
@@ -1337,7 +1274,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 조회하고 싶은 정산건 아이디
 					 */
 					id: string;
@@ -1365,14 +1301,11 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 정산건 아이디
 					 */
 					id: string;
 				};
 			};
-			/**
-			 */
 			success: DeletePlatformTransferResponse;
 			/**
 			 * *   `PlatformCancelOrderTransfersExistsError`
@@ -1396,8 +1329,6 @@ export type Paths = {
 			parameters: {
 				body: GetPlatformTransferSummariesBody;
 			};
-			/**
-			 */
 			success: GetPlatformTransferSummariesResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1418,8 +1349,6 @@ export type Paths = {
 			parameters: {
 				body: CreatePlatformOrderTransferBody;
 			};
-			/**
-			 */
 			success: CreateOrderTransferResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1456,8 +1385,6 @@ export type Paths = {
 			parameters: {
 				body: CreatePlatformOrderCancelTransferBody;
 			};
-			/**
-			 */
 			success: CreateOrderCancelTransferResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1497,8 +1424,6 @@ export type Paths = {
 			parameters: {
 				body: CreatePlatformManualTransferBody;
 			};
-			/**
-			 */
 			success: CreateManualTransferResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1521,8 +1446,6 @@ export type Paths = {
 			parameters: {
 				body: DownloadPlatformTransferSheetBody;
 			};
-			/**
-			 */
 			success: {};
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1532,15 +1455,10 @@ export type Paths = {
 		};
 	};
 	"/platform/partner-settlements": {
-		/**
-		 *
-		 */
 		get: {
 			parameters: {
 				body: GetPlatformPartnerSettlementsBody;
 			};
-			/**
-			 */
 			success: GetPlatformPartnerSettlementsResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1552,15 +1470,10 @@ export type Paths = {
 		};
 	};
 	"/platform/payouts": {
-		/**
-		 *
-		 */
 		get: {
 			parameters: {
 				body: GetPlatformPayoutsBody;
 			};
-			/**
-			 */
 			success: GetPlatformPayoutsResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1572,15 +1485,10 @@ export type Paths = {
 		};
 	};
 	"/platform/bulk-payouts": {
-		/**
-		 *
-		 */
 		get: {
 			parameters: {
 				body: GetPlatformBulkPayoutsBody;
 			};
-			/**
-			 */
 			success: GetPlatformBulkPayoutsResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -1601,14 +1509,12 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 생년월일
 					 *
 					 * 실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.
 					 */
 					birthdate?: string;
 					/**
-					 *
 					 * 사업자등록번호
 					 *
 					 * 실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.
@@ -1617,12 +1523,10 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 은행
 					 */
 					bank: Bank;
 					/**
-					 *
 					 * '-'를 제외한 계좌 번호
 					 */
 					accountNumber: string;
@@ -1654,7 +1558,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -1663,7 +1566,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 조회할 본인인증 아이디
 					 */
 					identityVerificationId: string;
@@ -1693,7 +1595,6 @@ export type Paths = {
 				body: SendIdentityVerificationBody;
 				path: {
 					/**
-					 *
 					 * 본인인증 아이디
 					 */
 					identityVerificationId: string;
@@ -1727,7 +1628,6 @@ export type Paths = {
 				body: ConfirmIdentityVerificationBody;
 				path: {
 					/**
-					 *
 					 * 본인인증 아이디
 					 */
 					identityVerificationId: string;
@@ -1759,7 +1659,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -1768,7 +1667,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 본인인증 아이디
 					 */
 					identityVerificationId: string;
@@ -1801,7 +1699,6 @@ export type Paths = {
 				body: PreRegisterPaymentBody;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -1830,7 +1727,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -1839,7 +1735,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 조회할 빌링키
 					 */
 					billingKey: string;
@@ -1866,7 +1761,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -1875,7 +1769,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 삭제할 빌링키
 					 */
 					billingKey: string;
@@ -1954,7 +1847,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -1963,7 +1855,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -1992,14 +1883,12 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 */
 					storeId?: string;
 				};
 				path: {
 					/**
-					 *
 					 * 조회할 결제 아이디
 					 */
 					paymentId: string;
@@ -2072,7 +1961,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -2081,7 +1969,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 조회할 결제 예약 건 아이디
 					 */
 					paymentScheduleId: string;
@@ -2158,7 +2045,6 @@ export type Paths = {
 				body: CreatePaymentScheduleBody;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2192,7 +2078,6 @@ export type Paths = {
 				body: CancelPaymentBody;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2231,7 +2116,6 @@ export type Paths = {
 				body: BillingKeyPaymentInput;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2268,7 +2152,6 @@ export type Paths = {
 				body: InstantPaymentInput;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2327,7 +2210,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -2336,7 +2218,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2367,7 +2248,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 상점 아이디
 					 *
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
@@ -2376,7 +2256,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2408,7 +2287,6 @@ export type Paths = {
 				body: RegisterEscrowLogisticsBody;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2438,7 +2316,6 @@ export type Paths = {
 				body: ModifyEscrowLogisticsBody;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2470,7 +2347,6 @@ export type Paths = {
 				body: ConfirmEscrowBody;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2502,7 +2378,6 @@ export type Paths = {
 				body: ResendWebhookBody;
 				path: {
 					/**
-					 *
 					 * 결제 건 아이디
 					 */
 					paymentId: string;
@@ -2524,7 +2399,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment": {
 		/**
-		 *
 		 * 고객사의 결제 현황을 조회합니다.
 		 */
 		get: {
@@ -2545,7 +2419,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment-insight": {
 		/**
-		 *
 		 * 고객사의 결제 현황 인사이트를 조회합니다.
 		 */
 		get: {
@@ -2566,7 +2439,6 @@ export type Paths = {
 	};
 	"/analytics/charts/average-amount": {
 		/**
-		 *
 		 * 고객사의 평균 거래액 현황을 조회합니다.
 		 */
 		get: {
@@ -2587,7 +2459,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment-method": {
 		/**
-		 *
 		 * 고객사의 결제수단 현황을 조회합니다.
 		 */
 		get: {
@@ -2608,7 +2479,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment-method-trend": {
 		/**
-		 *
 		 * 고객사의 결제수단 트렌드를 조회합니다.
 		 */
 		get: {
@@ -2629,7 +2499,6 @@ export type Paths = {
 	};
 	"/analytics/charts/card": {
 		/**
-		 *
 		 * 고객사의 카드결제 현황을 조회합니다.
 		 */
 		get: {
@@ -2650,7 +2519,6 @@ export type Paths = {
 	};
 	"/analytics/charts/card-company": {
 		/**
-		 *
 		 * 고객사의 카드사별 결제 현황을 조회합니다.
 		 */
 		get: {
@@ -2671,7 +2539,6 @@ export type Paths = {
 	};
 	"/analytics/charts/easy-pay": {
 		/**
-		 *
 		 * 고객사의 간편결제 현황을 조회합니다.
 		 */
 		get: {
@@ -2692,7 +2559,6 @@ export type Paths = {
 	};
 	"/analytics/charts/easy-pay-provider": {
 		/**
-		 *
 		 * 고객사의 간편결제사별 결제 현황을 조회합니다.
 		 */
 		get: {
@@ -2713,7 +2579,6 @@ export type Paths = {
 	};
 	"/analytics/charts/pg-company": {
 		/**
-		 *
 		 * 고객사의 결제대행사 현황을 조회합니다.
 		 */
 		get: {
@@ -2734,7 +2599,6 @@ export type Paths = {
 	};
 	"/analytics/charts/pg-company-trend": {
 		/**
-		 *
 		 * 고객사의 결제대행사별 거래 추이를 조회합니다.
 		 */
 		get: {
@@ -2755,7 +2619,6 @@ export type Paths = {
 	};
 	"/analytics/overseas-payment-usage": {
 		/**
-		 *
 		 * 고객사의 해외 결제 사용 여부를 조회합니다.
 		 */
 		get: {
@@ -2773,7 +2636,6 @@ export type Paths = {
 	};
 	"/analytics/cancellation-rate": {
 		/**
-		 *
 		 * 고객사의 환불율을 조회합니다.
 		 */
 		get: {
@@ -2794,7 +2656,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment-status": {
 		/**
-		 *
 		 * 고객사의 결제상태 이력 집계를 조회합니다.
 		 */
 		get: {
@@ -2815,7 +2676,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment-status/by-method": {
 		/**
-		 *
 		 * 고객사의 결제수단별 결제전환율을 조회합니다.
 		 */
 		get: {
@@ -2836,7 +2696,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment-status/by-pg-company": {
 		/**
-		 *
 		 * 고객사의 PG사별 결제전환율을 조회합니다.
 		 */
 		get: {
@@ -2857,7 +2716,6 @@ export type Paths = {
 	};
 	"/analytics/charts/payment-status/by-payment-client": {
 		/**
-		 *
 		 * 고객사의 결제환경별 결제전환율을 조회합니다.
 		 */
 		get: {
@@ -2886,7 +2744,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -2895,7 +2752,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
@@ -2924,7 +2780,6 @@ export type Paths = {
 				body: UpdateB2bMemberCompanyBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -2933,7 +2788,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
@@ -2963,7 +2817,6 @@ export type Paths = {
 				body: RegisterB2bMemberCompanyBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -2996,7 +2849,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3005,12 +2857,10 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 담당자 ID
 					 */
 					contactId: string;
@@ -3040,7 +2890,6 @@ export type Paths = {
 				body: UpdateB2bMemberCompanyContactBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3049,12 +2898,10 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 담당자 ID
 					 */
 					contactId: string;
@@ -3085,7 +2932,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3094,7 +2940,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
@@ -3124,7 +2969,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3133,7 +2977,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
@@ -3164,12 +3007,10 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 담당자 ID
 					 */
 					contactId: string;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3200,7 +3041,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3209,12 +3049,10 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 은행
 					 */
 					bank: Bank;
 					/**
-					 *
 					 * '-'를 제외한 계좌 번호
 					 */
 					accountNumber: string;
@@ -3250,7 +3088,6 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3259,7 +3096,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
@@ -3291,7 +3127,6 @@ export type Paths = {
 				body: RequestB2bTaxInvoiceReverseIssuanceRequestBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3324,19 +3159,16 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3345,7 +3177,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
@@ -3373,19 +3204,16 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3394,7 +3222,6 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
@@ -3422,7 +3249,6 @@ export type Paths = {
 				body: IssueB2bTaxInvoiceRequestBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3456,7 +3282,6 @@ export type Paths = {
 				body: CancelB2bTaxInvoiceRequestBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3491,7 +3316,6 @@ export type Paths = {
 				body: CancelB2bTaxInvoiceIssuanceBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3524,7 +3348,6 @@ export type Paths = {
 				body: RefuseB2bTaxInvoiceRequestBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3558,48 +3381,40 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 페이지 번호
 					 *
 					 * 0부터 시작하는 페이지 번호. 기본 값은 0.
 					 */
 					pageNumber?: number;
 					/**
-					 *
 					 * 페이지 크기
 					 *
 					 * 각 페이지 당 포함할 객체 수. 기본 값은 500이며 최대 1000까지 요청가능합니다.
 					 */
 					pageSize?: number;
 					/**
-					 *
 					 * 조회 시작일
 					 */
 					from: string;
 					/**
-					 *
 					 * 조회 종료일
 					 */
 					until: string;
 					/**
-					 *
 					 * 조회 기간 기준
 					 */
 					dateType: B2bSearchDateType;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3607,8 +3422,6 @@ export type Paths = {
 					test?: boolean;
 				};
 			};
-			/**
-			 */
 			success: GetB2bTaxInvoicesResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -3629,26 +3442,22 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 메뉴 포함 여부
 					 *
 					 * 팝업 URL에 메뉴 레이아웃을 포함 여부를 결정합니다. 기본 값은 true입니다.
 					 */
 					includeMenu?: boolean;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3657,14 +3466,11 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
 			};
-			/**
-			 */
 			success: GetB2bTaxInvoicePopupUrlResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -3686,19 +3492,16 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3707,14 +3510,11 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
 			};
-			/**
-			 */
 			success: GetB2bTaxInvoicePrintUrlResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -3736,19 +3536,16 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3757,14 +3554,11 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
 			};
-			/**
-			 */
 			success: GetB2bTaxInvoicePdfDownloadUrlResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -3787,7 +3581,6 @@ export type Paths = {
 				body: RequestB2bTaxInvoiceRegisterBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3821,7 +3614,6 @@ export type Paths = {
 				body: RequestB2bTaxInvoiceRequestBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3856,7 +3648,6 @@ export type Paths = {
 				body: CreateB2bTaxInvoiceFileUploadLinkBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3864,8 +3655,6 @@ export type Paths = {
 					test?: boolean;
 				};
 			};
-			/**
-			 */
 			success: CreateB2bTaxInvoiceFileUploadLinkResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -3886,7 +3675,6 @@ export type Paths = {
 				body: AttachB2bTaxInvoiceFileBody;
 				query: {
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3916,19 +3704,16 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3937,14 +3722,11 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 				};
 			};
-			/**
-			 */
 			success: GetB2bTaxInvoiceAttachmentsResponse;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
@@ -3966,19 +3748,16 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 사업자등록번호
 					 */
 					brn: string;
 					/**
-					 *
 					 * 문서 번호 유형
 					 *
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
-					 *
 					 * 테스트 모드 여부
 					 *
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -3987,12 +3766,10 @@ export type Paths = {
 				};
 				path: {
 					/**
-					 *
 					 * 세금계산서 문서 번호
 					 */
 					documentKey: string;
 					/**
-					 *
 					 * 첨부파일 아이디
 					 */
 					attachmentId: string;
@@ -4020,12 +3797,10 @@ export type Paths = {
 			parameters: {
 				query: {
 					/**
-					 *
 					 * 카카오페이 주문 번호 (tid)
 					 */
 					pgTxId: string;
 					/**
-					 *
 					 * 채널 키
 					 */
 					channelKey: string;
@@ -4053,7 +3828,6 @@ export type Paths = {
 				body: RegisterStoreReceiptBody;
 				path: {
 					/**
-					 *
 					 * 등록할 하위 상점 결제 건 아이디
 					 */
 					paymentId: string;
@@ -4084,7 +3858,6 @@ export type Paths = {
 			parameters: {
 				path: {
 					/**
-					 *
 					 * 조회할 프로모션 아이디
 					 */
 					promotionId: string;
@@ -4107,20 +3880,15 @@ export type Paths = {
 
 /**
  * API Secret 로그인을 위한 입력 정보
- *
- * API Secret 로그인을 위한 입력 정보
  */
 export type LoginViaApiSecretBody = {
 	/**
 	 * 발급받은 API secret
-	 *
 	 */
 	apiSecret: string;
 };
 
 /**
- * API key 로그인 성공 응답
- *
  * API key 로그인 성공 응답
  */
 export type LoginViaApiSecretResponse = {
@@ -4140,26 +3908,20 @@ export type LoginViaApiSecretResponse = {
 
 /**
  * LoginViaApiSecretError
- *
  */
 export type LoginViaApiSecretError = InvalidRequestError | UnauthorizedError;
 
 /**
  * 토큰 재발급을 위한 입력 정보
- *
- * 토큰 재발급을 위한 입력 정보
  */
 export type RefreshTokenBody = {
 	/**
 	 * 리프레시 토큰
-	 *
 	 */
 	refreshToken: string;
 };
 
 /**
- * 토큰 재발급 성공 응답
- *
  * 토큰 재발급 성공 응답
  */
 export type RefreshTokenResponse = {
@@ -4179,45 +3941,34 @@ export type RefreshTokenResponse = {
 
 /**
  * RefreshTokenError
- *
  */
 export type RefreshTokenError = InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 플랫폼 기능 관련 정보
- *
- * 고객사의 플랫폼 기능 관련 정보
  */
 export type Platform = {
 	/**
 	 * 해당 플랫폼의 고객사 아이디
-	 *
 	 */
 	merchantId: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너 정산금액의 소수점 처리 방식
-	 *
 	 */
 	roundType: PlatformRoundType;
 	/**
 	 * 수수료 및 할인 분담 정책 관련 계산식
-	 *
 	 */
 	settlementFormula: PlatformSettlementFormula;
 	/**
 	 * 정산 규칙
-	 *
 	 */
 	settlementRule: PlatformSettlementRule;
 };
 
 /**
  * GetPlatformError
- *
  */
 export type GetPlatformError =
 	| InvalidRequestError
@@ -4227,44 +3978,35 @@ export type GetPlatformError =
 /**
  * 플랫폼 업데이트를 위한 입력 정보
  *
- * 플랫폼 업데이트를 위한 입력 정보
- *
  * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
  */
 export type UpdatePlatformBody = {
 	/**
 	 * 파트너 정산금액의 소수점 처리 방식
-	 *
 	 */
 	roundType?: PlatformRoundType;
 	/**
 	 * 수수료 및 할인 분담 정책 관련 계산식
-	 *
 	 */
 	settlementFormula?: UpdatePlatformBodySettlementFormula;
 	/**
 	 * 정산 규칙
-	 *
 	 */
 	settlementRule?: UpdatePlatformBodySettlementRule;
 };
 
 /**
  * 플랫폼 업데이트 결과 정보
- *
- * 플랫폼 업데이트 결과 정보
  */
 export type UpdatePlatformResponse = {
 	/**
 	 * 업데이트된 플랫폼 정보
-	 *
 	 */
 	platform: Platform;
 };
 
 /**
  * UpdatePlatformError
- *
  */
 export type UpdatePlatformError =
 	| ForbiddenError
@@ -4275,20 +4017,16 @@ export type UpdatePlatformError =
 
 /**
  * 할인 분담 정책 필터 옵션 조회 성공 응답 정보
- *
- * 할인 분담 정책 필터 옵션 조회 성공 응답 정보
  */
 export type PlatformDiscountSharePolicyFilterOptions = {
 	/**
 	 * 조회된 파트너 분담율 리스트
-	 *
 	 */
 	partnerShareRates: number[];
 };
 
 /**
  * GetPlatformDiscountSharePolicyFilterOptionsError
- *
  */
 export type GetPlatformDiscountSharePolicyFilterOptionsError =
 	| ForbiddenError
@@ -4298,43 +4036,34 @@ export type GetPlatformDiscountSharePolicyFilterOptionsError =
 
 /**
  * 할인 분담 정책 다건 조회를 위한 입력 정보
- *
- * 할인 분담 정책 다건 조회를 위한 입력 정보
  */
 export type GetPlatformDiscountSharePoliciesBody = {
 	/**
 	 * 요청할 페이지 정보
-	 *
 	 */
 	page?: PageInput;
 	/**
 	 * 조회할 할인 분담 정책 조건 필터
-	 *
 	 */
 	filter?: PlatformDiscountSharePolicyFilterInput;
 };
 
 /**
  * 할인 분담 정책 다건 조회 성공 응답 정보
- *
- * 할인 분담 정책 다건 조회 성공 응답 정보
  */
 export type GetPlatformDiscountSharePoliciesResponse = {
 	/**
 	 * 조회된 할인 분담 정책 리스트
-	 *
 	 */
 	items: PlatformDiscountSharePolicy[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetPlatformDiscountSharePoliciesError
- *
  */
 export type GetPlatformDiscountSharePoliciesError =
 	| ForbiddenError
@@ -4343,8 +4072,6 @@ export type GetPlatformDiscountSharePoliciesError =
 	| UnauthorizedError;
 
 /**
- * 할인 분담 정책 생성을 위한 입력 정보
- *
  * 할인 분담 정책 생성을 위한 입력 정보
  */
 export type CreatePlatformDiscountSharePolicyBody = {
@@ -4356,37 +4083,30 @@ export type CreatePlatformDiscountSharePolicyBody = {
 	id?: string;
 	/**
 	 * 할인 분담에 부여할 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 파트너가 분담할 할인금액의 비율을 의미하는 밀리 퍼센트 단위 (10^-5) 의 음이 아닌 정수이며, 파트너가 부담할 금액은 \`할인금액 \* partnerShareRate \* 10^5\` 로 책정합니다.
-	 *
 	 */
 	partnerShareRate: number;
 	/**
 	 * 해당 할인 분담에 대한 메모 ex) 파트너 브랜드 쿠폰
-	 *
 	 */
 	memo?: string;
 };
 
 /**
  * 할인 분담 정책 생성 성공 응답
- *
- * 할인 분담 정책 생성 성공 응답
  */
 export type CreatePlatformDiscountSharePolicyResponse = {
 	/**
 	 * 생성된 할인 분담 정책
-	 *
 	 */
 	discountSharePolicy: PlatformDiscountSharePolicy;
 };
 
 /**
  * CreatePlatformDiscountSharePolicyError
- *
  */
 export type CreatePlatformDiscountSharePolicyError =
 	| ForbiddenError
@@ -4398,22 +4118,13 @@ export type CreatePlatformDiscountSharePolicyError =
 /**
  * 할인 분담 정책
  *
- * 할인 분담 정책
- *
  * 할인 분담은 고객사의 주문건에 쿠폰 및 포인트와 같은 할인금액이 적용될 때, 파트너 정산 시 할인금액에 대한 분담 정책을 가지는 객체입니다. 할인 유형에 대한 아이디와 메모, 그리고 파트너 분담율을 가집니다.
  */
 export type PlatformDiscountSharePolicy = {
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 할인 분담 정책 이름
-	 *
 	 */
 	name: string;
 	/**
@@ -4424,24 +4135,20 @@ export type PlatformDiscountSharePolicy = {
 	partnerShareRate: number;
 	/**
 	 * 해당 할인 분담에 대한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 보관 여부
-	 *
 	 */
 	isArchived: boolean;
 	/**
 	 * 변경 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * GetPlatformDiscountSharePolicyError
- *
  */
 export type GetPlatformDiscountSharePolicyError =
 	| ForbiddenError
@@ -4453,14 +4160,11 @@ export type GetPlatformDiscountSharePolicyError =
 /**
  * 할인 분담 정책 업데이트를 위한 입력 정보
  *
- * 할인 분담 정책 업데이트를 위한 입력 정보
- *
  * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
  */
 export type UpdatePlatformDiscountSharePolicyBody = {
 	/**
 	 * 할인 분담 정책 이름
-	 *
 	 */
 	name?: string;
 	/**
@@ -4471,27 +4175,22 @@ export type UpdatePlatformDiscountSharePolicyBody = {
 	partnerShareRate?: number;
 	/**
 	 * 해당 할인 분담에 대한 메모
-	 *
 	 */
 	memo?: string;
 };
 
 /**
  * 할인 분담 정책 업데이트 성공 응답
- *
- * 할인 분담 정책 업데이트 성공 응답
  */
 export type UpdatePlatformDiscountSharePolicyResponse = {
 	/**
 	 * 업데이트된 할인 분담 정책
-	 *
 	 */
 	discountSharePolicy: PlatformDiscountSharePolicy;
 };
 
 /**
  * UpdatePlatformDiscountSharePolicyError
- *
  */
 export type UpdatePlatformDiscountSharePolicyError =
 	| ForbiddenError
@@ -4503,7 +4202,6 @@ export type UpdatePlatformDiscountSharePolicyError =
 
 /**
  * GetPlatformDiscountSharePolicyScheduleError
- *
  */
 export type GetPlatformDiscountSharePolicyScheduleError =
 	| ForbiddenError
@@ -4514,38 +4212,30 @@ export type GetPlatformDiscountSharePolicyScheduleError =
 
 /**
  * 할인 분담 정책 예약 업데이트 재설정을 위한 입력 정보
- *
- * 할인 분담 정책 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformDiscountSharePolicyBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformDiscountSharePolicyBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 할인 분담 정책 예약 업데이트 재설정 성공 응답
- *
- * 할인 분담 정책 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformDiscountSharePolicyResponse = {
 	/**
 	 * 예약된 할인 분담 정보
-	 *
 	 */
 	scheduledDiscountSharePolicy: PlatformDiscountSharePolicy;
 };
 
 /**
  * RescheduleDiscountSharePolicyError
- *
  */
 export type RescheduleDiscountSharePolicyError =
 	| ForbiddenError
@@ -4556,38 +4246,30 @@ export type RescheduleDiscountSharePolicyError =
 
 /**
  * 할인 분담 정책 업데이트 예약을 위한 입력 정보
- *
- * 할인 분담 정책 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformDiscountSharePolicyBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformDiscountSharePolicyBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 할인 분담 정책 업데이트 예약 성공 응답
- *
- * 할인 분담 정책 업데이트 예약 성공 응답
  */
 export type SchedulePlatformDiscountSharePolicyResponse = {
 	/**
 	 * 예약된 할인 분담 정보
-	 *
 	 */
 	scheduledDiscountSharePolicy: PlatformDiscountSharePolicy;
 };
 
 /**
  * ScheduleDiscountSharePolicyError
- *
  */
 export type ScheduleDiscountSharePolicyError =
 	| ForbiddenError
@@ -4599,14 +4281,11 @@ export type ScheduleDiscountSharePolicyError =
 
 /**
  * 할인 분담 정책 예약 업데이트 취소 성공 응답
- *
- * 할인 분담 정책 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformDiscountSharePolicyScheduleResponse = {};
 
 /**
  * CancelPlatformDiscountSharePolicyScheduleError
- *
  */
 export type CancelPlatformDiscountSharePolicyScheduleError =
 	| ForbiddenError
@@ -4617,20 +4296,16 @@ export type CancelPlatformDiscountSharePolicyScheduleError =
 
 /**
  * 할인 분담 보관 성공 응답
- *
- * 할인 분담 보관 성공 응답
  */
 export type ArchivePlatformDiscountSharePolicyResponse = {
 	/**
 	 * 보관된 할인 분담
-	 *
 	 */
 	discountSharePolicy: PlatformDiscountSharePolicy;
 };
 
 /**
  * ArchivePlatformDiscountSharePolicyError
- *
  */
 export type ArchivePlatformDiscountSharePolicyError =
 	| ForbiddenError
@@ -4642,20 +4317,16 @@ export type ArchivePlatformDiscountSharePolicyError =
 
 /**
  * 할인 분담 복원 성공 응답
- *
- * 할인 분담 복원 성공 응답
  */
 export type RecoverPlatformDiscountSharePolicyResponse = {
 	/**
 	 * 복원된 할인 분담
-	 *
 	 */
 	discountSharePolicy: PlatformDiscountSharePolicy;
 };
 
 /**
  * RecoverPlatformDiscountSharePolicyError
- *
  */
 export type RecoverPlatformDiscountSharePolicyError =
 	| ForbiddenError
@@ -4666,43 +4337,34 @@ export type RecoverPlatformDiscountSharePolicyError =
 
 /**
  * 추가 수수료 정책 다건 조회를 위한 입력 정보
- *
- * 추가 수수료 정책 다건 조회를 위한 입력 정보
  */
 export type GetPlatformAdditionalFeePoliciesBody = {
 	/**
 	 * 요청할 페이지 정보
-	 *
 	 */
 	page?: PageInput;
 	/**
 	 * 조회할 추가 수수료 정책 조건 필터
-	 *
 	 */
 	filter?: PlatformAdditionalFeePolicyFilterInput;
 };
 
 /**
  * 추가 수수료 정책 다건 조회 성공 응답 정보
- *
- * 추가 수수료 정책 다건 조회 성공 응답 정보
  */
 export type GetPlatformAdditionalFeePoliciesResponse = {
 	/**
 	 * 조회된 추가 수수료 정책 리스트
-	 *
 	 */
 	items: PlatformAdditionalFeePolicy[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetPlatformAdditionalFeePoliciesError
- *
  */
 export type GetPlatformAdditionalFeePoliciesError =
 	| ForbiddenError
@@ -4711,8 +4373,6 @@ export type GetPlatformAdditionalFeePoliciesError =
 	| UnauthorizedError;
 
 /**
- * 추가 수수료 정책 생성을 위한 입력 정보
- *
  * 추가 수수료 정책 생성을 위한 입력 정보
  */
 export type CreatePlatformAdditionalFeePolicyBody = {
@@ -4724,42 +4384,34 @@ export type CreatePlatformAdditionalFeePolicyBody = {
 	id?: string;
 	/**
 	 * 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 수수료 정보
-	 *
 	 */
 	fee: PlatformFeeInput;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 부가세 부담 주체
-	 *
 	 */
 	vatPayer: PlatformPayer;
 };
 
 /**
  * 플랫폼 생성 성공 응답 정보
- *
- * 플랫폼 생성 성공 응답 정보
  */
 export type CreatePlatformAdditionalFeePolicyResponse = {
 	/**
 	 * 생성된 추가 수수료 정책
-	 *
 	 */
 	additionalFeePolicy: PlatformAdditionalFeePolicy;
 };
 
 /**
  * CreatePlatformAdditionalFeePolicyError
- *
  */
 export type CreatePlatformAdditionalFeePolicyError =
 	| ForbiddenError
@@ -4771,55 +4423,42 @@ export type CreatePlatformAdditionalFeePolicyError =
 /**
  * 추가 수수료 정책
  *
- * 추가 수수료 정책
- *
  * 추가 수수료 정책는 고객사의 주문건에 대한 중개수수료에 별도로 추가로 부여되는 수수료입니다. 대표적인 사용 예시로 풀필먼트 수수료, 로켓배송 수수료, 마케팅 채널 수수료등이 있습니다.
  */
 export type PlatformAdditionalFeePolicy = {
 	/**
 	 * 추가 수수료 정책 고유 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 추가 수수료 정책 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 책정 수수료
-	 *
 	 */
 	fee: PlatformFee;
 	/**
 	 * 해당 추가 수수료 정책에 대한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 부가세를 부담할 주체
-	 *
 	 */
 	vatPayer: PlatformPayer;
 	/**
 	 * 보관 여부
-	 *
 	 */
 	isArchived: boolean;
 	/**
 	 * 변경 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * GetPlatformAdditionalFeePolicyError
- *
  */
 export type GetPlatformAdditionalFeePolicyError =
 	| ForbiddenError
@@ -4831,49 +4470,39 @@ export type GetPlatformAdditionalFeePolicyError =
 /**
  * 추가 수수료 정책 업데이트를 위한 입력 정보
  *
- * 추가 수수료 정책 업데이트를 위한 입력 정보
- *
  * 값이 명시하지 않은 필드는 업데이트되지 않습니다.
  */
 export type UpdatePlatformAdditionalFeePolicyBody = {
 	/**
 	 * 책정 수수료
-	 *
 	 */
 	fee?: PlatformFeeInput;
 	/**
 	 * 추가 수수료 정책 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 해당 추가 수수료 정책에 대한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 부가세를 부담할 주체
-	 *
 	 */
 	vatPayer?: PlatformPayer;
 };
 
 /**
  * 추가 수수료 정책 업데이트 성공 응답
- *
- * 추가 수수료 정책 업데이트 성공 응답
  */
 export type UpdatePlatformAdditionalFeePolicyResponse = {
 	/**
 	 * 업데이트된 추가 수수료 정책
-	 *
 	 */
 	additionalFeePolicy: PlatformAdditionalFeePolicy;
 };
 
 /**
  * UpdatePlatformAdditionalFeePolicyError
- *
  */
 export type UpdatePlatformAdditionalFeePolicyError =
 	| ForbiddenError
@@ -4885,7 +4514,6 @@ export type UpdatePlatformAdditionalFeePolicyError =
 
 /**
  * GetPlatformAdditionalFeePolicyScheduleError
- *
  */
 export type GetPlatformAdditionalFeePolicyScheduleError =
 	| ForbiddenError
@@ -4896,38 +4524,30 @@ export type GetPlatformAdditionalFeePolicyScheduleError =
 
 /**
  * 추가 수수료 정책 예약 업데이트 재설정을 위한 입력 정보
- *
- * 추가 수수료 정책 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformAdditionalFeePolicyBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformAdditionalFeePolicyBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 추가 수수료 정책 예약 업데이트 재설정 성공 응답
- *
- * 추가 수수료 정책 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformAdditionalFeePolicyResponse = {
 	/**
 	 * 예약된 추가 수수료 정책
-	 *
 	 */
 	scheduledAdditionalFeePolicy: PlatformAdditionalFeePolicy;
 };
 
 /**
  * RescheduleAdditionalFeePolicyError
- *
  */
 export type RescheduleAdditionalFeePolicyError =
 	| ForbiddenError
@@ -4938,38 +4558,30 @@ export type RescheduleAdditionalFeePolicyError =
 
 /**
  * 추가 수수료 정책 업데이트 예약을 위한 입력 정보
- *
- * 추가 수수료 정책 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformAdditionalFeePolicyBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformAdditionalFeePolicyBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 추가 수수료 정책 업데이트 예약 성공 응답
- *
- * 추가 수수료 정책 업데이트 예약 성공 응답
  */
 export type SchedulePlatformAdditionalFeePolicyResponse = {
 	/**
 	 * 예약된 추가 수수료 정책
-	 *
 	 */
 	scheduledAdditionalFeePolicy: PlatformAdditionalFeePolicy;
 };
 
 /**
  * ScheduleAdditionalFeePolicyError
- *
  */
 export type ScheduleAdditionalFeePolicyError =
 	| ForbiddenError
@@ -4982,14 +4594,11 @@ export type ScheduleAdditionalFeePolicyError =
 
 /**
  * 추가 수수료 정책 예약 업데이트 취소 성공 응답
- *
- * 추가 수수료 정책 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformAdditionalFeePolicyScheduleResponse = {};
 
 /**
  * CancelPlatformAdditionalFeePolicyScheduleError
- *
  */
 export type CancelPlatformAdditionalFeePolicyScheduleError =
 	| ForbiddenError
@@ -5000,20 +4609,16 @@ export type CancelPlatformAdditionalFeePolicyScheduleError =
 
 /**
  * 추가 수수료 정책 보관 성공 응답
- *
- * 추가 수수료 정책 보관 성공 응답
  */
 export type ArchivePlatformAdditionalFeePolicyResponse = {
 	/**
 	 * 보관된 추가 수수료 정책
-	 *
 	 */
 	additionalFeePolicy: PlatformAdditionalFeePolicy;
 };
 
 /**
  * ArchivePlatformAdditionalFeePolicyError
- *
  */
 export type ArchivePlatformAdditionalFeePolicyError =
 	| ForbiddenError
@@ -5025,20 +4630,16 @@ export type ArchivePlatformAdditionalFeePolicyError =
 
 /**
  * 추가 수수료 정책 복원 성공 응답
- *
- * 추가 수수료 정책 복원 성공 응답
  */
 export type RecoverPlatformAdditionalFeePolicyResponse = {
 	/**
 	 * 복원된 추가 수수료 정책
-	 *
 	 */
 	additionalFeePolicy: PlatformAdditionalFeePolicy;
 };
 
 /**
  * RecoverPlatformAdditionalFeePolicyError
- *
  */
 export type RecoverPlatformAdditionalFeePolicyError =
 	| ForbiddenError
@@ -5049,25 +4650,20 @@ export type RecoverPlatformAdditionalFeePolicyError =
 
 /**
  * 파트너 필터 옵션 조회 성공 응답 정보
- *
- * 파트너 필터 옵션 조회 성공 응답 정보
  */
 export type PlatformPartnerFilterOptions = {
 	/**
 	 * 조회된 태그 리스트
-	 *
 	 */
 	tags: string[];
 	/**
 	 * 조회된 파트너 계약 요약 정보 리스트
-	 *
 	 */
 	contractSummary: PlatformPartnerContractSummary[];
 };
 
 /**
  * GetPlatformPartnerFilterOptionsError
- *
  */
 export type GetPlatformPartnerFilterOptionsError =
 	| ForbiddenError
@@ -5077,43 +4673,34 @@ export type GetPlatformPartnerFilterOptionsError =
 
 /**
  * 파트너 다건 조회를 위한 입력 정보
- *
- * 파트너 다건 조회를 위한 입력 정보
  */
 export type GetPlatformPartnersBody = {
 	/**
 	 * 요청할 페이지 정보
-	 *
 	 */
 	page?: PageInput;
 	/**
 	 * 조회할 파트너 조건 필터
-	 *
 	 */
 	filter?: PlatformPartnerFilterInput;
 };
 
 /**
  * 파트너 다건 조회 성공 응답 정보
- *
- * 파트너 다건 조회 성공 응답 정보
  */
 export type GetPlatformPartnersResponse = {
 	/**
 	 * 조회된 파트너 리스트
-	 *
 	 */
 	items: PlatformPartner[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetPlatformPartnersError
- *
  */
 export type GetPlatformPartnersError =
 	| ForbiddenError
@@ -5122,8 +4709,6 @@ export type GetPlatformPartnersError =
 	| UnauthorizedError;
 
 /**
- * 파트너 생성을 위한 입력 정보
- *
  * 파트너 생성을 위한 입력 정보
  */
 export type CreatePlatformPartnerBody = {
@@ -5135,12 +4720,10 @@ export type CreatePlatformPartnerBody = {
 	id?: string;
 	/**
 	 * 파트너 법인명 혹은 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 파트너 담당자 연락 정보
-	 *
 	 */
 	contact: CreatePlatformPartnerBodyContact;
 	/**
@@ -5175,27 +4758,22 @@ export type CreatePlatformPartnerBody = {
 	type: CreatePlatformPartnerBodyType;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties?: PlatformProperties;
 };
 
 /**
  * 파트너 생성 성공 응답
- *
- * 파트너 생성 성공 응답
  */
 export type CreatePlatformPartnerResponse = {
 	/**
 	 * 생성된 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 };
 
 /**
  * CreatePlatformPartnerError
- *
  */
 export type CreatePlatformPartnerError =
 	| ForbiddenError
@@ -5213,80 +4791,62 @@ export type CreatePlatformPartnerError =
 /**
  * 파트너
  *
- * 파트너
- *
  * 파트너는 고객사가 정산해주어야 할 대상입니다. 기본 사업자 정보와 정산정보, 그리고 적용될 계약의 정보를 등록 및 관리할 수 있습니다.
  */
 export type PlatformPartner = {
 	/**
 	 * 파트너 고유 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너 법인명 혹은 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 파트너 담당자 연락 정보
-	 *
 	 */
 	contact: PlatformContact;
 	/**
 	 * 정산 계좌
-	 *
 	 */
 	account: PlatformAccount;
 	/**
 	 * 파트너의 상태
-	 *
 	 */
 	status: PlatformPartnerStatus;
 	/**
 	 * 파트너에 설정된 기본 계약 아이디
-	 *
 	 */
 	defaultContractId: string;
 	/**
 	 * 파트너에 대한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 파트너의 태그 리스트
-	 *
 	 */
 	tags: string[];
 	/**
 	 * 파트너 유형별 정보
-	 *
 	 */
 	type: PlatformPartnerType;
 	/**
 	 * 보관 여부
-	 *
 	 */
 	isArchived: boolean;
 	/**
 	 * 변경 적용 시점
-	 *
 	 */
 	appliedAt: string;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties: PlatformProperties;
 };
 
 /**
  * GetPlatformPartnerError
- *
  */
 export type GetPlatformPartnerError =
 	| ForbiddenError
@@ -5298,69 +4858,55 @@ export type GetPlatformPartnerError =
 /**
  * 파트너 업데이트를 위한 입력 정보
  *
- * 파트너 업데이트를 위한 입력 정보
- *
  * 값이 명시되지 않은 필드는 업데이트되지 않습니다.
  */
 export type UpdatePlatformPartnerBody = {
 	/**
 	 * 파트너 법인명 혹은 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 파트너 담당자 연락 정보
-	 *
 	 */
 	contact?: UpdatePlatformPartnerBodyContact;
 	/**
 	 * 정산 계좌
-	 *
 	 */
 	account?: UpdatePlatformPartnerBodyAccount;
 	/**
 	 * 파트너에 설정된 기본 계약 아이디
-	 *
 	 */
 	defaultContractId?: string;
 	/**
 	 * 파트너에 대한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 파트너의 태그 리스트
-	 *
 	 */
 	tags?: string[];
 	/**
 	 * 파트너 유형별 정보
-	 *
 	 */
 	type?: UpdatePlatformPartnerBodyType;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties?: PlatformProperties;
 };
 
 /**
  * 파트너 업데이트 성공 응답
- *
- * 파트너 업데이트 성공 응답
  */
 export type UpdatePlatformPartnerResponse = {
 	/**
 	 * 업데이트된 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 };
 
 /**
  * UpdatePlatformPartnerError
- *
  */
 export type UpdatePlatformPartnerError =
 	| ForbiddenError
@@ -5378,33 +4924,26 @@ export type UpdatePlatformPartnerError =
 
 /**
  * 파트너 다건 생성을 위한 입력 정보
- *
- * 파트너 다건 생성을 위한 입력 정보
  */
 export type CreatePlatformPartnersBody = {
 	/**
 	 * 생성할 파트너 리스트 정보
-	 *
 	 */
 	partners: CreatePlatformPartnerBody[];
 };
 
 /**
  * 파트너 다건 생성 성공 응답
- *
- * 파트너 다건 생성 성공 응답
  */
 export type CreatePlatformPartnersResponse = {
 	/**
 	 * 생성된 파트너 리스트
-	 *
 	 */
 	partners: PlatformPartner[];
 };
 
 /**
  * CreatePlatformPartnersError
- *
  */
 export type CreatePlatformPartnersError =
 	| ForbiddenError
@@ -5419,7 +4958,6 @@ export type CreatePlatformPartnersError =
 
 /**
  * GetPlatformPartnerScheduleError
- *
  */
 export type GetPlatformPartnerScheduleError =
 	| ForbiddenError
@@ -5430,38 +4968,30 @@ export type GetPlatformPartnerScheduleError =
 
 /**
  * 파트너 예약 업데이트 재설정을 위한 입력 정보
- *
- * 파트너 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformPartnerBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformPartnerBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 파트너 예약 업데이트 재설정 성공 응답
- *
- * 파트너 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformPartnerResponse = {
 	/**
 	 * 예약된 파트너 정보
-	 *
 	 */
 	scheduledPartner: PlatformPartner;
 };
 
 /**
  * ReschedulePartnerError
- *
  */
 export type ReschedulePartnerError =
 	| ForbiddenError
@@ -5473,38 +5003,30 @@ export type ReschedulePartnerError =
 
 /**
  * 파트너 업데이트 예약을 위한 입력 정보
- *
- * 파트너 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformPartnerBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformPartnerBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 파트너 업데이트 예약 성공 응답
- *
- * 파트너 업데이트 예약 성공 응답
  */
 export type SchedulePlatformPartnerResponse = {
 	/**
 	 * 예약된 파트너 정보
-	 *
 	 */
 	scheduledPartner: PlatformPartner;
 };
 
 /**
  * SchedulePartnerError
- *
  */
 export type SchedulePartnerError =
 	| ForbiddenError
@@ -5523,14 +5045,11 @@ export type SchedulePartnerError =
 
 /**
  * 파트너 예약 업데이트 취소 성공 응답
- *
- * 파트너 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformPartnerScheduleResponse = {};
 
 /**
  * CancelPlatformPartnerScheduleError
- *
  */
 export type CancelPlatformPartnerScheduleError =
 	| ForbiddenError
@@ -5541,32 +5060,20 @@ export type CancelPlatformPartnerScheduleError =
 
 /**
  * SchedulePlatformPartnersBody
- *
  */
 export type SchedulePlatformPartnersBody = {
-	/**
-	 *
-	 */
 	filter?: PlatformPartnerFilterInput;
-	/**
-	 *
-	 */
 	update: SchedulePlatformPartnersBodyUpdate;
-	/**
-	 *
-	 */
 	appliedAt: string;
 };
 
 /**
  * SchedulePlatformPartnersResponse
- *
  */
 export type SchedulePlatformPartnersResponse = {};
 
 /**
  * SchedulePlatformPartnersError
- *
  */
 export type SchedulePlatformPartnersError =
 	| ForbiddenError
@@ -5580,20 +5087,16 @@ export type SchedulePlatformPartnersError =
 
 /**
  * 파트너 보관 성공 응답
- *
- * 파트너 보관 성공 응답
  */
 export type ArchivePlatformPartnerResponse = {
 	/**
 	 * 보관된 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 };
 
 /**
  * ArchivePlatformPartnerError
- *
  */
 export type ArchivePlatformPartnerError =
 	| ForbiddenError
@@ -5605,20 +5108,16 @@ export type ArchivePlatformPartnerError =
 
 /**
  * 파트너 복원 성공 응답
- *
- * 파트너 복원 성공 응답
  */
 export type RecoverPlatformPartnerResponse = {
 	/**
 	 * 복원된 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 };
 
 /**
  * RecoverPlatformPartnerError
- *
  */
 export type RecoverPlatformPartnerError =
 	| ForbiddenError
@@ -5629,43 +5128,34 @@ export type RecoverPlatformPartnerError =
 
 /**
  * 계약 다건 조회를 위한 입력 정보
- *
- * 계약 다건 조회를 위한 입력 정보
  */
 export type GetPlatformContractsBody = {
 	/**
 	 * 요청할 페이지 정보
-	 *
 	 */
 	page?: PageInput;
 	/**
 	 * 조회할 계약 조건 필터
-	 *
 	 */
 	filter?: PlatformContractFilterInput;
 };
 
 /**
  * 계약 다건 조회 성공 응답
- *
- * 계약 다건 조회 성공 응답
  */
 export type GetPlatformContractsResponse = {
 	/**
 	 * 조회된 계약 리스트
-	 *
 	 */
 	items: PlatformContract[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetPlatformContractsError
- *
  */
 export type GetPlatformContractsError =
 	| ForbiddenError
@@ -5674,8 +5164,6 @@ export type GetPlatformContractsError =
 	| UnauthorizedError;
 
 /**
- * 계약 객체 생성을 위한 입력 정보
- *
  * 계약 객체 생성을 위한 입력 정보
  */
 export type CreatePlatformContractBody = {
@@ -5687,52 +5175,42 @@ export type CreatePlatformContractBody = {
 	id?: string;
 	/**
 	 * 계약 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 계약 내부 표기를 위한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 중개수수료
-	 *
 	 */
 	platformFee: PlatformFeeInput;
 	/**
 	 * 정산 주기
-	 *
 	 */
 	settlementCycle: PlatformSettlementCycleInput;
 	/**
 	 * 중개수수료에 대한 부가세 부담 주체
-	 *
 	 */
 	platformFeeVatPayer: PlatformPayer;
 	/**
 	 * 정산 시 결제금액 부가세 감액 여부
-	 *
 	 */
 	subtractPaymentVatAmount: boolean;
 };
 
 /**
  * 계약 객체 생성 성공 응답
- *
- * 계약 객체 생성 성공 응답
  */
 export type CreatePlatformContractResponse = {
 	/**
 	 * 생성된 계약 객체
-	 *
 	 */
 	contract: PlatformContract;
 };
 
 /**
  * CreatePlatformContractError
- *
  */
 export type CreatePlatformContractError =
 	| ForbiddenError
@@ -5744,43 +5222,32 @@ export type CreatePlatformContractError =
 /**
  * 계약
  *
- * 계약
- *
  * 계약은 플랫폼 고객사가 파트너에게 정산해줄 대금과 정산일을 계산하는 데 적용되는 정보입니다. 고객사의 플랫폼에서 재화 및 서비스를 판매하기 위한 중개수수료와 판매금에 대한 정산일로 구성되어 있습니다.
  */
 export type PlatformContract = {
 	/**
 	 * 계약 고유 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 계약 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 계약 내부 표기를 위한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 중개수수료
-	 *
 	 */
 	platformFee: PlatformFee;
 	/**
 	 * 정산 주기
-	 *
 	 */
 	settlementCycle: PlatformSettlementCycle;
 	/**
 	 * 중개수수료에 대한 부가세 부담 주체
-	 *
 	 */
 	platformFeeVatPayer: PlatformPayer;
 	/**
@@ -5791,19 +5258,16 @@ export type PlatformContract = {
 	subtractPaymentVatAmount: boolean;
 	/**
 	 * 보관 여부
-	 *
 	 */
 	isArchived: boolean;
 	/**
 	 * 변경 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * GetPlatformContractError
- *
  */
 export type GetPlatformContractError =
 	| ForbiddenError
@@ -5815,59 +5279,47 @@ export type GetPlatformContractError =
 /**
  * 계약 업데이트를 위한 입력 정보. 값이 명시되지 않은 필드는 업데이트되지 않습니다.
  *
- * 계약 업데이트를 위한 입력 정보. 값이 명시되지 않은 필드는 업데이트되지 않습니다.
- *
  * 값이 명시되지 않은 필드는 업데이트되지 않습니다.
  */
 export type UpdatePlatformContractBody = {
 	/**
 	 * 계약 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 계약 내부 표기를 위한 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 중개수수료
-	 *
 	 */
 	platformFee?: PlatformFeeInput;
 	/**
 	 * 정산 주기
-	 *
 	 */
 	settlementCycle?: PlatformSettlementCycleInput;
 	/**
 	 * 중개수수료에 대한 부가세 부담 주체
-	 *
 	 */
 	platformFeeVatPayer?: PlatformPayer;
 	/**
 	 * 정산 시 결제금액 부가세 감액 여부
-	 *
 	 */
 	subtractPaymentVatAmount?: boolean;
 };
 
 /**
  * 계약 객체 업데이트 성공 응답
- *
- * 계약 객체 업데이트 성공 응답
  */
 export type UpdatePlatformContractResponse = {
 	/**
 	 * 업데이트된 계약 객체
-	 *
 	 */
 	contract: PlatformContract;
 };
 
 /**
  * UpdatePlatformContractError
- *
  */
 export type UpdatePlatformContractError =
 	| ForbiddenError
@@ -5879,7 +5331,6 @@ export type UpdatePlatformContractError =
 
 /**
  * GetPlatformContractScheduleError
- *
  */
 export type GetPlatformContractScheduleError =
 	| ForbiddenError
@@ -5890,38 +5341,30 @@ export type GetPlatformContractScheduleError =
 
 /**
  * 계약 예약 업데이트 재설정을 위한 입력 정보
- *
- * 계약 예약 업데이트 재설정을 위한 입력 정보
  */
 export type ReschedulePlatformContractBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformContractBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 계약 예약 업데이트 재설정 성공 응답
- *
- * 계약 예약 업데이트 재설정 성공 응답
  */
 export type ReschedulePlatformContractResponse = {
 	/**
 	 * 예약된 계약 정보
-	 *
 	 */
 	scheduledContract: PlatformContract;
 };
 
 /**
  * RescheduleContractError
- *
  */
 export type RescheduleContractError =
 	| InvalidRequestError
@@ -5931,38 +5374,30 @@ export type RescheduleContractError =
 
 /**
  * 계약 업데이트 예약을 위한 입력 정보
- *
- * 계약 업데이트 예약을 위한 입력 정보
  */
 export type SchedulePlatformContractBody = {
 	/**
 	 * 반영할 업데이트 내용
-	 *
 	 */
 	update: UpdatePlatformContractBody;
 	/**
 	 * 업데이트 적용 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * 계약 업데이트 예약 성공 응답
- *
- * 계약 업데이트 예약 성공 응답
  */
 export type SchedulePlatformContractResponse = {
 	/**
 	 * 예약된 계약 정보
-	 *
 	 */
 	scheduledContract: PlatformContract;
 };
 
 /**
  * ScheduleContractError
- *
  */
 export type ScheduleContractError =
 	| InvalidRequestError
@@ -5974,14 +5409,11 @@ export type ScheduleContractError =
 
 /**
  * 계약 예약 업데이트 취소 성공 응답
- *
- * 계약 예약 업데이트 취소 성공 응답
  */
 export type CancelPlatformContractScheduleResponse = {};
 
 /**
  * CancelPlatformContractScheduleError
- *
  */
 export type CancelPlatformContractScheduleError =
 	| ForbiddenError
@@ -5992,20 +5424,16 @@ export type CancelPlatformContractScheduleError =
 
 /**
  * 계약 보관 성공 응답
- *
- * 계약 보관 성공 응답
  */
 export type ArchivePlatformContractResponse = {
 	/**
 	 * 보관된 계약
-	 *
 	 */
 	contract: PlatformContract;
 };
 
 /**
  * ArchivePlatformContractError
- *
  */
 export type ArchivePlatformContractError =
 	| ForbiddenError
@@ -6017,20 +5445,16 @@ export type ArchivePlatformContractError =
 
 /**
  * 계약 복원 성공 응답
- *
- * 계약 복원 성공 응답
  */
 export type RecoverPlatformContractResponse = {
 	/**
 	 * 복원된 계약
-	 *
 	 */
 	contract: PlatformContract;
 };
 
 /**
  * RecoverPlatformContractError
- *
  */
 export type RecoverPlatformContractError =
 	| ForbiddenError
@@ -6042,8 +5466,6 @@ export type RecoverPlatformContractError =
 /**
  * 정산건
  *
- * 정산건
- *
  * 정산건은 파트너에 정산해줄 정산 금액과 정산 방식 등이 포함되어 있는 정산 정보입니다. 정산 방식은은 주문 정산, 주문 취소 정산, 수기 정산이 있습니다.
  */
 export type PlatformTransfer =
@@ -6053,7 +5475,6 @@ export type PlatformTransfer =
 
 /**
  * GetPlatformTransferError
- *
  */
 export type GetPlatformTransferError =
 	| ForbiddenError
@@ -6064,13 +5485,11 @@ export type GetPlatformTransferError =
 
 /**
  * DeletePlatformTransferResponse
- *
  */
 export type DeletePlatformTransferResponse = {};
 
 /**
  * DeletePlatformTransferError
- *
  */
 export type DeletePlatformTransferError =
 	| ForbiddenError
@@ -6083,40 +5502,28 @@ export type DeletePlatformTransferError =
 
 /**
  * 정산건 요약 다건 조회를 위한 입력 정보
- *
- * 정산건 요약 다건 조회를 위한 입력 정보
  */
 export type GetPlatformTransferSummariesBody = {
 	/**
 	 * 요청할 페이지 정보
-	 *
 	 */
 	page?: PageInput;
 	/**
 	 * 조회할 정산건 조건 필터
-	 *
 	 */
 	filter?: PlatformTransferFilterInput;
 };
 
 /**
  * GetPlatformTransferSummariesResponse
- *
  */
 export type GetPlatformTransferSummariesResponse = {
-	/**
-	 *
-	 */
 	transferSummaries: PlatformTransferSummary[];
-	/**
-	 *
-	 */
 	page: PageInfo;
 };
 
 /**
  * GetPlatformTransferSummariesError
- *
  */
 export type GetPlatformTransferSummariesError =
 	| ForbiddenError
@@ -6126,13 +5533,10 @@ export type GetPlatformTransferSummariesError =
 
 /**
  * 주문 정산건 생성을 위한 입력 정보
- *
- * 주문 정산건 생성을 위한 입력 정보
  */
 export type CreatePlatformOrderTransferBody = {
 	/**
 	 * 파트너 아이디
-	 *
 	 */
 	partnerId: string;
 	/**
@@ -6143,17 +5547,14 @@ export type CreatePlatformOrderTransferBody = {
 	contractId?: string;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 결제 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 주문 정보
-	 *
 	 */
 	orderDetail: CreatePlatformOrderTransferBodyOrderDetail;
 	/**
@@ -6170,12 +5571,10 @@ export type CreatePlatformOrderTransferBody = {
 	settlementStartDate?: string;
 	/**
 	 * 할인 정보
-	 *
 	 */
 	discounts: CreatePlatformOrderTransferBodyDiscount[];
 	/**
 	 * 추가 수수료 정보
-	 *
 	 */
 	additionalFees: CreatePlatformOrderTransferBodyAdditionalFee[];
 	/**
@@ -6192,30 +5591,23 @@ export type CreatePlatformOrderTransferBody = {
 	isForTest?: boolean;
 	/**
 	 * 정산 파라미터 (실험기능)
-	 *
 	 */
 	parameters?: TransferParameters;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties?: PlatformUserDefinedPropertyKeyValue[];
 };
 
 /**
  * CreateOrderTransferResponse
- *
  */
 export type CreateOrderTransferResponse = {
-	/**
-	 *
-	 */
 	transfer: PlatformOrderTransfer;
 };
 
 /**
  * CreatePlatformOrderTransferError
- *
  */
 export type CreatePlatformOrderTransferError =
 	| ForbiddenError
@@ -6242,39 +5634,31 @@ export type CreatePlatformOrderTransferError =
 /**
  * 주문 취소 정산 등록을 위한 입력 정보
  *
- * 주문 취소 정산 등록을 위한 입력 정보
- *
  * 하나의 payment에 하나의 정산 건만 존재하는 경우에는 (partnerId, paymentId)로 취소 정산을 등록하실 수 있습니다. 하나의 payment에 여러 개의 정산 건이 존재하는 경우에는 transferId를 필수로 입력해야 합니다. transferId를 입력한 경우 (partnerId, paymentId)는 생략 가능합니다.
  */
 export type CreatePlatformOrderCancelTransferBody = {
 	/**
 	 * 파트너 아이디
-	 *
 	 */
 	partnerId?: string;
 	/**
 	 * 결제 아이디
-	 *
 	 */
 	paymentId?: string;
 	/**
 	 * 정산건 아이디
-	 *
 	 */
 	transferId?: string;
 	/**
 	 * 취소 내역 아이디
-	 *
 	 */
 	cancellationId: string;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 주문 취소 정보
-	 *
 	 */
 	orderDetail?: CreatePlatformOrderCancelTransferBodyOrderDetail;
 	/**
@@ -6285,7 +5669,6 @@ export type CreatePlatformOrderCancelTransferBody = {
 	taxFreeAmount?: number;
 	/**
 	 * 할인 정보
-	 *
 	 */
 	discounts: CreatePlatformOrderCancelTransferBodyDiscount[];
 	/**
@@ -6308,25 +5691,19 @@ export type CreatePlatformOrderCancelTransferBody = {
 	isForTest?: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties?: PlatformUserDefinedPropertyKeyValue[];
 };
 
 /**
  * CreateOrderCancelTransferResponse
- *
  */
 export type CreateOrderCancelTransferResponse = {
-	/**
-	 *
-	 */
 	transfer: PlatformOrderCancelTransfer;
 };
 
 /**
  * CreatePlatformOrderCancelTransferError
- *
  */
 export type CreatePlatformOrderCancelTransferError =
 	| ForbiddenError
@@ -6355,23 +5732,18 @@ export type CreatePlatformOrderCancelTransferError =
 
 /**
  * 수기 정산건 생성을 위한 입력 정보
- *
- * 수기 정산건 생성을 위한 입력 정보
  */
 export type CreatePlatformManualTransferBody = {
 	/**
 	 * 파트너 아이디
-	 *
 	 */
 	partnerId: string;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 정산 금액
-	 *
 	 */
 	settlementAmount: number;
 	/**
@@ -6388,25 +5760,19 @@ export type CreatePlatformManualTransferBody = {
 	isForTest?: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties?: PlatformUserDefinedPropertyKeyValue[];
 };
 
 /**
  * CreateManualTransferResponse
- *
  */
 export type CreateManualTransferResponse = {
-	/**
-	 *
-	 */
 	transfer: PlatformManualTransfer;
 };
 
 /**
  * CreatePlatformManualTransferError
- *
  */
 export type CreatePlatformManualTransferError =
 	| ForbiddenError
@@ -6418,31 +5784,19 @@ export type CreatePlatformManualTransferError =
 
 /**
  * DownloadPlatformTransferSheetBody
- *
  */
 export type DownloadPlatformTransferSheetBody = {
-	/**
-	 *
-	 */
 	filter?: PlatformTransferFilterInput;
 	/**
 	 * 다운로드 할 시트 컬럼
-	 *
 	 */
 	fields?: PlatformTransferSheetField[];
-	/**
-	 *
-	 */
 	transferUserDefinedPropertyKeys?: string[];
-	/**
-	 *
-	 */
 	partnerUserDefinedPropertyKeys?: string[];
 };
 
 /**
  * DownloadPlatformTransferSheetError
- *
  */
 export type DownloadPlatformTransferSheetError =
 	| InvalidRequestError
@@ -6450,52 +5804,39 @@ export type DownloadPlatformTransferSheetError =
 
 /**
  * 정산내역 다건 조회를 위한 입력 정보
- *
- * 정산내역 다건 조회를 위한 입력 정보
  */
 export type GetPlatformPartnerSettlementsBody = {
 	/**
 	 * 요청할 페이지 정보
-	 *
 	 */
 	page?: PageInput;
 	/**
 	 * 조회할 정산내역 조건 필터
-	 *
 	 */
 	filter: PlatformPartnerSettlementFilterInput;
-	/**
-	 *
-	 */
 	isForTest: boolean;
 };
 
 /**
  * 정산내역 다건 조회 성공 응답 정보
- *
- * 정산내역 다건 조회 성공 응답 정보
  */
 export type GetPlatformPartnerSettlementsResponse = {
 	/**
 	 * 조회된 정산내역 리스트
-	 *
 	 */
 	items: PlatformPartnerSettlement[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 	/**
 	 * 정산내역 상태 별 갯수
-	 *
 	 */
 	counts: PlatformPartnerSettlementStatusStats;
 };
 
 /**
  * GetPlatformPartnerSettlementsError
- *
  */
 export type GetPlatformPartnerSettlementsError =
 	| ForbiddenError
@@ -6505,45 +5846,24 @@ export type GetPlatformPartnerSettlementsError =
 
 /**
  * GetPlatformPayoutsBody
- *
  */
 export type GetPlatformPayoutsBody = {
-	/**
-	 *
-	 */
 	isForTest?: boolean;
-	/**
-	 *
-	 */
 	page?: PageInput;
-	/**
-	 *
-	 */
 	filter?: PlatformPayoutFilterInput;
 };
 
 /**
  * GetPlatformPayoutsResponse
- *
  */
 export type GetPlatformPayoutsResponse = {
-	/**
-	 *
-	 */
 	items: PlatformPayout[];
-	/**
-	 *
-	 */
 	page: PageInfo;
-	/**
-	 *
-	 */
 	counts: PlatformPayoutStatusStats;
 };
 
 /**
  * GetPlatformPayoutsError
- *
  */
 export type GetPlatformPayoutsError =
 	| ForbiddenError
@@ -6553,45 +5873,24 @@ export type GetPlatformPayoutsError =
 
 /**
  * GetPlatformBulkPayoutsBody
- *
  */
 export type GetPlatformBulkPayoutsBody = {
-	/**
-	 *
-	 */
 	isForTest?: boolean;
-	/**
-	 *
-	 */
 	page?: PageInput;
-	/**
-	 *
-	 */
 	filter?: PlatformBulkPayoutFilterInput;
 };
 
 /**
  * GetPlatformBulkPayoutsResponse
- *
  */
 export type GetPlatformBulkPayoutsResponse = {
-	/**
-	 *
-	 */
 	items: PlatformBulkPayout[];
-	/**
-	 *
-	 */
 	page: PageInfo;
-	/**
-	 *
-	 */
 	counts: PlatformBulkPayoutStatusStats;
 };
 
 /**
  * GetPlatformBulkPayoutsError
- *
  */
 export type GetPlatformBulkPayoutsError =
 	| ForbiddenError
@@ -6600,8 +5899,6 @@ export type GetPlatformBulkPayoutsError =
 	| UnauthorizedError;
 
 /**
- * 은행
- *
  * 은행
  */
 export type Bank =
@@ -6686,25 +5983,20 @@ export type Bank =
 
 /**
  * 예금주 조회 성공 응답 정보
- *
- * 예금주 조회 성공 응답 정보
  */
 export type PlatformAccountHolder = {
 	/**
 	 * 계좌 예금주 이름
-	 *
 	 */
 	holderName: string;
 	/**
 	 * 계좌 검증 아이디
-	 *
 	 */
 	accountVerificationId: string;
 };
 
 /**
  * GetPlatformAccountHolderError
- *
  */
 export type GetPlatformAccountHolderError =
 	| ForbiddenError
@@ -6717,8 +6009,6 @@ export type GetPlatformAccountHolderError =
 
 /**
  * 본인인증 내역
- *
- * 본인인증 내역
  */
 export type IdentityVerification =
 	| FailedIdentityVerification
@@ -6727,7 +6017,6 @@ export type IdentityVerification =
 
 /**
  * GetIdentityVerificationError
- *
  */
 export type GetIdentityVerificationError =
 	| ForbiddenError
@@ -6736,8 +6025,6 @@ export type GetIdentityVerificationError =
 	| UnauthorizedError;
 
 /**
- * 본인인증 요청을 위한 입력 정보
- *
  * 본인인증 요청을 위한 입력 정보
  */
 export type SendIdentityVerificationBody = {
@@ -6749,46 +6036,37 @@ export type SendIdentityVerificationBody = {
 	storeId?: string;
 	/**
 	 * 채널 키
-	 *
 	 */
 	channelKey: string;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: SendIdentityVerificationBodyCustomer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * PG사별 추가 파라미터 ("PG사별 연동 가이드" 참고)
-	 *
 	 */
 	bypass?: {};
 	/**
 	 * 통신사
-	 *
 	 */
 	operator: IdentityVerificationOperator;
 	/**
 	 * 본인인증 방식
-	 *
 	 */
 	method: IdentityVerificationMethod;
 };
 
 /**
  * 본인인증 요청 전송 성공 응답
- *
- * 본인인증 요청 전송 성공 응답
  */
 export type SendIdentityVerificationResponse = {};
 
 /**
  * SendIdentityVerificationError
- *
  */
 export type SendIdentityVerificationError =
 	| ChannelNotFoundError
@@ -6801,8 +6079,6 @@ export type SendIdentityVerificationError =
 	| UnauthorizedError;
 
 /**
- * 본인인증 확인을 위한 입력 정보
- *
  * 본인인증 확인을 위한 입력 정보
  */
 export type ConfirmIdentityVerificationBody = {
@@ -6822,20 +6098,16 @@ export type ConfirmIdentityVerificationBody = {
 
 /**
  * 본인인증 확인 성공 응답
- *
- * 본인인증 확인 성공 응답
  */
 export type ConfirmIdentityVerificationResponse = {
 	/**
 	 * 완료된 본인인증 내역
-	 *
 	 */
 	identityVerification: VerifiedIdentityVerification;
 };
 
 /**
  * ConfirmIdentityVerificationError
- *
  */
 export type ConfirmIdentityVerificationError =
 	| ForbiddenError
@@ -6848,14 +6120,11 @@ export type ConfirmIdentityVerificationError =
 
 /**
  * 본인인증 요청 재전송 성공 응답
- *
- * 본인인증 요청 재전송 성공 응답
  */
 export type ResendIdentityVerificationResponse = {};
 
 /**
  * ResendIdentityVerificationError
- *
  */
 export type ResendIdentityVerificationError =
 	| ForbiddenError
@@ -6868,8 +6137,6 @@ export type ResendIdentityVerificationError =
 
 /**
  * 결제 정보 사전 등록 입력 정보
- *
- * 결제 정보 사전 등록 입력 정보
  */
 export type PreRegisterPaymentBody = {
 	/**
@@ -6880,31 +6147,25 @@ export type PreRegisterPaymentBody = {
 	storeId?: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount?: number;
 	/**
 	 * 결제 면세 금액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 통화 단위
-	 *
 	 */
 	currency?: Currency;
 };
 
 /**
  * 결제 사전 등록 성공 응답
- *
- * 결제 사전 등록 성공 응답
  */
 export type PreRegisterPaymentResponse = {};
 
 /**
  * PreRegisterPaymentError
- *
  */
 export type PreRegisterPaymentError =
 	| AlreadyPaidError
@@ -6914,14 +6175,11 @@ export type PreRegisterPaymentError =
 
 /**
  * 빌링키 정보
- *
- * 빌링키 정보
  */
 export type BillingKeyInfo = DeletedBillingKeyInfo | IssuedBillingKeyInfo;
 
 /**
  * GetBillingKeyInfoError
- *
  */
 export type GetBillingKeyInfoError =
 	| BillingKeyNotFoundError
@@ -6931,20 +6189,16 @@ export type GetBillingKeyInfoError =
 
 /**
  * 빌링키 삭제 성공 응답
- *
- * 빌링키 삭제 성공 응답
  */
 export type DeleteBillingKeyResponse = {
 	/**
 	 * 빌링키 삭제 완료 시점
-	 *
 	 */
 	deletedAt: string;
 };
 
 /**
  * DeleteBillingKeyError
- *
  */
 export type DeleteBillingKeyError =
 	| BillingKeyAlreadyDeletedError
@@ -6985,25 +6239,20 @@ export type GetBillingKeyInfosBody = {
 
 /**
  * 빌링키 다건 조회 성공 응답 정보
- *
- * 빌링키 다건 조회 성공 응답 정보
  */
 export type GetBillingKeyInfosResponse = {
 	/**
 	 * 조회된 빌링키 리스트
-	 *
 	 */
 	items: BillingKeyInfo[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetBillingKeyInfosError
- *
  */
 export type GetBillingKeyInfosError =
 	| ForbiddenError
@@ -7011,8 +6260,6 @@ export type GetBillingKeyInfosError =
 	| UnauthorizedError;
 
 /**
- * 빌링키 발급 요청 양식
- *
  * 빌링키 발급 요청 양식
  */
 export type IssueBillingKeyBody = {
@@ -7024,7 +6271,6 @@ export type IssueBillingKeyBody = {
 	storeId?: string;
 	/**
 	 * 빌링키 결제 수단 정보
-	 *
 	 */
 	method: InstantBillingKeyPaymentMethodInput;
 	/**
@@ -7041,17 +6287,14 @@ export type IssueBillingKeyBody = {
 	channelGroupId?: string;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer?: CustomerInput;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * PG사별 추가 파라미터 ("PG사별 연동 가이드" 참고)
-	 *
 	 */
 	bypass?: {};
 	/**
@@ -7064,25 +6307,20 @@ export type IssueBillingKeyBody = {
 
 /**
  * 빌링키 발급 성공 응답
- *
- * 빌링키 발급 성공 응답
  */
 export type IssueBillingKeyResponse = {
 	/**
 	 * 빌링키 정보
-	 *
 	 */
 	billingKeyInfo: BillingKeyInfoSummary;
 	/**
 	 * 발급에 실패한 채널이 있을시 실패 정보
-	 *
 	 */
 	channelSpecificFailures?: ChannelSpecificFailure[];
 };
 
 /**
  * IssueBillingKeyError
- *
  */
 export type IssueBillingKeyError =
 	| ChannelNotFoundError
@@ -7094,8 +6332,6 @@ export type IssueBillingKeyError =
 
 /**
  * 현금영수증 내역
- *
- * 현금영수증 내역
  */
 export type CashReceipt =
 	| CancelledCashReceipt
@@ -7104,7 +6340,6 @@ export type CashReceipt =
 
 /**
  * GetCashReceiptError
- *
  */
 export type GetCashReceiptError =
 	| CashReceiptNotFoundError
@@ -7113,8 +6348,6 @@ export type GetCashReceiptError =
 	| UnauthorizedError;
 
 /**
- * 결제 건
- *
  * 결제 건
  */
 export type Payment =
@@ -7128,7 +6361,6 @@ export type Payment =
 
 /**
  * GetPaymentError
- *
  */
 export type GetPaymentError =
 	| ForbiddenError
@@ -7158,25 +6390,20 @@ export type GetPaymentsBody = {
 
 /**
  * 결제 건 다건 조회 성공 응답 정보
- *
- * 결제 건 다건 조회 성공 응답 정보
  */
 export type GetPaymentsResponse = {
 	/**
 	 * 조회된 결제 건 리스트
-	 *
 	 */
 	items: Payment[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetPaymentsError
- *
  */
 export type GetPaymentsError =
 	| ForbiddenError
@@ -7223,20 +6450,16 @@ export type GetAllPaymentsByCursorBody = {
 
 /**
  * 결제 건 커서 기반 대용량 다건 조회 성공 응답 정보
- *
- * 결제 건 커서 기반 대용량 다건 조회 성공 응답 정보
  */
 export type GetAllPaymentsByCursorResponse = {
 	/**
 	 * 조회된 결제 건 및 커서 정보 리스트
-	 *
 	 */
 	items: PaymentWithCursor[];
 };
 
 /**
  * GetAllPaymentsError
- *
  */
 export type GetAllPaymentsError =
 	| ForbiddenError
@@ -7244,8 +6467,6 @@ export type GetAllPaymentsError =
 	| UnauthorizedError;
 
 /**
- * 결제 예약 건
- *
  * 결제 예약 건
  */
 export type PaymentSchedule =
@@ -7258,7 +6479,6 @@ export type PaymentSchedule =
 
 /**
  * GetPaymentScheduleError
- *
  */
 export type GetPaymentScheduleError =
 	| ForbiddenError
@@ -7267,8 +6487,6 @@ export type GetPaymentScheduleError =
 	| UnauthorizedError;
 
 /**
- * 결제 예약 다건 조회를 위한 입력 정보
- *
  * 결제 예약 다건 조회를 위한 입력 정보
  *
  * 조회 결과는 결제 예정 시점(timeToPay) 기준 최신 순으로 정렬됩니다.
@@ -7288,32 +6506,26 @@ export type GetPaymentSchedulesBody = {
 	sort?: PaymentScheduleSortInput;
 	/**
 	 * 조회할 결제 예약 건의 조건 필터
-	 *
 	 */
 	filter?: PaymentScheduleFilterInput;
 };
 
 /**
  * 결제 예약 다건 조회 성공 응답 정보
- *
- * 결제 예약 다건 조회 성공 응답 정보
  */
 export type GetPaymentSchedulesResponse = {
 	/**
 	 * 조회된 결제 예약 건 리스트
-	 *
 	 */
 	items: PaymentSchedule[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetPaymentSchedulesError
- *
  */
 export type GetPaymentSchedulesError =
 	| ForbiddenError
@@ -7321,8 +6533,6 @@ export type GetPaymentSchedulesError =
 	| UnauthorizedError;
 
 /**
- * 결제 예약 건 취소 요청 입력 정보
- *
  * 결제 예약 건 취소 요청 입력 정보
  *
  * billingKey, scheduleIds 중 하나 이상은 필수로 입력합니다. billingKey 만 입력된 경우 -> 해당 빌링키로 예약된 모든 결제 예약 건들이 취소됩니다. scheduleIds 만 입력된 경우 -> 입력된 결제 예약 건 아이디에 해당하는 예약 건들이 취소됩니다. billingKey, scheduleIds 모두 입력된 경우 -> 입력된 결제 예약 건 아이디에 해당하는 예약 건들이 취소됩니다. 그리고 예약한 빌링키가 입력된 빌링키와 일치하는지 검증합니다. 위 정책에 따라 선택된 결제 예약 건들 중 하나라도 취소에 실패할 경우, 모든 취소 요청이 실패합니다.
@@ -7336,37 +6546,30 @@ export type RevokePaymentSchedulesBody = {
 	storeId?: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey?: string;
 	/**
 	 * 결제 예약 건 아이디 목록
-	 *
 	 */
 	scheduleIds?: string[];
 };
 
 /**
  * 결제 예약 건 취소 성공 응답
- *
- * 결제 예약 건 취소 성공 응답
  */
 export type RevokePaymentSchedulesResponse = {
 	/**
 	 * 취소 완료된 결제 예약 건 아이디 목록
-	 *
 	 */
 	revokedScheduleIds: string[];
 	/**
 	 * 결제 예약 건 취소 완료 시점
-	 *
 	 */
 	revokedAt?: string;
 };
 
 /**
  * RevokePaymentSchedulesError
- *
  */
 export type RevokePaymentSchedulesError =
 	| BillingKeyAlreadyDeletedError
@@ -7380,38 +6583,30 @@ export type RevokePaymentSchedulesError =
 
 /**
  * 결제 예약 요청 입력 정보
- *
- * 결제 예약 요청 입력 정보
  */
 export type CreatePaymentScheduleBody = {
 	/**
 	 * 빌링키 결제 입력 정보
-	 *
 	 */
 	payment: BillingKeyPaymentInput;
 	/**
 	 * 결제 예정 시점
-	 *
 	 */
 	timeToPay: string;
 };
 
 /**
  * 결제 예약 성공 응답
- *
- * 결제 예약 성공 응답
  */
 export type CreatePaymentScheduleResponse = {
 	/**
 	 * 결제 예약 건
-	 *
 	 */
 	schedule: PaymentScheduleSummary;
 };
 
 /**
  * CreatePaymentScheduleError
- *
  */
 export type CreatePaymentScheduleError =
 	| AlreadyPaidOrWaitingError
@@ -7424,8 +6619,6 @@ export type CreatePaymentScheduleError =
 	| UnauthorizedError;
 
 /**
- * 결제 취소 요청 입력 정보
- *
  * 결제 취소 요청 입력 정보
  */
 export type CancelPaymentBody = {
@@ -7455,7 +6648,6 @@ export type CancelPaymentBody = {
 	vatAmount?: number;
 	/**
 	 * 취소 사유
-	 *
 	 */
 	reason: string;
 	/**
@@ -7480,20 +6672,16 @@ export type CancelPaymentBody = {
 
 /**
  * 결제 취소 성공 응답
- *
- * 결제 취소 성공 응답
  */
 export type CancelPaymentResponse = {
 	/**
 	 * 결체 취소 내역
-	 *
 	 */
 	cancellation: PaymentCancellation;
 };
 
 /**
  * CancelPaymentError
- *
  */
 export type CancelPaymentError =
 	| CancellableAmountConsistencyBrokenError
@@ -7512,8 +6700,6 @@ export type CancelPaymentError =
 
 /**
  * 빌링키 결제 요청 입력 정보
- *
- * 빌링키 결제 요청 입력 정보
  */
 export type BillingKeyPaymentInput = {
 	/**
@@ -7524,7 +6710,6 @@ export type BillingKeyPaymentInput = {
 	storeId?: string;
 	/**
 	 * 빌링키 결제에 사용할 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
@@ -7535,52 +6720,42 @@ export type BillingKeyPaymentInput = {
 	channelKey?: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer?: CustomerInput;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 결제 금액 세부 입력 정보
-	 *
 	 */
 	amount: PaymentAmountInput;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 무이자 할부 이자를 고객사가 부담할지 여부
-	 *
 	 */
 	useFreeInterestFromMerchant?: boolean;
 	/**
 	 * 카드 포인트 사용 여부
-	 *
 	 */
 	useCardPoint?: boolean;
 	/**
 	 * 현금영수증 정보
-	 *
 	 */
 	cashReceipt?: CashReceiptInput;
 	/**
 	 * 결제 국가
-	 *
 	 */
 	country?: Country;
 	/**
@@ -7597,47 +6772,38 @@ export type BillingKeyPaymentInput = {
 	products?: PaymentProduct[];
 	/**
 	 * 상품 개수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 상품 유형
-	 *
 	 */
 	productType?: PaymentProductType;
 	/**
 	 * 배송지 주소
-	 *
 	 */
 	shippingAddress?: SeparatedAddressInput;
 	/**
 	 * 해당 결제에 적용할 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * PG사별 추가 파라미터 ("PG사별 연동 가이드" 참고)
-	 *
 	 */
 	bypass?: {};
 };
 
 /**
  * 빌링키 결제 성공 응답
- *
- * 빌링키 결제 성공 응답
  */
 export type PayWithBillingKeyResponse = {
 	/**
 	 * 결제 건 요약 정보
-	 *
 	 */
 	payment: BillingKeyPaymentSummary;
 };
 
 /**
  * PayWithBillingKeyError
- *
  */
 export type PayWithBillingKeyError =
 	| AlreadyPaidError
@@ -7653,8 +6819,6 @@ export type PayWithBillingKeyError =
 	| UnauthorizedError;
 
 /**
- * 수기 결제 요청 정보
- *
  * 수기 결제 요청 정보
  */
 export type InstantPaymentInput = {
@@ -7678,12 +6842,10 @@ export type InstantPaymentInput = {
 	channelGroupId?: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method: InstantPaymentMethodInput;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
@@ -7700,27 +6862,22 @@ export type InstantPaymentInput = {
 	isEscrow?: boolean;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer?: CustomerInput;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 결제 금액 세부 입력 정보
-	 *
 	 */
 	amount: PaymentAmountInput;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 결제 국가
-	 *
 	 */
 	country?: Country;
 	/**
@@ -7737,42 +6894,34 @@ export type InstantPaymentInput = {
 	products?: PaymentProduct[];
 	/**
 	 * 상품 개수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 상품 유형
-	 *
 	 */
 	productType?: PaymentProductType;
 	/**
 	 * 배송지 주소
-	 *
 	 */
 	shippingAddress?: SeparatedAddressInput;
 	/**
 	 * 해당 결제에 적용할 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 };
 
 /**
  * 수기 결제 성공 응답
- *
- * 수기 결제 성공 응답
  */
 export type PayInstantlyResponse = {
 	/**
 	 * 결제 건 요약 정보
-	 *
 	 */
 	payment: InstantPaymentSummary;
 };
 
 /**
  * PayInstantlyError
- *
  */
 export type PayInstantlyError =
 	| AlreadyPaidError
@@ -7786,8 +6935,6 @@ export type PayInstantlyError =
 	| UnauthorizedError;
 
 /**
- * 현금영수증 발급 요청 양식
- *
  * 현금영수증 발급 요청 양식
  */
 export type IssueCashReceiptBody = {
@@ -7805,61 +6952,47 @@ export type IssueCashReceiptBody = {
 	paymentId: string;
 	/**
 	 * 채널 키
-	 *
 	 */
 	channelKey: string;
 	/**
 	 * 현금 영수증 유형
-	 *
 	 */
 	type: CashReceiptType;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 화폐
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 금액 세부 입력 정보
-	 *
 	 */
 	amount: PaymentAmountInput;
 	/**
 	 * 상품 유형
-	 *
 	 */
 	productType?: PaymentProductType;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: IssueCashReceiptCustomerInput;
 	/**
 	 * 결제 일자
-	 *
 	 */
 	paidAt?: string;
 };
 
 /**
  * 현금 영수증 발급 성공 응답
- *
- * 현금 영수증 발급 성공 응답
  */
 export type IssueCashReceiptResponse = {
-	/**
-	 *
-	 */
 	cashReceipt: CashReceiptSummary;
 };
 
 /**
  * IssueCashReceiptError
- *
  */
 export type IssueCashReceiptError =
 	| CashReceiptAlreadyIssuedError
@@ -7871,25 +7004,20 @@ export type IssueCashReceiptError =
 
 /**
  * 현금 영수증 취소 성공 응답
- *
- * 현금 영수증 취소 성공 응답
  */
 export type CancelCashReceiptResponse = {
 	/**
 	 * 취소 금액
-	 *
 	 */
 	cancelledAmount: number;
 	/**
 	 * 현금 영수증 취소 완료 시점
-	 *
 	 */
 	cancelledAt: string;
 };
 
 /**
  * CancelCashReceiptError
- *
  */
 export type CancelCashReceiptError =
 	| CashReceiptNotFoundError
@@ -7901,20 +7029,16 @@ export type CancelCashReceiptError =
 
 /**
  * 가상계좌 말소 성공 응답
- *
- * 가상계좌 말소 성공 응답
  */
 export type CloseVirtualAccountResponse = {
 	/**
 	 * 가상계좌 말소 시점
-	 *
 	 */
 	closedAt: string;
 };
 
 /**
  * CloseVirtualAccountError
- *
  */
 export type CloseVirtualAccountError =
 	| ForbiddenError
@@ -7926,8 +7050,6 @@ export type CloseVirtualAccountError =
 
 /**
  * 에스크로 배송 정보 등록 입력 정보
- *
- * 에스크로 배송 정보 등록 입력 정보
  */
 export type RegisterEscrowLogisticsBody = {
 	/**
@@ -7938,17 +7060,14 @@ export type RegisterEscrowLogisticsBody = {
 	storeId?: string;
 	/**
 	 * 에스크로 발송자 정보
-	 *
 	 */
 	sender?: PaymentEscrowSenderInput;
 	/**
 	 * 에스크로 수취인 정보
-	 *
 	 */
 	receiver?: PaymentEscrowReceiverInput;
 	/**
 	 * 에스크로 물류 정보
-	 *
 	 */
 	logistics: PaymentLogistics;
 	/**
@@ -7959,37 +7078,30 @@ export type RegisterEscrowLogisticsBody = {
 	sendEmail?: boolean;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 };
 
 /**
  * 에스크로 배송 정보 등록 성공 응답
- *
- * 에스크로 배송 정보 등록 성공 응답
  */
 export type ApplyEscrowLogisticsResponse = {
 	/**
 	 * 송장 번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 시점
-	 *
 	 */
 	sentAt: string;
 	/**
 	 * 에스크로 정보 등록 시점
-	 *
 	 */
 	appliedAt: string;
 };
 
 /**
  * ApplyEscrowLogisticsError
- *
  */
 export type ApplyEscrowLogisticsError =
 	| ForbiddenError
@@ -8001,8 +7113,6 @@ export type ApplyEscrowLogisticsError =
 
 /**
  * 에스크로 배송 정보 수정 입력 정보
- *
- * 에스크로 배송 정보 수정 입력 정보
  */
 export type ModifyEscrowLogisticsBody = {
 	/**
@@ -8013,17 +7123,14 @@ export type ModifyEscrowLogisticsBody = {
 	storeId?: string;
 	/**
 	 * 에스크로 발송자 정보
-	 *
 	 */
 	sender?: PaymentEscrowSenderInput;
 	/**
 	 * 에스크로 수취인 정보
-	 *
 	 */
 	receiver?: PaymentEscrowReceiverInput;
 	/**
 	 * 에스크로 물류 정보
-	 *
 	 */
 	logistics: PaymentLogistics;
 	/**
@@ -8034,37 +7141,30 @@ export type ModifyEscrowLogisticsBody = {
 	sendEmail?: boolean;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 };
 
 /**
  * 에스크로 배송 정보 수정 성공 응답
- *
- * 에스크로 배송 정보 수정 성공 응답
  */
 export type ModifyEscrowLogisticsResponse = {
 	/**
 	 * 송장 번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 시점
-	 *
 	 */
 	sentAt: string;
 	/**
 	 * 에스크로 정보 수정 시점
-	 *
 	 */
 	modifiedAt: string;
 };
 
 /**
  * ModifyEscrowLogisticsError
- *
  */
 export type ModifyEscrowLogisticsError =
 	| ForbiddenError
@@ -8075,8 +7175,6 @@ export type ModifyEscrowLogisticsError =
 	| UnauthorizedError;
 
 /**
- * 에스크로 구매 확정 입력 정보
- *
  * 에스크로 구매 확정 입력 정보
  */
 export type ConfirmEscrowBody = {
@@ -8096,20 +7194,16 @@ export type ConfirmEscrowBody = {
 
 /**
  * 에스크로 구매 확정 성공 응답
- *
- * 에스크로 구매 확정 성공 응답
  */
 export type ConfirmEscrowResponse = {
 	/**
 	 * 에스크로 구매 확정 시점
-	 *
 	 */
 	completedAt: string;
 };
 
 /**
  * ConfirmEscrowError
- *
  */
 export type ConfirmEscrowError =
 	| ForbiddenError
@@ -8141,20 +7235,16 @@ export type ResendWebhookBody = {
 
 /**
  * 웹훅 재발송 응답 정보
- *
- * 웹훅 재발송 응답 정보
  */
 export type ResendWebhookResponse = {
 	/**
 	 * 재발송 웹훅 정보
-	 *
 	 */
 	webhook: PaymentWebhook;
 };
 
 /**
  * ResendWebhookError
- *
  */
 export type ResendWebhookError =
 	| ForbiddenError
@@ -8165,18 +7255,14 @@ export type ResendWebhookError =
 
 /**
  * 고객사의 결제 현황 조회를 위한 입력 정보
- *
- * 고객사의 결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentChartBody = {
 	/**
 	 * 조회할 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8201,19 +7287,13 @@ export type GetAnalyticsPaymentChartBody = {
 
 /**
  * 고객사의 결제 현황 차트 정보
- *
- * 고객사의 결제 현황 차트 정보
  */
 export type AnalyticsPaymentChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPaymentChartStat[];
 };
 
 /**
  * GetAnalyticsPaymentChartError
- *
  */
 export type GetAnalyticsPaymentChartError =
 	| ForbiddenError
@@ -8222,18 +7302,14 @@ export type GetAnalyticsPaymentChartError =
 
 /**
  * 고객사의 결제 현황 인사이트 조회를 위한 입력 정보
- *
- * 고객사의 결제 현황 인사이트 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentChartInsightBody = {
 	/**
 	 * 조회할 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8258,45 +7334,36 @@ export type GetAnalyticsPaymentChartInsightBody = {
 
 /**
  * 고객사의 결제 현황 인사이트 정보
- *
- * 고객사의 결제 현황 인사이트 정보
  */
 export type AnalyticsPaymentChartInsight = {
 	/**
 	 * 월간 최고 거래액 발생일
-	 *
 	 */
 	highestDateInMonth?: number;
 	/**
 	 * 월간 최저 거래액 발생일
-	 *
 	 */
 	lowestDateInMonth?: number;
 	/**
 	 * 주간 최고 거래액 발생 요일
-	 *
 	 */
 	highestDayInWeek?: DayOfWeek;
 	/**
 	 * 주간 최저 거래액 발생 요일
-	 *
 	 */
 	lowestDayInWeek?: DayOfWeek;
 	/**
 	 * 일간 최고 거래액 발생 시간
-	 *
 	 */
 	highestHourInDay: number;
 	/**
 	 * 일간 최저 거래액 발생 시간
-	 *
 	 */
 	lowestHourInDay: number;
 };
 
 /**
  * GetAnalyticsPaymentChartInsightError
- *
  */
 export type GetAnalyticsPaymentChartInsightError =
 	| ForbiddenError
@@ -8305,18 +7372,14 @@ export type GetAnalyticsPaymentChartInsightError =
 
 /**
  * 고객사의 평균 거래액 현황 조회를 위한 입력 정보
- *
- * 고객사의 평균 거래액 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsAverageAmountChartBody = {
 	/**
 	 * 조회할 평균 거래액 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 평균 거래액 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8341,23 +7404,14 @@ export type GetAnalyticsAverageAmountChartBody = {
 
 /**
  * 고객사의 평균 거래액 현황 조회 응답
- *
- * 고객사의 평균 거래액 현황 조회 응답
  */
 export type AnalyticsAverageAmountChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsAverageAmountChartStat[];
-	/**
-	 *
-	 */
 	summary: AnalyticsAverageAmountChartSummary;
 };
 
 /**
  * GetAverageAmountChartError
- *
  */
 export type GetAverageAmountChartError =
 	| ForbiddenError
@@ -8366,18 +7420,14 @@ export type GetAverageAmountChartError =
 
 /**
  * 고객사의 결제수단 현황 조회를 위한 입력 정보
- *
- * 고객사의 결제수단 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentMethodChartBody = {
 	/**
 	 * 조회할 결제수단 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제수단 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8396,19 +7446,13 @@ export type GetAnalyticsPaymentMethodChartBody = {
 
 /**
  * 고객사의 결제수단 현황 차트 정보
- *
- * 고객사의 결제수단 현황 차트 정보
  */
 export type AnalyticsPaymentMethodChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPaymentMethodChartStat[];
 };
 
 /**
  * GetPaymentMethodChartError
- *
  */
 export type GetPaymentMethodChartError =
 	| ForbiddenError
@@ -8417,18 +7461,14 @@ export type GetPaymentMethodChartError =
 
 /**
  * 고객사의 결제수단 트렌드 조회를 위한 입력 정보
- *
- * 고객사의 결제수단 트렌드 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentMethodTrendChartBody = {
 	/**
 	 * 조회할 결제수단 트렌드의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제수단 트렌드의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8453,8 +7493,6 @@ export type GetAnalyticsPaymentMethodTrendChartBody = {
 
 /**
  * 고객사의 결제수단 트렌드 차트 정보
- *
- * 고객사의 결제수단 트렌드 차트 정보
  */
 export type AnalyticsPaymentMethodTrendChart = {
 	/**
@@ -8467,7 +7505,6 @@ export type AnalyticsPaymentMethodTrendChart = {
 
 /**
  * GetPaymentMethodTrendChartError
- *
  */
 export type GetPaymentMethodTrendChartError =
 	| ForbiddenError
@@ -8476,18 +7513,14 @@ export type GetPaymentMethodTrendChartError =
 
 /**
  * 고객사의 카드결제 현황 조회를 위한 입력 정보
- *
- * 고객사의 카드결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsCardChartBody = {
 	/**
 	 * 조회할 카드결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 카드결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8512,19 +7545,13 @@ export type GetAnalyticsCardChartBody = {
 
 /**
  * 고객사의 카드결제 현황 차트 정보
- *
- * 고객사의 카드결제 현황 차트 정보
  */
 export type AnalyticsCardChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsCardChartStat[];
 };
 
 /**
  * GetAnalyticsCardChartError
- *
  */
 export type GetAnalyticsCardChartError =
 	| ForbiddenError
@@ -8533,18 +7560,14 @@ export type GetAnalyticsCardChartError =
 
 /**
  * 고객사의 카드사별 결제 현황 조회를 위한 입력 정보
- *
- * 고객사의 카드사별 결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsCardCompanyChartBody = {
 	/**
 	 * 조회할 카드사별 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 카드사별 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8567,39 +7590,25 @@ export type GetAnalyticsCardCompanyChartBody = {
 	timeGranularity: AnalyticsTimeGranularity;
 	/**
 	 * 조회할 카드사
-	 *
 	 */
 	cardCompanies: CardCompany[];
 	/**
 	 * 나머지 집계에 포함되지 않을 카드사
-	 *
 	 */
 	excludesFromRemainders: CardCompany[];
 };
 
 /**
  * 고객사의 카드사별 결제 현황 조회 응답
- *
- * 고객사의 카드사별 결제 현황 조회 응답
  */
 export type AnalyticsCardCompanyChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsCardCompanyChartStat[];
-	/**
-	 *
-	 */
 	remainderStats: AnalyticsCardCompanyChartRemainderStat[];
-	/**
-	 *
-	 */
 	summary: AnalyticsCardCompanyChartSummary;
 };
 
 /**
  * GetAnalyticsCardCompanyChartError
- *
  */
 export type GetAnalyticsCardCompanyChartError =
 	| ForbiddenError
@@ -8608,18 +7617,14 @@ export type GetAnalyticsCardCompanyChartError =
 
 /**
  * 고객사의 간편결제 현황 조회를 위한 입력 정보
- *
- * 고객사의 간편결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsEasyPayChartBody = {
 	/**
 	 * 조회할 간편결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 간편결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8644,19 +7649,13 @@ export type GetAnalyticsEasyPayChartBody = {
 
 /**
  * 고객사의 간편결제 현황 차트 정보
- *
- * 고객사의 간편결제 현황 차트 정보
  */
 export type AnalyticsEasyPayChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsEasyPayChartStat[];
 };
 
 /**
  * GetAnalyticsEasyPayChartError
- *
  */
 export type GetAnalyticsEasyPayChartError =
 	| ForbiddenError
@@ -8665,18 +7664,14 @@ export type GetAnalyticsEasyPayChartError =
 
 /**
  * 고객사의 간편결제사별 결제 현황 조회를 위한 입력 정보
- *
- * 고객사의 간편결제사별 결제 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsEasyPayProviderChartBody = {
 	/**
 	 * 조회할 간편결제사별 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 간편결제사별 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8699,39 +7694,25 @@ export type GetAnalyticsEasyPayProviderChartBody = {
 	timeGranularity: AnalyticsTimeGranularity;
 	/**
 	 * 조회할 간편결제사
-	 *
 	 */
 	easyPayProviders: EasyPayProvider[];
 	/**
 	 * 나머지 집계에 포함되지 않을 간편결제사
-	 *
 	 */
 	excludesFromRemainders: EasyPayProvider[];
 };
 
 /**
  * 고객사의 간편결제사별 결제 현황 차트 정보
- *
- * 고객사의 간편결제사별 결제 현황 차트 정보
  */
 export type AnalyticsEasyPayProviderChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsEasyPayProviderChartStat[];
-	/**
-	 *
-	 */
 	remainderStats: AnalyticsEasyPayProviderChartRemainderStat[];
-	/**
-	 *
-	 */
 	summary: AnalyticsEasyPayProviderChartSummary;
 };
 
 /**
  * GetAnalyticsEasyPayProviderChartError
- *
  */
 export type GetAnalyticsEasyPayProviderChartError =
 	| ForbiddenError
@@ -8740,18 +7721,14 @@ export type GetAnalyticsEasyPayProviderChartError =
 
 /**
  * 고객사의 결제대행사 현황 조회를 위한 입력 정보
- *
- * 고객사의 결제대행사 현황 조회를 위한 입력 정보
  */
 export type GetAnalyticsPgCompanyChartBody = {
 	/**
 	 * 조회할 결제대행사 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제대행사 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8770,19 +7747,13 @@ export type GetAnalyticsPgCompanyChartBody = {
 
 /**
  * 고객사의 결제대행사 현황 차트 정보
- *
- * 고객사의 결제대행사 현황 차트 정보
  */
 export type AnalyticsPgCompanyChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPgCompanyChartStat[];
 };
 
 /**
  * GetPgCompanyChartError
- *
  */
 export type GetPgCompanyChartError =
 	| ForbiddenError
@@ -8791,18 +7762,14 @@ export type GetPgCompanyChartError =
 
 /**
  * 고객사의 결제대행사별 거래 추이 조회를 위한 입력 정보
- *
- * 고객사의 결제대행사별 거래 추이 조회를 위한 입력 정보
  */
 export type GetAnalyticsPgCompanyTrendChartBody = {
 	/**
 	 * 조회할 결제대행사별 거래 추이의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제대행사별 거래 추이의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8825,26 +7792,19 @@ export type GetAnalyticsPgCompanyTrendChartBody = {
 	timeGranularity: AnalyticsTimeGranularity;
 	/**
 	 * 조회할 결제대행사
-	 *
 	 */
 	pgCompanies: PgCompany[];
 };
 
 /**
  * 고객사의 결제대행사별 거래 추이 차트 정보
- *
- * 고객사의 결제대행사별 거래 추이 차트 정보
  */
 export type AnalyticsPgCompanyTrendChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPgCompanyTrendChartStat[];
 };
 
 /**
  * GetPgCompanyTrendChartError
- *
  */
 export type GetPgCompanyTrendChartError =
 	| ForbiddenError
@@ -8853,19 +7813,13 @@ export type GetPgCompanyTrendChartError =
 
 /**
  * 고객사의 해외 결제 사용 여부
- *
- * 고객사의 해외 결제 사용 여부
  */
 export type AnalyticsOverseasPaymentUsage = {
-	/**
-	 *
-	 */
 	isUsing: boolean;
 };
 
 /**
  * GetAnalyticsOverseasPaymentUsageError
- *
  */
 export type GetAnalyticsOverseasPaymentUsageError =
 	| ForbiddenError
@@ -8873,18 +7827,14 @@ export type GetAnalyticsOverseasPaymentUsageError =
 
 /**
  * 고객사의 환불율 조회를 위한 입력 정보
- *
- * 고객사의 환불율 조회를 위한 입력 정보
  */
 export type GetAnalyticsCancellationRateBody = {
 	/**
 	 * 환불율 조회 기간의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 환불율 조회 기간의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8897,19 +7847,13 @@ export type GetAnalyticsCancellationRateBody = {
 
 /**
  * 고객사의 환불율 정보
- *
- * 고객사의 환불율 정보
  */
 export type AnalyticsCancellationRate = {
-	/**
-	 *
-	 */
 	cancellationRate: number;
 };
 
 /**
  * GetAnalyticsCancellationRateError
- *
  */
 export type GetAnalyticsCancellationRateError =
 	| ForbiddenError
@@ -8918,18 +7862,14 @@ export type GetAnalyticsCancellationRateError =
 
 /**
  * 고객사의 결제상태 이력 집계 조회를 위한 입력 정보
- *
- * 고객사의 결제상태 이력 집계 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusChartBody = {
 	/**
 	 * 조회할 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8942,19 +7882,13 @@ export type GetAnalyticsPaymentStatusChartBody = {
 
 /**
  * 고객사의 결제 상태 차트 정보
- *
- * 고객사의 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPaymentStatusChartStat[];
 };
 
 /**
  * GetPaymentStatusChartError
- *
  */
 export type GetPaymentStatusChartError =
 	| ForbiddenError
@@ -8963,18 +7897,14 @@ export type GetPaymentStatusChartError =
 
 /**
  * 고객사의 결제수단별 결제전환율 조회를 위한 입력 정보
- *
- * 고객사의 결제수단별 결제전환율 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusByPaymentMethodChartBody = {
 	/**
 	 * 조회할 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -8987,19 +7917,13 @@ export type GetAnalyticsPaymentStatusByPaymentMethodChartBody = {
 
 /**
  * 고객사의 결제 수단 별 결제 상태 차트 정보
- *
- * 고객사의 결제 수단 별 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusByPaymentMethodChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPaymentStatusByPaymentMethodChartStat[];
 };
 
 /**
  * GetPaymentStatusByPaymentMethodChartError
- *
  */
 export type GetPaymentStatusByPaymentMethodChartError =
 	| ForbiddenError
@@ -9008,18 +7932,14 @@ export type GetPaymentStatusByPaymentMethodChartError =
 
 /**
  * 고객사의 PG사별 결제전환율 조회를 위한 입력 정보
- *
- * 고객사의 PG사별 결제전환율 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusByPgCompanyChartBody = {
 	/**
 	 * 조회할 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -9032,19 +7952,13 @@ export type GetAnalyticsPaymentStatusByPgCompanyChartBody = {
 
 /**
  * 고객사의 PG사 별 결제 상태 차트 정보
- *
- * 고객사의 PG사 별 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusByPgCompanyChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPaymentStatusByPgCompanyChartStat[];
 };
 
 /**
  * GetPaymentStatusByPgCompanyChartError
- *
  */
 export type GetPaymentStatusByPgCompanyChartError =
 	| ForbiddenError
@@ -9053,18 +7967,14 @@ export type GetPaymentStatusByPgCompanyChartError =
 
 /**
  * 고객사의 결제환경별 결제전환율 조회를 위한 입력 정보
- *
- * 고객사의 결제환경별 결제전환율 조회를 위한 입력 정보
  */
 export type GetAnalyticsPaymentStatusByPaymentClientChartBody = {
 	/**
 	 * 조회할 결제 현황의 시작 시간
-	 *
 	 */
 	from: string;
 	/**
 	 * 조회할 결제 현황의 끝 시간
-	 *
 	 */
 	until: string;
 	/**
@@ -9077,19 +7987,13 @@ export type GetAnalyticsPaymentStatusByPaymentClientChartBody = {
 
 /**
  * 고객사의 결제 환경 별 결제 상태 차트 정보
- *
- * 고객사의 결제 환경 별 결제 상태 차트 정보
  */
 export type AnalyticsPaymentStatusByPaymentClientChart = {
-	/**
-	 *
-	 */
 	stats: AnalyticsPaymentStatusByPaymentClientChartStat[];
 };
 
 /**
  * GetPaymentStatusByPaymentClientChartError
- *
  */
 export type GetPaymentStatusByPaymentClientChartError =
 	| ForbiddenError
@@ -9098,7 +8002,6 @@ export type GetPaymentStatusByPaymentClientChartError =
 
 /**
  * B2bMemberCompany
- *
  */
 export type B2bMemberCompany = {
 	/**
@@ -9109,34 +8012,28 @@ export type B2bMemberCompany = {
 	brn: string;
 	/**
 	 * 회사명
-	 *
 	 */
 	name: string;
 	/**
 	 * 대표자 성명
-	 *
 	 */
 	ceoName: string;
 	/**
 	 * 회사 주소
-	 *
 	 */
 	address: string;
 	/**
 	 * 업태
-	 *
 	 */
 	businessType: string;
 	/**
 	 * 업종
-	 *
 	 */
 	businessClass: string;
 };
 
 /**
  * GetB2bMemberCompanyError
- *
  */
 export type GetB2bMemberCompanyError =
 	| B2bExternalServiceError
@@ -9147,53 +8044,42 @@ export type GetB2bMemberCompanyError =
 
 /**
  * 연동 사업자 정보 수정 요청
- *
- * 연동 사업자 정보 수정 요청
  */
 export type UpdateB2bMemberCompanyBody = {
 	/**
 	 * 회사명
-	 *
 	 */
 	name?: string;
 	/**
 	 * 대표자 성명
-	 *
 	 */
 	ceoName?: string;
 	/**
 	 * 회사 주소
-	 *
 	 */
 	address?: string;
 	/**
 	 * 업태
-	 *
 	 */
 	businessType?: string;
 	/**
 	 * 업종
-	 *
 	 */
 	businessClass?: string;
 };
 
 /**
  * 연동 사업자 정보 수정 응답
- *
- * 연동 사업자 정보 수정 응답
  */
 export type UpdateB2bMemberCompanyResponse = {
 	/**
 	 * 연동 사업자 정보
-	 *
 	 */
 	memberCompany: B2bMemberCompany;
 };
 
 /**
  * UpdateB2bMemberCompanyError
- *
  */
 export type UpdateB2bMemberCompanyError =
 	| B2bMemberCompanyNotFoundError
@@ -9203,43 +8089,34 @@ export type UpdateB2bMemberCompanyError =
 
 /**
  * 사업자 연동 요청 정보
- *
- * 사업자 연동 요청 정보
  */
 export type RegisterB2bMemberCompanyBody = {
 	/**
 	 * 사업자 정보
-	 *
 	 */
 	company: B2bMemberCompany;
 	/**
 	 * 담당자 정보
-	 *
 	 */
 	contact: B2bCompanyContactInput;
 };
 
 /**
  * 사업자 연동 응답 정보
- *
- * 사업자 연동 응답 정보
  */
 export type RegisterB2bMemberCompanyResponse = {
 	/**
 	 * 사업자 정보
-	 *
 	 */
 	company: B2bMemberCompany;
 	/**
 	 * 담당자 정보
-	 *
 	 */
 	contact: B2bCompanyContact;
 };
 
 /**
  * RegisterB2bMemberCompanyError
- *
  */
 export type RegisterB2bMemberCompanyError =
 	| B2bCompanyAlreadyRegisteredError
@@ -9251,7 +8128,6 @@ export type RegisterB2bMemberCompanyError =
 
 /**
  * B2bCompanyContact
- *
  */
 export type B2bCompanyContact = {
 	/**
@@ -9262,22 +8138,18 @@ export type B2bCompanyContact = {
 	id: string;
 	/**
 	 * 담당자 성명
-	 *
 	 */
 	name: string;
 	/**
 	 * 담당자 핸드폰 번호
-	 *
 	 */
 	phoneNumber: string;
 	/**
 	 * 담당자 이메일
-	 *
 	 */
 	email: string;
 	/**
 	 * 등록 일시
-	 *
 	 */
 	registeredAt: string;
 	/**
@@ -9290,7 +8162,6 @@ export type B2bCompanyContact = {
 
 /**
  * GetB2bMemberCompanyContactError
- *
  */
 export type GetB2bMemberCompanyContactError =
 	| B2bContactNotFoundError
@@ -9302,48 +8173,38 @@ export type GetB2bMemberCompanyContactError =
 
 /**
  * 담당자 정보 수정 요청
- *
- * 담당자 정보 수정 요청
  */
 export type UpdateB2bMemberCompanyContactBody = {
 	/**
 	 * 비밀번호
-	 *
 	 */
 	password?: string;
 	/**
 	 * 담당자 성명
-	 *
 	 */
 	name?: string;
 	/**
 	 * 담당자 핸드폰 번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 담당자 이메일
-	 *
 	 */
 	email?: string;
 };
 
 /**
  * 담당자 정보 수정 응답
- *
- * 담당자 정보 수정 응답
  */
 export type UpdateB2bMemberCompanyContactResponse = {
 	/**
 	 * 담당자 정보
-	 *
 	 */
 	contact: B2bCompanyContact;
 };
 
 /**
  * UpdateB2bMemberCompanyContactError
- *
  */
 export type UpdateB2bMemberCompanyContactError =
 	| B2bContactNotFoundError
@@ -9355,20 +8216,16 @@ export type UpdateB2bMemberCompanyContactError =
 
 /**
  * 인증서 등록 URL 조회 응답 정보
- *
- * 인증서 등록 URL 조회 응답 정보
  */
 export type GetB2bCertificateRegistrationUrlResponse = {
 	/**
 	 * 인증서 등록 URL
-	 *
 	 */
 	url: string;
 };
 
 /**
  * GetB2bCertificateRegistrationUrlError
- *
  */
 export type GetB2bCertificateRegistrationUrlError =
 	| B2bExternalServiceError
@@ -9379,54 +8236,44 @@ export type GetB2bCertificateRegistrationUrlError =
 
 /**
  * B2bCertificate
- *
  */
 export type B2bCertificate = {
 	/**
 	 * 등록일시
-	 *
 	 */
 	registeredAt: string;
 	/**
 	 * 만료일시
-	 *
 	 */
 	expiredAt: string;
 	/**
 	 * 발행자명
-	 *
 	 */
 	issuerDn: string;
 	/**
 	 * 본인명
-	 *
 	 */
 	subjectDn: string;
 	/**
 	 * 인증서 타입
-	 *
 	 */
 	certificateType: B2bCertificateType;
 	/**
 	 * OID
-	 *
 	 */
 	oid: string;
 	/**
 	 * 등록 담당자 성명
-	 *
 	 */
 	registrantContactName: string;
 	/**
 	 * 등록 담당자 ID
-	 *
 	 */
 	registrantContactId: string;
 };
 
 /**
  * GetB2bCertificateError
- *
  */
 export type GetB2bCertificateError =
 	| B2bCertificateUnregisteredError
@@ -9438,20 +8285,16 @@ export type GetB2bCertificateError =
 
 /**
  * 담당자 ID 존재 여부 응답 정보
- *
- * 담당자 ID 존재 여부 응답 정보
  */
 export type GetB2bContactIdExistenceResponse = {
 	/**
 	 * 존재 여부
-	 *
 	 */
 	exists: boolean;
 };
 
 /**
  * getB2bContactIdExistenceError
- *
  */
 export type getB2bContactIdExistenceError =
 	| B2bExternalServiceError
@@ -9461,20 +8304,16 @@ export type getB2bContactIdExistenceError =
 
 /**
  * 예금주 조회 응답 정보
- *
- * 예금주 조회 응답 정보
  */
 export type GetB2bBankAccountHolderResponse = {
 	/**
 	 * 예금주
-	 *
 	 */
 	accountHolder: string;
 };
 
 /**
  * GetB2bAccountHolderError
- *
  */
 export type GetB2bAccountHolderError =
 	| B2bBankAccountNotFoundError
@@ -9491,13 +8330,10 @@ export type GetB2bAccountHolderError =
 
 /**
  * 사업자 상태
- *
- * 사업자 상태
  */
 export type B2bCompanyState = {
 	/**
 	 * 사업자 과세 유형
-	 *
 	 */
 	taxationType: B2bCompanyStateTaxationType;
 	/**
@@ -9508,7 +8344,6 @@ export type B2bCompanyState = {
 	taxationTypeDate?: string;
 	/**
 	 * 사업자 영업 상태
-	 *
 	 */
 	businessStatus: B2bCompanyStateBusinessStatus;
 	/**
@@ -9521,7 +8356,6 @@ export type B2bCompanyState = {
 
 /**
  * GetB2bCompanyStateError
- *
  */
 export type GetB2bCompanyStateError =
 	| B2bCompanyNotFoundError
@@ -9533,25 +8367,20 @@ export type GetB2bCompanyStateError =
 
 /**
  * 세금계산서 역발행 요청 정보
- *
- * 세금계산서 역발행 요청 정보
  */
 export type RequestB2bTaxInvoiceReverseIssuanceRequestBody = {
 	/**
 	 * 세금계산서 생성 요청 정보
-	 *
 	 */
 	taxInvoice: B2bTaxInvoiceInput;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 };
 
 /**
  * B2bTaxInvoice
- *
  */
 export type B2bTaxInvoice =
 	| B2bTaxInvoiceBeforeSending
@@ -9568,7 +8397,6 @@ export type B2bTaxInvoice =
 
 /**
  * RequestB2bTaxInvoiceReverseIssuanceError
- *
  */
 export type RequestB2bTaxInvoiceReverseIssuanceError =
 	| B2bExternalServiceError
@@ -9580,14 +8408,11 @@ export type RequestB2bTaxInvoiceReverseIssuanceError =
 
 /**
  * 문서번호 유형
- *
- * 문서번호 유형
  */
 export type B2bTaxInvoiceDocumentKeyType = "SUPPLIER" | "RECIPIENT";
 
 /**
  * GetB2bTaxInvoiceError
- *
  */
 export type GetB2bTaxInvoiceError =
 	| B2bExternalServiceError
@@ -9598,7 +8423,6 @@ export type GetB2bTaxInvoiceError =
 
 /**
  * DeleteB2bTaxInvoiceError
- *
  */
 export type DeleteB2bTaxInvoiceError =
 	| B2bExternalServiceError
@@ -9610,18 +8434,14 @@ export type DeleteB2bTaxInvoiceError =
 
 /**
  * 세금계산서 발행 정보
- *
- * 세금계산서 발행 정보
  */
 export type IssueB2bTaxInvoiceRequestBody = {
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	brn: string;
 	/**
 	 * 세금계산서 문서 번호
-	 *
 	 */
 	documentKey: string;
 	/**
@@ -9632,19 +8452,16 @@ export type IssueB2bTaxInvoiceRequestBody = {
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 이메일 제목
-	 *
 	 */
 	emailSubject?: string;
 };
 
 /**
  * IssueB2bTaxInvoiceError
- *
  */
 export type IssueB2bTaxInvoiceError =
 	| B2bExternalServiceError
@@ -9656,18 +8473,14 @@ export type IssueB2bTaxInvoiceError =
 
 /**
  * 세금계산서 역발행 요청 취소 정보
- *
- * 세금계산서 역발행 요청 취소 정보
  */
 export type CancelB2bTaxInvoiceRequestBody = {
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	brn: string;
 	/**
 	 * 세금계산서 문서 번호
-	 *
 	 */
 	documentKey: string;
 	/**
@@ -9678,14 +8491,12 @@ export type CancelB2bTaxInvoiceRequestBody = {
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 };
 
 /**
  * CancelB2bTaxInvoiceRequestError
- *
  */
 export type CancelB2bTaxInvoiceRequestError =
 	| B2bExternalServiceError
@@ -9698,18 +8509,14 @@ export type CancelB2bTaxInvoiceRequestError =
 
 /**
  * 세금계산서 역발행 취소 정보
- *
- * 세금계산서 역발행 취소 정보
  */
 export type CancelB2bTaxInvoiceIssuanceBody = {
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	brn: string;
 	/**
 	 * 세금계산서 문서 번호
-	 *
 	 */
 	documentKey: string;
 	/**
@@ -9720,14 +8527,12 @@ export type CancelB2bTaxInvoiceIssuanceBody = {
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 };
 
 /**
  * CancelB2bTaxInvoiceIssuanceError
- *
  */
 export type CancelB2bTaxInvoiceIssuanceError =
 	| B2bExternalServiceError
@@ -9738,18 +8543,14 @@ export type CancelB2bTaxInvoiceIssuanceError =
 
 /**
  * 세금계산서 역발행 요청 거부 정보
- *
- * 세금계산서 역발행 요청 거부 정보
  */
 export type RefuseB2bTaxInvoiceRequestBody = {
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	brn: string;
 	/**
 	 * 세금계산서 문서 번호
-	 *
 	 */
 	documentKey: string;
 	/**
@@ -9760,14 +8561,12 @@ export type RefuseB2bTaxInvoiceRequestBody = {
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 };
 
 /**
  * RefuseB2bTaxInvoiceRequestError
- *
  */
 export type RefuseB2bTaxInvoiceRequestError =
 	| B2bExternalServiceError
@@ -9780,32 +8579,25 @@ export type RefuseB2bTaxInvoiceRequestError =
 
 /**
  * 조회 기준
- *
- * 조회 기준
  */
 export type B2bSearchDateType = "REGISTER" | "WRITE" | "ISSUE";
 
 /**
  * 세금계산서 다건 조회 성공 응답
- *
- * 세금계산서 다건 조회 성공 응답
  */
 export type GetB2bTaxInvoicesResponse = {
 	/**
 	 * 조회된 세금계산서 목록
-	 *
 	 */
 	items: B2bTaxInvoiceSummary[];
 	/**
 	 * 조회된 페이지 정보
-	 *
 	 */
 	page: PageInfo;
 };
 
 /**
  * GetB2bTaxInvoicesError
- *
  */
 export type GetB2bTaxInvoicesError =
 	| B2bExternalServiceError
@@ -9815,20 +8607,16 @@ export type GetB2bTaxInvoicesError =
 
 /**
  * 세금계산서 팝업 URL 성공 응답
- *
- * 세금계산서 팝업 URL 성공 응답
  */
 export type GetB2bTaxInvoicePopupUrlResponse = {
 	/**
 	 * 세금계산서 팝업 URL
-	 *
 	 */
 	url: string;
 };
 
 /**
  * GetB2bTaxInvoicePopupUrlError
- *
  */
 export type GetB2bTaxInvoicePopupUrlError =
 	| B2bExternalServiceError
@@ -9839,20 +8627,16 @@ export type GetB2bTaxInvoicePopupUrlError =
 
 /**
  * 세금계산서 프린트 URL 성공 응답
- *
- * 세금계산서 프린트 URL 성공 응답
  */
 export type GetB2bTaxInvoicePrintUrlResponse = {
 	/**
 	 * 세금계산서 프린트 URL
-	 *
 	 */
 	url: string;
 };
 
 /**
  * GetB2bTaxInvoicePrintUrlError
- *
  */
 export type GetB2bTaxInvoicePrintUrlError =
 	| B2bExternalServiceError
@@ -9863,20 +8647,16 @@ export type GetB2bTaxInvoicePrintUrlError =
 
 /**
  * 세금계산서 PDF 다운로드 URL 성공 응답
- *
- * 세금계산서 PDF 다운로드 URL 성공 응답
  */
 export type GetB2bTaxInvoicePdfDownloadUrlResponse = {
 	/**
 	 * 세금계산서 PDF 다운로드 URL
-	 *
 	 */
 	url: string;
 };
 
 /**
  * GetB2bTaxInvoicePdfDownloadUrlError
- *
  */
 export type GetB2bTaxInvoicePdfDownloadUrlError =
 	| B2bExternalServiceError
@@ -9887,20 +8667,16 @@ export type GetB2bTaxInvoicePdfDownloadUrlError =
 
 /**
  * 세금계산서 임시 저장 정보
- *
- * 세금계산서 임시 저장 정보
  */
 export type RequestB2bTaxInvoiceRegisterBody = {
 	/**
 	 * 세금계산서 생성 요청 정보
-	 *
 	 */
 	taxInvoice: B2bTaxInvoiceInput;
 };
 
 /**
  * RequestB2bTaxInvoiceRegisterError
- *
  */
 export type RequestB2bTaxInvoiceRegisterError =
 	| B2bExternalServiceError
@@ -9912,18 +8688,14 @@ export type RequestB2bTaxInvoiceRegisterError =
 
 /**
  * 세금계산서 역발행 요청 정보
- *
- * 세금계산서 역발행 요청 정보
  */
 export type RequestB2bTaxInvoiceRequestBody = {
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	brn: string;
 	/**
 	 * 세금계산서 문서 번호
-	 *
 	 */
 	documentKey: string;
 	/**
@@ -9934,14 +8706,12 @@ export type RequestB2bTaxInvoiceRequestBody = {
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 };
 
 /**
  * requestB2bTaxInvoiceError
- *
  */
 export type requestB2bTaxInvoiceError =
 	| B2bExternalServiceError
@@ -9954,38 +8724,30 @@ export type requestB2bTaxInvoiceError =
 
 /**
  * 세금계산서 파일 업로드 링크 생성
- *
- * 세금계산서 파일 업로드 링크 생성
  */
 export type CreateB2bTaxInvoiceFileUploadLinkBody = {
 	/**
 	 * 파일 이름
-	 *
 	 */
 	fileName: string;
 };
 
 /**
  * 세금계산서 파일 업로드 링크 생성 성공 응답
- *
- * 세금계산서 파일 업로드 링크 생성 성공 응답
  */
 export type CreateB2bTaxInvoiceFileUploadLinkResponse = {
 	/**
 	 * 파일 아이디
-	 *
 	 */
 	fileId: string;
 	/**
 	 * 파일 업로드 링크
-	 *
 	 */
 	url: string;
 };
 
 /**
  * CreateB2bTaxInvoiceFileUploadLinkCreateError
- *
  */
 export type CreateB2bTaxInvoiceFileUploadLinkCreateError =
 	| B2bNotEnabledError
@@ -9993,8 +8755,6 @@ export type CreateB2bTaxInvoiceFileUploadLinkCreateError =
 	| UnauthorizedError;
 
 /**
- * 세금계산서 파일 첨부 정보
- *
  * 세금계산서 파일 첨부 정보
  */
 export type AttachB2bTaxInvoiceFileBody = {
@@ -10006,7 +8766,6 @@ export type AttachB2bTaxInvoiceFileBody = {
 	brn: string;
 	/**
 	 * 세금계산서 문서 번호
-	 *
 	 */
 	documentKey: string;
 	/**
@@ -10017,14 +8776,12 @@ export type AttachB2bTaxInvoiceFileBody = {
 	documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 	/**
 	 * 파일 아이디
-	 *
 	 */
 	fileId: string;
 };
 
 /**
  * AttachB2bTaxInvoiceFileError
- *
  */
 export type AttachB2bTaxInvoiceFileError =
 	| B2bExternalServiceError
@@ -10037,20 +8794,16 @@ export type AttachB2bTaxInvoiceFileError =
 
 /**
  * 세금계산서 첨부파일 목록 조회 성공 응답
- *
- * 세금계산서 첨부파일 목록 조회 성공 응답
  */
 export type GetB2bTaxInvoiceAttachmentsResponse = {
 	/**
 	 * 첨부파일 목록
-	 *
 	 */
 	attachments: B2bTaxInvoiceAttachment[];
 };
 
 /**
  * GetB2bTaxInvoiceAttachmentsError
- *
  */
 export type GetB2bTaxInvoiceAttachmentsError =
 	| B2bExternalServiceError
@@ -10061,7 +8814,6 @@ export type GetB2bTaxInvoiceAttachmentsError =
 
 /**
  * DeleteB2bTaxInvoiceAttachmentError
- *
  */
 export type DeleteB2bTaxInvoiceAttachmentError =
 	| B2bExternalServiceError
@@ -10074,25 +8826,20 @@ export type DeleteB2bTaxInvoiceAttachmentError =
 
 /**
  * 카카오페이 주문 조회 응답
- *
- * 카카오페이 주문 조회 응답
  */
 export type GetKakaopayPaymentOrderResponse = {
 	/**
 	 * HTTP 상태 코드
-	 *
 	 */
 	statusCode: number;
 	/**
 	 * HTTP 응답 본문 (JSON)
-	 *
 	 */
 	body: string;
 };
 
 /**
  * GetKakaopayPaymentOrderError
- *
  */
 export type GetKakaopayPaymentOrderError =
 	| InvalidRequestError
@@ -10100,38 +8847,30 @@ export type GetKakaopayPaymentOrderError =
 
 /**
  * 영수증 내 하위 상점 거래 등록 정보
- *
- * 영수증 내 하위 상점 거래 등록 정보
  */
 export type RegisterStoreReceiptBody = {
 	/**
 	 * 하위 상점 거래 목록
-	 *
 	 */
 	items: RegisterStoreReceiptBodyItem[];
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId?: string;
 };
 
 /**
  * 영수증 내 하위 상점 거래 등록 응답
- *
- * 영수증 내 하위 상점 거래 등록 응답
  */
 export type RegisterStoreReceiptResponse = {
 	/**
 	 * 결제 영수증 URL
-	 *
 	 */
 	receiptUrl?: string;
 };
 
 /**
  * RegisterStoreReceiptError
- *
  */
 export type RegisterStoreReceiptError =
 	| ForbiddenError
@@ -10143,14 +8882,11 @@ export type RegisterStoreReceiptError =
 
 /**
  * 프로모션
- *
- * 프로모션
  */
 export type Promotion = CardPromotion;
 
 /**
  * GetPromotionError
- *
  */
 export type GetPromotionError =
 	| ForbiddenError
@@ -10161,109 +8897,71 @@ export type GetPromotionError =
 /**
  * 요청된 입력 정보가 유효하지 않은 경우
  *
- * 요청된 입력 정보가 유효하지 않은 경우
- *
  * 허가되지 않은 값, 올바르지 않은 형식의 요청 등이 모두 해당됩니다.
  */
 export type InvalidRequestError = {
-	/**
-	 *
-	 */
 	type: "INVALID_REQUEST";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 인증 정보가 올바르지 않은 경우
- *
  * 인증 정보가 올바르지 않은 경우
  */
 export type UnauthorizedError = {
-	/**
-	 *
-	 */
 	type: "UNAUTHORIZED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 금액에 대한 소수점 처리 방식
- *
  * 금액에 대한 소수점 처리 방식
  */
 export type PlatformRoundType = "OFF" | "DOWN" | "UP";
 
 /**
  * 플랫폼 내 발생하는 여러 수수료 및 할인 분담에 관한 계산식 정보
- *
- * 플랫폼 내 발생하는 여러 수수료 및 할인 분담에 관한 계산식 정보
  */
 export type PlatformSettlementFormula = {
 	/**
 	 * 플랫폼 수수료 계산식
-	 *
 	 */
 	platformFee: string;
 	/**
 	 * 할인 분담액 계산식
-	 *
 	 */
 	discountShare: string;
 	/**
 	 * 추가 수수료 계산식
-	 *
 	 */
 	additionalFee: string;
 };
 
 /**
  * 플랫폼 정산건 처리 방식에 관한 규칙
- *
- * 플랫폼 정산건 처리 방식에 관한 규칙
  */
 export type PlatformSettlementRule = {
 	/**
 	 * paymentId, storeId, partnerId가 같은 주문 정산건에 대한 중복 정산 지원 여부
-	 *
 	 */
 	supportsMultipleOrderTransfersPerPartner: boolean;
 	/**
 	 * 정산일이 정산시작일보다 작거나 같을 경우 공휴일 후 영업일로 정산일 다시 계산 여부
-	 *
 	 */
 	adjustSettlementDateAfterHolidayIfEarlier: boolean;
 	/**
 	 * 지급 금액에서 원천징수세 차감 여부
-	 *
 	 */
 	subtractWhtInPayoutAmount: boolean;
 };
 
 /**
  * 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
- *
- * 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
  */
 export type PlatformNotEnabledError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_NOT_ENABLED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 플랫폼 업데이트 시 변경할 계산식 정보
- *
  * 플랫폼 업데이트 시 변경할 계산식 정보
  *
  * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
@@ -10271,17 +8969,14 @@ export type PlatformNotEnabledError = {
 export type UpdatePlatformBodySettlementFormula = {
 	/**
 	 * 플랫폼 수수료 계산식
-	 *
 	 */
 	platformFee?: string;
 	/**
 	 * 할인 분담액 계산식
-	 *
 	 */
 	discountShare?: string;
 	/**
 	 * 추가 수수료 계산식
-	 *
 	 */
 	additionalFee?: string;
 };
@@ -10289,92 +8984,57 @@ export type UpdatePlatformBodySettlementFormula = {
 /**
  * 플랫폼 업데이트 시 변경할 정산 규칙 정보
  *
- * 플랫폼 업데이트 시 변경할 정산 규칙 정보
- *
  * 값이 명시되지 않은 필드는 업데이트하지 않습니다.
  */
 export type UpdatePlatformBodySettlementRule = {
 	/**
 	 * paymentId, storeId, partnerId가 같은 주문 정산건에 대한 중복 정산 지원 여부
-	 *
 	 */
 	supportsMultipleOrderTransfersPerPartner?: boolean;
 	/**
 	 * 정산일이 정산시작일보다 작거나 같을 경우 공휴일 후 영업일로 정산일 다시 계산 여부
-	 *
 	 */
 	adjustSettlementDateAfterHolidayIfEarlier?: boolean;
 	/**
 	 * 지급 금액에서 원천징수세 차감 여부
-	 *
 	 */
 	subtractWhtInPayoutAmount?: boolean;
 };
 
 /**
  * 요청이 거절된 경우
- *
- * 요청이 거절된 경우
  */
 export type ForbiddenError = {
-	/**
-	 *
-	 */
 	type: "FORBIDDEN";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformInvalidSettlementFormulaError
- *
  */
 export type PlatformInvalidSettlementFormulaError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_INVALID_SETTLEMENT_FORMULA";
-	/**
-	 *
-	 */
 	platformFee?: PlatformSettlementFormulaError;
-	/**
-	 *
-	 */
 	discountShare?: PlatformSettlementFormulaError;
-	/**
-	 *
-	 */
 	additionalFee?: PlatformSettlementFormulaError;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 다건 조회 API 에 사용되는 페이지 입력 정보
- *
- * 다건 조회 API 에 사용되는 페이지 입력 정보
  */
 export type PageInput = {
 	/**
 	 * 0부터 시작하는 페이지 번호
-	 *
 	 */
 	number?: number;
 	/**
 	 * 각 페이지 당 포함할 객체 수
-	 *
 	 */
 	size?: number;
 };
 
 /**
- * 할인 분담 정책 다건 조회를 위한 필터 조건
- *
  * 할인 분담 정책 다건 조회를 위한 필터 조건
  */
 export type PlatformDiscountSharePolicyFilterInput = {
@@ -10385,120 +9045,74 @@ export type PlatformDiscountSharePolicyFilterInput = {
 	 */
 	isArchived?: boolean;
 	/**
-	 *
 	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 파트너 분담율을 가진 할인 분담 정책만 조회합니다.
 	 */
 	partnerShareRates?: number[];
 	/**
 	 * 검색 키워드
-	 *
 	 */
 	keyword?: PlatformDiscountSharePolicyFilterInputKeyword;
 };
 
 /**
  * 반환된 페이지 결과 정보
- *
- * 반환된 페이지 결과 정보
  */
 export type PageInfo = {
 	/**
 	 * 요청된 페이지 번호
-	 *
 	 */
 	number: number;
 	/**
 	 * 요청된 페이지 당 객체 수
-	 *
 	 */
 	size: number;
 	/**
 	 * 실제 반환된 객체 수
-	 *
 	 */
 	totalCount: number;
 };
 
 /**
  * PlatformDiscountSharePolicyAlreadyExistsError
- *
  */
 export type PlatformDiscountSharePolicyAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_DISCOUNT_SHARE_POLICY_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformDiscountSharePolicyNotFoundError
- *
  */
 export type PlatformDiscountSharePolicyNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_DISCOUNT_SHARE_POLICY_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 보관된 할인 분담 정책을 업데이트하려고 하는 경우
- *
- * 보관된 할인 분담 정책을 업데이트하려고 하는 경우
  */
 export type PlatformArchivedDiscountSharePolicyError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ARCHIVED_DISCOUNT_SHARE_POLICY";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformDiscountSharePolicyScheduleAlreadyExistsError
- *
  */
 export type PlatformDiscountSharePolicyScheduleAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_DISCOUNT_SHARE_POLICY_SCHEDULE_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 예약된 업데이트가 있는 할인 분담 정책을 보관하려고 하는 경우
- *
  * 예약된 업데이트가 있는 할인 분담 정책을 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledDiscountSharePolicyError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANNOT_ARCHIVE_SCHEDULED_DISCOUNT_SHARE_POLICY";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 추가 수수료 정책 다건 조회를 위한 필터 조건
- *
  * 추가 수수료 정책 다건 조회를 위한 필터 조건
  */
 export type PlatformAdditionalFeePolicyFilterInput = {
@@ -10516,7 +9130,6 @@ export type PlatformAdditionalFeePolicyFilterInput = {
 	vatPayers?: PlatformPayer[];
 	/**
 	 * 검색 키워드
-	 *
 	 */
 	keyword?: PlatformAdditionalFeePolicyFilterInputKeyword;
 };
@@ -10524,26 +9137,20 @@ export type PlatformAdditionalFeePolicyFilterInput = {
 /**
  * 수수료 계산 방식을 특정하기 위한 입력 정보
  *
- * 수수료 계산 방식을 특정하기 위한 입력 정보
- *
  * 정률 수수료를 설정하고 싶은 경우 `fixedRate` 필드에, 정액 수수료를 설정하고 싶은 경우 `fixedAmount` 필드에 값을 명시해 요청합니다. 두 필드 모두 값이 들어있지 않은 경우 요청이 거절됩니다.
  */
 export type PlatformFeeInput = {
 	/**
 	 * 정률 수수료
-	 *
 	 */
 	fixedRate?: number;
 	/**
 	 * 정액 수수료
-	 *
 	 */
 	fixedAmount?: number;
 };
 
 /**
- * 금액 부담 주체
- *
  * 금액 부담 주체
  *
  * 플랫폼에서 발생한 결제 수수료, 부가세 등 금액을 부담하는 주체를 나타냅니다.
@@ -10552,109 +9159,64 @@ export type PlatformPayer = "PARTNER" | "MERCHANT";
 
 /**
  * PlatformAdditionalFeePolicyAlreadyExistsError
- *
  */
 export type PlatformAdditionalFeePolicyAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ADDITIONAL_FEE_POLICY_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 플랫폼 중개수수료 정보
- *
  * 플랫폼 중개수수료 정보
  */
 export type PlatformFee = PlatformFixedAmountFee | PlatformFixedRateFee;
 
 /**
  * PlatformAdditionalFeePolicyNotFoundError
- *
  */
 export type PlatformAdditionalFeePolicyNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ADDITIONAL_FEE_POLICY_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 보관된 추가 수수료 정책을 업데이트하려고 하는 경우
- *
- * 보관된 추가 수수료 정책을 업데이트하려고 하는 경우
  */
 export type PlatformArchivedAdditionalFeePolicyError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ARCHIVED_ADDITIONAL_FEE_POLICY";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformAdditionalFeePolicyScheduleAlreadyExistsError
- *
  */
 export type PlatformAdditionalFeePolicyScheduleAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ADDITIONAL_FEE_POLICY_SCHEDULE_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 예약된 업데이트가 있는 추가 수수료 정책을 보관하려고 하는 경우
- *
  * 예약된 업데이트가 있는 추가 수수료 정책을 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledAdditionalFeePolicyError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANNOT_ARCHIVE_SCHEDULED_ADDITIONAL_FEE_POLICY";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 파트너 계약 요약 정보
- *
  * 파트너 계약 요약 정보
  */
 export type PlatformPartnerContractSummary = {
 	/**
 	 * 계약 고유 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 계약 이름
-	 *
 	 */
 	name: string;
 };
 
 /**
- * 파트너 필터 입력 정보
- *
  * 파트너 필터 입력 정보
  */
 export type PlatformPartnerFilterInput = {
@@ -10665,7 +9227,6 @@ export type PlatformPartnerFilterInput = {
 	 */
 	isArchived?: boolean;
 	/**
-	 *
 	 * 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 태그를 하나 이상 가지는 파트너만 조회합니다.
 	 */
 	tags?: string[];
@@ -10682,220 +9243,143 @@ export type PlatformPartnerFilterInput = {
 	 */
 	accountCurrencies?: Currency[];
 	/**
-	 *
 	 * 하나 이상의 값이 존재하는 경우, 해당 리스트에 포함되는 아이디를 가진 파트너만 조회합니다.
 	 */
 	ids?: string[];
 	/**
-	 *
 	 * 하나 이상의 값이 존재하는 경우, 해당 리스트에 포함되는 기본 계약 id를 가진 파트너만 조회합니다.
 	 */
 	contractIds?: string[];
 	/**
 	 * 검색 키워드
-	 *
 	 */
 	keyword?: PlatformPartnerFilterInputKeyword;
 };
 
 /**
  * 파트너 담당자 정보
- *
- * 파트너 담당자 정보
  */
 export type CreatePlatformPartnerBodyContact = {
 	/**
 	 * 담당자 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 담당자 휴대폰 번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 담당자 이메일
-	 *
 	 */
 	email: string;
 };
 
 /**
  * 파트너 계좌 등록을 위한 정보
- *
- * 파트너 계좌 등록을 위한 정보
  */
 export type CreatePlatformPartnerBodyAccount = {
 	/**
 	 * 은행
-	 *
 	 */
 	bank: Bank;
 	/**
 	 * 정산에 사용할 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 계좌번호
-	 *
 	 */
 	number: string;
 	/**
 	 * 예금주명
-	 *
 	 */
 	holder: string;
 	/**
 	 * 계좌 검증 아이디
-	 *
 	 */
 	accountVerificationId?: string;
 };
 
 /**
  * 파트너 생성을 위한 유형별 추가 정보
- *
- * 파트너 생성을 위한 유형별 추가 정보
  */
 export type CreatePlatformPartnerBodyType = {
 	/**
 	 * 사업자 추가 정보
-	 *
 	 */
 	business?: CreatePlatformPartnerBodyTypeBusiness;
 	/**
 	 * 원천징수 대상자 추가 정보
-	 *
 	 */
 	whtPayer?: CreatePlatformPartnerBodyTypeWhtPayer;
 	/**
 	 * 원천징수 비대상자 추가 정보
-	 *
 	 */
 	nonWhtPayer?: CreatePlatformPartnerBodyTypeNonWhtPayer;
 };
 
 /**
  * PlatformProperties
- *
  */
 export type PlatformProperties = {};
 
 /**
  * 파트너 계좌 검증 아이디를 이미 사용한 경우
- *
- * 파트너 계좌 검증 아이디를 이미 사용한 경우
  */
 export type PlatformAccountVerificationAlreadyUsedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ACCOUNT_VERIFICATION_ALREADY_USED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 파트너 계좌 인증이 실패한 경우
- *
  * 파트너 계좌 인증이 실패한 경우
  */
 export type PlatformAccountVerificationFailedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ACCOUNT_VERIFICATION_FAILED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 파트너 계좌 검증 아이디를 찾을 수 없는 경우
- *
- * 파트너 계좌 검증 아이디를 찾을 수 없는 경우
  */
 export type PlatformAccountVerificationNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ACCOUNT_VERIFICATION_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformContractNotFoundError
- *
  */
 export type PlatformContractNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CONTRACT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 지원 되지 않는 통화를 선택한 경우
- *
- * 지원 되지 않는 통화를 선택한 경우
  */
 export type PlatformCurrencyNotSupportedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CURRENCY_NOT_SUPPORTED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformPartnerIdAlreadyExistsError
- *
  */
 export type PlatformPartnerIdAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PARTNER_ID_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 사용자 정의 속성이 존재 하지 않는 경우
- *
  * 사용자 정의 속성이 존재 하지 않는 경우
  */
 export type PlatformUserDefinedPropertyNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_USER_DEFINED_PROPERTY_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 플랫폼 파트너 담당자 연락 정보
- *
  * 플랫폼 파트너 담당자 연락 정보
  *
  * 파트너 담당자에게 연락하기 위한 정보들 입니다.
@@ -10903,17 +9387,14 @@ export type PlatformUserDefinedPropertyNotFoundError = {
 export type PlatformContact = {
 	/**
 	 * 담당자 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 담당자 휴대폰 번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 담당자 이메일
-	 *
 	 */
 	email: string;
 };
@@ -10921,48 +9402,37 @@ export type PlatformContact = {
 /**
  * 플랫폼 정산 계좌
  *
- * 플랫폼 정산 계좌
- *
  * `currency` 가 KRW 일 경우 예금주 조회 API 를 통해 올바른 계좌인지 검증합니다. 그 외의 화폐일 경우 따로 검증하지는 않습니다.
  */
 export type PlatformAccount = {
 	/**
 	 * 은행
-	 *
 	 */
 	bank: Bank;
 	/**
 	 * 정산에 사용할 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 계좌번호
-	 *
 	 */
 	number: string;
 	/**
 	 * 예금주명
-	 *
 	 */
 	holder: string;
 	/**
 	 * 계좌 상태
-	 *
 	 */
 	status: PlatformAccountStatus;
 };
 
 /**
  * 플랫폼 파트너 상태
- *
- * 플랫폼 파트너 상태
  */
 export type PlatformPartnerStatus = "PENDING" | "APPROVED" | "REJECTED";
 
 /**
- * 파트너 유형별 추가 정보
- *
  * 파트너 유형별 추가 정보
  */
 export type PlatformPartnerType =
@@ -10972,71 +9442,52 @@ export type PlatformPartnerType =
 
 /**
  * PlatformPartnerNotFoundError
- *
  */
 export type PlatformPartnerNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PARTNER_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 파트너 담당자 업데이트를 위한 정보
- *
- * 파트너 담당자 업데이트를 위한 정보
  */
 export type UpdatePlatformPartnerBodyContact = {
 	/**
 	 * 담당자 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 담당자 휴대폰 번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 담당자 이메일
-	 *
 	 */
 	email?: string;
 };
 
 /**
  * 파트너 계좌 업데이트를 위한 입력 정보
- *
- * 파트너 계좌 업데이트를 위한 입력 정보
  */
 export type UpdatePlatformPartnerBodyAccount = {
 	/**
 	 * 은행
-	 *
 	 */
 	bank: Bank;
 	/**
 	 * 정산에 사용할 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 계좌번호
-	 *
 	 */
 	number: string;
 	/**
 	 * 예금주명
-	 *
 	 */
 	holder: string;
 	/**
 	 * 계좌 검증 아이디
-	 *
 	 */
 	accountVerificationId?: string;
 };
@@ -11044,241 +9495,118 @@ export type UpdatePlatformPartnerBodyAccount = {
 /**
  * 파트너 업데이트를 위한 유형별 추가 정보
  *
- * 파트너 업데이트를 위한 유형별 추가 정보
- *
  * 파트너 유형별 추가 정보를 수정합니다. 기존과 다른 파트너 유형 정보가 입력된 경우, 파트너의 유형 자체가 변경됩니다.
  */
 export type UpdatePlatformPartnerBodyType = {
 	/**
 	 * 사업자 추가 정보
-	 *
 	 */
 	business?: UpdatePlatformPartnerBodyTypeBusiness;
 	/**
 	 * 원천징수 대상자 추가 정보
-	 *
 	 */
 	whtPayer?: UpdatePlatformPartnerBodyTypeWhtPayer;
 	/**
 	 * 원천징수 비대상자 추가 정보
-	 *
 	 */
 	nonWhtPayer?: UpdatePlatformPartnerBodyTypeNonWhtPayer;
 };
 
 /**
  * 보관된 파트너를 업데이트하려고 하는 경우
- *
- * 보관된 파트너를 업데이트하려고 하는 경우
  */
 export type PlatformArchivedPartnerError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ARCHIVED_PARTNER";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 파트너 타입 수정에 필요한 데이터가 부족한 경우
- *
- * 파트너 타입 수정에 필요한 데이터가 부족한 경우
  */
 export type PlatformInsufficientDataToChangePartnerTypeError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_INSUFFICIENT_DATA_TO_CHANGE_PARTNER_TYPE";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformContractsNotFoundError
- *
  */
 export type PlatformContractsNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CONTRACTS_NOT_FOUND";
-	/**
-	 *
-	 */
 	ids: string[];
-	/**
-	 *
-	 */
 	graphqlIds: string[];
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformPartnerIdsAlreadyExistError
- *
  */
 export type PlatformPartnerIdsAlreadyExistError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PARTNER_IDS_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	ids: string[];
-	/**
-	 *
-	 */
 	graphqlIds: string[];
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformPartnerIdsDuplicatedError
- *
  */
 export type PlatformPartnerIdsDuplicatedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PARTNER_IDS_DUPLICATED";
-	/**
-	 *
-	 */
 	ids: string[];
-	/**
-	 *
-	 */
 	graphqlIds: string[];
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformPartnerScheduleAlreadyExistsError
- *
  */
 export type PlatformPartnerScheduleAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PARTNER_SCHEDULE_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * SchedulePlatformPartnersBodyUpdate
- *
  */
 export type SchedulePlatformPartnersBodyUpdate = {
-	/**
-	 *
-	 */
 	name?: string;
-	/**
-	 *
-	 */
 	contact?: SchedulePlatformPartnersBodyUpdateContact;
-	/**
-	 *
-	 */
 	type?: SchedulePlatformPartnersBodyUpdateType;
-	/**
-	 *
-	 */
 	account?: SchedulePlatformPartnersBodyUpdateAccount;
-	/**
-	 *
-	 */
 	defaultContractId?: string;
-	/**
-	 *
-	 */
 	memo?: string;
-	/**
-	 *
-	 */
 	tags?: string[];
-	/**
-	 *
-	 */
 	userDefinedProperties?: PlatformProperties;
 };
 
 /**
  * 보관된 파트너들을 예약 업데이트하려고 하는 경우
- *
- * 보관된 파트너들을 예약 업데이트하려고 하는 경우
  */
 export type PlatformArchivedPartnersCannotBeScheduledError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ARCHIVED_PARTNERS_CANNOT_BE_SCHEDULED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformPartnerSchedulesAlreadyExistError
- *
  */
 export type PlatformPartnerSchedulesAlreadyExistError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PARTNER_SCHEDULES_ALREADY_EXIST";
-	/**
-	 *
-	 */
 	ids: string[];
-	/**
-	 *
-	 */
 	graphqlIds: string[];
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 예약된 업데이트가 있는 파트너를 보관하려고 하는 경우
- *
  * 예약된 업데이트가 있는 파트너를 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledPartnerError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANNOT_ARCHIVE_SCHEDULED_PARTNER";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 계약 다건 조회를 위한 필터 조건
- *
  * 계약 다건 조회를 위한 필터 조건
  */
 export type PlatformContractFilterInput = {
@@ -11308,14 +9636,11 @@ export type PlatformContractFilterInput = {
 	isArchived?: boolean;
 	/**
 	 * 검색 키워드
-	 *
 	 */
 	keyword?: PlatformContractFilterInputKeyword;
 };
 
 /**
- * 플랫폼 정산 주기 입력 정보
- *
  * 플랫폼 정산 주기 입력 정보
  */
 export type PlatformSettlementCycleInput = {
@@ -11327,34 +9652,23 @@ export type PlatformSettlementCycleInput = {
 	lagDays: number;
 	/**
 	 * 기준일로, 정산일 계산 시 공휴일을 고려하기 위한 정보입니다.
-	 *
 	 */
 	datePolicy: PlatformSettlementCycleDatePolicy;
 	/**
 	 * 정산 주기 계산 방식
-	 *
 	 */
 	method: PlatformSettlementCycleMethodInput;
 };
 
 /**
  * PlatformContractAlreadyExistsError
- *
  */
 export type PlatformContractAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CONTRACT_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 정산 주기
- *
  * 정산 주기
  *
  * 지체일, 정산일, 기준일로 구성되며, 해당 요소들의 조합으로 실제 정산일을 계산합니다.
@@ -11368,95 +9682,58 @@ export type PlatformSettlementCycle = {
 	lagDays: number;
 	/**
 	 * 기준일로, 정산일 계산 시 공휴일을 고려하기 위한 정보입니다.
-	 *
 	 */
 	datePolicy: PlatformSettlementCycleDatePolicy;
 	/**
 	 * 정산 주기 계산 방식
-	 *
 	 */
 	method: PlatformSettlementCycleMethod;
 };
 
 /**
  * 보관된 계약을 업데이트하려고 하는 경우
- *
- * 보관된 계약을 업데이트하려고 하는 경우
  */
 export type PlatformArchivedContractError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ARCHIVED_CONTRACT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformContractScheduleAlreadyExistsError
- *
  */
 export type PlatformContractScheduleAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CONTRACT_SCHEDULE_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 예약된 업데이트가 있는 계약을 보관하려고 하는 경우
- *
  * 예약된 업데이트가 있는 계약을 보관하려고 하는 경우
  */
 export type PlatformCannotArchiveScheduledContractError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANNOT_ARCHIVE_SCHEDULED_CONTRACT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 수기 정산건
- *
- * 수기 정산건
  */
 export type PlatformManualTransfer = {
-	/**
-	 *
-	 */
 	type: "MANUAL";
 	/**
 	 * 정산건 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 	/**
 	 * 정산 상태
-	 *
 	 */
 	status: PlatformTransferStatus;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
@@ -11467,66 +9744,44 @@ export type PlatformManualTransfer = {
 	settlementDate: string;
 	/**
 	 * 정산 통화
-	 *
 	 */
 	settlementCurrency: Currency;
-	/**
-	 *
-	 */
 	payoutId?: string;
-	/**
-	 *
-	 */
 	payoutGraphqlId?: string;
 	/**
 	 * 테스트 모드 여부
-	 *
 	 */
 	isForTest: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
 	/**
 	 * 정산 금액
-	 *
 	 */
 	settlementAmount: number;
 };
 
 /**
  * 주문 정산건
- *
- * 주문 정산건
  */
 export type PlatformOrderTransfer = {
-	/**
-	 *
-	 */
 	type: "ORDER";
 	/**
 	 * 정산건 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 	/**
 	 * 정산 상태
-	 *
 	 */
 	status: PlatformTransferStatus;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
@@ -11537,40 +9792,28 @@ export type PlatformOrderTransfer = {
 	settlementDate: string;
 	/**
 	 * 정산 통화
-	 *
 	 */
 	settlementCurrency: Currency;
-	/**
-	 *
-	 */
 	payoutId?: string;
-	/**
-	 *
-	 */
 	payoutGraphqlId?: string;
 	/**
 	 * 테스트 모드 여부
-	 *
 	 */
 	isForTest: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
 	/**
 	 * 정산 금액 정보
-	 *
 	 */
 	amount: PlatformOrderSettlementAmount;
 	/**
 	 * 계약
-	 *
 	 */
 	contract: PlatformContract;
 	/**
 	 * 결제 정보
-	 *
 	 */
 	payment: PlatformPayment;
 	/**
@@ -11581,58 +9824,42 @@ export type PlatformOrderTransfer = {
 	settlementStartDate: string;
 	/**
 	 * 주문 항목 리스트
-	 *
 	 */
 	orderLines: PlatformOrderTransferOrderLine[];
 	/**
 	 * 정산 금액 계산 시 사용된 추가 수수료 정보
-	 *
 	 */
 	additionalFees: PlatformOrderTransferAdditionalFee[];
 	/**
 	 * 정산 금액 계산 시 사용된 할인 정보
-	 *
 	 */
 	discounts: PlatformOrderTransferDiscount[];
 	/**
 	 * 정산 파라미터 (실험기능)
-	 *
 	 */
 	parameters: TransferParameters;
 };
 
 /**
  * 주문 취소 정산건
- *
- * 주문 취소 정산건
  */
 export type PlatformOrderCancelTransfer = {
-	/**
-	 *
-	 */
 	type: "ORDER_CANCEL";
 	/**
 	 * 정산건 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 	/**
 	 * 정산 상태
-	 *
 	 */
 	status: PlatformTransferStatus;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
@@ -11643,40 +9870,28 @@ export type PlatformOrderCancelTransfer = {
 	settlementDate: string;
 	/**
 	 * 정산 통화
-	 *
 	 */
 	settlementCurrency: Currency;
-	/**
-	 *
-	 */
 	payoutId?: string;
-	/**
-	 *
-	 */
 	payoutGraphqlId?: string;
 	/**
 	 * 테스트 모드 여부
-	 *
 	 */
 	isForTest: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
 	/**
 	 * 정산 금액 정보
-	 *
 	 */
 	amount: PlatformOrderSettlementAmount;
 	/**
 	 * 계약
-	 *
 	 */
 	contract: PlatformContract;
 	/**
 	 * 결제 정보
-	 *
 	 */
 	payment: PlatformPayment;
 	/**
@@ -11687,79 +9902,51 @@ export type PlatformOrderCancelTransfer = {
 	settlementStartDate: string;
 	/**
 	 * 주문 항목 리스트
-	 *
 	 */
 	orderLines: PlatformOrderTransferOrderLine[];
 	/**
 	 * 정산 금액 계산 시 사용된 추가 수수료 정보
-	 *
 	 */
 	additionalFees: PlatformOrderTransferAdditionalFee[];
 	/**
 	 * 정산 금액 계산 시 사용된 할인 정보
-	 *
 	 */
 	discounts: PlatformOrderTransferDiscount[];
 	/**
 	 * 주문 취소 정보
-	 *
 	 */
 	cancellation: PlatformOrderTransferCancellation;
 	/**
 	 * 정산 파라미터 (실험기능)
-	 *
 	 */
 	parameters: TransferParameters;
 };
 
 /**
  * PlatformTransferNotFoundError
- *
  */
 export type PlatformTransferNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_TRANSFER_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformCancelOrderTransfersExistsError
- *
  */
 export type PlatformCancelOrderTransfersExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANCEL_ORDER_TRANSFERS_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformTransferNonDeletableStatusError
- *
  */
 export type PlatformTransferNonDeletableStatusError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_TRANSFER_NON_DELETABLE_STATUS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 정산건 필터 입력 정보
- *
  * 정산건 필터 입력 정보
  *
  * 정산 시작일 범위와 정산 일 범위는 둘 중 하나만 입력 가능합니다.
@@ -11767,12 +9954,10 @@ export type PlatformTransferNonDeletableStatusError = {
 export type PlatformTransferFilterInput = {
 	/**
 	 * 정산 시작일 범위
-	 *
 	 */
 	settlementStartDateRange?: DateRange;
 	/**
 	 * 정산 일 범위
-	 *
 	 */
 	settlementDateRange?: DateRange;
 	/**
@@ -11825,19 +10010,16 @@ export type PlatformTransferFilterInput = {
 	statuses?: PlatformTransferStatus[];
 	/**
 	 * 검색 키워드
-	 *
 	 */
 	keyword?: PlatformTransferFilterInputKeyword;
 	/**
 	 * 테스트 모드 여부
-	 *
 	 */
 	isForTest?: boolean;
 };
 
 /**
  * PlatformTransferSummary
- *
  */
 export type PlatformTransferSummary =
 	| PlatformManualTransferSummary
@@ -11847,391 +10029,207 @@ export type PlatformTransferSummary =
 /**
  * 주문 정보
  *
- * 주문 정보
- *
  * 주문 금액 또는 주문 항목 하나만 입력 가능합니다.
  */
 export type CreatePlatformOrderTransferBodyOrderDetail = {
 	/**
 	 * 주문 금액
-	 *
 	 */
 	orderAmount?: number;
 	/**
 	 * 주문 항목 리스트
-	 *
 	 */
 	orderLines?: CreatePlatformOrderTransferBodyOrderLine[];
 };
 
 /**
  * 할인 정보
- *
- * 할인 정보
  */
 export type CreatePlatformOrderTransferBodyDiscount = {
 	/**
 	 * 할인 분담 정책 아이디
-	 *
 	 */
 	sharePolicyId: string;
 	/**
 	 * 할인 금액
-	 *
 	 */
 	amount: number;
 };
 
 /**
  * 추가 수수료 정보
- *
- * 추가 수수료 정보
  */
 export type CreatePlatformOrderTransferBodyAdditionalFee = {
 	/**
 	 * 추가 수수료 정책 아이디
-	 *
 	 */
 	policyId: string;
 };
 
 /**
  * 외부 결제 상세 정보
- *
- * 외부 결제 상세 정보
  */
 export type CreatePlatformOrderTransferBodyExternalPaymentDetail = {
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 주문 명
-	 *
 	 */
 	orderName?: string;
 	/**
 	 * 결제 일시
-	 *
 	 */
 	paidAt?: string;
 	/**
 	 * 결제 수단
-	 *
 	 */
 	method?: PlatformPaymentMethodInput;
 };
 
 /**
  * TransferParameters
- *
  */
 export type TransferParameters = {};
 
 /**
  * 사용자 정의 속성
- *
- * 사용자 정의 속성
  */
 export type PlatformUserDefinedPropertyKeyValue = {
 	/**
 	 * 사용자 정의 속성 키
-	 *
 	 */
 	key: string;
 	/**
 	 * 사용자 정의 속성 값
-	 *
 	 */
 	value: PlatformUserDefinedPropertyValue;
 };
 
 /**
  * PlatformAdditionalFeePoliciesNotFoundError
- *
  */
 export type PlatformAdditionalFeePoliciesNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ADDITIONAL_FEE_POLICIES_NOT_FOUND";
-	/**
-	 *
-	 */
 	ids: string[];
-	/**
-	 *
-	 */
 	graphqlIds: string[];
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError
- *
  */
 export type PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError =
 	{
-		/**
-		 *
-		 */
 		type: "PLATFORM_ADDITIONAL_FIXED_AMOUNT_FEE_CURRENCY_AND_SETTLEMENT_CURRENCY_MISMATCHED";
-		/**
-		 *
-		 */
 		id: string;
-		/**
-		 *
-		 */
 		graphqlId: string;
-		/**
-		 *
-		 */
 		feeCurrency: Currency;
-		/**
-		 *
-		 */
 		settlementCurrency: Currency;
-		/**
-		 *
-		 */
 		message?: string;
 	};
 
 /**
  * PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError
- *
  */
 export type PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError =
 	{
-		/**
-		 *
-		 */
 		type: "PLATFORM_CONTRACT_PLATFORM_FIXED_AMOUNT_FEE_CURRENCY_AND_SETTLEMENT_CURRENCY_MISMATCHED";
-		/**
-		 *
-		 */
 		id: string;
-		/**
-		 *
-		 */
 		graphqlId: string;
-		/**
-		 *
-		 */
 		feeCurrency: Currency;
-		/**
-		 *
-		 */
 		settlementCurrency: Currency;
-		/**
-		 *
-		 */
 		message?: string;
 	};
 
 /**
  * PlatformDiscountExceededOrderAmountError
- *
  */
 export type PlatformDiscountExceededOrderAmountError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_DISCOUNT_EXCEEDED_ORDER_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformDiscountSharePoliciesNotFoundError
- *
  */
 export type PlatformDiscountSharePoliciesNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_DISCOUNT_SHARE_POLICIES_NOT_FOUND";
-	/**
-	 *
-	 */
 	ids: string[];
-	/**
-	 *
-	 */
 	graphqlIds: string[];
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformPaymentNotFoundError
- *
  */
 export type PlatformPaymentNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PAYMENT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformProductIdDuplicatedError
- *
  */
 export type PlatformProductIdDuplicatedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PRODUCT_ID_DUPLICATED";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 정산 요청 결제 금액이 포트원 결제 내역의 결제 금액을 초과한 경우
- *
  * 정산 요청 결제 금액이 포트원 결제 내역의 결제 금액을 초과한 경우
  */
 export type PlatformSettlementPaymentAmountExceededPortOnePaymentError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_SETTLEMENT_PAYMENT_AMOUNT_EXCEEDED_PORT_ONE_PAYMENT";
-	/**
-	 *
-	 */
 	registeredSettlementPaymentAmount: number;
-	/**
-	 *
-	 */
 	requestSettlementPaymentAmount: number;
-	/**
-	 *
-	 */
 	portOnePaymentAmount: number;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우
- *
  * 정산 요청 공급대가가 포트원 결제 내역의 공급대가를 초과한 경우
  */
 export type PlatformSettlementSupplyWithVatAmountExceededPortOnePaymentError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_SETTLEMENT_SUPPLY_WITH_VAT_AMOUNT_EXCEEDED_PORT_ONE_PAYMENT";
-	/**
-	 *
-	 */
 	registeredSettlementSupplyWithVatAmount: number;
-	/**
-	 *
-	 */
 	requestSettlementSupplyWithVatAmount: number;
-	/**
-	 *
-	 */
 	portOneSupplyWithVatAmount: number;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 정산 요청 면세 금액이 포트원 결제 내역의 면세 금액을 초과한 경우
- *
  * 정산 요청 면세 금액이 포트원 결제 내역의 면세 금액을 초과한 경우
  */
 export type PlatformSettlementTaxFreeAmountExceededPortOnePaymentError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_SETTLEMENT_TAX_FREE_AMOUNT_EXCEEDED_PORT_ONE_PAYMENT";
-	/**
-	 *
-	 */
 	registeredSettlementTaxFreeAmount: number;
-	/**
-	 *
-	 */
 	requestSettlementTaxFreeAmount: number;
-	/**
-	 *
-	 */
 	portOneTaxFreeAmount: number;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 면세 금액이 결제금액을 초과한 경우
- *
- * 면세 금액이 결제금액을 초과한 경우
  */
 export type PlatformTaxFreeAmountOverFlowError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_TAX_FREE_AMOUNT_OVER_FLOW";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformTransferAlreadyExistsError
- *
  */
 export type PlatformTransferAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_TRANSFER_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	transferId: string;
-	/**
-	 *
-	 */
 	transferGraphqlId: string;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 주문 취소 정보
- *
  * 주문 취소 정보
  *
  * orderAmount, orderLines, all 중에서 하나만 입력하여야 합니다.
@@ -12239,325 +10237,165 @@ export type PlatformTransferAlreadyExistsError = {
 export type CreatePlatformOrderCancelTransferBodyOrderDetail = {
 	/**
 	 * 주문 취소 금액
-	 *
 	 */
 	orderAmount?: number;
 	/**
 	 * 주문 취소 항목 리스트
-	 *
 	 */
 	orderLines?: CreatePlatformOrderCancelTransferBodyOrderLine[];
 	/**
 	 * 전체 금액 취소
-	 *
 	 */
 	all?: CreatePlatformOrderCancelTransferBodyOrderDetailAll;
 };
 
 /**
  * 할인 정보
- *
- * 할인 정보
  */
 export type CreatePlatformOrderCancelTransferBodyDiscount = {
 	/**
 	 * 할인 분담 정책 아이디
-	 *
 	 */
 	sharePolicyId: string;
 	/**
 	 * 할인 금액
-	 *
 	 */
 	amount: number;
 };
 
 /**
  * 외부 결제 상세 정보
- *
- * 외부 결제 상세 정보
  */
 export type CreatePlatformOrderCancelTransferBodyExternalCancellationDetail = {
 	/**
 	 * 취소 일시
-	 *
 	 */
 	cancelledAt?: string;
 };
 
 /**
  * 취소 가능한 금액이 초과한 경우
- *
- * 취소 가능한 금액이 초과한 경우
  */
 export type PlatformCancellableAmountExceededError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANCELLABLE_AMOUNT_EXCEEDED";
-	/**
-	 *
-	 */
 	cancellableAmount: number;
-	/**
-	 *
-	 */
 	amountType: PlatformCancellableAmountType;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformCancellableDiscountAmountExceededError
- *
  */
 export type PlatformCancellableDiscountAmountExceededError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANCELLABLE_DISCOUNT_AMOUNT_EXCEEDED";
-	/**
-	 *
-	 */
 	discountSharePolicyId: string;
-	/**
-	 *
-	 */
 	discountSharePolicyGraphqlId: string;
-	/**
-	 *
-	 */
 	cancellableAmount: number;
-	/**
-	 *
-	 */
 	productId?: string;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformCancellableProductQuantityExceededError
- *
  */
 export type PlatformCancellableProductQuantityExceededError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANCELLABLE_PRODUCT_QUANTITY_EXCEEDED";
-	/**
-	 *
-	 */
 	productId: string;
-	/**
-	 *
-	 */
 	cancellableQuantity: number;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformCancellationAndPaymentTypeMismatchedError
- *
  */
 export type PlatformCancellationAndPaymentTypeMismatchedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANCELLATION_AND_PAYMENT_TYPE_MISMATCHED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformCancellationNotFoundError
- *
  */
 export type PlatformCancellationNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANCELLATION_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 정산 건 식별에 실패한 경우
- *
- * 정산 건 식별에 실패한 경우
  */
 export type PlatformCannotSpecifyTransferError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_CANNOT_SPECIFY_TRANSFER";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformDiscountCancelExceededOrderCancelAmountError
- *
  */
 export type PlatformDiscountCancelExceededOrderCancelAmountError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_DISCOUNT_CANCEL_EXCEEDED_ORDER_CANCEL_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformDiscountSharePolicyIdDuplicatedError
- *
  */
 export type PlatformDiscountSharePolicyIdDuplicatedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_DISCOUNT_SHARE_POLICY_ID_DUPLICATED";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformOrderDetailMismatchedError
- *
  */
 export type PlatformOrderDetailMismatchedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ORDER_DETAIL_MISMATCHED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformOrderTransferAlreadyCancelledError
- *
  */
 export type PlatformOrderTransferAlreadyCancelledError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_ORDER_TRANSFER_ALREADY_CANCELLED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformProductIdNotFoundError
- *
  */
 export type PlatformProductIdNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_PRODUCT_ID_NOT_FOUND";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우
- *
- * 정산 취소 요청 금액이 포트원 결제 취소 내역의 취소 금액을 초과한 경우
  */
 export type PlatformSettlementCancelAmountExceededPortOneCancelError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_SETTLEMENT_CANCEL_AMOUNT_EXCEEDED_PORT_ONE_CANCEL";
-	/**
-	 *
-	 */
 	registeredSettlementCancelAmount: number;
-	/**
-	 *
-	 */
 	requestSettlementCancelAmount: number;
-	/**
-	 *
-	 */
 	portOneCancelAmount: number;
-	/**
-	 *
-	 */
 	amountType: PlatformPortOnePaymentCancelAmountType;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformTransferDiscountSharePolicyNotFoundError
- *
  */
 export type PlatformTransferDiscountSharePolicyNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_TRANSFER_DISCOUNT_SHARE_POLICY_NOT_FOUND";
-	/**
-	 *
-	 */
 	discountSharePolicyId: string;
-	/**
-	 *
-	 */
 	discountSharePolicyGraphqlId: string;
-	/**
-	 *
-	 */
 	productId?: string;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 다운로드 할 시트 컬럼
- *
  * 다운로드 할 시트 컬럼
  */
 export type PlatformTransferSheetField =
@@ -12591,49 +10429,29 @@ export type PlatformTransferSheetField =
 
 /**
  * PlatformPartnerSettlementFilterInput
- *
  */
 export type PlatformPartnerSettlementFilterInput = {
-	/**
-	 *
-	 */
 	settlementDates?: string[];
-	/**
-	 *
-	 */
 	contractIds?: string[];
-	/**
-	 *
-	 */
 	partnerTags?: string[];
 	/**
 	 * 통화 단위
-	 *
 	 */
 	settlementCurrencies?: Currency[];
 	/**
 	 * 정산 상태
-	 *
 	 */
 	statuses?: PlatformPartnerSettlementStatus[];
-	/**
-	 *
-	 */
 	partnerIds?: string[];
 	/**
 	 * 정산 유형
-	 *
 	 */
 	settlementTypes?: PlatformPartnerSettlementType[];
-	/**
-	 *
-	 */
 	keyword?: PlatformPartnerSettlementFilterKeywordInput;
 };
 
 /**
  * PlatformPartnerSettlement
- *
  */
 export type PlatformPartnerSettlement =
 	| PlatformPartnerManualSettlement
@@ -12642,507 +10460,271 @@ export type PlatformPartnerSettlement =
 
 /**
  * PlatformPartnerSettlementStatusStats
- *
  */
 export type PlatformPartnerSettlementStatusStats = {
-	/**
-	 *
-	 */
 	payoutPrepared: number;
-	/**
-	 *
-	 */
 	payoutWithheld: number;
-	/**
-	 *
-	 */
 	payoutFailed: number;
-	/**
-	 *
-	 */
 	inPayout: number;
-	/**
-	 *
-	 */
 	paidOut: number;
 };
 
 /**
  * PlatformPayoutFilterInput
- *
  */
 export type PlatformPayoutFilterInput = {
-	/**
-	 *
-	 */
 	statuses?: PlatformPayoutStatus[];
-	/**
-	 *
-	 */
 	partnerIds?: string[];
-	/**
-	 *
-	 */
 	criteria: PlatformPayoutFilterInputCriteria;
 	/**
 	 * 은행
-	 *
 	 */
 	payoutAccountBanks?: Bank[];
-	/**
-	 *
-	 */
 	partnerTags?: string[];
 	/**
 	 * 통화 단위
-	 *
 	 */
 	payoutCurrencies?: Currency[];
 };
 
 /**
  * PlatformPayout
- *
  */
 export type PlatformPayout = {
 	/**
 	 * 지급 고유 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
-	/**
-	 *
-	 */
 	method: PlatformPayoutMethod;
-	/**
-	 *
-	 */
 	status: PlatformPayoutStatus;
-	/**
-	 *
-	 */
 	statusUpdatedAt: string;
-	/**
-	 *
-	 */
 	memo?: string;
-	/**
-	 *
-	 */
 	partner: PlatformPartner;
-	/**
-	 *
-	 */
 	account: PlatformPayoutAccount;
-	/**
-	 *
-	 */
 	currency: Currency;
-	/**
-	 *
-	 */
 	amount: number;
-	/**
-	 *
-	 */
 	settlementAmount: number;
-	/**
-	 *
-	 */
 	incomeTaxAmount: number;
-	/**
-	 *
-	 */
 	localIncomeTaxAmount: number;
-	/**
-	 *
-	 */
 	withdrawalMemo?: string;
-	/**
-	 *
-	 */
 	depositMemo?: string;
-	/**
-	 *
-	 */
 	createdAt: string;
 };
 
 /**
  * PlatformPayoutStatusStats
- *
  */
 export type PlatformPayoutStatusStats = {
-	/**
-	 *
-	 */
 	prepared: number;
-	/**
-	 *
-	 */
 	cancelled: number;
-	/**
-	 *
-	 */
 	stopped: number;
-	/**
-	 *
-	 */
 	processing: number;
-	/**
-	 *
-	 */
 	succeeded: number;
-	/**
-	 *
-	 */
 	failed: number;
 };
 
 /**
  * PlatformBulkPayoutFilterInput
- *
  */
 export type PlatformBulkPayoutFilterInput = {
-	/**
-	 *
-	 */
 	statuses?: PlatformBulkPayoutStatus[];
-	/**
-	 *
-	 */
 	methods?: PlatformPayoutMethod[];
-	/**
-	 *
-	 */
 	criteria?: PlatformBulkPayoutFilterInputCriteria;
 };
 
 /**
  * PlatformBulkPayout
- *
  */
 export type PlatformBulkPayout = {
 	/**
 	 * 일괄 지급 고유 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
-	/**
-	 *
-	 */
 	name: string;
-	/**
-	 *
-	 */
 	creatorId: string;
-	/**
-	 *
-	 */
 	method: PlatformPayoutMethod;
-	/**
-	 *
-	 */
 	arePayoutsGenerated: boolean;
-	/**
-	 *
-	 */
 	totalPayoutAmount: number;
-	/**
-	 *
-	 */
 	status: PlatformBulkPayoutStatus;
-	/**
-	 *
-	 */
 	payoutStats: PlatformBulkPayoutStats;
-	/**
-	 *
-	 */
 	statusUpdatedAt: string;
-	/**
-	 *
-	 */
 	createdAt: string;
-	/**
-	 *
-	 */
 	updatedAt: string;
 };
 
 /**
  * PlatformBulkPayoutStatusStats
- *
  */
 export type PlatformBulkPayoutStatusStats = {
-	/**
-	 *
-	 */
 	preparing: number;
-	/**
-	 *
-	 */
 	prepared: number;
-	/**
-	 *
-	 */
 	ongoing: number;
-	/**
-	 *
-	 */
 	stopped: number;
-	/**
-	 *
-	 */
 	cancelled: number;
-	/**
-	 *
-	 */
 	completed: number;
 };
 
 /**
  * 외부 api 오류
- *
- * 외부 api 오류
  */
 export type PlatformExternalApiFailedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_EXTERNAL_API_FAILED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 외부 api의 일시적인 오류
- *
  * 외부 api의 일시적인 오류
  */
 export type PlatformExternalApiTemporarilyFailedError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_EXTERNAL_API_TEMPORARILY_FAILED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 지원하지 않는 은행인 경우
- *
  * 지원하지 않는 은행인 경우
  */
 export type PlatformNotSupportedBankError = {
-	/**
-	 *
-	 */
 	type: "PLATFORM_NOT_SUPPORTED_BANK";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 실패한 본인인증 내역
- *
- * 실패한 본인인증 내역
  */
 export type FailedIdentityVerification = {
-	/**
-	 *
-	 */
 	status: "FAILED";
 	/**
 	 * 본인인증 내역 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 사용된 본인인증 채널
-	 *
 	 */
 	channel?: SelectedChannel;
 	/**
 	 * 요청 시 고객 정보
-	 *
 	 */
 	requestedCustomer: IdentityVerificationRequestedCustomer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 본인인증 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 };
 
 /**
- * 준비 상태의 본인인증 내역
- *
  * 준비 상태의 본인인증 내역
  */
 export type ReadyIdentityVerification = {
-	/**
-	 *
-	 */
 	status: "READY";
 	/**
 	 * 본인인증 내역 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 사용된 본인인증 채널
-	 *
 	 */
 	channel?: SelectedChannel;
 	/**
 	 * 요청 시 고객 정보
-	 *
 	 */
 	requestedCustomer: IdentityVerificationRequestedCustomer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 본인인증 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 };
 
 /**
  * 완료된 본인인증 내역
- *
- * 완료된 본인인증 내역
  */
 export type VerifiedIdentityVerification = {
-	/**
-	 *
-	 */
 	status: "VERIFIED";
 	/**
 	 * 본인인증 내역 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 사용된 본인인증 채널
-	 *
 	 */
 	channel?: SelectedChannel;
 	/**
 	 * 인증된 고객 정보
-	 *
 	 */
 	verifiedCustomer: IdentityVerificationVerifiedCustomer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 본인인증 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 본인인증 완료 시점
-	 *
 	 */
 	verifiedAt: string;
 	/**
 	 * 본인인증 내역 PG사 아이디
-	 *
 	 */
 	pgTxId: string;
 	/**
 	 * PG사 응답 데이터
-	 *
 	 */
 	pgRawResponse: string;
 };
 
 /**
  * 요청된 본인인증 건이 존재하지 않는 경우
- *
- * 요청된 본인인증 건이 존재하지 않는 경우
  */
 export type IdentityVerificationNotFoundError = {
-	/**
-	 *
-	 */
 	type: "IDENTITY_VERIFICATION_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 본인인증 요청을 위한 고객 정보
- *
- * 본인인증 요청을 위한 고객 정보
  */
 export type SendIdentityVerificationBodyCustomer = {
 	/**
 	 * 식별 아이디
-	 *
 	 */
 	id?: string;
 	/**
 	 * 이름
-	 *
 	 */
 	name: string;
 	/**
@@ -13167,8 +10749,6 @@ export type SendIdentityVerificationBodyCustomer = {
 
 /**
  * 본인인증 통신사
- *
- * 본인인증 통신사
  */
 export type IdentityVerificationOperator =
 	| "SKT"
@@ -13180,102 +10760,52 @@ export type IdentityVerificationOperator =
 
 /**
  * 본인인증 방식
- *
- * 본인인증 방식
  */
 export type IdentityVerificationMethod = "SMS" | "APP";
 
 /**
  * 요청된 채널이 존재하지 않는 경우
- *
- * 요청된 채널이 존재하지 않는 경우
  */
 export type ChannelNotFoundError = {
-	/**
-	 *
-	 */
 	type: "CHANNEL_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 본인인증 건이 이미 API로 요청된 상태인 경우
- *
  * 본인인증 건이 이미 API로 요청된 상태인 경우
  */
 export type IdentityVerificationAlreadySentError = {
-	/**
-	 *
-	 */
 	type: "IDENTITY_VERIFICATION_ALREADY_SENT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 본인인증 건이 이미 인증 완료된 상태인 경우
- *
  * 본인인증 건이 이미 인증 완료된 상태인 경우
  */
 export type IdentityVerificationAlreadyVerifiedError = {
-	/**
-	 *
-	 */
 	type: "IDENTITY_VERIFICATION_ALREADY_VERIFIED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PG사에서 오류를 전달한 경우
- *
- * PG사에서 오류를 전달한 경우
  */
 export type PgProviderError = {
-	/**
-	 *
-	 */
 	type: "PG_PROVIDER";
-	/**
-	 *
-	 */
 	message?: string;
-	/**
-	 *
-	 */
 	pgCode: string;
-	/**
-	 *
-	 */
 	pgMessage: string;
 };
 
 /**
  * 본인인증 건이 API로 요청된 상태가 아닌 경우
- *
- * 본인인증 건이 API로 요청된 상태가 아닌 경우
  */
 export type IdentityVerificationNotSentError = {
-	/**
-	 *
-	 */
 	type: "IDENTITY_VERIFICATION_NOT_SENT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 통화 단위
- *
  * 통화 단위
  */
 export type Currency =
@@ -13463,43 +10993,27 @@ export type Currency =
 
 /**
  * 결제가 이미 완료된 경우
- *
- * 결제가 이미 완료된 경우
  */
 export type AlreadyPaidError = {
-	/**
-	 *
-	 */
 	type: "ALREADY_PAID";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 빌링키 삭제 완료 상태 건
- *
- * 빌링키 삭제 완료 상태 건
  */
 export type DeletedBillingKeyInfo = {
-	/**
-	 *
-	 */
 	status: "DELETED";
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
@@ -13516,37 +11030,30 @@ export type DeletedBillingKeyInfo = {
 	channels: SelectedChannel[];
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 고객사가 채번하는 빌링키 발급 건 고유 아이디
-	 *
 	 */
 	issueId?: string;
 	/**
 	 * 빌링키 발급 건 이름
-	 *
 	 */
 	issueName?: string;
 	/**
 	 * 발급 요청 시점
-	 *
 	 */
 	requestedAt?: string;
 	/**
 	 * 발급 시점
-	 *
 	 */
 	issuedAt: string;
 	/**
 	 * 채널 그룹
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
@@ -13557,34 +11064,25 @@ export type DeletedBillingKeyInfo = {
 	pgBillingKeyIssueResponses?: PgBillingKeyIssueResponse[];
 	/**
 	 * 발급 삭제 시점
-	 *
 	 */
 	deletedAt: string;
 };
 
 /**
  * 빌링키 발급 완료 상태 건
- *
- * 빌링키 발급 완료 상태 건
  */
 export type IssuedBillingKeyInfo = {
-	/**
-	 *
-	 */
 	status: "ISSUED";
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
@@ -13601,37 +11099,30 @@ export type IssuedBillingKeyInfo = {
 	channels: SelectedChannel[];
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 고객사가 채번하는 빌링키 발급 건 고유 아이디
-	 *
 	 */
 	issueId?: string;
 	/**
 	 * 빌링키 발급 건 이름
-	 *
 	 */
 	issueName?: string;
 	/**
 	 * 발급 요청 시점
-	 *
 	 */
 	requestedAt?: string;
 	/**
 	 * 발급 시점
-	 *
 	 */
 	issuedAt: string;
 	/**
 	 * 채널 그룹
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
@@ -13644,95 +11135,50 @@ export type IssuedBillingKeyInfo = {
 
 /**
  * 빌링키가 존재하지 않는 경우
- *
- * 빌링키가 존재하지 않는 경우
  */
 export type BillingKeyNotFoundError = {
-	/**
-	 *
-	 */
 	type: "BILLING_KEY_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 빌링키가 이미 삭제된 경우
- *
- * 빌링키가 이미 삭제된 경우
  */
 export type BillingKeyAlreadyDeletedError = {
-	/**
-	 *
-	 */
 	type: "BILLING_KEY_ALREADY_DELETED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * BillingKeyNotIssuedError
- *
  */
 export type BillingKeyNotIssuedError = {
-	/**
-	 *
-	 */
 	type: "BILLING_KEY_NOT_ISSUED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
- *
- * 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
  */
 export type ChannelSpecificError = {
-	/**
-	 *
-	 */
 	type: "CHANNEL_SPECIFIC";
-	/**
-	 *
-	 */
 	message?: string;
-	/**
-	 *
-	 */
 	failures: ChannelSpecificFailure[];
 	/**
 	 * (결제, 본인인증 등에) 선택된 채널 정보
-	 *
 	 */
 	succeededChannels: SelectedChannel[];
 };
 
 /**
  * 결제 예약건이 이미 존재하는 경우
- *
- * 결제 예약건이 이미 존재하는 경우
  */
 export type PaymentScheduleAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_SCHEDULE_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 빌링키 다건 조회 시 정렬 조건
- *
  * 빌링키 다건 조회 시 정렬 조건
  */
 export type BillingKeySortInput = {
@@ -13752,8 +11198,6 @@ export type BillingKeySortInput = {
 
 /**
  * 빌링키 다건 조회를 위한 입력 정보
- *
- * 빌링키 다건 조회를 위한 입력 정보
  */
 export type BillingKeyFilterInput = {
 	/**
@@ -13764,7 +11208,6 @@ export type BillingKeyFilterInput = {
 	storeId?: string;
 	/**
 	 * 조회 기준 시점 유형
-	 *
 	 */
 	timeRangeField?: BillingKeyTimeRangeField;
 	/**
@@ -13793,17 +11236,14 @@ export type BillingKeyFilterInput = {
 	channelGroupIds?: string[];
 	/**
 	 * 고객 ID
-	 *
 	 */
 	customerId?: string;
 	/**
 	 * 플랫폼 유형
-	 *
 	 */
 	platformType?: PaymentClientType;
 	/**
 	 * 통합 검색 필터
-	 *
 	 */
 	textSearch?: BillingKeyTextSearch;
 	/**
@@ -13826,26 +11266,18 @@ export type BillingKeyFilterInput = {
 	methods?: BillingKeyPaymentMethodType[];
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version?: PortOneVersion;
 };
 
 /**
  * 빌링키 발급 시 결제 수단 입력 양식
- *
- * 빌링키 발급 시 결제 수단 입력 양식
  */
 export type InstantBillingKeyPaymentMethodInput = {
-	/**
-	 *
-	 */
 	card?: InstantBillingKeyPaymentMethodInputCard;
 };
 
 /**
- * 고객 정보 입력 정보
- *
  * 고객 정보 입력 정보
  */
 export type CustomerInput = {
@@ -13857,86 +11289,70 @@ export type CustomerInput = {
 	id?: string;
 	/**
 	 * 이름
-	 *
 	 */
 	name?: CustomerNameInput;
 	/**
 	 * 출생 연도
-	 *
 	 */
 	birthYear?: string;
 	/**
 	 * 출생월
-	 *
 	 */
 	birthMonth?: string;
 	/**
 	 * 출생일
-	 *
 	 */
 	birthDay?: string;
 	/**
 	 * 국가
-	 *
 	 */
 	country?: Country;
 	/**
 	 * 성별
-	 *
 	 */
 	gender?: Gender;
 	/**
 	 * 이메일
-	 *
 	 */
 	email?: string;
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 주소
-	 *
 	 */
 	address?: SeparatedAddressInput;
 	/**
 	 * 우편번호
-	 *
 	 */
 	zipcode?: string;
 	/**
 	 * 사업자 등록 번호
-	 *
 	 */
 	businessRegistrationNumber?: string;
 };
 
 /**
  * BillingKeyInfoSummary
- *
  */
 export type BillingKeyInfoSummary = {
 	/**
 	 * 발급된 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 발급된 채널
-	 *
 	 */
 	channels?: SelectedChannel[];
 	/**
 	 * 빌링크 발급 완료 시점
-	 *
 	 */
 	issuedAt: string;
 };
 
 /**
  * ChannelSpecificFailure
- *
  */
 export type ChannelSpecificFailure =
 	| ChannelSpecificFailureInvalidRequest
@@ -13944,254 +11360,188 @@ export type ChannelSpecificFailure =
 
 /**
  * 발급 취소
- *
- * 발급 취소
  */
 export type CancelledCashReceipt = {
-	/**
-	 *
-	 */
 	status: "CANCELLED";
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 현금영수증 발급에 사용된 채널
-	 *
 	 */
 	channel: SelectedChannel;
 	/**
 	 * 결제 금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세액
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 수동 발급 여부
-	 *
 	 */
 	isManual: boolean;
 	/**
 	 * 현금영수증 유형
-	 *
 	 */
 	type?: CashReceiptType;
 	/**
 	 * PG사 현금영수증 아이디
-	 *
 	 */
 	pgReceiptId?: string;
 	/**
 	 * 승인번호
-	 *
 	 */
 	issueNumber: string;
 	/**
 	 * 현금영수증 URL
-	 *
 	 */
 	url?: string;
 	/**
 	 * 발급 시점
-	 *
 	 */
 	issuedAt: string;
 	/**
 	 * 취소 시점
-	 *
 	 */
 	cancelledAt: string;
 };
 
 /**
  * 발급 완료
- *
- * 발급 완료
  */
 export type IssuedCashReceipt = {
-	/**
-	 *
-	 */
 	status: "ISSUED";
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 현금영수증 발급에 사용된 채널
-	 *
 	 */
 	channel: SelectedChannel;
 	/**
 	 * 결제 금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세액
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 수동 발급 여부
-	 *
 	 */
 	isManual: boolean;
 	/**
 	 * 현금영수증 유형
-	 *
 	 */
 	type?: CashReceiptType;
 	/**
 	 * PG사 현금영수증 아이디
-	 *
 	 */
 	pgReceiptId?: string;
 	/**
 	 * 승인 번호
-	 *
 	 */
 	issueNumber: string;
 	/**
 	 * 현금영수증 URL
-	 *
 	 */
 	url?: string;
 	/**
 	 * 발급 시점
-	 *
 	 */
 	issuedAt: string;
 };
 
 /**
  * 발급 실패
- *
- * 발급 실패
  */
 export type IssueFailedCashReceipt = {
-	/**
-	 *
-	 */
 	status: "ISSUE_FAILED";
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 현금영수증 발급에 사용된 채널
-	 *
 	 */
 	channel?: SelectedChannel;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 수동 발급 여부
-	 *
 	 */
 	isManual: boolean;
 };
 
 /**
  * 현금영수증이 존재하지 않는 경우
- *
- * 현금영수증이 존재하지 않는 경우
  */
 export type CashReceiptNotFoundError = {
-	/**
-	 *
-	 */
 	type: "CASH_RECEIPT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 결제 취소 상태 건
- *
- * 결제 취소 상태 건
  */
 export type CancelledPayment = {
-	/**
-	 *
-	 */
 	status: "CANCELLED";
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	id: string;
 	/**
@@ -14202,32 +11552,26 @@ export type CancelledPayment = {
 	transactionId: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method?: PaymentMethod;
 	/**
 	 * 결제 채널
-	 *
 	 */
 	channel: SelectedChannel;
 	/**
 	 * 결제 채널 그룹 정보
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version: PortOneVersion;
 	/**
@@ -14244,52 +11588,42 @@ export type CancelledPayment = {
 	billingKey?: string;
 	/**
 	 * 웹훅 발송 내역
-	 *
 	 */
 	webhooks?: PaymentWebhook[];
 	/**
 	 * 결제 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 금액 관련 세부 정보
-	 *
 	 */
 	amount: PaymentAmount;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 구매자 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense?: boolean;
 	/**
@@ -14300,69 +11634,53 @@ export type CancelledPayment = {
 	escrow?: PaymentEscrow;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 상품 갯수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 국가 코드
-	 *
 	 */
 	country?: Country;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	paidAt?: string;
 	/**
 	 * PG사 거래 아이디
-	 *
 	 */
 	pgTxId?: string;
 	/**
 	 * 현금영수증
-	 *
 	 */
 	cashReceipt?: PaymentCashReceipt;
 	/**
 	 * 거래 영수증 URL
-	 *
 	 */
 	receiptUrl?: string;
 	/**
 	 * 결제 취소 내역
-	 *
 	 */
 	cancellations: PaymentCancellation[];
 	/**
 	 * 결제 취소 시점
-	 *
 	 */
 	cancelledAt: string;
 };
 
 /**
  * 결제 실패 상태 건
- *
- * 결제 실패 상태 건
  */
 export type FailedPayment = {
-	/**
-	 *
-	 */
 	status: "FAILED";
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	id: string;
 	/**
@@ -14373,32 +11691,26 @@ export type FailedPayment = {
 	transactionId: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method?: PaymentMethod;
 	/**
 	 * 결제 채널
-	 *
 	 */
 	channel?: SelectedChannel;
 	/**
 	 * 결제 채널 그룹 정보
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version: PortOneVersion;
 	/**
@@ -14415,52 +11727,42 @@ export type FailedPayment = {
 	billingKey?: string;
 	/**
 	 * 웹훅 발송 내역
-	 *
 	 */
 	webhooks?: PaymentWebhook[];
 	/**
 	 * 결제 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 금액 관련 세부 정보
-	 *
 	 */
 	amount: PaymentAmount;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 구매자 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense?: boolean;
 	/**
@@ -14471,44 +11773,33 @@ export type FailedPayment = {
 	escrow?: PaymentEscrow;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 상품 갯수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 국가 코드
-	 *
 	 */
 	country?: Country;
 	/**
 	 * 결제 실패 시점
-	 *
 	 */
 	failedAt: string;
 };
 
 /**
  * 결제 완료 상태 건
- *
- * 결제 완료 상태 건
  */
 export type PaidPayment = {
-	/**
-	 *
-	 */
 	status: "PAID";
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	id: string;
 	/**
@@ -14519,32 +11810,26 @@ export type PaidPayment = {
 	transactionId: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method?: PaymentMethod;
 	/**
 	 * 결제 채널
-	 *
 	 */
 	channel: SelectedChannel;
 	/**
 	 * 결제 채널 그룹 정보
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version: PortOneVersion;
 	/**
@@ -14561,52 +11846,42 @@ export type PaidPayment = {
 	billingKey?: string;
 	/**
 	 * 웹훅 발송 내역
-	 *
 	 */
 	webhooks?: PaymentWebhook[];
 	/**
 	 * 결제 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 금액 관련 세부 정보
-	 *
 	 */
 	amount: PaymentAmount;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 구매자 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense?: boolean;
 	/**
@@ -14617,64 +11892,49 @@ export type PaidPayment = {
 	escrow?: PaymentEscrow;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 상품 갯수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 국가 코드
-	 *
 	 */
 	country?: Country;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	paidAt: string;
 	/**
 	 * PG사 거래 아이디
-	 *
 	 */
 	pgTxId?: string;
 	/**
 	 * PG사 거래 응답 본문
-	 *
 	 */
 	pgResponse?: string;
 	/**
 	 * 현금영수증
-	 *
 	 */
 	cashReceipt?: PaymentCashReceipt;
 	/**
 	 * 거래 영수증 URL
-	 *
 	 */
 	receiptUrl?: string;
 };
 
 /**
  * 결제 부분 취소 상태 건
- *
- * 결제 부분 취소 상태 건
  */
 export type PartialCancelledPayment = {
-	/**
-	 *
-	 */
 	status: "PARTIAL_CANCELLED";
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	id: string;
 	/**
@@ -14685,32 +11945,26 @@ export type PartialCancelledPayment = {
 	transactionId: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method?: PaymentMethod;
 	/**
 	 * 결제 채널
-	 *
 	 */
 	channel: SelectedChannel;
 	/**
 	 * 결제 채널 그룹 정보
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version: PortOneVersion;
 	/**
@@ -14727,52 +11981,42 @@ export type PartialCancelledPayment = {
 	billingKey?: string;
 	/**
 	 * 웹훅 발송 내역
-	 *
 	 */
 	webhooks?: PaymentWebhook[];
 	/**
 	 * 결제 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 금액 관련 세부 정보
-	 *
 	 */
 	amount: PaymentAmount;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 구매자 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense?: boolean;
 	/**
@@ -14783,99 +12027,77 @@ export type PartialCancelledPayment = {
 	escrow?: PaymentEscrow;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 상품 갯수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 국가 코드
-	 *
 	 */
 	country?: Country;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	paidAt?: string;
 	/**
 	 * PG사 거래 아이디
-	 *
 	 */
 	pgTxId?: string;
 	/**
 	 * 현금영수증
-	 *
 	 */
 	cashReceipt?: PaymentCashReceipt;
 	/**
 	 * 거래 영수증 URL
-	 *
 	 */
 	receiptUrl?: string;
 	/**
 	 * 결제 취소 내역
-	 *
 	 */
 	cancellations: PaymentCancellation[];
 	/**
 	 * 결제 취소 시점
-	 *
 	 */
 	cancelledAt: string;
 };
 
 /**
  * 결제 완료 대기 상태 건
- *
- * 결제 완료 대기 상태 건
  */
 export type PayPendingPayment = {
-	/**
-	 *
-	 */
 	status: "PAY_PENDING";
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method?: PaymentMethod;
 	/**
 	 * 결제 채널
-	 *
 	 */
 	channel: SelectedChannel;
 	/**
 	 * 결제 채널 그룹 정보
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version: PortOneVersion;
 	/**
@@ -14892,52 +12114,42 @@ export type PayPendingPayment = {
 	billingKey?: string;
 	/**
 	 * 웹훅 발송 내역
-	 *
 	 */
 	webhooks?: PaymentWebhook[];
 	/**
 	 * 결제 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 금액 관련 세부 정보
-	 *
 	 */
 	amount: PaymentAmount;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 구매자 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense?: boolean;
 	/**
@@ -14948,44 +12160,33 @@ export type PayPendingPayment = {
 	escrow?: PaymentEscrow;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 상품 갯수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 국가 코드
-	 *
 	 */
 	country?: Country;
 	/**
 	 * PG사 거래 아이디
-	 *
 	 */
 	pgTxId?: string;
 };
 
 /**
  * 준비 상태의 결제 건
- *
- * 준비 상태의 결제 건
  */
 export type ReadyPayment = {
-	/**
-	 *
-	 */
 	status: "READY";
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	id: string;
 	/**
@@ -14996,32 +12197,26 @@ export type ReadyPayment = {
 	transactionId: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method?: PaymentMethod;
 	/**
 	 * 결제 채널
-	 *
 	 */
 	channel?: SelectedChannel;
 	/**
 	 * 결제 채널 그룹 정보
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version: PortOneVersion;
 	/**
@@ -15038,52 +12233,42 @@ export type ReadyPayment = {
 	billingKey?: string;
 	/**
 	 * 웹훅 발송 내역
-	 *
 	 */
 	webhooks?: PaymentWebhook[];
 	/**
 	 * 결제 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 금액 관련 세부 정보
-	 *
 	 */
 	amount: PaymentAmount;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 구매자 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense?: boolean;
 	/**
@@ -15094,39 +12279,29 @@ export type ReadyPayment = {
 	escrow?: PaymentEscrow;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 상품 갯수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 국가 코드
-	 *
 	 */
 	country?: Country;
 };
 
 /**
  * 가상계좌 발급 완료 상태 건
- *
- * 가상계좌 발급 완료 상태 건
  */
 export type VirtualAccountIssuedPayment = {
-	/**
-	 *
-	 */
 	status: "VIRTUAL_ACCOUNT_ISSUED";
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	id: string;
 	/**
@@ -15137,32 +12312,26 @@ export type VirtualAccountIssuedPayment = {
 	transactionId: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제수단 정보
-	 *
 	 */
 	method?: PaymentMethod;
 	/**
 	 * 결제 채널
-	 *
 	 */
 	channel: SelectedChannel;
 	/**
 	 * 결제 채널 그룹 정보
-	 *
 	 */
 	channelGroup?: ChannelGroupSummary;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version: PortOneVersion;
 	/**
@@ -15179,52 +12348,42 @@ export type VirtualAccountIssuedPayment = {
 	billingKey?: string;
 	/**
 	 * 웹훅 발송 내역
-	 *
 	 */
 	webhooks?: PaymentWebhook[];
 	/**
 	 * 결제 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 업데이트 시점
-	 *
 	 */
 	updatedAt: string;
 	/**
 	 * 상태 업데이트 시점
-	 *
 	 */
 	statusChangedAt: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 금액 관련 세부 정보
-	 *
 	 */
 	amount: PaymentAmount;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 구매자 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	promotionId?: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense?: boolean;
 	/**
@@ -15235,56 +12394,40 @@ export type VirtualAccountIssuedPayment = {
 	escrow?: PaymentEscrow;
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 상품 갯수
-	 *
 	 */
 	productCount?: number;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData?: string;
 	/**
 	 * 국가 코드
-	 *
 	 */
 	country?: Country;
 	/**
 	 * PG사 거래 아이디
-	 *
 	 */
 	pgTxId?: string;
 };
 
 /**
  * 결제 건이 존재하지 않는 경우
- *
- * 결제 건이 존재하지 않는 경우
  */
 export type PaymentNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 결제 건 다건 조회를 위한 입력 정보
- *
- * 결제 건 다건 조회를 위한 입력 정보
  */
 export type PaymentFilterInput = {
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId?: string;
 	/**
@@ -15295,7 +12438,6 @@ export type PaymentFilterInput = {
 	storeId?: string;
 	/**
 	 * 조회 기준 시점 유형
-	 *
 	 */
 	timestampType?: PaymentTimestampType;
 	/**
@@ -15330,820 +12472,635 @@ export type PaymentFilterInput = {
 	pgProvider?: PgProvider[];
 	/**
 	 * 테스트 결제 필터링
-	 *
 	 */
 	isTest?: boolean;
 	/**
 	 * 결제 예약 건 필터링
-	 *
 	 */
 	isScheduled?: boolean;
 	/**
 	 * 결제 건 정렬 기준
-	 *
 	 */
 	sortBy?: PaymentSortBy;
 	/**
 	 * 결제 건 정렬 방식
-	 *
 	 */
 	sortOrder?: SortOrder;
 	/**
 	 * 포트원 버전
-	 *
 	 */
 	version?: PortOneVersion;
 	/**
 	 * 웹훅 상태
-	 *
 	 */
 	webhookStatus?: PaymentWebhookStatus;
 	/**
 	 * 플랫폼 유형
-	 *
 	 */
 	platformType?: PaymentClientType;
 	/**
 	 * 통화
-	 *
 	 */
 	currency?: Currency;
 	/**
 	 * 에스크로 결제 여부
-	 *
 	 */
 	isEscrow?: boolean;
 	/**
 	 * 에스크로 결제의 배송 정보 상태
-	 *
 	 */
 	escrowStatus?: PaymentFilterInputEscrowStatus;
 	/**
 	 * 카드 브랜드
-	 *
 	 */
 	cardBrand?: CardBrand;
 	/**
 	 * 카드 유형
-	 *
 	 */
 	cardType?: CardType;
 	/**
 	 * 카드 소유주 유형
-	 *
 	 */
 	cardOwnerType?: CardOwnerType;
 	/**
 	 * 상품권 종류
-	 *
 	 */
 	giftCertificateType?: PaymentMethodGiftCertificateType;
 	/**
 	 * 현금영수증 유형
-	 *
 	 */
 	cashReceiptType?: CashReceiptInputType;
 	/**
 	 * 현금영수증 상태
-	 *
 	 */
 	cashReceiptStatus?: PaymentCashReceiptStatus;
 	/**
 	 * 현금영수증 발급 시간 범위
-	 *
 	 */
 	cashReceiptIssuedAtRange?: DateTimeRange;
 	/**
 	 * 현금영수증 취소 시간 범위
-	 *
 	 */
 	cashReceiptCancelledAtRange?: DateTimeRange;
 	/**
 	 * 통합 검색 리스트 필터
-	 *
 	 */
 	textSearch?: PaymentTextSearch[];
 };
 
 /**
  * 결제 건 및 커서 정보
- *
- * 결제 건 및 커서 정보
  */
 export type PaymentWithCursor = {
 	/**
 	 * 결제 건 정보
-	 *
 	 */
 	payment: Payment;
 	/**
 	 * 해당 결제 건의 커서 정보
-	 *
 	 */
 	cursor: string;
 };
 
 /**
  * 결제 실패 상태
- *
- * 결제 실패 상태
  */
 export type FailedPaymentSchedule = {
-	/**
-	 *
-	 */
 	status: "FAILED";
 	/**
 	 * 결제 예약 건 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense: boolean;
 	/**
 	 * 에스크로 결제 여부
-	 *
 	 */
 	isEscrow: boolean;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 웹훅 주소
-	 *
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 결제 예약 등록 시점
-	 *
 	 */
 	createdAt: string;
 	/**
 	 * 결제 예정 시점
-	 *
 	 */
 	timeToPay: string;
 	/**
 	 * 결제 시작 시점
-	 *
 	 */
 	startedAt: string;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	completedAt: string;
 };
 
 /**
- * 결제 대기 상태
- *
  * 결제 대기 상태
  */
 export type PendingPaymentSchedule = {
-	/**
-	 *
-	 */
 	status: "PENDING";
 	/**
 	 * 결제 예약 건 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense: boolean;
 	/**
 	 * 에스크로 결제 여부
-	 *
 	 */
 	isEscrow: boolean;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 웹훅 주소
-	 *
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 결제 예약 등록 시점
-	 *
 	 */
 	createdAt: string;
 	/**
 	 * 결제 예정 시점
-	 *
 	 */
 	timeToPay: string;
 	/**
 	 * 결제 시작 시점
-	 *
 	 */
 	startedAt: string;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	completedAt: string;
 };
 
 /**
  * 결제 예약 취소 상태
- *
- * 결제 예약 취소 상태
  */
 export type RevokedPaymentSchedule = {
-	/**
-	 *
-	 */
 	status: "REVOKED";
 	/**
 	 * 결제 예약 건 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense: boolean;
 	/**
 	 * 에스크로 결제 여부
-	 *
 	 */
 	isEscrow: boolean;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 웹훅 주소
-	 *
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 결제 예약 등록 시점
-	 *
 	 */
 	createdAt: string;
 	/**
 	 * 결제 예정 시점
-	 *
 	 */
 	timeToPay: string;
 	/**
 	 * 결제 취소 시점
-	 *
 	 */
 	revokedAt: string;
 };
 
 /**
  * 결제 예약 완료 상태
- *
- * 결제 예약 완료 상태
  */
 export type ScheduledPaymentSchedule = {
-	/**
-	 *
-	 */
 	status: "SCHEDULED";
 	/**
 	 * 결제 예약 건 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense: boolean;
 	/**
 	 * 에스크로 결제 여부
-	 *
 	 */
 	isEscrow: boolean;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 웹훅 주소
-	 *
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 결제 예약 등록 시점
-	 *
 	 */
 	createdAt: string;
 	/**
 	 * 결제 예정 시점
-	 *
 	 */
 	timeToPay: string;
 };
 
 /**
  * 결제 시작 상태
- *
- * 결제 시작 상태
  */
 export type StartedPaymentSchedule = {
-	/**
-	 *
-	 */
 	status: "STARTED";
 	/**
 	 * 결제 예약 건 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense: boolean;
 	/**
 	 * 에스크로 결제 여부
-	 *
 	 */
 	isEscrow: boolean;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 웹훅 주소
-	 *
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 결제 예약 등록 시점
-	 *
 	 */
 	createdAt: string;
 	/**
 	 * 결제 예정 시점
-	 *
 	 */
 	timeToPay: string;
 	/**
 	 * 결제 시작 시점
-	 *
 	 */
 	startedAt: string;
 };
 
 /**
  * 결제 성공 상태
- *
- * 결제 성공 상태
  */
 export type SucceededPaymentSchedule = {
-	/**
-	 *
-	 */
 	status: "SUCCEEDED";
 	/**
 	 * 결제 예약 건 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 고객사 아이디
-	 *
 	 */
 	merchantId: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 결제 건 아이디
-	 *
 	 */
 	paymentId: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey: string;
 	/**
 	 * 주문명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 문화비 지출 여부
-	 *
 	 */
 	isCulturalExpense: boolean;
 	/**
 	 * 에스크로 결제 여부
-	 *
 	 */
 	isEscrow: boolean;
 	/**
 	 * 고객 정보
-	 *
 	 */
 	customer: Customer;
 	/**
 	 * 사용자 지정 데이터
-	 *
 	 */
 	customData: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 웹훅 주소
-	 *
 	 */
 	noticeUrls?: string[];
 	/**
 	 * 상품 정보
-	 *
 	 */
 	products?: PaymentProduct[];
 	/**
 	 * 결제 예약 등록 시점
-	 *
 	 */
 	createdAt: string;
 	/**
 	 * 결제 예정 시점
-	 *
 	 */
 	timeToPay: string;
 	/**
 	 * 결제 시작 시점
-	 *
 	 */
 	startedAt: string;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	completedAt: string;
 };
 
 /**
  * 결제 예약건이 존재하지 않는 경우
- *
- * 결제 예약건이 존재하지 않는 경우
  */
 export type PaymentScheduleNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_SCHEDULE_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제 예약 건 다건 조회 시 정렬 조건
- *
  * 결제 예약 건 다건 조회 시 정렬 조건
  */
 export type PaymentScheduleSortInput = {
@@ -16163,8 +13120,6 @@ export type PaymentScheduleSortInput = {
 
 /**
  * 결제 예약 건 다건 조회를 위한 입력 정보
- *
- * 결제 예약 건 다건 조회를 위한 입력 정보
  */
 export type PaymentScheduleFilterInput = {
 	/**
@@ -16175,7 +13130,6 @@ export type PaymentScheduleFilterInput = {
 	storeId?: string;
 	/**
 	 * 빌링키
-	 *
 	 */
 	billingKey?: string;
 	/**
@@ -16200,118 +13154,74 @@ export type PaymentScheduleFilterInput = {
 
 /**
  * 결제 예약건이 이미 처리된 경우
- *
- * 결제 예약건이 이미 처리된 경우
  */
 export type PaymentScheduleAlreadyProcessedError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_SCHEDULE_ALREADY_PROCESSED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제 예약건이 이미 취소된 경우
- *
  * 결제 예약건이 이미 취소된 경우
  */
 export type PaymentScheduleAlreadyRevokedError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_SCHEDULE_ALREADY_REVOKED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제 예약 건
- *
  * 결제 예약 건
  */
 export type PaymentScheduleSummary = {
 	/**
 	 * 결제 예약 건 아이디
-	 *
 	 */
 	id: string;
 };
 
 /**
  * 결제가 이미 완료되었거나 대기중인 경우
- *
- * 결제가 이미 완료되었거나 대기중인 경우
  */
 export type AlreadyPaidOrWaitingError = {
-	/**
-	 *
-	 */
 	type: "ALREADY_PAID_OR_WAITING";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우
- *
- * 면세 금액 등 하위 항목들의 합이 전체 결제 금액을 초과한 경우
  */
 export type SumOfPartsExceedsTotalAmountError = {
-	/**
-	 *
-	 */
 	type: "SUM_OF_PARTS_EXCEEDS_TOTAL_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * CancelRequester
- *
  */
 export type CancelRequester = "CUSTOMER" | "ADMIN";
 
 /**
  * 고객 정보 입력 형식
- *
- * 고객 정보 입력 형식
  */
 export type CancelPaymentBodyRefundAccount = {
 	/**
 	 * 은행
-	 *
 	 */
 	bank: Bank;
 	/**
 	 * 계좌번호
-	 *
 	 */
 	number: string;
 	/**
 	 * 예금주
-	 *
 	 */
 	holderName: string;
 	/**
 	 * 예금주 연락처 - 스마트로 가상계좌 결제인 경우에 필요합니다.
-	 *
 	 */
 	holderPhoneNumber?: string;
 };
 
 /**
- * 결제 취소 내역
- *
  * 결제 취소 내역
  */
 export type PaymentCancellation =
@@ -16321,146 +13231,78 @@ export type PaymentCancellation =
 
 /**
  * 취소 가능 잔액 검증에 실패한 경우
- *
- * 취소 가능 잔액 검증에 실패한 경우
  */
 export type CancellableAmountConsistencyBrokenError = {
-	/**
-	 *
-	 */
 	type: "CANCELLABLE_AMOUNT_CONSISTENCY_BROKEN";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제 취소 금액이 취소 가능 금액을 초과한 경우
- *
  * 결제 취소 금액이 취소 가능 금액을 초과한 경우
  */
 export type CancelAmountExceedsCancellableAmountError = {
-	/**
-	 *
-	 */
 	type: "CANCEL_AMOUNT_EXCEEDS_CANCELLABLE_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
- *
  * 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
  */
 export type CancelTaxAmountExceedsCancellableTaxAmountError = {
-	/**
-	 *
-	 */
 	type: "CANCEL_TAX_AMOUNT_EXCEEDS_CANCELLABLE_TAX_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
- *
  * 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
  */
 export type CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError = {
-	/**
-	 *
-	 */
 	type: "CANCEL_TAX_FREE_AMOUNT_EXCEEDS_CANCELLABLE_TAX_FREE_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제가 이미 취소된 경우
- *
  * 결제가 이미 취소된 경우
  */
 export type PaymentAlreadyCancelledError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_ALREADY_CANCELLED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제가 완료되지 않은 경우
- *
  * 결제가 완료되지 않은 경우
  */
 export type PaymentNotPaidError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_NOT_PAID";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
- *
  * 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
  */
 export type RemainedAmountLessThanPromotionMinPaymentAmountError = {
-	/**
-	 *
-	 */
 	type: "REMAINED_AMOUNT_LESS_THAN_PROMOTION_MIN_PAYMENT_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우
- *
  * 면세 금액 등 하위 항목들의 합이 전체 취소 금액을 초과한 경우
  */
 export type SumOfPartsExceedsCancelAmountError = {
-	/**
-	 *
-	 */
 	type: "SUM_OF_PARTS_EXCEEDS_CANCEL_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 금액 세부 입력 정보
- *
  * 금액 세부 입력 정보
  */
 export type PaymentAmountInput = {
 	/**
 	 * 총 금액
-	 *
 	 */
 	total: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFree?: number;
 	/**
@@ -16473,13 +13315,10 @@ export type PaymentAmountInput = {
 
 /**
  * 현금영수증 입력 정보
- *
- * 현금영수증 입력 정보
  */
 export type CashReceiptInput = {
 	/**
 	 * 현금영수증 유형
-	 *
 	 */
 	type: CashReceiptInputType;
 	/**
@@ -16491,8 +13330,6 @@ export type CashReceiptInput = {
 };
 
 /**
- * 국가
- *
  * 국가
  */
 export type Country =
@@ -16748,8 +13585,6 @@ export type Country =
 
 /**
  * 상품 정보
- *
- * 상품 정보
  */
 export type PaymentProduct = {
 	/**
@@ -16760,7 +13595,6 @@ export type PaymentProduct = {
 	id: string;
 	/**
 	 * 상품명
-	 *
 	 */
 	name: string;
 	/**
@@ -16771,114 +13605,80 @@ export type PaymentProduct = {
 	tag?: string;
 	/**
 	 * 상품 코드
-	 *
 	 */
 	code?: string;
 	/**
 	 * 상품 단위가격
-	 *
 	 */
 	amount: number;
 	/**
 	 * 주문 수량
-	 *
 	 */
 	quantity: number;
 };
 
 /**
  * 상품 유형
- *
- * 상품 유형
  */
 export type PaymentProductType = "PHYSICAL" | "DIGITAL";
 
 /**
  * 분리 형식 주소 입력 정보
- *
- * 분리 형식 주소 입력 정보
  */
 export type SeparatedAddressInput = {
 	/**
 	 * 상세 주소 1
-	 *
 	 */
 	addressLine1: string;
 	/**
 	 * 상세 주소 2
-	 *
 	 */
 	addressLine2: string;
 	/**
 	 * 시/군/구
-	 *
 	 */
 	city?: string;
 	/**
 	 * 주/도/시
-	 *
 	 */
 	province?: string;
 	/**
 	 * 국가
-	 *
 	 */
 	country?: Country;
 };
 
 /**
  * 빌링키 결제 완료된 결제 건 요약 정보
- *
- * 빌링키 결제 완료된 결제 건 요약 정보
  */
 export type BillingKeyPaymentSummary = {
 	/**
 	 * PG사 결제 아이디
-	 *
 	 */
 	pgTxId: string;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	paidAt: string;
 };
 
 /**
  * 프로모션 할인 금액이 결제 시도 금액 이상인 경우
- *
- * 프로모션 할인 금액이 결제 시도 금액 이상인 경우
  */
 export type DiscountAmountExceedsTotalAmountError = {
-	/**
-	 *
-	 */
 	type: "DISCOUNT_AMOUNT_EXCEEDS_TOTAL_AMOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
- *
  * 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
  */
 export type PromotionPayMethodDoesNotMatchError = {
-	/**
-	 *
-	 */
 	type: "PROMOTION_PAY_METHOD_DOES_NOT_MATCH";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 수기 결제 수단 입력 정보
- *
  * 수기 결제 수단 입력 정보
  *
  * 하나의 필드만 입력합니다.
@@ -16886,237 +13686,172 @@ export type PromotionPayMethodDoesNotMatchError = {
 export type InstantPaymentMethodInput = {
 	/**
 	 * 카드
-	 *
 	 */
 	card?: InstantPaymentMethodInputCard;
 	/**
 	 * 가상계좌
-	 *
 	 */
 	virtualAccount?: InstantPaymentMethodInputVirtualAccount;
 };
 
 /**
  * 수기 결제가 완료된 결제 건 요약 정보
- *
- * 수기 결제가 완료된 결제 건 요약 정보
  */
 export type InstantPaymentSummary = {
 	/**
 	 * PG사 결제 아이디
-	 *
 	 */
 	pgTxId: string;
 	/**
 	 * 결제 완료 시점
-	 *
 	 */
 	paidAt: string;
 };
 
 /**
  * 발급 유형
- *
- * 발급 유형
  */
 export type CashReceiptType = "PERSONAL" | "CORPORATE";
 
 /**
  * 현금영수증 발급 시 고객 관련 입력 정보
- *
- * 현금영수증 발급 시 고객 관련 입력 정보
  */
 export type IssueCashReceiptCustomerInput = {
 	/**
 	 * 고객 식별값
-	 *
 	 */
 	identityNumber: string;
 	/**
 	 * 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 이메일
-	 *
 	 */
 	email?: string;
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 };
 
 /**
  * 현금영수증 내역
- *
- * 현금영수증 내역
  */
 export type CashReceiptSummary = {
 	/**
 	 * 발행 번호
-	 *
 	 */
 	issueNumber: string;
 	/**
 	 * 현금 영수증 URL
-	 *
 	 */
 	url: string;
 	/**
 	 * PG사 현금영수증 아이디
-	 *
 	 */
 	pgReceiptId: string;
 };
 
 /**
  * 현금영수증이 이미 발급된 경우
- *
- * 현금영수증이 이미 발급된 경우
  */
 export type CashReceiptAlreadyIssuedError = {
-	/**
-	 *
-	 */
 	type: "CASH_RECEIPT_ALREADY_ISSUED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 현금영수증이 발급되지 않은 경우
- *
  * 현금영수증이 발급되지 않은 경우
  */
 export type CashReceiptNotIssuedError = {
-	/**
-	 *
-	 */
 	type: "CASH_RECEIPT_NOT_ISSUED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 결제 건이 입금 대기 상태가 아닌 경우
- *
  * 결제 건이 입금 대기 상태가 아닌 경우
  */
 export type PaymentNotWaitingForDepositError = {
-	/**
-	 *
-	 */
 	type: "PAYMENT_NOT_WAITING_FOR_DEPOSIT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 에스크로 발송자 정보
- *
  * 에스크로 발송자 정보
  */
 export type PaymentEscrowSenderInput = {
 	/**
 	 * 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 우편번호
-	 *
 	 */
 	zipcode?: string;
 	/**
 	 * 수취인과의 관계
-	 *
 	 */
 	relationship?: string;
 	/**
 	 * 주소
-	 *
 	 */
 	address?: SeparatedAddressInput;
 };
 
 /**
- * 에스크로 수취인 정보
- *
  * 에스크로 수취인 정보
  */
 export type PaymentEscrowReceiverInput = {
 	/**
 	 * 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 우편번호
-	 *
 	 */
 	zipcode?: string;
 	/**
 	 * 주소
-	 *
 	 */
 	address?: SeparatedAddressInput;
 };
 
 /**
- * 배송정보
- *
  * 배송정보
  */
 export type PaymentLogistics = {
 	/**
 	 * 물류회사
-	 *
 	 */
 	company: PaymentLogisticsCompany;
 	/**
 	 * 송장번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송시점
-	 *
 	 */
 	sentAt: string;
 	/**
 	 * 수령시점
-	 *
 	 */
 	receivedAt?: string;
 	/**
 	 * 주소
-	 *
 	 */
 	address?: SeparatedAddressInput;
 };
 
 /**
- * 성공 웹훅 내역
- *
  * 성공 웹훅 내역
  */
 export type PaymentWebhook = {
@@ -17128,12 +13863,10 @@ export type PaymentWebhook = {
 	paymentStatus?: PaymentWebhookPaymentStatus;
 	/**
 	 * 웹훅 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 웹훅 상태
-	 *
 	 */
 	status?: PaymentWebhookStatus;
 	/**
@@ -17150,79 +13883,48 @@ export type PaymentWebhook = {
 	isAsync?: boolean;
 	/**
 	 * 현재 발송 횟수
-	 *
 	 */
 	currentExecutionCount?: number;
 	/**
 	 * 최대 발송 횟수
-	 *
 	 */
 	maxExecutionCount?: number;
 	/**
 	 * 웹훅 실행 맥락
-	 *
 	 */
 	trigger?: PaymentWebhookTrigger;
 	/**
 	 * 웹훅 요청 정보
-	 *
 	 */
 	request?: PaymentWebhookRequest;
 	/**
 	 * 웹훅 응답 정보
-	 *
 	 */
 	response?: PaymentWebhookResponse;
 	/**
 	 * 웹훅 처리 시작 시점
-	 *
 	 */
 	triggeredAt?: string;
 };
 
 /**
  * 웹훅 내역이 존재하지 않는 경우
- *
- * 웹훅 내역이 존재하지 않는 경우
  */
 export type WebhookNotFoundError = {
-	/**
-	 *
-	 */
 	type: "WEBHOOK_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 조회 시간 단위
  *
- * 조회 시간 단위
- *
  * 하나의 단위 필드만 선택하여 입력합니다.
  */
 export type AnalyticsTimeGranularity = {
-	/**
-	 *
-	 */
 	minute?: AnalyticsTimeGranularityMinute;
-	/**
-	 *
-	 */
 	hour?: AnalyticsTimeGranularityHour;
-	/**
-	 *
-	 */
 	day?: AnalyticsTimeGranularityDay;
-	/**
-	 *
-	 */
 	week?: AnalyticsTimeGranularityWeek;
-	/**
-	 *
-	 */
 	month?: AnalyticsTimeGranularityMonth;
 };
 
@@ -17234,24 +13936,19 @@ export type AnalyticsTimeGranularity = {
 export type AnalyticsPaymentChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 거래액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 거래 건수
-	 *
 	 */
 	count: number;
 };
 
 /**
- * 요일
- *
  * 요일
  */
 export type DayOfWeek = "SUN" | "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT";
@@ -17264,17 +13961,14 @@ export type DayOfWeek = "SUN" | "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT";
 export type AnalyticsAverageAmountChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 건별 평균 거래액
-	 *
 	 */
 	paymentAverageAmount: number;
 	/**
 	 * 고객 당 평균 거래액
-	 *
 	 */
 	customerAverageAmount: number;
 };
@@ -17287,12 +13981,10 @@ export type AnalyticsAverageAmountChartStat = {
 export type AnalyticsAverageAmountChartSummary = {
 	/**
 	 * 건별 평균 거래액
-	 *
 	 */
 	paymentAverageAmount: number;
 	/**
 	 * 고객 당 평균 거래액
-	 *
 	 */
 	customerAverageAmount: number;
 };
@@ -17305,17 +13997,14 @@ export type AnalyticsAverageAmountChartSummary = {
 export type AnalyticsPaymentMethodChartStat = {
 	/**
 	 * 결제수단
-	 *
 	 */
 	paymentMethod?: PaymentMethodType;
 	/**
 	 * 결제수단별 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제수단별 결제 건수
-	 *
 	 */
 	count: number;
 };
@@ -17328,22 +14017,18 @@ export type AnalyticsPaymentMethodChartStat = {
 export type AnalyticsPaymentMethodTrendChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 결제수단
-	 *
 	 */
 	paymentMethod?: PaymentMethodType;
 	/**
 	 * 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제 건수
-	 *
 	 */
 	count: number;
 };
@@ -17356,24 +14041,19 @@ export type AnalyticsPaymentMethodTrendChartStat = {
 export type AnalyticsCardChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 거래액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 거래 건수
-	 *
 	 */
 	count: number;
 };
 
 /**
- * 카드사
- *
  * 카드사
  */
 export type CardCompany =
@@ -17461,22 +14141,18 @@ export type CardCompany =
 export type AnalyticsCardCompanyChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 카드사
-	 *
 	 */
 	cardCompany: CardCompany;
 	/**
 	 * 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제 건수
-	 *
 	 */
 	count: number;
 };
@@ -17489,17 +14165,14 @@ export type AnalyticsCardCompanyChartStat = {
 export type AnalyticsCardCompanyChartRemainderStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제 건수
-	 *
 	 */
 	count: number;
 };
@@ -17512,12 +14185,10 @@ export type AnalyticsCardCompanyChartRemainderStat = {
 export type AnalyticsCardCompanyChartSummary = {
 	/**
 	 * 결제금액 합
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 결제 건수 합
-	 *
 	 */
 	totalCount: number;
 };
@@ -17530,24 +14201,19 @@ export type AnalyticsCardCompanyChartSummary = {
 export type AnalyticsEasyPayChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 거래액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 거래 건수
-	 *
 	 */
 	count: number;
 };
 
 /**
- * 간편 결제사
- *
  * 간편 결제사
  */
 export type EasyPayProvider =
@@ -17577,22 +14243,18 @@ export type EasyPayProvider =
 export type AnalyticsEasyPayProviderChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 간편결제사
-	 *
 	 */
 	easyPayProvider: EasyPayProvider;
 	/**
 	 * 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제 건수
-	 *
 	 */
 	count: number;
 };
@@ -17605,17 +14267,14 @@ export type AnalyticsEasyPayProviderChartStat = {
 export type AnalyticsEasyPayProviderChartRemainderStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제 건수
-	 *
 	 */
 	count: number;
 };
@@ -17628,12 +14287,10 @@ export type AnalyticsEasyPayProviderChartRemainderStat = {
 export type AnalyticsEasyPayProviderChartSummary = {
 	/**
 	 * 결제금액의 합
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 결제 건수의 합
-	 *
 	 */
 	totalCount: number;
 };
@@ -17646,24 +14303,19 @@ export type AnalyticsEasyPayProviderChartSummary = {
 export type AnalyticsPgCompanyChartStat = {
 	/**
 	 * 결제대행사
-	 *
 	 */
 	pgCompany: PgCompany;
 	/**
 	 * 결제대행사별 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제대행사별 결제 건수
-	 *
 	 */
 	count: number;
 };
 
 /**
- * PG사
- *
  * PG사
  */
 export type PgCompany =
@@ -17706,22 +14358,18 @@ export type PgCompany =
 export type AnalyticsPgCompanyTrendChartStat = {
 	/**
 	 * 시점
-	 *
 	 */
 	timestamp: string;
 	/**
 	 * 결제대행사
-	 *
 	 */
 	pgCompany: PgCompany;
 	/**
 	 * 결제금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 결제 건수
-	 *
 	 */
 	count: number;
 };
@@ -17734,37 +14382,30 @@ export type AnalyticsPgCompanyTrendChartStat = {
 export type AnalyticsPaymentStatusChartStat = {
 	/**
 	 * 결제 건 상태
-	 *
 	 */
 	paymentStatus: PaymentStatus;
 	/**
 	 * 거래액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 거래 건수
-	 *
 	 */
 	count: number;
 	/**
 	 * 해당 상태 비율
-	 *
 	 */
 	averageRatio: number;
 	/**
 	 * 1 사분위수
-	 *
 	 */
 	firstQuantile: number;
 	/**
 	 * 중앙값
-	 *
 	 */
 	median: number;
 	/**
 	 * 3 사분위수
-	 *
 	 */
 	thirdQuantile: number;
 };
@@ -17777,22 +14418,18 @@ export type AnalyticsPaymentStatusChartStat = {
 export type AnalyticsPaymentStatusByPaymentMethodChartStat = {
 	/**
 	 * 결제수단
-	 *
 	 */
 	paymentMethod?: PaymentMethodType;
 	/**
 	 * 결제 건 상태
-	 *
 	 */
 	paymentStatus: PaymentStatus;
 	/**
 	 * 거래액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 거래 건수
-	 *
 	 */
 	count: number;
 };
@@ -17805,22 +14442,18 @@ export type AnalyticsPaymentStatusByPaymentMethodChartStat = {
 export type AnalyticsPaymentStatusByPgCompanyChartStat = {
 	/**
 	 * PG사
-	 *
 	 */
 	pgCompany: PgCompany;
 	/**
 	 * 결제 건 상태
-	 *
 	 */
 	paymentStatus: PaymentStatus;
 	/**
 	 * 거래액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 거래 건수
-	 *
 	 */
 	count: number;
 };
@@ -17833,77 +14466,48 @@ export type AnalyticsPaymentStatusByPgCompanyChartStat = {
 export type AnalyticsPaymentStatusByPaymentClientChartStat = {
 	/**
 	 * 결제가 발생한 클라이언트 환경
-	 *
 	 */
 	paymentClientType: PaymentClientType;
 	/**
 	 * 결제 건 상태
-	 *
 	 */
 	paymentStatus: PaymentStatus;
 	/**
 	 * 거래액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 거래 건수
-	 *
 	 */
 	count: number;
 };
 
 /**
  * 외부 서비스에서 에러가 발생한 경우
- *
- * 외부 서비스에서 에러가 발생한 경우
  */
 export type B2bExternalServiceError = {
-	/**
-	 *
-	 */
 	type: "B2B_EXTERNAL_SERVICE";
-	/**
-	 *
-	 */
 	message: string;
 };
 
 /**
  * 연동 사업자가 존재하지 않는 경우
- *
- * 연동 사업자가 존재하지 않는 경우
  */
 export type B2bMemberCompanyNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_MEMBER_COMPANY_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * B2B 기능이 활성화되지 않은 경우
- *
- * B2B 기능이 활성화되지 않은 경우
  */
 export type B2bNotEnabledError = {
-	/**
-	 *
-	 */
 	type: "B2B_NOT_ENABLED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * B2bCompanyContactInput
- *
  */
 export type B2bCompanyContactInput = {
 	/**
@@ -17914,212 +14518,116 @@ export type B2bCompanyContactInput = {
 	id: string;
 	/**
 	 * 비밀번호
-	 *
 	 */
 	password: string;
 	/**
 	 * 담당자 성명
-	 *
 	 */
 	name: string;
 	/**
 	 * 담당자 핸드폰 번호
-	 *
 	 */
 	phoneNumber: string;
 	/**
 	 * 담당자 이메일
-	 *
 	 */
 	email: string;
 };
 
 /**
  * 사업자가 이미 연동되어 있는 경우
- *
- * 사업자가 이미 연동되어 있는 경우
  */
 export type B2bCompanyAlreadyRegisteredError = {
-	/**
-	 *
-	 */
 	type: "B2B_COMPANY_ALREADY_REGISTERED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * ID가 이미 사용중인 경우
- *
  * ID가 이미 사용중인 경우
  */
 export type B2bIdAlreadyExistsError = {
-	/**
-	 *
-	 */
 	type: "B2B_ID_ALREADY_EXISTS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 담당자가 존재하지 않는 경우
- *
  * 담당자가 존재하지 않는 경우
  */
 export type B2bContactNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_CONTACT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 인증서 타입
- *
  * 인증서 타입
  */
 export type B2bCertificateType = "E_TAX" | "POP_BILL" | "ETC";
 
 /**
  * 인증서가 등록되어 있지 않은 경우
- *
- * 인증서가 등록되어 있지 않은 경우
  */
 export type B2bCertificateUnregisteredError = {
-	/**
-	 *
-	 */
 	type: "B2B_CERTIFICATE_UNREGISTERED";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 계좌가 존재하지 않는 경우
- *
  * 계좌가 존재하지 않는 경우
  */
 export type B2bBankAccountNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_BANK_ACCOUNT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 금융기관과의 통신에 실패한 경우
- *
  * 금융기관과의 통신에 실패한 경우
  */
 export type B2bFinancialSystemCommunicationError = {
-	/**
-	 *
-	 */
 	type: "B2B_FINANCIAL_SYSTEM_COMMUNICATION";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 금융기관 장애
- *
  * 금융기관 장애
  */
 export type B2bFinancialSystemFailureError = {
-	/**
-	 *
-	 */
 	type: "B2B_FINANCIAL_SYSTEM_FAILURE";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 금융기관 시스템이 점검 중인 경우
- *
  * 금융기관 시스템이 점검 중인 경우
  */
 export type B2bFinancialSystemUnderMaintenanceError = {
-	/**
-	 *
-	 */
 	type: "B2B_FINANCIAL_SYSTEM_UNDER_MAINTENANCE";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 계좌 정보 조회가 불가능한 외화 계좌인 경우
- *
  * 계좌 정보 조회가 불가능한 외화 계좌인 경우
  */
 export type B2bForeignExchangeAccountError = {
-	/**
-	 *
-	 */
 	type: "B2B_FOREIGN_EXCHANGE_ACCOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 금융기관 시스템이 정기 점검 중인 경우
- *
  * 금융기관 시스템이 정기 점검 중인 경우
  */
 export type B2bRegularMaintenanceTimeError = {
-	/**
-	 *
-	 */
 	type: "B2B_REGULAR_MAINTENANCE_TIME";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 정지 계좌인 경우
- *
  * 정지 계좌인 경우
  */
 export type B2bSuspendedAccountError = {
-	/**
-	 *
-	 */
 	type: "B2B_SUSPENDED_ACCOUNT";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 사업자 과세 유형
- *
  * 사업자 과세 유형
  */
 export type B2bCompanyStateTaxationType =
@@ -18131,8 +14639,6 @@ export type B2bCompanyStateTaxationType =
 
 /**
  * 영업 상태
- *
- * 영업 상태
  */
 export type B2bCompanyStateBusinessStatus =
 	| "IN_BUSINESS"
@@ -18141,60 +14647,38 @@ export type B2bCompanyStateBusinessStatus =
 
 /**
  * 사업자가 존재하지 않는 경우
- *
- * 사업자가 존재하지 않는 경우
  */
 export type B2bCompanyNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_COMPANY_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 홈택스가 점검중이거나 순단이 발생한 경우
- *
  * 홈택스가 점검중이거나 순단이 발생한 경우
  */
 export type B2bHometaxUnderMaintenanceError = {
-	/**
-	 *
-	 */
 	type: "B2B_HOMETAX_UNDER_MAINTENANCE";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서 생성 요청 정보
- *
  * 세금계산서 생성 요청 정보
  */
 export type B2bTaxInvoiceInput = {
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
 	 * 권
-	 *
 	 */
 	bookVolume?: number;
 	/**
 	 * 호
-	 *
 	 */
 	bookIssue?: number;
 	/**
@@ -18205,42 +14689,34 @@ export type B2bTaxInvoiceInput = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -18257,7 +14733,6 @@ export type B2bTaxInvoiceInput = {
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
@@ -18268,7 +14743,6 @@ export type B2bTaxInvoiceInput = {
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
@@ -18279,7 +14753,6 @@ export type B2bTaxInvoiceInput = {
 	sendSms?: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -18298,21 +14771,15 @@ export type B2bTaxInvoiceInput = {
 
 /**
  * B2bTaxInvoiceBeforeSending
- *
  */
 export type B2bTaxInvoiceBeforeSending = {
-	/**
-	 *
-	 */
 	status: "BEFORE_SENDING";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -18335,42 +14802,34 @@ export type B2bTaxInvoiceBeforeSending = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -18381,32 +14840,26 @@ export type B2bTaxInvoiceBeforeSending = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -18423,12 +14876,10 @@ export type B2bTaxInvoiceBeforeSending = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt: string;
 	/**
@@ -18441,21 +14892,15 @@ export type B2bTaxInvoiceBeforeSending = {
 
 /**
  * B2bTaxInvoiceIssuanceCancelled
- *
  */
 export type B2bTaxInvoiceIssuanceCancelled = {
-	/**
-	 *
-	 */
 	status: "ISSUANCE_CANCELLED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -18478,42 +14923,34 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -18524,32 +14961,26 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -18566,12 +14997,10 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt: string;
 	/**
@@ -18582,7 +15011,6 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 	ntsApproveNumber: string;
 	/**
 	 * 공급받는자 영업 상태
-	 *
 	 */
 	recipientBusinessStatus?: B2bCompanyStateBusinessStatus;
 	/**
@@ -18595,21 +15023,15 @@ export type B2bTaxInvoiceIssuanceCancelled = {
 
 /**
  * B2bTaxInvoiceRequestRefused
- *
  */
 export type B2bTaxInvoiceRequestRefused = {
-	/**
-	 *
-	 */
 	status: "ISSUANCE_REFUSED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -18632,42 +15054,34 @@ export type B2bTaxInvoiceRequestRefused = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -18678,32 +15092,26 @@ export type B2bTaxInvoiceRequestRefused = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -18720,28 +15128,21 @@ export type B2bTaxInvoiceRequestRefused = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 };
 
 /**
  * B2bTaxInvoiceIssued
- *
  */
 export type B2bTaxInvoiceIssued = {
-	/**
-	 *
-	 */
 	status: "ISSUED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -18764,42 +15165,34 @@ export type B2bTaxInvoiceIssued = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -18810,32 +15203,26 @@ export type B2bTaxInvoiceIssued = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -18852,12 +15239,10 @@ export type B2bTaxInvoiceIssued = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt: string;
 	/**
@@ -18870,21 +15255,15 @@ export type B2bTaxInvoiceIssued = {
 
 /**
  * B2bTaxInvoiceRegistered
- *
  */
 export type B2bTaxInvoiceRegistered = {
-	/**
-	 *
-	 */
 	status: "REGISTERED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -18907,42 +15286,34 @@ export type B2bTaxInvoiceRegistered = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -18953,32 +15324,26 @@ export type B2bTaxInvoiceRegistered = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -18995,28 +15360,21 @@ export type B2bTaxInvoiceRegistered = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 };
 
 /**
  * B2bTaxInvoiceRequested
- *
  */
 export type B2bTaxInvoiceRequested = {
-	/**
-	 *
-	 */
 	status: "REQUESTED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -19039,42 +15397,34 @@ export type B2bTaxInvoiceRequested = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -19085,32 +15435,26 @@ export type B2bTaxInvoiceRequested = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -19127,28 +15471,21 @@ export type B2bTaxInvoiceRequested = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 };
 
 /**
  * B2bTaxInvoiceRequestCancelled
- *
  */
 export type B2bTaxInvoiceRequestCancelled = {
-	/**
-	 *
-	 */
 	status: "REQUEST_CANCELLED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -19171,42 +15508,34 @@ export type B2bTaxInvoiceRequestCancelled = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -19217,32 +15546,26 @@ export type B2bTaxInvoiceRequestCancelled = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -19259,28 +15582,21 @@ export type B2bTaxInvoiceRequestCancelled = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 };
 
 /**
  * B2bTaxInvoiceSending
- *
  */
 export type B2bTaxInvoiceSending = {
-	/**
-	 *
-	 */
 	status: "SENDING";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -19303,42 +15619,34 @@ export type B2bTaxInvoiceSending = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -19349,32 +15657,26 @@ export type B2bTaxInvoiceSending = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -19391,12 +15693,10 @@ export type B2bTaxInvoiceSending = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt: string;
 	/**
@@ -19407,28 +15707,21 @@ export type B2bTaxInvoiceSending = {
 	ntsApproveNumber: string;
 	/**
 	 * 국세청 전송 일시
-	 *
 	 */
 	ntsSentAt: string;
 };
 
 /**
  * B2bTaxInvoiceSendingCompleted
- *
  */
 export type B2bTaxInvoiceSendingCompleted = {
-	/**
-	 *
-	 */
 	status: "SENDING_COMPLETED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -19451,42 +15744,34 @@ export type B2bTaxInvoiceSendingCompleted = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -19497,32 +15782,26 @@ export type B2bTaxInvoiceSendingCompleted = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -19539,12 +15818,10 @@ export type B2bTaxInvoiceSendingCompleted = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt: string;
 	/**
@@ -19555,12 +15832,10 @@ export type B2bTaxInvoiceSendingCompleted = {
 	ntsApproveNumber: string;
 	/**
 	 * 국세청 전송 일시
-	 *
 	 */
 	ntsSentAt: string;
 	/**
 	 * 국세청 전송 결과
-	 *
 	 */
 	ntsResult?: string;
 	/**
@@ -19571,28 +15846,21 @@ export type B2bTaxInvoiceSendingCompleted = {
 	ntsResultCode?: string;
 	/**
 	 * 국세청 결과 수신 일시
-	 *
 	 */
 	ntsResultReceivedAt: string;
 };
 
 /**
  * B2bTaxInvoiceSendingFailed
- *
  */
 export type B2bTaxInvoiceSendingFailed = {
-	/**
-	 *
-	 */
 	status: "SENDING_FAILED";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -19615,42 +15883,34 @@ export type B2bTaxInvoiceSendingFailed = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -19661,32 +15921,26 @@ export type B2bTaxInvoiceSendingFailed = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -19703,12 +15957,10 @@ export type B2bTaxInvoiceSendingFailed = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt: string;
 	/**
@@ -19719,12 +15971,10 @@ export type B2bTaxInvoiceSendingFailed = {
 	ntsApproveNumber: string;
 	/**
 	 * 국세청 전송 일시
-	 *
 	 */
 	ntsSentAt: string;
 	/**
 	 * 국세청 전송 결과
-	 *
 	 */
 	ntsResult?: string;
 	/**
@@ -19735,28 +15985,21 @@ export type B2bTaxInvoiceSendingFailed = {
 	ntsResultCode?: string;
 	/**
 	 * 국세청 결과 수신 일시
-	 *
 	 */
 	ntsResultReceivedAt: string;
 };
 
 /**
  * B2bTaxInvoiceWaitingSending
- *
  */
 export type B2bTaxInvoiceWaitingSending = {
-	/**
-	 *
-	 */
 	status: "WAITING_SENDING";
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 일련번호
-	 *
 	 */
 	serialNum?: string;
 	/**
@@ -19779,42 +16022,34 @@ export type B2bTaxInvoiceWaitingSending = {
 	writeDate: string;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 합계 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 현금
-	 *
 	 */
 	cashAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	checkAmount?: number;
 	/**
 	 * 외상
-	 *
 	 */
 	creditAmount?: number;
 	/**
 	 * 수표
-	 *
 	 */
 	noteAmount?: number;
 	/**
@@ -19825,32 +16060,26 @@ export type B2bTaxInvoiceWaitingSending = {
 	remarks: string[];
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급자
-	 *
 	 */
 	supplier: B2bTaxInvoiceCompany;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자
-	 *
 	 */
 	recipient: B2bTaxInvoiceCompany;
 	/**
 	 * 문자 전송 여부
-	 *
 	 */
 	sendSms: boolean;
 	/**
 	 * 수정 사유 기재
-	 *
 	 */
 	modification?: B2bModification;
 	/**
@@ -19867,12 +16096,10 @@ export type B2bTaxInvoiceWaitingSending = {
 	contacts: B2bTaxInvoiceAdditionalContact[];
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt: string;
 	/**
@@ -19885,193 +16112,116 @@ export type B2bTaxInvoiceWaitingSending = {
 
 /**
  * 공급받는자가 존재하지 않은 경우
- *
- * 공급받는자가 존재하지 않은 경우
  */
 export type B2bRecipientNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_RECIPIENT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 공급자가 존재하지 않은 경우
- *
  * 공급자가 존재하지 않은 경우
  */
 export type B2bSupplierNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_SUPPLIER_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서가 존재하지 않은 경우
- *
  * 세금계산서가 존재하지 않은 경우
  */
 export type B2bTaxInvoiceNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서가 삭제 가능한 상태가 아닌 경우
- *
  * 세금계산서가 삭제 가능한 상태가 아닌 경우
  *
  * 삭제 가능한 상태는 `REGISTERED`, `ISSUE_REFUSED`, `REQUEST_CANCELLED_BY_RECIPIENT`, `ISSUE_CANCELLED_BY_SUPPLIER`, `SENDING_FAILED` 입니다.
  */
 export type B2bTaxInvoiceNonDeletableStatusError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_NON_DELETABLE_STATUS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서가 역발행 대기 상태가 아닌 경우
- *
  * 세금계산서가 역발행 대기 상태가 아닌 경우
  */
 export type B2bTaxInvoiceNotRequestedStatusError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_NOT_REQUESTED_STATUS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우
- *
  * 세금계산서에 공급받는자 문서 번호가 기입되지 않은 경우
  */
 export type B2bTaxInvoiceNoRecipientDocumentKeyError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_NO_RECIPIENT_DOCUMENT_KEY";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서가 발행된(ISSUED) 상태가 아닌 경우
- *
  * 세금계산서가 발행된(ISSUED) 상태가 아닌 경우
  */
 export type B2bTaxInvoiceNotIssuedStatusError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_NOT_ISSUED_STATUS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서에 공급자 문서 번호가 기입되지 않은 경우
- *
  * 세금계산서에 공급자 문서 번호가 기입되지 않은 경우
  */
 export type B2bTaxInvoiceNoSupplierDocumentKeyError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_NO_SUPPLIER_DOCUMENT_KEY";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서 요약
- *
  * 세금계산서 요약
  */
 export type B2bTaxInvoiceSummary = {
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxType: B2bTaxType;
 	/**
 	 * 공급가액 합계
-	 *
 	 */
 	supplyCostTotalAmount: number;
 	/**
 	 * 세액 합계
-	 *
 	 */
 	taxTotalAmount: number;
 	/**
 	 * 영수/청구
-	 *
 	 */
 	purposeType: B2bTaxInvoicePurposeType;
 	/**
 	 * 공급자 사업자등록번호
-	 *
 	 */
 	supplierBrn: string;
 	/**
 	 * 공급자 상호
-	 *
 	 */
 	supplierName: string;
 	/**
 	 * 공급자 문서번호
-	 *
 	 */
 	supplierDocumentKey?: string;
 	/**
 	 * 공급받는자 사업자등록번호
-	 *
 	 */
 	recipientBrn: string;
 	/**
 	 * 공급받는자 상호
-	 *
 	 */
 	recipientName: string;
 	/**
 	 * 공급받는자 문서번호
-	 *
 	 */
 	recipientDocumentKey?: string;
 	/**
 	 * 공급받는자 영업 상태
-	 *
 	 */
 	recipientBusinessStatus?: B2bCompanyStateBusinessStatus;
 	/**
@@ -20082,22 +16232,18 @@ export type B2bTaxInvoiceSummary = {
 	recipientClosedSuspendedDate?: string;
 	/**
 	 * 발행 일시
-	 *
 	 */
 	issuedAt?: string;
 	/**
 	 * 개봉 일시
-	 *
 	 */
 	openedAt?: string;
 	/**
 	 * 상태
-	 *
 	 */
 	status: B2bTaxInvoiceStatus;
 	/**
 	 * 상태 변경 일시
-	 *
 	 */
 	statusUpdatedAt: string;
 	/**
@@ -20108,17 +16254,14 @@ export type B2bTaxInvoiceSummary = {
 	ntsApproveNumber?: string;
 	/**
 	 * 국세청 전송 결과
-	 *
 	 */
 	ntsResult?: string;
 	/**
 	 * 국세청 전송 일시
-	 *
 	 */
 	ntsSentAt?: string;
 	/**
 	 * 국세청 결과 수신 일시
-	 *
 	 */
 	ntsResultReceivedAt?: string;
 	/**
@@ -20131,224 +16274,157 @@ export type B2bTaxInvoiceSummary = {
 
 /**
  * 세금계산서가 임시저장 상태가 아닌 경우
- *
- * 세금계산서가 임시저장 상태가 아닌 경우
  */
 export type B2bTaxInvoiceNotRegisteredStatusError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_NOT_REGISTERED_STATUS";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 업로드한 파일을 찾을 수 없는 경우
- *
  * 업로드한 파일을 찾을 수 없는 경우
  */
 export type B2bFileNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_FILE_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
- * 세금계산서 첨부파일
- *
  * 세금계산서 첨부파일
  */
 export type B2bTaxInvoiceAttachment = {
 	/**
 	 * 첨부 파일 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 첨부 파일명
-	 *
 	 */
 	name: string;
 	/**
 	 * 첨부 일시
-	 *
 	 */
 	attachedAt: string;
 };
 
 /**
  * 세금계산서의 첨부파일을 찾을 수 없는 경우
- *
- * 세금계산서의 첨부파일을 찾을 수 없는 경우
  */
 export type B2bTaxInvoiceAttachmentNotFoundError = {
-	/**
-	 *
-	 */
 	type: "B2B_TAX_INVOICE_ATTACHMENT_NOT_FOUND";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * 하위 상점 거래 정보
- *
- * 하위 상점 거래 정보
  */
 export type RegisterStoreReceiptBodyItem = {
 	/**
 	 * 하위 상점 사업자등록번호
-	 *
 	 */
 	storeBusinessRegistrationNumber: string;
 	/**
 	 * 하위 상점명
-	 *
 	 */
 	storeName: string;
 	/**
 	 * 결제 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 부가세액
-	 *
 	 */
 	vatAmount?: number;
 	/**
 	 * 공급가액
-	 *
 	 */
 	supplyAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 };
 
 /**
  * 카드 프로모션
- *
- * 카드 프로모션
  */
 export type CardPromotion = {
-	/**
-	 *
-	 */
 	type: "CARD";
 	/**
 	 * 프로모션 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 프로모션 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 할인 유형
-	 *
 	 */
 	discountType: PromotionDiscount;
 	/**
 	 * 총 예산
-	 *
 	 */
 	totalBudget: number;
 	/**
 	 * 최소 결제 금액
-	 *
 	 */
 	minPaymentAmount?: number;
 	/**
 	 * 최대 할인 금액
-	 *
 	 */
 	maxDiscountAmount?: number;
 	/**
 	 * 소진 금액
-	 *
 	 */
 	spentAmount: number;
 	/**
 	 * 금액 화폐
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 프로모션 시작 시각
-	 *
 	 */
 	startAt: string;
 	/**
 	 * 프로모션 종료 시각
-	 *
 	 */
 	endAt: string;
 	/**
 	 * 프로모션 중단 시각
-	 *
 	 */
 	terminatedAt?: string;
 	/**
 	 * 프로모션 카드사
-	 *
 	 */
 	cardCompany: PromotionCardCompany;
 	/**
 	 * 프로모션 상태
-	 *
 	 */
 	status: PromotionStatus;
 	/**
 	 * 프로모션 생성 시각
-	 *
 	 */
 	createdAt: string;
 };
 
 /**
  * 프로모션이 존재하지 않는 경우
- *
- * 프로모션이 존재하지 않는 경우
  */
 export type PromotionNotFoundError = {
-	/**
-	 *
-	 */
 	type: "PROMOTION_NOT_FOUND_ERROR";
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PlatformSettlementFormulaError
- *
  */
 export type PlatformSettlementFormulaError =
 	| PlatformSettlementFormulaInvalidFunction
@@ -20362,18 +16438,14 @@ export type PlatformSettlementFormulaError =
 /**
  * 검색 키워드 입력 정보
  *
- * 검색 키워드 입력 정보
- *
  * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 할인 분담 정책만 조회합니다. 하위 필드는 명시된 값 중 한 가지만 적용됩니다.
  */
 export type PlatformDiscountSharePolicyFilterInputKeyword = {
 	/**
-	 *
 	 * 해당 값이 포함된 id 를 가진 할인 분담 정책만 조회합니다.
 	 */
 	id?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 name 을 가진 할인 분담만 조회합니다.
 	 */
 	name?: string;
@@ -20382,23 +16454,18 @@ export type PlatformDiscountSharePolicyFilterInputKeyword = {
 /**
  * 검색 키워드 입력 정보
  *
- * 검색 키워드 입력 정보
- *
  * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 추가 수수료 정책만 조회합니다. 하위 필드는 명시된 값 중 한 가지만 적용됩니다.
  */
 export type PlatformAdditionalFeePolicyFilterInputKeyword = {
 	/**
-	 *
 	 * 해당 값이 포함된 name 을 가진 추가 수수료 정책만 조회합니다.
 	 */
 	name?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 id 를 가진 추가 수수료 정책만 조회합니다.
 	 */
 	id?: string;
 	/**
-	 *
 	 * 해당 값과 같은 수수료 를 가진 추가 수수료 정책만 조회합니다.
 	 */
 	fee?: string;
@@ -20407,18 +16474,12 @@ export type PlatformAdditionalFeePolicyFilterInputKeyword = {
 /**
  * 정액 수수료
  *
- * 정액 수수료
- *
  * 총 금액에 무관하게 정해진 수수료 금액을 책정합니다.
  */
 export type PlatformFixedAmountFee = {
-	/**
-	 *
-	 */
 	type: "FIXED_AMOUNT";
 	/**
 	 * 고정된 수수료 금액
-	 *
 	 */
 	amount: number;
 };
@@ -20426,14 +16487,9 @@ export type PlatformFixedAmountFee = {
 /**
  * 정률 수수료
  *
- * 정률 수수료
- *
  * 총 금액에 정해진 비율을 곱한 만큼의 수수료를 책정합니다.
  */
 export type PlatformFixedRateFee = {
-	/**
-	 *
-	 */
 	type: "FIXED_RATE";
 	/**
 	 * 수수료율
@@ -20446,48 +16502,38 @@ export type PlatformFixedRateFee = {
 /**
  * 파트너 검색 키워드 입력 정보
  *
- * 파트너 검색 키워드 입력 정보
- *
  * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 파트너만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformPartnerFilterInputKeyword = {
 	/**
-	 *
 	 * 해당 값이 포함된 id 를 가진 파트너만 조회합니다.
 	 */
 	id?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 이름 을 가진 파트너만 조회합니다.
 	 */
 	name?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 이메일 주소를 가진 파트너만 조회합니다.
 	 */
 	email?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 사업자등록번호를 가진 파트너만 조회합니다.
 	 */
 	businessRegistrationNumber?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 기본 계약 아이디를 가진 파트너만 조회합니다.
 	 */
 	defaultContractId?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 메모를 가진 파트너만 조회합니다.
 	 */
 	memo?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 계좌번호를 가진 파트너만 조회합니다.
 	 */
 	accountNumber?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 계좌 예금주명을 가진 파트너만 조회합니다.
 	 */
 	accountHolder?: string;
@@ -20495,12 +16541,10 @@ export type PlatformPartnerFilterInputKeyword = {
 
 /**
  * CreatePlatformPartnerBodyTypeBusiness
- *
  */
 export type CreatePlatformPartnerBodyTypeBusiness = {
 	/**
 	 * 상호명
-	 *
 	 */
 	companyName: string;
 	/**
@@ -20511,34 +16555,28 @@ export type CreatePlatformPartnerBodyTypeBusiness = {
 	taxationType?: PlatformPartnerTaxationType;
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	businessRegistrationNumber: string;
 	/**
 	 * 대표자 이름
-	 *
 	 */
 	representativeName: string;
 	/**
 	 * 사업장 주소
-	 *
 	 */
 	companyAddress?: string;
 	/**
 	 * 업태
-	 *
 	 */
 	businessType?: string;
 	/**
 	 * 업종
-	 *
 	 */
 	businessClass?: string;
 };
 
 /**
  * CreatePlatformPartnerBodyTypeWhtPayer
- *
  */
 export type CreatePlatformPartnerBodyTypeWhtPayer = {
 	/**
@@ -20551,7 +16589,6 @@ export type CreatePlatformPartnerBodyTypeWhtPayer = {
 
 /**
  * CreatePlatformPartnerBodyTypeNonWhtPayer
- *
  */
 export type CreatePlatformPartnerBodyTypeNonWhtPayer = {
 	/**
@@ -20563,8 +16600,6 @@ export type CreatePlatformPartnerBodyTypeNonWhtPayer = {
 };
 
 /**
- * 플랫폼 계좌 상태
- *
  * 플랫폼 계좌 상태
  */
 export type PlatformAccountStatus =
@@ -20578,53 +16613,40 @@ export type PlatformAccountStatus =
 /**
  * 사업자 파트너 정보
  *
- * 사업자 파트너 정보
- *
  * 사업자 유형의 파트너 추가 정보 입니다.
  */
 export type PlatformPartnerTypeBusiness = {
-	/**
-	 *
-	 */
 	type: "BUSINESS";
 	/**
 	 * 상호명
-	 *
 	 */
 	companyName: string;
 	/**
 	 * 과세 유형
-	 *
 	 */
 	taxationType: PlatformPartnerTaxationType;
 	/**
 	 * 사업자 상태
-	 *
 	 */
 	businessStatus: PlatformPartnerBusinessStatus;
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	businessRegistrationNumber: string;
 	/**
 	 * 대표자 이름
-	 *
 	 */
 	representativeName: string;
 	/**
 	 * 사업장 주소
-	 *
 	 */
 	companyAddress?: string;
 	/**
 	 * 업태
-	 *
 	 */
 	businessType?: string;
 	/**
 	 * 업종
-	 *
 	 */
 	businessClass?: string;
 };
@@ -20632,14 +16654,9 @@ export type PlatformPartnerTypeBusiness = {
 /**
  * 원천징수 비대상자 파트너 정보
  *
- * 원천징수 비대상자 파트너 정보
- *
  * 비사업자 유형의 파트너 추가 정보 입니다.
  */
 export type PlatformPartnerTypeNonWhtPayer = {
-	/**
-	 *
-	 */
 	type: "NON_WHT_PAYER";
 	/**
 	 * 생년월일
@@ -20652,14 +16669,9 @@ export type PlatformPartnerTypeNonWhtPayer = {
 /**
  * 원천징수 대상자 파트너 정보
  *
- * 원천징수 대상자 파트너 정보
- *
  * 비사업자 유형의 파트너 추가 정보 입니다.
  */
 export type PlatformPartnerTypeWhtPayer = {
-	/**
-	 *
-	 */
 	type: "WHT_PAYER";
 	/**
 	 * 생년월일
@@ -20671,49 +16683,40 @@ export type PlatformPartnerTypeWhtPayer = {
 
 /**
  * UpdatePlatformPartnerBodyTypeBusiness
- *
  */
 export type UpdatePlatformPartnerBodyTypeBusiness = {
 	/**
 	 * 상호명
-	 *
 	 */
 	companyName?: string;
 	/**
 	 * 사업자 유형
-	 *
 	 */
 	taxationType?: PlatformPartnerTaxationType;
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	businessRegistrationNumber?: string;
 	/**
 	 * 대표자 이름
-	 *
 	 */
 	representativeName?: string;
 	/**
 	 * 사업장 주소
-	 *
 	 */
 	companyAddress?: string;
 	/**
 	 * 업태
-	 *
 	 */
 	businessType?: string;
 	/**
 	 * 업종
-	 *
 	 */
 	businessClass?: string;
 };
 
 /**
  * UpdatePlatformPartnerBodyTypeWhtPayer
- *
  */
 export type UpdatePlatformPartnerBodyTypeWhtPayer = {
 	/**
@@ -20726,7 +16729,6 @@ export type UpdatePlatformPartnerBodyTypeWhtPayer = {
 
 /**
  * UpdatePlatformPartnerBodyTypeNonWhtPayer
- *
  */
 export type UpdatePlatformPartnerBodyTypeNonWhtPayer = {
 	/**
@@ -20739,23 +16741,18 @@ export type UpdatePlatformPartnerBodyTypeNonWhtPayer = {
 
 /**
  * 파트너 업데이트를 위한 유형별 추가 정보
- *
- * 파트너 업데이트를 위한 유형별 추가 정보
  */
 export type SchedulePlatformPartnersBodyUpdateContact = {
 	/**
 	 * 담당자 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 담당자 휴대폰 번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 담당자 이메일
-	 *
 	 */
 	email?: string;
 };
@@ -20763,64 +16760,50 @@ export type SchedulePlatformPartnersBodyUpdateContact = {
 /**
  * 파트너 유형별 정보 업데이트를 위한 입력 정보
  *
- * 파트너 유형별 정보 업데이트를 위한 입력 정보
- *
  * 파트너 유형별 추가 정보를 수정합니다. 최초 생성된 유형 내에서 세부 정보만 수정할 수 있고 파트너의 유형 자체를 수정할 수는 없습니다.
  */
 export type SchedulePlatformPartnersBodyUpdateType = {
 	/**
 	 * 사업자 추가 정보
-	 *
 	 */
 	business?: SchedulePlatformPartnersBodyUpdateTypeBusiness;
 	/**
 	 * 원천징수 대상자 추가 정보
-	 *
 	 */
 	whtPayer?: SchedulePlatformPartnersBodyUpdateTypeWhtPayer;
 	/**
 	 * 원천징수 비대상자 추가 정보
-	 *
 	 */
 	nonWhtPayer?: SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer;
 };
 
 /**
  * 파트너 계좌 업데이트를 위한 입력 정보
- *
- * 파트너 계좌 업데이트를 위한 입력 정보
  */
 export type SchedulePlatformPartnersBodyUpdateAccount = {
 	/**
 	 * 은행
-	 *
 	 */
 	bank: Bank;
 	/**
 	 * 정산에 사용할 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 계좌번호
-	 *
 	 */
 	number: string;
 	/**
 	 * 예금주명
-	 *
 	 */
 	holder: string;
 	/**
 	 * 계좌 검증 아이디
-	 *
 	 */
 	accountVerificationId?: string;
 };
 
 /**
- * 플랫폼 정산 주기 계산 방식
- *
  * 플랫폼 정산 주기 계산 방식
  */
 export type PlatformSettlementCycleType =
@@ -20831,8 +16814,6 @@ export type PlatformSettlementCycleType =
 
 /**
  * 플랫폼 정산 기준일
- *
- * 플랫폼 정산 기준일
  */
 export type PlatformSettlementCycleDatePolicy =
 	| "HOLIDAY_BEFORE"
@@ -20842,18 +16823,14 @@ export type PlatformSettlementCycleDatePolicy =
 /**
  * 검색 키워드 입력 정보
  *
- * 검색 키워드 입력 정보
- *
  * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 계약만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformContractFilterInputKeyword = {
 	/**
-	 *
 	 * 해당 값이 포함된 id 를 가진 계약만 조회합니다.
 	 */
 	id?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 name 을 가진 계약만 조회합니다.
 	 */
 	name?: string;
@@ -20862,36 +16839,28 @@ export type PlatformContractFilterInputKeyword = {
 /**
  * 플랫폼 정산 주기 계산 방식 입력 정보
  *
- * 플랫폼 정산 주기 계산 방식 입력 정보
- *
  * 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformSettlementCycleMethodInput = {
 	/**
 	 * 매일 정산
-	 *
 	 */
 	daily?: PlatformSettlementCycleMethodDailyInput;
 	/**
 	 * 매주 정해진 요일에 정산
-	 *
 	 */
 	weekly?: PlatformSettlementCycleMethodWeeklyInput;
 	/**
 	 * 매월 정해진 날(일)에 정산
-	 *
 	 */
 	monthly?: PlatformSettlementCycleMethodMonthlyInput;
 	/**
 	 * 정해진 날짜(월, 일)에 정산
-	 *
 	 */
 	manualDates?: PlatformSettlementCycleMethodManualDatesInput;
 };
 
 /**
- * 플랫폼 정산 주기 계산 방식
- *
  * 플랫폼 정산 주기 계산 방식
  */
 export type PlatformSettlementCycleMethod =
@@ -20901,8 +16870,6 @@ export type PlatformSettlementCycleMethod =
 	| PlatformSettlementCycleMethodWeekly;
 
 /**
- * 정산 상태
- *
  * 정산 상태
  */
 export type PlatformTransferStatus =
@@ -20915,24 +16882,19 @@ export type PlatformTransferStatus =
 /**
  * 정산 금액 정보
  *
- * 정산 금액 정보
- *
  * 정산 금액과 정산 금액 계산에 사용된 금액 정보들 입니다.
  */
 export type PlatformOrderSettlementAmount = {
 	/**
 	 * 정산 금액
-	 *
 	 */
 	settlement: number;
 	/**
 	 * 결제 금액
-	 *
 	 */
 	payment: number;
 	/**
 	 * 결제 금액 부가세
-	 *
 	 */
 	paymentVat: number;
 	/**
@@ -20943,167 +16905,132 @@ export type PlatformOrderSettlementAmount = {
 	paymentVatBurden: number;
 	/**
 	 * 면세 금액
-	 *
 	 */
 	taxFree: number;
 	/**
 	 * 공급가액
-	 *
 	 */
 	supply: number;
 	/**
 	 * 주문 금액
-	 *
 	 */
 	order: number;
 	/**
 	 * 중개 수수료
-	 *
 	 */
 	platformFee: number;
 	/**
 	 * 중개 수수료 부가세
-	 *
 	 */
 	platformFeeVat: number;
 	/**
 	 * 추가 수수료
-	 *
 	 */
 	additionalFee: number;
 	/**
 	 * 추가 수수료 부가세
-	 *
 	 */
 	additionalFeeVat: number;
 	/**
 	 * 할인 금액
-	 *
 	 */
 	discount: number;
 	/**
 	 * 할인 분담 금액
-	 *
 	 */
 	discountShare: number;
 };
 
 /**
  * 결제 정보
- *
- * 결제 정보
  */
 export type PlatformPayment = PlatformExternalPayment | PlatformPortOnePayment;
 
 /**
  * 주문 항목
- *
- * 주문 항목
  */
 export type PlatformOrderTransferOrderLine = {
 	/**
 	 * 상품
-	 *
 	 */
 	product: PlatformOrderTransferProduct;
 	/**
 	 * 상품 수량
-	 *
 	 */
 	quantity: number;
 	/**
 	 * 상품 할인 정보
-	 *
 	 */
 	discounts: PlatformOrderTransferDiscount[];
 	/**
 	 * 상품 추가 수수료 정보
-	 *
 	 */
 	additionalFees: PlatformOrderTransferAdditionalFee[];
 	/**
 	 * 상품 정산 금액 정보
-	 *
 	 */
 	amount: PlatformOrderSettlementAmount;
 };
 
 /**
  * 추가 수수료 정보
- *
- * 추가 수수료 정보
  */
 export type PlatformOrderTransferAdditionalFee = {
 	/**
 	 * 추가 수수료 정책
-	 *
 	 */
 	policy: PlatformAdditionalFeePolicy;
 	/**
 	 * 추가 수수료 금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 추가 수수료 부가세 금액
-	 *
 	 */
 	vat: number;
 };
 
 /**
  * 할인 정보
- *
- * 할인 정보
  */
 export type PlatformOrderTransferDiscount = {
 	/**
 	 * 할인 분담 정책
-	 *
 	 */
 	sharePolicy: PlatformDiscountSharePolicy;
 	/**
 	 * 할인 금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 할인 분담 금액
-	 *
 	 */
 	shareAmount: number;
 };
 
 /**
  * 주문 취소 정보
- *
- * 주문 취소 정보
  */
 export type PlatformOrderTransferCancellation = {
 	/**
 	 * 주문 취소 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 취소 일시
-	 *
 	 */
 	cancelledAt: string;
 };
 
 /**
  * DateRange
- *
  */
 export type DateRange = {
 	/**
-	 *
 	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	from: string;
 	/**
-	 *
 	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	until: string;
@@ -21111,7 +17038,6 @@ export type DateRange = {
 
 /**
  * PaymentMethodType
- *
  */
 export type PaymentMethodType =
 	| "CARD"
@@ -21123,60 +17049,48 @@ export type PaymentMethodType =
 
 /**
  * PlatformTransferType
- *
  */
 export type PlatformTransferType = "ORDER" | "ORDER_CANCEL" | "MANUAL";
 
 /**
  * 정산건 검색 키워드 입력 정보
  *
- * 정산건 검색 키워드 입력 정보
- *
  * 검색 키워드 적용을 위한 옵션으로, 명시된 키워드를 포함하는 정산건만 조회합니다. 하나의 하위 필드에만 값을 명시하여 요청합니다.
  */
 export type PlatformTransferFilterInputKeyword = {
 	/**
-	 *
 	 * 해당 값이 포함된 정보를 가진 정산건만 조회합니다.
 	 */
 	all?: string;
 	/**
-	 *
 	 * 해당 값이랑 일치하는 paymentId 를 가진 정산건만 조회합니다.
 	 */
 	paymentId?: string;
 	/**
-	 *
 	 * 해당 값이랑 일치하는 transferId 를 가진 정산건만 조회합니다.
 	 */
 	transferId?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 transferMemo 를 가진 정산건만 조회합니다.
 	 */
 	transferMemo?: string;
 	/**
-	 *
 	 * 해당 값이랑 일치하는 productId 를 가진 정산건만 조회합니다.
 	 */
 	productId?: string;
 	/**
-	 *
 	 * 해당 값이랑 일치하는 productName 을 가진 정산건만 조회합니다.
 	 */
 	productName?: string;
 	/**
-	 *
 	 * 해당 값이랑 일치하는 partnerId 를 가진 정산건만 조회합니다.
 	 */
 	partnerId?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 partnerName 을 가진 정산건만 조회합니다.
 	 */
 	partnerName?: string;
 	/**
-	 *
 	 * 해당 값이 포함된 partnerMemo 를 가진 정산건만 조회합니다.
 	 */
 	partnerMemo?: string;
@@ -21184,128 +17098,59 @@ export type PlatformTransferFilterInputKeyword = {
 
 /**
  * PlatformManualTransferSummary
- *
  */
 export type PlatformManualTransferSummary = {
-	/**
-	 *
-	 */
 	type: "MANUAL";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
-	/**
-	 *
-	 */
 	partner: PlatformTransferSummaryPartner;
-	/**
-	 *
-	 */
 	status: PlatformTransferStatus;
-	/**
-	 *
-	 */
 	memo?: string;
 	/**
-	 *
 	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
-	/**
-	 *
-	 */
 	settlementCurrency: Currency;
-	/**
-	 *
-	 */
 	isForTest: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	partnerUserDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
-	/**
-	 *
-	 */
 	settlementAmount: number;
 };
 
 /**
  * PlatformOrderTransferSummary
- *
  */
 export type PlatformOrderTransferSummary = {
-	/**
-	 *
-	 */
 	type: "ORDER";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
-	/**
-	 *
-	 */
 	storeId: string;
-	/**
-	 *
-	 */
 	partner: PlatformTransferSummaryPartner;
-	/**
-	 *
-	 */
 	status: PlatformTransferStatus;
-	/**
-	 *
-	 */
 	memo?: string;
 	/**
-	 *
 	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
-	/**
-	 *
-	 */
 	settlementCurrency: Currency;
-	/**
-	 *
-	 */
 	isForTest: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	partnerUserDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
-	/**
-	 *
-	 */
 	amount: PlatformOrderSettlementAmount;
-	/**
-	 *
-	 */
 	payment: PlatformTransferSummaryPayment;
 	/**
-	 *
 	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementStartDate: string;
@@ -21313,70 +17158,32 @@ export type PlatformOrderTransferSummary = {
 
 /**
  * PlatformOrderCancelTransferSummary
- *
  */
 export type PlatformOrderCancelTransferSummary = {
-	/**
-	 *
-	 */
 	type: "ORDER_CANCEL";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
-	/**
-	 *
-	 */
 	storeId: string;
-	/**
-	 *
-	 */
 	partner: PlatformTransferSummaryPartner;
-	/**
-	 *
-	 */
 	status: PlatformTransferStatus;
-	/**
-	 *
-	 */
 	memo?: string;
 	/**
-	 *
 	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementDate: string;
-	/**
-	 *
-	 */
 	settlementCurrency: Currency;
-	/**
-	 *
-	 */
 	isForTest: boolean;
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	partnerUserDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
 	/**
 	 * 사용자 정의 속성
-	 *
 	 */
 	userDefinedProperties: PlatformUserDefinedPropertyKeyValue[];
-	/**
-	 *
-	 */
 	amount: PlatformOrderSettlementAmount;
-	/**
-	 *
-	 */
 	payment: PlatformTransferSummaryPayment;
 	/**
-	 *
 	 * 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	 */
 	settlementStartDate: string;
@@ -21384,121 +17191,92 @@ export type PlatformOrderCancelTransferSummary = {
 
 /**
  * 주문 항목
- *
- * 주문 항목
  */
 export type CreatePlatformOrderTransferBodyOrderLine = {
 	/**
 	 * 상품
-	 *
 	 */
 	product: CreatePlatformOrderTransferBodyProduct;
 	/**
 	 * 상품 수량
-	 *
 	 */
 	quantity: number;
 	/**
 	 * 상품 할인 정보
-	 *
 	 */
 	discounts: CreatePlatformOrderTransferBodyDiscount[];
 	/**
 	 * 상품 추가 수수료 정보
-	 *
 	 */
 	additionalFees: CreatePlatformOrderTransferBodyAdditionalFee[];
 };
 
 /**
  * 결제 수단 입력 정보
- *
- * 결제 수단 입력 정보
  */
 export type PlatformPaymentMethodInput = {
 	/**
 	 * 카드
-	 *
 	 */
 	card?: PlatformPaymentMethodCardInput;
 	/**
 	 * 계좌이체
-	 *
 	 */
 	transfer?: PlatformPaymentMethodTransferInput;
 	/**
 	 * 가상계좌
-	 *
 	 */
 	virtualAccount?: PlatformPaymentMethodVirtualAccountInput;
 	/**
 	 * 상품권
-	 *
 	 */
 	giftCertificate?: PlatformPaymentMethodGiftCertificateInput;
 	/**
 	 * 모바일
-	 *
 	 */
 	mobile?: PlatformPaymentMethodMobileInput;
 	/**
 	 * 간편 결제
-	 *
 	 */
 	easyPay?: PlatformPaymentMethodEasyPayInput;
 };
 
 /**
  * PlatformUserDefinedPropertyValue
- *
  */
 export type PlatformUserDefinedPropertyValue = {
-	/**
-	 *
-	 */
 	string: string;
 };
 
 /**
  * 주문 취소 항목 리스트
- *
- * 주문 취소 항목 리스트
  */
 export type CreatePlatformOrderCancelTransferBodyOrderLine = {
 	/**
 	 * 상품 아이디
-	 *
 	 */
 	productId: string;
 	/**
 	 * 상품 수량
-	 *
 	 */
 	quantity: number;
 	/**
 	 * 상품 할인 정보
-	 *
 	 */
 	discounts: CreatePlatformOrderCancelTransferBodyDiscount[];
 };
 
 /**
  * 전체 금액 취소
- *
- * 전체 금액 취소
  */
 export type CreatePlatformOrderCancelTransferBodyOrderDetailAll = {};
 
 /**
  * 금액 타입
- *
- * 금액 타입
  */
 export type PlatformCancellableAmountType = "SUPPLY_WITH_VAT" | "TAX_FREE";
 
 /**
- * 금액 타입
- *
  * 금액 타입
  */
 export type PlatformPortOnePaymentCancelAmountType =
@@ -21506,8 +17284,6 @@ export type PlatformPortOnePaymentCancelAmountType =
 	| "TAX_FREE";
 
 /**
- * 정산 상태
- *
  * 정산 상태
  */
 export type PlatformPartnerSettlementStatus =
@@ -21519,51 +17295,30 @@ export type PlatformPartnerSettlementStatus =
 
 /**
  * 정산 유형
- *
- * 정산 유형
  */
 export type PlatformPartnerSettlementType = "MANUAL" | "ORDER" | "ORDER_CANCEL";
 
 /**
  * PlatformPartnerSettlementFilterKeywordInput
- *
  */
 export type PlatformPartnerSettlementFilterKeywordInput = {
-	/**
-	 *
-	 */
 	partnerSettlementId?: string;
-	/**
-	 *
-	 */
 	payoutId?: string;
-	/**
-	 *
-	 */
 	bulkPayoutId?: string;
 };
 
 /**
  * PlatformPartnerManualSettlement
- *
  */
 export type PlatformPartnerManualSettlement = {
-	/**
-	 *
-	 */
 	type: "MANUAL";
 	/**
 	 * 정산내역 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 	/**
@@ -21574,52 +17329,38 @@ export type PlatformPartnerManualSettlement = {
 	settlementDate: string;
 	/**
 	 * 정산 통화
-	 *
 	 */
 	settlementCurrency: Currency;
 	/**
 	 * 정산 상태
-	 *
 	 */
 	status: PlatformPartnerSettlementStatus;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 정산 금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 테스트 모드 여부
-	 *
 	 */
 	isForTest: boolean;
 };
 
 /**
  * PlatformPartnerOrderSettlement
- *
  */
 export type PlatformPartnerOrderSettlement = {
-	/**
-	 *
-	 */
 	type: "ORDER";
 	/**
 	 * 정산내역 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 	/**
@@ -21630,62 +17371,46 @@ export type PlatformPartnerOrderSettlement = {
 	settlementDate: string;
 	/**
 	 * 정산 통화
-	 *
 	 */
 	settlementCurrency: Currency;
 	/**
 	 * 정산 상태
-	 *
 	 */
 	status: PlatformPartnerSettlementStatus;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 계약
-	 *
 	 */
 	contract: PlatformContract;
 	/**
 	 * 정산 시작 일 범위
-	 *
 	 */
 	settlementStartDateRange: DateRange;
 	/**
 	 * 금액 정보
-	 *
 	 */
 	amount: PlatformOrderSettlementAmount;
 	/**
 	 * 테스트 모드 여부
-	 *
 	 */
 	isForTest: boolean;
 };
 
 /**
  * PlatformPartnerOrderCancelSettlement
- *
  */
 export type PlatformPartnerOrderCancelSettlement = {
-	/**
-	 *
-	 */
 	type: "ORDER_CANCEL";
 	/**
 	 * 정산내역 아이디
-	 *
 	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
 	/**
 	 * 파트너
-	 *
 	 */
 	partner: PlatformPartner;
 	/**
@@ -21696,44 +17421,36 @@ export type PlatformPartnerOrderCancelSettlement = {
 	settlementDate: string;
 	/**
 	 * 정산 통화
-	 *
 	 */
 	settlementCurrency: Currency;
 	/**
 	 * 정산 상태
-	 *
 	 */
 	status: PlatformPartnerSettlementStatus;
 	/**
 	 * 메모
-	 *
 	 */
 	memo?: string;
 	/**
 	 * 계약
-	 *
 	 */
 	contract: PlatformContract;
 	/**
 	 * 정산 시작 일 범위
-	 *
 	 */
 	settlementStartDateRange: DateRange;
 	/**
 	 * 금액 정보
-	 *
 	 */
 	amount: PlatformOrderSettlementAmount;
 	/**
 	 * 테스트 모드 여부
-	 *
 	 */
 	isForTest: boolean;
 };
 
 /**
  * PlatformPayoutStatus
- *
  */
 export type PlatformPayoutStatus =
 	| "PREPARED"
@@ -21745,52 +17462,29 @@ export type PlatformPayoutStatus =
 
 /**
  * 검색 기준 입력 정보
- *
- * 검색 기준 입력 정보
  */
 export type PlatformPayoutFilterInputCriteria = {
-	/**
-	 *
-	 */
 	timestampRange?: DateTimeRange;
-	/**
-	 *
-	 */
 	payoutId?: string;
-	/**
-	 *
-	 */
 	bulkPayoutId?: string;
 };
 
 /**
  * PlatformPayoutMethod
- *
  */
 export type PlatformPayoutMethod = "DIRECT" | "AGENCY";
 
 /**
  * PlatformPayoutAccount
- *
  */
 export type PlatformPayoutAccount = {
-	/**
-	 *
-	 */
 	bank: Bank;
-	/**
-	 *
-	 */
 	number: string;
-	/**
-	 *
-	 */
 	holder: string;
 };
 
 /**
  * PlatformBulkPayoutStatus
- *
  */
 export type PlatformBulkPayoutStatus =
 	| "PREPARING"
@@ -21802,86 +17496,60 @@ export type PlatformBulkPayoutStatus =
 
 /**
  * PlatformBulkPayoutFilterInputCriteria
- *
  */
 export type PlatformBulkPayoutFilterInputCriteria = {
-	/**
-	 *
-	 */
 	timestampRange?: DateTimeRange;
-	/**
-	 *
-	 */
 	bulkPayoutId?: string;
 };
 
 /**
  * PlatformBulkPayoutStats
- *
  */
 export type PlatformBulkPayoutStats = {
-	/**
-	 *
-	 */
 	amount: PlatformPayoutStatusStats;
-	/**
-	 *
-	 */
 	count: PlatformPayoutStatusStats;
 };
 
 /**
  * (결제, 본인인증 등에) 선택된 채널 정보
- *
- * (결제, 본인인증 등에) 선택된 채널 정보
  */
 export type SelectedChannel = {
 	/**
 	 * 채널 타입
-	 *
 	 */
 	type: SelectedChannelType;
 	/**
 	 * 채널 아이디
-	 *
 	 */
 	id?: string;
 	/**
 	 * 채널 키
-	 *
 	 */
 	key?: string;
 	/**
 	 * 채널 명
-	 *
 	 */
 	name?: string;
 	/**
 	 * PG사
-	 *
 	 */
 	pgProvider: PgProvider;
 	/**
 	 * PG사 고객사 식별 아이디
-	 *
 	 */
 	pgMerchantId: string;
 };
 
 /**
  * 요청 시 고객 정보
- *
- * 요청 시 고객 정보
  */
 export type IdentityVerificationRequestedCustomer = {
 	/**
 	 * 식별 아이디
-	 *
 	 */
 	id?: string;
 	/**
 	 * 이름
-	 *
 	 */
 	name?: string;
 	/**
@@ -21894,23 +17562,18 @@ export type IdentityVerificationRequestedCustomer = {
 
 /**
  * 인증된 고객 정보
- *
- * 인증된 고객 정보
  */
 export type IdentityVerificationVerifiedCustomer = {
 	/**
 	 * 식별 아이디
-	 *
 	 */
 	id?: string;
 	/**
 	 * 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 통신사
-	 *
 	 */
 	operator?: IdentityVerificationOperator;
 	/**
@@ -21927,29 +17590,23 @@ export type IdentityVerificationVerifiedCustomer = {
 	birthDate: string;
 	/**
 	 * 성별
-	 *
 	 */
 	gender: Gender;
 	/**
 	 * 외국인 여부
-	 *
 	 */
 	isForeigner?: boolean;
 	/**
 	 * CI (개인 고유 식별키)
-	 *
 	 */
 	ci: string;
 	/**
 	 * DI (사이트별 개인 고유 식별키)
-	 *
 	 */
 	di: string;
 };
 
 /**
- * 빌링키 발급 수단 정보
- *
  * 빌링키 발급 수단 정보
  */
 export type BillingKeyPaymentMethod =
@@ -21961,8 +17618,6 @@ export type BillingKeyPaymentMethod =
 
 /**
  * 고객 정보
- *
- * 고객 정보
  */
 export type Customer = {
 	/**
@@ -21973,67 +17628,53 @@ export type Customer = {
 	id?: string;
 	/**
 	 * 이름
-	 *
 	 */
 	name?: string;
 	/**
 	 * 출생 연도
-	 *
 	 */
 	birthYear?: string;
 	/**
 	 * 성별
-	 *
 	 */
 	gender?: Gender;
 	/**
 	 * 이메일
-	 *
 	 */
 	email?: string;
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 주소
-	 *
 	 */
 	address?: Address;
 	/**
 	 * 우편번호
-	 *
 	 */
 	zipcode?: string;
 };
 
 /**
  * 채널 그룹 정보
- *
- * 채널 그룹 정보
  */
 export type ChannelGroupSummary = {
 	/**
 	 * 채널 그룹 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 채널 그룹 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 테스트 채널 그룹 여부
-	 *
 	 */
 	isForTest: boolean;
 };
 
 /**
- * 채널 별 빌링키 발급 응답
- *
  * 채널 별 빌링키 발급 응답
  */
 export type PgBillingKeyIssueResponse =
@@ -22041,8 +17682,6 @@ export type PgBillingKeyIssueResponse =
 	| IssuedPgBillingKeyIssueResponse;
 
 /**
- * 빌링키 정렬 기준
- *
  * 빌링키 정렬 기준
  */
 export type BillingKeySortBy =
@@ -22053,14 +17692,10 @@ export type BillingKeySortBy =
 
 /**
  * 정렬 방식
- *
- * 정렬 방식
  */
 export type SortOrder = "DESC" | "ASC";
 
 /**
- * 빌링키 다건 조회 시, 시각 범위를 적용할 필드
- *
  * 빌링키 다건 조회 시, 시각 범위를 적용할 필드
  */
 export type BillingKeyTimeRangeField =
@@ -22071,37 +17706,23 @@ export type BillingKeyTimeRangeField =
 
 /**
  * 빌링키 상태
- *
- * 빌링키 상태
  */
 export type BillingKeyStatus = "ISSUED" | "DELETED";
 
 /**
- * 결제가 발생한 클라이언트 환경
- *
  * 결제가 발생한 클라이언트 환경
  */
 export type PaymentClientType = "SDK_MOBILE" | "SDK_PC" | "API";
 
 /**
  * 통합검색 입력 정보
- *
- * 통합검색 입력 정보
  */
 export type BillingKeyTextSearch = {
-	/**
-	 *
-	 */
 	field: BillingKeyTextSearchField;
-	/**
-	 *
-	 */
 	value: string;
 };
 
 /**
- * PG사 결제 모듈
- *
  * PG사 결제 모듈
  */
 export type PgProvider =
@@ -22156,8 +17777,6 @@ export type PgProvider =
 
 /**
  * 빌링키 결제 수단
- *
- * 빌링키 결제 수단
  */
 export type BillingKeyPaymentMethodType =
 	| "CARD"
@@ -22167,26 +17786,17 @@ export type BillingKeyPaymentMethodType =
 
 /**
  * 포트원 버전
- *
- * 포트원 버전
  */
 export type PortOneVersion = "V1" | "V2";
 
 /**
  * 카드 수단 정보 입력 양식
- *
- * 카드 수단 정보 입력 양식
  */
 export type InstantBillingKeyPaymentMethodInputCard = {
-	/**
-	 *
-	 */
 	credential: CardCredential;
 };
 
 /**
- * 고객 이름 입력 정보
- *
  * 고객 이름 입력 정보
  *
  * 두 개의 이름 형식 중 한 가지만 선택하여 입력해주세요.
@@ -22194,19 +17804,15 @@ export type InstantBillingKeyPaymentMethodInputCard = {
 export type CustomerNameInput = {
 	/**
 	 * 한 줄 이름 형식
-	 *
 	 */
 	full?: string;
 	/**
 	 * 분리형 이름 형식
-	 *
 	 */
 	separated?: CustomerSeparatedName;
 };
 
 /**
- * 성별
- *
  * 성별
  */
 export type Gender = "MALE" | "FEMALE" | "OTHER";
@@ -22214,56 +17820,26 @@ export type Gender = "MALE" | "FEMALE" | "OTHER";
 /**
  * 요청된 입력 정보가 유효하지 않은 경우
  *
- * 요청된 입력 정보가 유효하지 않은 경우
- *
  * 허가되지 않은 값, 올바르지 않은 형식의 요청 등이 모두 해당됩니다.
  */
 export type ChannelSpecificFailureInvalidRequest = {
-	/**
-	 *
-	 */
 	type: "INVALID_REQUEST";
-	/**
-	 *
-	 */
 	channel: SelectedChannel;
-	/**
-	 *
-	 */
 	message?: string;
 };
 
 /**
  * PG사에서 오류를 전달한 경우
- *
- * PG사에서 오류를 전달한 경우
  */
 export type ChannelSpecificFailurePgProvider = {
-	/**
-	 *
-	 */
 	type: "PG_PROVIDER";
-	/**
-	 *
-	 */
 	channel: SelectedChannel;
-	/**
-	 *
-	 */
 	message?: string;
-	/**
-	 *
-	 */
 	pgCode: string;
-	/**
-	 *
-	 */
 	pgMessage: string;
 };
 
 /**
- * 결제수단 정보
- *
  * 결제수단 정보
  */
 export type PaymentMethod =
@@ -22276,28 +17852,22 @@ export type PaymentMethod =
 
 /**
  * 결제 금액 세부 정보
- *
- * 결제 금액 세부 정보
  */
 export type PaymentAmount = {
 	/**
 	 * 총 결제금액
-	 *
 	 */
 	total: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFree: number;
 	/**
 	 * 부가세액
-	 *
 	 */
 	vat?: number;
 	/**
 	 * 공급가액
-	 *
 	 */
 	supply?: number;
 	/**
@@ -22308,24 +17878,19 @@ export type PaymentAmount = {
 	discount: number;
 	/**
 	 * 실제 결제금액
-	 *
 	 */
 	paid: number;
 	/**
 	 * 취소금액
-	 *
 	 */
 	cancelled: number;
 	/**
 	 * 취소금액 중 면세액
-	 *
 	 */
 	cancelledTaxFree: number;
 };
 
 /**
- * 에스크로 정보
- *
  * 에스크로 정보
  *
  * V1 결제 건의 경우 타입이 REGISTERED 로 고정됩니다.
@@ -22341,8 +17906,6 @@ export type PaymentEscrow =
 
 /**
  * 결제 건 내 현금영수증 정보
- *
- * 결제 건 내 현금영수증 정보
  */
 export type PaymentCashReceipt =
 	| CancelledPaymentCashReceipt
@@ -22351,15 +17914,11 @@ export type PaymentCashReceipt =
 /**
  * 조회 시점 기준
  *
- * 조회 시점 기준
- *
  * 어떤 시점을 기준으로 조회를 할 것인지 선택합니다. CREATED\_AT: 결제 건 생성 시점을 기준으로 조회합니다. STATUS\_CHANGED\_AT: 상태 승인 시점을 기준으로 조회합니다. 결제 건의 최종 상태에 따라 검색 기준이 다르게 적용됩니다. ready -> 결제 요청 시점 기준 paid -> 결제 완료 시점 기준 cancelled -> 결제 취소 시점 기준 failed -> 결제 실패 시점 기준 값을 입력하지 않으면 STATUS\_CHANGED\_AT 으로 자동 적용됩니다.
  */
 export type PaymentTimestampType = "CREATED_AT" | "STATUS_CHANGED_AT";
 
 /**
- * 결제 건 상태
- *
  * 결제 건 상태
  */
 export type PaymentStatus =
@@ -22373,14 +17932,10 @@ export type PaymentStatus =
 
 /**
  * 결제 건 정렬 기준
- *
- * 결제 건 정렬 기준
  */
 export type PaymentSortBy = "REQUESTED_AT" | "STATUS_CHANGED_AT";
 
 /**
- * 웹훅 전송 상태
- *
  * 웹훅 전송 상태
  */
 export type PaymentWebhookStatus =
@@ -22389,8 +17944,6 @@ export type PaymentWebhookStatus =
 	| "FAILED_UNEXPECTED_ERROR";
 
 /**
- * 에스크로 상태
- *
  * 에스크로 상태
  */
 export type PaymentFilterInputEscrowStatus =
@@ -22402,8 +17955,6 @@ export type PaymentFilterInputEscrowStatus =
 	| "REJECT_CONFIRMED";
 
 /**
- * 카드 브랜드
- *
  * 카드 브랜드
  */
 export type CardBrand =
@@ -22417,21 +17968,15 @@ export type CardBrand =
 
 /**
  * 카드 유형
- *
- * 카드 유형
  */
 export type CardType = "CREDIT" | "DEBIT" | "GIFT";
 
 /**
  * 카드 소유주 유형
- *
- * 카드 소유주 유형
  */
 export type CardOwnerType = "PERSONAL" | "CORPORATE";
 
 /**
- * 상품권 종류
- *
  * 상품권 종류
  */
 export type PaymentMethodGiftCertificateType =
@@ -22443,53 +17988,31 @@ export type PaymentMethodGiftCertificateType =
 
 /**
  * 입력 시 발급 유형
- *
- * 입력 시 발급 유형
  */
 export type CashReceiptInputType = "PERSONAL" | "CORPORATE" | "NO_RECEIPT";
 
 /**
- * 결제건 내 현금영수증 상태
- *
  * 결제건 내 현금영수증 상태
  */
 export type PaymentCashReceiptStatus = "ISSUED" | "CANCELLED";
 
 /**
  * 시간 범위
- *
- * 시간 범위
  */
 export type DateTimeRange = {
-	/**
-	 *
-	 */
 	from: string;
-	/**
-	 *
-	 */
 	until: string;
 };
 
 /**
  * 통합검색 입력 정보
- *
- * 통합검색 입력 정보
  */
 export type PaymentTextSearch = {
-	/**
-	 *
-	 */
 	field: PaymentTextSearchField;
-	/**
-	 *
-	 */
 	value: string;
 };
 
 /**
- * 결제 예약 건 정렬 기준
- *
  * 결제 예약 건 정렬 기준
  */
 export type PaymentScheduleSortBy =
@@ -22498,8 +18021,6 @@ export type PaymentScheduleSortBy =
 	| "COMPLETED_AT";
 
 /**
- * 결제 예약 건 상태
- *
  * 결제 예약 건 상태
  */
 export type PaymentScheduleStatus =
@@ -22512,249 +18033,190 @@ export type PaymentScheduleStatus =
 
 /**
  * 취소 실패 상태
- *
- * 취소 실패 상태
  */
 export type FailedPaymentCancellation = {
-	/**
-	 *
-	 */
 	status: "FAILED";
 	/**
 	 * 취소 내역 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * PG사 결제 취소 내역 아이디
-	 *
 	 */
 	pgCancellationId?: string;
 	/**
 	 * 취소 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 취소 금액 중 면세 금액
-	 *
 	 */
 	taxFreeAmount: number;
 	/**
 	 * 취소 금액 중 부가세액
-	 *
 	 */
 	vatAmount: number;
 	/**
 	 * 적립형 포인트의 환불 금액
-	 *
 	 */
 	easyPayDiscountAmount?: number;
 	/**
 	 * 취소 사유
-	 *
 	 */
 	reason: string;
 	/**
 	 * 취소 시점
-	 *
 	 */
 	cancelledAt?: string;
 	/**
 	 * 취소 요청 시점
-	 *
 	 */
 	requestedAt: string;
 };
 
 /**
- * 취소 요청 상태
- *
  * 취소 요청 상태
  */
 export type RequestedPaymentCancellation = {
-	/**
-	 *
-	 */
 	status: "REQUESTED";
 	/**
 	 * 취소 내역 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * PG사 결제 취소 내역 아이디
-	 *
 	 */
 	pgCancellationId?: string;
 	/**
 	 * 취소 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 취소 금액 중 면세 금액
-	 *
 	 */
 	taxFreeAmount: number;
 	/**
 	 * 취소 금액 중 부가세액
-	 *
 	 */
 	vatAmount: number;
 	/**
 	 * 적립형 포인트의 환불 금액
-	 *
 	 */
 	easyPayDiscountAmount?: number;
 	/**
 	 * 취소 사유
-	 *
 	 */
 	reason: string;
 	/**
 	 * 취소 시점
-	 *
 	 */
 	cancelledAt?: string;
 	/**
 	 * 취소 요청 시점
-	 *
 	 */
 	requestedAt: string;
 };
 
 /**
  * 취소 완료 상태
- *
- * 취소 완료 상태
  */
 export type SucceededPaymentCancellation = {
-	/**
-	 *
-	 */
 	status: "SUCCEEDED";
 	/**
 	 * 취소 내역 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * PG사 결제 취소 내역 아이디
-	 *
 	 */
 	pgCancellationId?: string;
 	/**
 	 * 취소 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 취소 금액 중 면세 금액
-	 *
 	 */
 	taxFreeAmount: number;
 	/**
 	 * 취소 금액 중 부가세액
-	 *
 	 */
 	vatAmount: number;
 	/**
 	 * 적립형 포인트의 환불 금액
-	 *
 	 */
 	easyPayDiscountAmount?: number;
 	/**
 	 * 취소 사유
-	 *
 	 */
 	reason: string;
 	/**
 	 * 취소 시점
-	 *
 	 */
 	cancelledAt?: string;
 	/**
 	 * 취소 요청 시점
-	 *
 	 */
 	requestedAt: string;
 	/**
 	 * 취소 영수증 URL
-	 *
 	 */
 	receiptUrl?: string;
 };
 
 /**
  * 카드 수단 정보 입력 정보
- *
- * 카드 수단 정보 입력 정보
  */
 export type InstantPaymentMethodInputCard = {
 	/**
 	 * 카드 인증 관련 정보
-	 *
 	 */
 	credential: CardCredential;
 	/**
 	 * 카드 할부 개월 수
-	 *
 	 */
 	installmentMonth?: number;
 	/**
 	 * 무이자 할부 적용 여부
-	 *
 	 */
 	useFreeInstallmentPlan?: boolean;
 	/**
 	 * 무이자 할부 이자를 고객사가 부담할지 여부
-	 *
 	 */
 	useFreeInterestFromMerchant?: boolean;
 	/**
 	 * 카드 포인트 사용 여부
-	 *
 	 */
 	useCardPoint?: boolean;
 };
 
 /**
  * 가상계좌 수단 정보 입력 정보
- *
- * 가상계좌 수단 정보 입력 정보
  */
 export type InstantPaymentMethodInputVirtualAccount = {
 	/**
 	 * 은행
-	 *
 	 */
 	bank: Bank;
 	/**
 	 * 입금 만료 기한
-	 *
 	 */
 	expiry: InstantPaymentMethodInputVirtualAccountExpiry;
 	/**
 	 * 가상계좌 유형
-	 *
 	 */
 	option: InstantPaymentMethodInputVirtualAccountOption;
 	/**
 	 * 현금영수증 정보
-	 *
 	 */
 	cashReceipt: InstantPaymentMethodInputVirtualAccountCashReceiptInfo;
 	/**
 	 * 예금주명
-	 *
 	 */
 	remitteeName?: string;
 };
 
 /**
- * 물류 회사
- *
  * 물류 회사
  */
 export type PaymentLogisticsCompany =
@@ -22791,8 +18253,6 @@ export type PaymentLogisticsCompany =
 
 /**
  * 웹훅 발송 시 결제 건 상태
- *
- * 웹훅 발송 시 결제 건 상태
  */
 export type PaymentWebhookPaymentStatus =
 	| "READY"
@@ -22804,8 +18264,6 @@ export type PaymentWebhookPaymentStatus =
 	| "PAY_PENDING";
 
 /**
- * 웹훅 실행 트리거
- *
  * 웹훅 실행 트리거
  *
  * 수동 웹훅 재발송, 가상계좌 입금, 비동기 취소 승인 시 발생한 웹훅일 때 필드의 값이 존재합니다.
@@ -22820,122 +18278,87 @@ export type PaymentWebhookTrigger =
 
 /**
  * 웹훅 요청 정보
- *
- * 웹훅 요청 정보
  */
 export type PaymentWebhookRequest = {
 	/**
 	 * 요청 헤더
-	 *
 	 */
 	header?: string;
 	/**
 	 * 요청 본문
-	 *
 	 */
 	body: string;
 	/**
 	 * 요청 시점
-	 *
 	 */
 	requestedAt?: string;
 };
 
 /**
  * 웹훅 응답 정보
- *
- * 웹훅 응답 정보
  */
 export type PaymentWebhookResponse = {
 	/**
 	 * 응답 HTTP 코드
-	 *
 	 */
 	code: string;
 	/**
 	 * 응답 헤더
-	 *
 	 */
 	header: string;
 	/**
 	 * 응답 본문
-	 *
 	 */
 	body: string;
 	/**
 	 * 응답 시점
-	 *
 	 */
 	respondedAt: string;
 };
 
 /**
  * 분
- *
- * 분
  */
 export type AnalyticsTimeGranularityMinute = {};
 
 /**
- * 시간
- *
  * 시간
  */
 export type AnalyticsTimeGranularityHour = {};
 
 /**
  * 일
- *
- * 일
  */
 export type AnalyticsTimeGranularityDay = {
-	/**
-	 *
-	 */
 	timezoneHourOffset: number;
 };
 
 /**
- * 주
- *
  * 주
  */
 export type AnalyticsTimeGranularityWeek = {
-	/**
-	 *
-	 */
 	timezoneHourOffset: number;
 };
 
 /**
- * 월
- *
  * 월
  */
 export type AnalyticsTimeGranularityMonth = {
-	/**
-	 *
-	 */
 	timezoneHourOffset: number;
 };
 
 /**
- * 과세 유형
- *
  * 과세 유형
  */
 export type B2bTaxType = "TAXABLE" | "ZERO_RATED" | "FREE";
 
 /**
  * 영수/청구
- *
- * 영수/청구
  */
 export type B2bTaxInvoicePurposeType = "RECEIPT" | "INVOICE" | "NONE";
 
 /**
  * B2bTaxInvoiceCompany
- *
  */
 export type B2bTaxInvoiceCompany = {
 	/**
@@ -22982,32 +18405,25 @@ export type B2bTaxInvoiceCompany = {
 	businessClass?: string;
 	/**
 	 * 담당자
-	 *
 	 */
 	contact?: B2bTaxInvoiceContact;
 };
 
 /**
  * 세금 계산서 수정
- *
- * 세금 계산서 수정
  */
 export type B2bModification = {
 	/**
 	 * 수정 사유
-	 *
 	 */
 	type: B2bTaxInvoiceModificationType;
 	/**
 	 * 수정 대상 원본 세금계산서 국세청 승인 번호
-	 *
 	 */
 	originalNtsApproveNumber: string;
 };
 
 /**
- * 품목
- *
  * 품목
  */
 export type B2bTaxInvoiceItem = {
@@ -23055,24 +18471,19 @@ export type B2bTaxInvoiceItem = {
 	unitCostAmountScale?: number;
 	/**
 	 * 공급가액
-	 *
 	 */
 	supplyCostAmount?: number;
 	/**
 	 * 세액
-	 *
 	 */
 	taxAmount?: number;
 	/**
 	 * 비고
-	 *
 	 */
 	remark?: string;
 };
 
 /**
- * 추가 담당자
- *
  * 추가 담당자
  */
 export type B2bTaxInvoiceAdditionalContact = {
@@ -23084,14 +18495,12 @@ export type B2bTaxInvoiceAdditionalContact = {
 	name?: string;
 	/**
 	 * 이메일
-	 *
 	 */
 	email: string;
 };
 
 /**
  * B2bTaxInvoiceStatus
- *
  */
 export type B2bTaxInvoiceStatus =
 	| "REGISTERED"
@@ -23108,15 +18517,12 @@ export type B2bTaxInvoiceStatus =
 
 /**
  * PromotionDiscount
- *
  */
 export type PromotionDiscount =
 	| PromotionAmountDiscount
 	| PromotionPercentDiscount;
 
 /**
- * 프로모션 적용 가능한 카드사
- *
  * 프로모션 적용 가능한 카드사
  */
 export type PromotionCardCompany =
@@ -23132,7 +18538,6 @@ export type PromotionCardCompany =
 
 /**
  * PromotionStatus
- *
  */
 export type PromotionStatus =
 	| "SCHEDULED"
@@ -23144,140 +18549,68 @@ export type PromotionStatus =
 
 /**
  * PlatformSettlementFormulaInvalidFunction
- *
  */
 export type PlatformSettlementFormulaInvalidFunction = {
-	/**
-	 *
-	 */
 	type: "INVALID_FUNCTION";
-	/**
-	 *
-	 */
 	name: string;
-	/**
-	 *
-	 */
 	position: PlatformSettlementFormulaPosition;
 };
 
 /**
  * PlatformSettlementFormulaInvalidOperator
- *
  */
 export type PlatformSettlementFormulaInvalidOperator = {
-	/**
-	 *
-	 */
 	type: "INVALID_OPERATOR";
-	/**
-	 *
-	 */
 	operator: string;
-	/**
-	 *
-	 */
 	position: PlatformSettlementFormulaPosition;
 };
 
 /**
  * PlatformSettlementFormulaInvalidSyntax
- *
  */
 export type PlatformSettlementFormulaInvalidSyntax = {
-	/**
-	 *
-	 */
 	type: "INVALID_SYNTAX";
-	/**
-	 *
-	 */
 	syntax: string;
-	/**
-	 *
-	 */
 	position: PlatformSettlementFormulaPosition;
 };
 
 /**
  * PlatformSettlementFormulaInvalidVariable
- *
  */
 export type PlatformSettlementFormulaInvalidVariable = {
-	/**
-	 *
-	 */
 	type: "INVALID_VARIABLE";
-	/**
-	 *
-	 */
 	name: string;
-	/**
-	 *
-	 */
 	position: PlatformSettlementFormulaPosition;
 };
 
 /**
  * PlatformSettlementFormulaUnexpectedFunctionArguments
- *
  */
 export type PlatformSettlementFormulaUnexpectedFunctionArguments = {
-	/**
-	 *
-	 */
 	type: "UNEXPECTED_FUNCTION_ARGUMENTS";
-	/**
-	 *
-	 */
 	functionName: string;
-	/**
-	 *
-	 */
 	expectedCount: number;
-	/**
-	 *
-	 */
 	currentCount: number;
-	/**
-	 *
-	 */
 	position: PlatformSettlementFormulaPosition;
 };
 
 /**
  * PlatformSettlementFormulaUnknownError
- *
  */
 export type PlatformSettlementFormulaUnknownError = {
-	/**
-	 *
-	 */
 	type: "UNKNOWN_ERROR";
 };
 
 /**
  * PlatformSettlementFormulaUnsupportedVariable
- *
  */
 export type PlatformSettlementFormulaUnsupportedVariable = {
-	/**
-	 *
-	 */
 	type: "UNSUPPORTED_VARIABLE";
-	/**
-	 *
-	 */
 	name: string;
-	/**
-	 *
-	 */
 	position: PlatformSettlementFormulaPosition;
 };
 
 /**
- * 플랫폼 파트너 과세 유형
- *
  * 플랫폼 파트너 과세 유형
  */
 export type PlatformPartnerTaxationType =
@@ -23287,8 +18620,6 @@ export type PlatformPartnerTaxationType =
 	| "TAX_FREE";
 
 /**
- * 플랫폼 파트너 사업자 상태
- *
  * 플랫폼 파트너 사업자 상태
  */
 export type PlatformPartnerBusinessStatus =
@@ -23302,49 +18633,40 @@ export type PlatformPartnerBusinessStatus =
 
 /**
  * SchedulePlatformPartnersBodyUpdateTypeBusiness
- *
  */
 export type SchedulePlatformPartnersBodyUpdateTypeBusiness = {
 	/**
 	 * 상호명
-	 *
 	 */
 	companyName?: string;
 	/**
 	 * 사업자 유형
-	 *
 	 */
 	taxationType?: PlatformPartnerTaxationType;
 	/**
 	 * 사업자등록번호
-	 *
 	 */
 	businessRegistrationNumber?: string;
 	/**
 	 * 대표자 이름
-	 *
 	 */
 	representativeName?: string;
 	/**
 	 * 사업장 주소
-	 *
 	 */
 	companyAddress?: string;
 	/**
 	 * 업태
-	 *
 	 */
 	businessType?: string;
 	/**
 	 * 업종
-	 *
 	 */
 	businessClass?: string;
 };
 
 /**
  * SchedulePlatformPartnersBodyUpdateTypeWhtPayer
- *
  */
 export type SchedulePlatformPartnersBodyUpdateTypeWhtPayer = {
 	/**
@@ -23357,7 +18679,6 @@ export type SchedulePlatformPartnersBodyUpdateTypeWhtPayer = {
 
 /**
  * SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer
- *
  */
 export type SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer = {
 	/**
@@ -23370,254 +18691,174 @@ export type SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer = {
 
 /**
  * PlatformSettlementCycleMethodDailyInput
- *
  */
 export type PlatformSettlementCycleMethodDailyInput = {};
 
 /**
  * PlatformSettlementCycleMethodWeeklyInput
- *
  */
 export type PlatformSettlementCycleMethodWeeklyInput = {
 	/**
 	 * 요일
-	 *
 	 */
 	daysOfWeek: DayOfWeek[];
 };
 
 /**
  * PlatformSettlementCycleMethodMonthlyInput
- *
  */
 export type PlatformSettlementCycleMethodMonthlyInput = {
-	/**
-	 *
-	 */
 	daysOfMonth: number[];
 };
 
 /**
  * PlatformSettlementCycleMethodManualDatesInput
- *
  */
 export type PlatformSettlementCycleMethodManualDatesInput = {
 	/**
 	 * 월 및 일자 정보
-	 *
 	 */
 	dates: MonthDay[];
 };
 
 /**
  * 매일 정산
- *
- * 매일 정산
  */
 export type PlatformSettlementCycleMethodDaily = {
-	/**
-	 *
-	 */
 	type: "DAILY";
 };
 
 /**
  * 정해진 날짜(월, 일)에 정산
- *
- * 정해진 날짜(월, 일)에 정산
  */
 export type PlatformSettlementCycleMethodManualDates = {
-	/**
-	 *
-	 */
 	type: "MANUAL_DATES";
 	/**
 	 * 월 및 일자 정보
-	 *
 	 */
 	dates: MonthDay[];
 };
 
 /**
  * 매월 정해진 날(일)에 정산
- *
- * 매월 정해진 날(일)에 정산
  */
 export type PlatformSettlementCycleMethodMonthly = {
-	/**
-	 *
-	 */
 	type: "MONTHLY";
-	/**
-	 *
-	 */
 	daysOfMonth: number[];
 };
 
 /**
  * 매주 정해진 요일에 정산
- *
- * 매주 정해진 요일에 정산
  */
 export type PlatformSettlementCycleMethodWeekly = {
-	/**
-	 *
-	 */
 	type: "WEEKLY";
 	/**
 	 * 요일
-	 *
 	 */
 	daysOfWeek: DayOfWeek[];
 };
 
 /**
  * 외부 결제 정보
- *
- * 외부 결제 정보
  */
 export type PlatformExternalPayment = {
-	/**
-	 *
-	 */
 	type: "EXTERNAL";
 	/**
 	 * 결제 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 주문 명
-	 *
 	 */
 	orderName?: string;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 결제 수단
-	 *
 	 */
 	method?: PlatformPaymentMethod;
 	/**
 	 * 결제 일시
-	 *
 	 */
 	paidAt?: string;
 };
 
 /**
  * 포트원 결제 정보
- *
- * 포트원 결제 정보
  */
 export type PlatformPortOnePayment = {
-	/**
-	 *
-	 */
 	type: "PORT_ONE";
 	/**
 	 * 결제 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 상점 아이디
-	 *
 	 */
 	storeId: string;
 	/**
 	 * 채널 키
-	 *
 	 */
 	channelKey: string;
 	/**
 	 * 주문 명
-	 *
 	 */
 	orderName: string;
 	/**
 	 * 결제 수단
-	 *
 	 */
 	method?: PlatformPaymentMethod;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 결제 일시
-	 *
 	 */
 	paidAt: string;
 };
 
 /**
  * 상품
- *
- * 상품
  */
 export type PlatformOrderTransferProduct = {
 	/**
 	 * 상품 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 상품 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 상품 금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 상품 면세 금액
-	 *
 	 */
 	taxFreeAmount: number;
 	/**
 	 * 태그
-	 *
 	 */
 	tag?: string;
 };
 
 /**
  * PlatformTransferSummaryPartner
- *
  */
 export type PlatformTransferSummaryPartner = {
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	graphqlId: string;
-	/**
-	 *
-	 */
 	name: string;
-	/**
-	 *
-	 */
 	type: PlatformTransferSummaryPartnerType;
-	/**
-	 *
-	 */
 	taxationType?: PlatformPartnerTaxationType;
 };
 
 /**
  * PlatformTransferSummaryPayment
- *
  */
 export type PlatformTransferSummaryPayment =
 	| PlatformTransferSummaryExternalPayment
@@ -23625,185 +18866,134 @@ export type PlatformTransferSummaryPayment =
 
 /**
  * 상품
- *
- * 상품
  */
 export type CreatePlatformOrderTransferBodyProduct = {
 	/**
 	 * 상품 아이디
-	 *
 	 */
 	id: string;
 	/**
 	 * 상품 이름
-	 *
 	 */
 	name: string;
 	/**
 	 * 상품 금액
-	 *
 	 */
 	amount: number;
 	/**
 	 * 상품 면세 금액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 태그
-	 *
 	 */
 	tag?: string;
 };
 
 /**
  * PlatformPaymentMethodCardInput
- *
  */
 export type PlatformPaymentMethodCardInput = {};
 
 /**
  * PlatformPaymentMethodTransferInput
- *
  */
 export type PlatformPaymentMethodTransferInput = {};
 
 /**
  * PlatformPaymentMethodVirtualAccountInput
- *
  */
 export type PlatformPaymentMethodVirtualAccountInput = {};
 
 /**
  * PlatformPaymentMethodGiftCertificateInput
- *
  */
 export type PlatformPaymentMethodGiftCertificateInput = {};
 
 /**
  * PlatformPaymentMethodMobileInput
- *
  */
 export type PlatformPaymentMethodMobileInput = {};
 
 /**
  * 간편 결제 입력 정보
- *
- * 간편 결제 입력 정보
  */
 export type PlatformPaymentMethodEasyPayInput = {
 	/**
 	 * 간편 결제사
-	 *
 	 */
 	provider?: EasyPayProvider;
 	/**
 	 * 간편 결제 수단
-	 *
 	 */
 	methodType?: EasyPayMethodType;
 };
 
 /**
  * 채널 타입
- *
- * 채널 타입
  */
 export type SelectedChannelType = "LIVE" | "TEST";
 
 /**
  * 카드 정보
- *
- * 카드 정보
  */
 export type BillingKeyPaymentMethodCard = {
-	/**
-	 *
-	 */
 	type: "BillingKeyPaymentMethodCard";
 	/**
 	 * 카드 상세 정보
-	 *
 	 */
 	card?: Card;
 };
 
 /**
  * 간편 결제 정보
- *
- * 간편 결제 정보
  */
 export type BillingKeyPaymentMethodEasyPay = {
-	/**
-	 *
-	 */
 	type: "BillingKeyPaymentMethodEasyPay";
 	/**
 	 * 간편 결제 PG사
-	 *
 	 */
 	provider?: EasyPayProvider;
 	/**
 	 * 간편 결제 수단
-	 *
 	 */
 	method?: BillingKeyPaymentMethodEasyPayMethod;
 };
 
 /**
  * 모바일 정보
- *
- * 모바일 정보
  */
 export type BillingKeyPaymentMethodMobile = {
-	/**
-	 *
-	 */
 	type: "BillingKeyPaymentMethodMobile";
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 };
 
 /**
  * 페이팔 정보
- *
- * 페이팔 정보
  */
 export type BillingKeyPaymentMethodPaypal = {
-	/**
-	 *
-	 */
 	type: "BillingKeyPaymentMethodPaypal";
 };
 
 /**
  * 계좌이체 정보
- *
- * 계좌이체 정보
  */
 export type BillingKeyPaymentMethodTransfer = {
-	/**
-	 *
-	 */
 	type: "BillingKeyPaymentMethodTransfer";
 	/**
 	 * 표준 은행 코드
-	 *
 	 */
 	bank?: Bank;
 	/**
 	 * 계좌번호
-	 *
 	 */
 	accountNumber?: string;
 };
 
 /**
- * 분리 형식 주소
- *
  * 분리 형식 주소
  *
  * oneLine(한 줄 형식 주소) 필드는 항상 존재합니다.
@@ -23812,13 +19002,8 @@ export type Address = OneLineAddress | SeparatedAddress;
 
 /**
  * 빌링키 발급 실패 채널 응답
- *
- * 빌링키 발급 실패 채널 응답
  */
 export type FailedPgBillingKeyIssueResponse = {
-	/**
-	 *
-	 */
 	type: "FAILED";
 	/**
 	 * 채널
@@ -23828,20 +19013,14 @@ export type FailedPgBillingKeyIssueResponse = {
 	channel: SelectedChannel;
 	/**
 	 * 발급 실패 상세 정보
-	 *
 	 */
 	failure: BillingKeyFailure;
 };
 
 /**
  * 빌링키 발급 성공 채널 응답
- *
- * 빌링키 발급 성공 채널 응답
  */
 export type IssuedPgBillingKeyIssueResponse = {
-	/**
-	 *
-	 */
 	type: "ISSUED";
 	/**
 	 * 채널
@@ -23851,7 +19030,6 @@ export type IssuedPgBillingKeyIssueResponse = {
 	channel: SelectedChannel;
 	/**
 	 * PG사 거래 아이디
-	 *
 	 */
 	pgTxId?: string;
 	/**
@@ -23863,8 +19041,6 @@ export type IssuedPgBillingKeyIssueResponse = {
 };
 
 /**
- * 통합검색 항목
- *
  * 통합검색 항목
  */
 export type BillingKeyTextSearchField =
@@ -23882,538 +19058,390 @@ export type BillingKeyTextSearchField =
 
 /**
  * 카드 인증 관련 정보
- *
- * 카드 인증 관련 정보
  */
 export type CardCredential = {
 	/**
 	 * 카드 번호 (숫자만)
-	 *
 	 */
 	number: string;
 	/**
 	 * 유효 기간 만료 연도 (2자리)
-	 *
 	 */
 	expiryYear: string;
 	/**
 	 * 유효 기간 만료 월 (2자리)
-	 *
 	 */
 	expiryMonth: string;
 	/**
 	 * 생년월일 (yyMMdd) 또는 사업자 등록 번호 (10자리, 숫자만)
-	 *
 	 */
 	birthOrBusinessRegistrationNumber?: string;
 	/**
 	 * 비밀번호 앞 2자리
-	 *
 	 */
 	passwordTwoDigits?: string;
 };
 
 /**
  * 고객 분리형 이름
- *
- * 고객 분리형 이름
  */
 export type CustomerSeparatedName = {
 	/**
 	 * 이름
-	 *
 	 */
 	first: string;
 	/**
 	 * 성
-	 *
 	 */
 	last: string;
 };
 
 /**
  * 결제수단 카드 정보
- *
- * 결제수단 카드 정보
  */
 export type PaymentMethodCard = {
-	/**
-	 *
-	 */
 	type: "PaymentMethodCard";
 	/**
 	 * 카드 상세 정보
-	 *
 	 */
 	card?: Card;
 	/**
 	 * 승인 번호
-	 *
 	 */
 	approvalNumber?: string;
 	/**
 	 * 할부 정보
-	 *
 	 */
 	installment?: PaymentInstallment;
 	/**
 	 * 카드 포인트 사용여부
-	 *
 	 */
 	pointUsed?: boolean;
 };
 
 /**
  * 간편 결제 상세 정보
- *
- * 간편 결제 상세 정보
  */
 export type PaymentMethodEasyPay = {
-	/**
-	 *
-	 */
 	type: "PaymentMethodEasyPay";
 	/**
 	 * 간편 결제 PG사
-	 *
 	 */
 	provider?: EasyPayProvider;
 	/**
 	 * 간편 결제 수단
-	 *
 	 */
 	easyPayMethod?: PaymentMethodEasyPayMethod;
 };
 
 /**
  * 상품권 상세 정보
- *
- * 상품권 상세 정보
  */
 export type PaymentMethodGiftCertificate = {
-	/**
-	 *
-	 */
 	type: "PaymentMethodGiftCertificate";
 	/**
 	 * 상품권 종류
-	 *
 	 */
 	giftCertificateType?: PaymentMethodGiftCertificateType;
 	/**
 	 * 상품권 승인 번호
-	 *
 	 */
 	approvalNumber: string;
 };
 
 /**
  * 모바일 상세 정보
- *
- * 모바일 상세 정보
  */
 export type PaymentMethodMobile = {
-	/**
-	 *
-	 */
 	type: "PaymentMethodMobile";
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 };
 
 /**
  * 계좌 이체 상세 정보
- *
- * 계좌 이체 상세 정보
  */
 export type PaymentMethodTransfer = {
-	/**
-	 *
-	 */
 	type: "PaymentMethodTransfer";
 	/**
 	 * 표준 은행 코드
-	 *
 	 */
 	bank?: Bank;
 };
 
 /**
  * 가상계좌 상세 정보
- *
- * 가상계좌 상세 정보
  */
 export type PaymentMethodVirtualAccount = {
-	/**
-	 *
-	 */
 	type: "PaymentMethodVirtualAccount";
 	/**
 	 * 표준 은행 코드
-	 *
 	 */
 	bank?: Bank;
 	/**
 	 * 계좌번호
-	 *
 	 */
 	accountNumber: string;
 	/**
 	 * 계좌 유형
-	 *
 	 */
 	accountType?: PaymentMethodVirtualAccountType;
 	/**
 	 * 계좌주
-	 *
 	 */
 	remitteeName?: string;
 	/**
 	 * 송금인(입금자)
-	 *
 	 */
 	remitterName?: string;
 	/**
 	 * 입금만료시점
-	 *
 	 */
 	expiredAt?: string;
 	/**
 	 * 계좌발급시점
-	 *
 	 */
 	issuedAt?: string;
 	/**
 	 * 가상계좌 결제가 환불 단계일 때의 환불 상태
-	 *
 	 */
 	refundStatus?: PaymentMethodVirtualAccountRefundStatus;
 };
 
 /**
  * 배송 정보 등록 전
- *
- * 배송 정보 등록 전
  */
 export type BeforeRegisteredPaymentEscrow = {
-	/**
-	 *
-	 */
 	status: "BEFORE_REGISTERED";
 };
 
 /**
  * 거래 취소
- *
- * 거래 취소
  */
 export type CancelledPaymentEscrow = {
-	/**
-	 *
-	 */
 	status: "CANCELLED";
 	/**
 	 * 택배사
-	 *
 	 */
 	company: string;
 	/**
 	 * 송장번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 일시
-	 *
 	 */
 	sentAt?: string;
 	/**
 	 * 배송등록 처리 일자
-	 *
 	 */
 	appliedAt?: string;
 };
 
 /**
  * 구매 확정
- *
- * 구매 확정
  */
 export type ConfirmedPaymentEscrow = {
-	/**
-	 *
-	 */
 	status: "CONFIRMED";
 	/**
 	 * 택배사
-	 *
 	 */
 	company: string;
 	/**
 	 * 송장번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 일시
-	 *
 	 */
 	sentAt?: string;
 	/**
 	 * 배송등록 처리 일자
-	 *
 	 */
 	appliedAt?: string;
 	/**
 	 * 자동 구매 확정 처리 여부
-	 *
 	 */
 	isAutomaticallyConfirmed: boolean;
 };
 
 /**
  * 배송 완료
- *
- * 배송 완료
  */
 export type DeliveredPaymentEscrow = {
-	/**
-	 *
-	 */
 	status: "DELIVERED";
 	/**
 	 * 택배사
-	 *
 	 */
 	company: string;
 	/**
 	 * 송장번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 일시
-	 *
 	 */
 	sentAt?: string;
 	/**
 	 * 배송등록 처리 일자
-	 *
 	 */
 	appliedAt?: string;
 };
 
 /**
- * 배송 정보 등록 완료
- *
  * 배송 정보 등록 완료
  */
 export type RegisteredPaymentEscrow = {
-	/**
-	 *
-	 */
 	status: "REGISTERED";
 	/**
 	 * 택배사
-	 *
 	 */
 	company: string;
 	/**
 	 * 송장번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 일시
-	 *
 	 */
 	sentAt?: string;
 	/**
 	 * 배송등록 처리 일자
-	 *
 	 */
 	appliedAt?: string;
 };
 
 /**
- * 구매 거절
- *
  * 구매 거절
  */
 export type RejectedPaymentEscrow = {
-	/**
-	 *
-	 */
 	status: "REJECTED";
 	/**
 	 * 택배사
-	 *
 	 */
 	company: string;
 	/**
 	 * 송장번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 일시
-	 *
 	 */
 	sentAt?: string;
 	/**
 	 * 배송등록 처리 일자
-	 *
 	 */
 	appliedAt?: string;
 };
 
 /**
- * 구매 거절 확정
- *
  * 구매 거절 확정
  */
 export type RejectConfirmedPaymentEscrow = {
-	/**
-	 *
-	 */
 	status: "REJECT_CONFIRMED";
 	/**
 	 * 택배사
-	 *
 	 */
 	company: string;
 	/**
 	 * 송장번호
-	 *
 	 */
 	invoiceNumber: string;
 	/**
 	 * 발송 일시
-	 *
 	 */
 	sentAt?: string;
 	/**
 	 * 배송등록 처리 일자
-	 *
 	 */
 	appliedAt?: string;
 };
 
 /**
  * 취소된 현금영수증
- *
- * 취소된 현금영수증
  */
 export type CancelledPaymentCashReceipt = {
-	/**
-	 *
-	 */
 	status: "CANCELLED";
 	/**
 	 * 현금영수증 유형
-	 *
 	 */
 	type?: CashReceiptType;
 	/**
 	 * PG사 영수증 발급 아이디
-	 *
 	 */
 	pgReceiptId?: string;
 	/**
 	 * 승인 번호
-	 *
 	 */
 	issueNumber: string;
 	/**
 	 * 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 현금영수증 URL
-	 *
 	 */
 	url?: string;
 	/**
 	 * 발급 시점
-	 *
 	 */
 	issuedAt: string;
 	/**
 	 * 취소 시점
-	 *
 	 */
 	cancelledAt: string;
 };
 
 /**
  * 발급 완료된 현금영수증
- *
- * 발급 완료된 현금영수증
  */
 export type IssuedPaymentCashReceipt = {
-	/**
-	 *
-	 */
 	status: "ISSUED";
 	/**
 	 * 현금영수증 유형
-	 *
 	 */
 	type?: CashReceiptType;
 	/**
 	 * PG사 영수증 발급 아이디
-	 *
 	 */
 	pgReceiptId?: string;
 	/**
 	 * 승인 번호
-	 *
 	 */
 	issueNumber: string;
 	/**
 	 * 총 금액
-	 *
 	 */
 	totalAmount: number;
 	/**
 	 * 면세액
-	 *
 	 */
 	taxFreeAmount?: number;
 	/**
 	 * 통화
-	 *
 	 */
 	currency: Currency;
 	/**
 	 * 현금영수증 URL
-	 *
 	 */
 	url?: string;
 	/**
 	 * 발급 시점
-	 *
 	 */
 	issuedAt: string;
 };
 
 /**
- * 통합검색 항목
- *
  * 통합검색 항목
  */
 export type PaymentTextSearchField =
@@ -24453,8 +19481,6 @@ export type PaymentTextSearchField =
 /**
  * 입금 만료 기한
  *
- * 입금 만료 기한
- *
  * validHours와 dueDate 둘 중 하나의 필드만 입력합니다.
  */
 export type InstantPaymentMethodInputVirtualAccountExpiry = {
@@ -24466,20 +19492,16 @@ export type InstantPaymentMethodInputVirtualAccountExpiry = {
 	validHours?: number;
 	/**
 	 * 만료 시점
-	 *
 	 */
 	dueDate?: string;
 };
 
 /**
  * 가상계좌 발급 방식
- *
- * 가상계좌 발급 방식
  */
 export type InstantPaymentMethodInputVirtualAccountOption = {
 	/**
 	 * 발급 유형
-	 *
 	 */
 	type: InstantPaymentMethodInputVirtualAccountOptionType;
 	/**
@@ -24492,58 +19514,45 @@ export type InstantPaymentMethodInputVirtualAccountOption = {
 
 /**
  * 가상계좌 결제 시 현금영수증 정보
- *
- * 가상계좌 결제 시 현금영수증 정보
  */
 export type InstantPaymentMethodInputVirtualAccountCashReceiptInfo = {
 	/**
 	 * 현금영수증 유형
-	 *
 	 */
 	type: CashReceiptInputType;
 	/**
 	 * 사용자 식별 번호
-	 *
 	 */
 	customerIdentityNumber: string;
 };
 
 /**
  * 세금계산서 담당자
- *
- * 세금계산서 담당자
  */
 export type B2bTaxInvoiceContact = {
 	/**
 	 * 성명
-	 *
 	 */
 	name?: string;
 	/**
 	 * 부서
-	 *
 	 */
 	department?: string;
 	/**
 	 * 전화번호
-	 *
 	 */
 	phoneNumber?: string;
 	/**
 	 * 휴대전화번호
-	 *
 	 */
 	mobilePhoneNumber?: string;
 	/**
 	 * 이메일
-	 *
 	 */
 	email?: string;
 };
 
 /**
- * 수정 사유
- *
  * 수정 사유
  */
 export type B2bTaxInvoiceModificationType =
@@ -24556,76 +19565,39 @@ export type B2bTaxInvoiceModificationType =
 
 /**
  * PromotionAmountDiscount
- *
  */
 export type PromotionAmountDiscount = {
-	/**
-	 *
-	 */
 	type: "AMOUNT";
-	/**
-	 *
-	 */
 	amount: number;
 };
 
 /**
  * PromotionPercentDiscount
- *
  */
 export type PromotionPercentDiscount = {
-	/**
-	 *
-	 */
 	type: "PERCENT";
-	/**
-	 *
-	 */
 	percent: number;
 };
 
 /**
  * PlatformSettlementFormulaPosition
- *
  */
 export type PlatformSettlementFormulaPosition = {
-	/**
-	 *
-	 */
 	startLine: number;
-	/**
-	 *
-	 */
 	startIndex: number;
-	/**
-	 *
-	 */
 	endLine: number;
-	/**
-	 *
-	 */
 	endIndex: number;
 };
 
 /**
  * 월 및 일자 정보
- *
- * 월 및 일자 정보
  */
 export type MonthDay = {
-	/**
-	 *
-	 */
 	month: number;
-	/**
-	 *
-	 */
 	day: number;
 };
 
 /**
- * 결제 수단
- *
  * 결제 수단
  */
 export type PlatformPaymentMethod =
@@ -24638,8 +19610,6 @@ export type PlatformPaymentMethod =
 
 /**
  * 파트너 유형
- *
- * 파트너 유형
  */
 export type PlatformTransferSummaryPartnerType =
 	| "BUSINESS"
@@ -24648,116 +19618,70 @@ export type PlatformTransferSummaryPartnerType =
 
 /**
  * PlatformTransferSummaryExternalPayment
- *
  */
 export type PlatformTransferSummaryExternalPayment = {
-	/**
-	 *
-	 */
 	type: "EXTERNAL";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	orderName?: string;
-	/**
-	 *
-	 */
 	currency: Currency;
-	/**
-	 *
-	 */
 	methodType?: PaymentMethodType;
 };
 
 /**
  * PlatformTransferSummaryPortOnePayment
- *
  */
 export type PlatformTransferSummaryPortOnePayment = {
-	/**
-	 *
-	 */
 	type: "PORT_ONE";
-	/**
-	 *
-	 */
 	id: string;
-	/**
-	 *
-	 */
 	orderName: string;
-	/**
-	 *
-	 */
 	currency: Currency;
-	/**
-	 *
-	 */
 	methodType?: PaymentMethodType;
 };
 
 /**
- * 간편 결제 수단
- *
  * 간편 결제 수단
  */
 export type EasyPayMethodType = "CARD" | "TRANSFER" | "CHARGE";
 
 /**
  * 카드 상세 정보
- *
- * 카드 상세 정보
  */
 export type Card = {
 	/**
 	 * 발행사 코드
-	 *
 	 */
 	publisher?: string;
 	/**
 	 * 발급사 코드
-	 *
 	 */
 	issuer?: string;
 	/**
 	 * 카드 브랜드
-	 *
 	 */
 	brand?: CardBrand;
 	/**
 	 * 카드 유형
-	 *
 	 */
 	type?: CardType;
 	/**
 	 * 카드 소유주 유형
-	 *
 	 */
 	ownerType?: CardOwnerType;
 	/**
 	 * 카드 번호 앞 6자리 또는 8자리의 BIN (Bank Identification Number)
-	 *
 	 */
 	bin?: string;
 	/**
 	 * 카드 상품명
-	 *
 	 */
 	name?: string;
 	/**
 	 * 마스킹된 카드 번호
-	 *
 	 */
 	number?: string;
 };
 
 /**
- * 간편 결제 수단
- *
  * 간편 결제 수단
  */
 export type BillingKeyPaymentMethodEasyPayMethod =
@@ -24768,18 +19692,12 @@ export type BillingKeyPaymentMethodEasyPayMethod =
 /**
  * 한 줄 형식 주소
  *
- * 한 줄 형식 주소
- *
  * 한 줄 형식 주소만 존재합니다.
  */
 export type OneLineAddress = {
-	/**
-	 *
-	 */
 	type: "ONE_LINE";
 	/**
 	 * 주소 (한 줄)
-	 *
 	 */
 	oneLine: string;
 };
@@ -24787,96 +19705,73 @@ export type OneLineAddress = {
 /**
  * 분리 형식 주소
  *
- * 분리 형식 주소
- *
  * 한 줄 형식 주소와 분리 형식 주소 모두 존재합니다. 한 줄 형식 주소는 분리 형식 주소를 이어 붙인 형태로 생성됩니다.
  */
 export type SeparatedAddress = {
-	/**
-	 *
-	 */
 	type: "SEPARATED";
 	/**
 	 * 주소 (한 줄)
-	 *
 	 */
 	oneLine: string;
 	/**
 	 * 상세 주소 1
-	 *
 	 */
 	addressLine1: string;
 	/**
 	 * 상세 주소 2
-	 *
 	 */
 	addressLine2: string;
 	/**
 	 * 시/군/구
-	 *
 	 */
 	city?: string;
 	/**
 	 * 주/도/시
-	 *
 	 */
 	province?: string;
 	/**
 	 * 국가
-	 *
 	 */
 	country?: Country;
 };
 
 /**
  * 발급 실패 상세 정보
- *
- * 발급 실패 상세 정보
  */
 export type BillingKeyFailure = {
 	/**
 	 * 실패 사유
-	 *
 	 */
 	message?: string;
 	/**
 	 * PG사 실패 코드
-	 *
 	 */
 	pgCode?: string;
 	/**
 	 * PG사 실패 사유
-	 *
 	 */
 	pgMessage?: string;
 	/**
 	 * 실패 시점
-	 *
 	 */
 	failedAt: string;
 };
 
 /**
  * 할부 정보
- *
- * 할부 정보
  */
 export type PaymentInstallment = {
 	/**
 	 * 할부 개월 수
-	 *
 	 */
 	month: number;
 	/**
 	 * 무이자할부 여부
-	 *
 	 */
 	isInterestFree: boolean;
 };
 
 /**
- * 간편 결제 수단
- *
  * 간편 결제 수단
  */
 export type PaymentMethodEasyPayMethod =
@@ -24886,14 +19781,10 @@ export type PaymentMethodEasyPayMethod =
 
 /**
  * 가상계좌 유형
- *
- * 가상계좌 유형
  */
 export type PaymentMethodVirtualAccountType = "FIXED" | "NORMAL";
 
 /**
- * 가상계좌 환불 상태
- *
  * 가상계좌 환불 상태
  */
 export type PaymentMethodVirtualAccountRefundStatus =
@@ -24904,16 +19795,12 @@ export type PaymentMethodVirtualAccountRefundStatus =
 
 /**
  * 가상계좌 발급 유형
- *
- * 가상계좌 발급 유형
  */
 export type InstantPaymentMethodInputVirtualAccountOptionType =
 	| "NORMAL"
 	| "FIXED";
 
 /**
- * 고정식 가상계좌 발급 유형
- *
  * 고정식 가상계좌 발급 유형
  *
  * pgAccountId, accountNumber 유형 중 한 개의 필드만 입력합니다.
@@ -24935,111 +19822,68 @@ export type InstantPaymentMethodInputVirtualAccountOptionFixed = {
 
 /**
  * 카드
- *
- * 카드
  */
 export type PlatformPaymentMethodCard = {
-	/**
-	 *
-	 */
 	type: "CARD";
 };
 
 /**
  * 간편 결제
- *
- * 간편 결제
  */
 export type PlatformPaymentMethodEasyPay = {
-	/**
-	 *
-	 */
 	type: "EASY_PAY";
 	/**
 	 * 간편 결제사
-	 *
 	 */
 	provider?: EasyPayProvider;
 	/**
 	 * 간편 결제 수단
-	 *
 	 */
 	methodType?: EasyPayMethodType;
 };
 
 /**
  * 상품권
- *
- * 상품권
  */
 export type PlatformPaymentMethodGiftCertificate = {
-	/**
-	 *
-	 */
 	type: "GIFT_CERTIFICATE";
 };
 
 /**
  * 모바일
- *
- * 모바일
  */
 export type PlatformPaymentMethodMobile = {
-	/**
-	 *
-	 */
 	type: "MOBILE";
 };
 
 /**
  * 계좌이체
- *
- * 계좌이체
  */
 export type PlatformPaymentMethodTransfer = {
-	/**
-	 *
-	 */
 	type: "TRANSFER";
 };
 
 /**
  * 가상계좌
- *
- * 가상계좌
  */
 export type PlatformPaymentMethodVirtualAccount = {
-	/**
-	 *
-	 */
 	type: "VIRTUAL_ACCOUNT";
 };
 
 /**
  * 충전식 포인트 결제 정보
- *
- * 충전식 포인트 결제 정보
  */
 export type BillingKeyPaymentMethodEasyPayCharge = {
-	/**
-	 *
-	 */
 	type: "BillingKeyPaymentMethodEasyPayCharge";
 };
 
 /**
  * 충전식 포인트 결제 정보
- *
- * 충전식 포인트 결제 정보
  */
 export type PaymentMethodEasyPayMethodCharge = {
-	/**
-	 *
-	 */
 	type: "PaymentMethodEasyPayMethodCharge";
 	/**
 	 * 표준 은행 코드
-	 *
 	 */
 	bank?: Bank;
 };

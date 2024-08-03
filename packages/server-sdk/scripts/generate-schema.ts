@@ -1,85 +1,11 @@
 import fs from "node:fs/promises";
+import { OpenAPIV3 } from "openapi-types";
 import TurndownService from "turndown";
 
-type TypeSchema = {
-	title?: string;
-	description?: string;
-} & (
-	| {
-			$ref: string;
-	  }
-	| {
-			discriminator: {
-				propertyName: string;
-				mapping: Record<string, string>;
-			};
-	  }
-	| {
-			type: "object";
-			required?: string[];
-			properties?: Record<string, TypeSchema>;
-	  }
-	| {
-			type: "array";
-			items: TypeSchema;
-	  }
-	| {
-			type: "string" | "integer" | "number" | "boolean";
-	  }
-	| {
-			type: "string";
-			enum: string[];
-	  }
-);
-
-type Path = Record<
-	string,
-	Record<
-		string,
-		{
-			"x-portone-title": string;
-			"x-portone-description": string;
-			"x-portone-error": {
-				$ref: string;
-			};
-			requestBody?: {
-				content?: {
-					"application/json"?: {
-						schema?: {
-							$ref?: string;
-						};
-					};
-				};
-			};
-			parameters?: {
-				name: string;
-				in: string;
-				description?: string;
-				required?: boolean;
-				schema: TypeSchema;
-			}[];
-			responses: Record<
-				number,
-				{
-					content?: {
-						"application/json"?: {
-							schema?: {
-								$ref?: string;
-							};
-						};
-					};
-					description?: string;
-				}
-			>;
-		}
-	>
->;
-
-type Document = {
-	paths: Path;
-	components: {
-		schemas: Record<string, TypeSchema>;
-	};
+type PortOneProperty = {
+	"x-portone-title"?: string;
+	"x-portone-description"?: string;
+	"x-portone-error": OpenAPIV3.ReferenceObject;
 };
 
 export async function generateSchema() {
@@ -101,32 +27,28 @@ function TypeGenerator() {
 				this.dependencies.push(name);
 			}
 		},
-		parseDocument(document: Document) {
+		parseDocument(document: OpenAPIV3.Document<PortOneProperty>) {
 			const lines = [];
+			const HttpMethods = Object.values(OpenAPIV3.HttpMethods);
 			lines.push("export type Paths = {");
-			for (const [path, pathSchema] of Object.entries(document.paths as Path)) {
+			for (const [path, pathSchema] of Object.entries(document.paths)) {
 				if (!pathSchema) continue;
-				const methods = Object.entries(pathSchema);
+				const methods = HttpMethods.filter((method) => method in pathSchema);
 				if (methods.length === 0) continue;
 				lines.push(`\t"${path}": {`);
-				for (const [method, methodSchema] of methods) {
+				for (const method of methods) {
+					const methodSchema = pathSchema[method];
+					if (!methodSchema) continue;
 					lines.push(
-						"\t\t/**",
-						...makeComment(methodSchema["x-portone-title"]).map(
-							(line) => `\t\t${line}`,
-						),
-						"\t\t *",
-						...makeComment(methodSchema["x-portone-description"]).map(
-							(line) => `\t\t${line}`,
-						),
-						"\t\t */",
+						...makeComment(
+							methodSchema["x-portone-title"],
+							methodSchema["x-portone-description"],
+						).map((line) => `\t\t${line}`),
 					);
-					const errorRef = methodSchema["x-portone-error"].$ref;
+					const errorRef = methodSchema["x-portone-error"]?.$ref;
 					lines.push(`\t\t${method}: {`);
 					const parameterLines = [];
-					const bodyRef =
-						methodSchema?.requestBody?.content?.["application/json"]?.schema
-							?.$ref;
+					const bodyRef = extractRef(extractJson(methodSchema.requestBody));
 					if (bodyRef) {
 						const name = extractNameFromRef(bodyRef);
 						parameterLines.push(`body: ${name};`);
@@ -137,15 +59,26 @@ function TypeGenerator() {
 							query: [],
 							path: [],
 						};
-						for (const {
-							name,
-							in: where,
-							description,
-							required,
-							schema,
-						} of methodSchema.parameters) {
+						for (const parameter of methodSchema.parameters) {
+							if ("$ref" in parameter) {
+								throw new Error("parameter ref is not implemented", {
+									cause: parameter,
+								});
+							}
+							const {
+								name,
+								in: where,
+								required,
+								schema,
+								description,
+							} = parameter;
 							if (name === "requestBody") continue;
 							const fieldName = required ? name : `${name}?`;
+							if (!schema) {
+								throw new Error("schema is not specified", {
+									cause: parameter,
+								});
+							}
 							if (where in parameters) {
 								parameters[where].push({
 									...this.parseSchema(schema, fieldName),
@@ -181,23 +114,25 @@ function TypeGenerator() {
 					}
 					if (methodSchema.responses) {
 						const errorDescription = [];
-						for (const { description, content } of Object.values(
-							methodSchema.responses,
-						)) {
+						for (const status of Object.values(methodSchema.responses)) {
+							if ("$ref" in status) {
+								throw new Error("status reference is not implemented", {
+									cause: status,
+								});
+							}
+							const { content, description } = status;
 							if (!content) continue;
-							const ref = content["application/json"]?.schema?.$ref;
+							const ref = extractRef(extractJson(status));
 							if (ref !== errorRef) {
 								lines.push(
-									"\t\t\t/**",
 									...makeComment(description).map((line) => `\t\t\t${line}`),
-									"\t\t\t */",
 									`\t\t\tsuccess: ${ref ? extractNameFromRef(ref) : "{}"};`,
 								);
 								if (ref) {
 									this.queueResolution(extractNameFromRef(ref));
 								}
 							} else {
-								errorDescription.push(...makeComment(description));
+								errorDescription.push(...makeComment(description).slice(1, -1));
 							}
 						}
 						lines.push(
@@ -217,7 +152,7 @@ function TypeGenerator() {
 			for (const dependency of this.dependencies) {
 				if (!document.components?.schemas?.[dependency]) continue;
 				const schema = this.parseSchema(
-					document.components.schemas[dependency] as TypeSchema,
+					document.components.schemas[dependency],
 					dependency,
 				);
 				const discriminant = this.discriminator.get(dependency);
@@ -231,15 +166,25 @@ function TypeGenerator() {
 			}
 			return lines.join("\n");
 		},
-		parseSchema(schema: TypeSchema, name: string) {
+		parseSchema(
+			schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
+			name: string,
+		) {
 			let typeObject: TypeObject = {
 				type: "simple",
 				tsType: "",
-				title: schema.title,
-				description: schema.description,
 				name,
+				// $ref의 sibling으로 들어오는 title, description은 무시되지만 PortOne에서는 사용 중.
+				title: "title" in schema ? schema.title : undefined,
+				description: "description" in schema ? schema.description : undefined,
 			};
-			if ("discriminator" in schema) {
+			if ("$ref" in schema) {
+				const name = extractNameFromRef(schema.$ref);
+				typeObject.tsType = name;
+				this.queueResolution(name);
+				return typeObject;
+			}
+			if (schema.discriminator?.mapping) {
 				const oneOf = [];
 				for (const [key, ref] of Object.entries(schema.discriminator.mapping)) {
 					const name = extractNameFromRef(ref);
@@ -253,12 +198,7 @@ function TypeGenerator() {
 				}
 				typeObject.tsType = oneOf.join(" | ");
 			}
-			if ("$ref" in schema) {
-				const name = extractNameFromRef(schema.$ref);
-				typeObject.tsType = name;
-				this.queueResolution(name);
-			}
-			if ("type" in schema) {
+			if (schema.type) {
 				switch (schema.type) {
 					case "object": {
 						typeObject = {
@@ -283,7 +223,7 @@ function TypeGenerator() {
 						break;
 					}
 					case "string":
-						if ("enum" in schema) {
+						if (schema.enum) {
 							typeObject.tsType = schema.enum
 								.map((name) => `"${name}"`)
 								.join(" | ");
@@ -303,8 +243,22 @@ function TypeGenerator() {
 						typeObject.tsType = "number";
 						break;
 					}
+				}
+			}
+			if (schema.format) {
+				switch (schema.format) {
+					case "date-time":
+						schema.title = `${schema.title} (RFC 3339 date/time)`;
+						break;
+					case "int32":
+					case "int64":
+						schema.title = `${schema.title} (${schema.format})`;
+						break;
+					case "double":
+						schema.title = `${schema.title} (IEEE 754 double-precision)`;
+						break;
 					default:
-						throw new Error("Unimplemented type", {
+						throw new Error(`Unimplemented format: ${schema.format}`, {
 							cause: schema,
 						});
 				}
@@ -312,6 +266,28 @@ function TypeGenerator() {
 			return typeObject;
 		},
 	};
+}
+
+function extractRef(
+	ref: object | OpenAPIV3.ReferenceObject | null | undefined,
+): string | null {
+	return ref && "$ref" in ref ? ref.$ref : null;
+}
+
+function extractJson(
+	response:
+		| OpenAPIV3.RequestBodyObject
+		| OpenAPIV3.ReferenceObject
+		| OpenAPIV3.ResponseObject
+		| null
+		| undefined,
+) {
+	return response &&
+		"content" in response &&
+		response.content &&
+		"application/json" in response.content
+		? response.content["application/json"].schema
+		: null;
 }
 
 type TypeObject = {
@@ -331,13 +307,7 @@ type TypeObject = {
 );
 
 function makeTypes(typeObject: TypeObject, exports: boolean) {
-	const lines = [
-		"/**",
-		...makeComment(typeObject.title),
-		" *",
-		...makeComment(typeObject.description),
-		" */",
-	];
+	const lines = [...makeComment(typeObject.title, typeObject.description)];
 	switch (typeObject.type) {
 		case "simple":
 			if (exports) {
@@ -372,14 +342,28 @@ function extractNameFromRef(ref: string) {
 }
 
 const turndown = new TurndownService();
-function makeComment(lines?: string) {
-	return !lines
-		? []
-		: turndown
-				.turndown(lines)
-				.trim()
-				.split("\n")
-				.map((line) => ` * ${line}`);
+function makeComment(...lines: (string | undefined)[]) {
+	const flattened = ["/**"];
+	for (const line of lines) {
+		if (!line) continue;
+		const current = turndown
+			.turndown(line)
+			.trim()
+			.split("\n")
+			.map((line) => ` * ${line}`);
+		const insert = flattened.length;
+		let begin = true;
+		for (const line of current) {
+			if (begin && (flattened.at(-1) === line || line === " * ")) continue;
+			flattened.push(line);
+			begin = false;
+		}
+		if (insert > 1 && insert !== flattened.length) {
+			flattened.splice(insert, 0, " *");
+		}
+	}
+	flattened.push(" */");
+	return flattened.length === 2 ? [] : flattened;
 }
 
 fs.writeFile(process.argv[2], await generateSchema());
