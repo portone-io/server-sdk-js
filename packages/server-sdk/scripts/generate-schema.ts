@@ -1,6 +1,4 @@
 import fs from "node:fs/promises";
-import SwaggerParser from "@apidevtools/swagger-parser";
-import type { OpenAPIV3 } from "openapi-types";
 import TurndownService from "turndown";
 
 type TypeSchema = {
@@ -77,10 +75,19 @@ type Path = Record<
 	>
 >;
 
+type Document = {
+	paths: Path;
+	components: {
+		schemas: Record<string, TypeSchema>;
+	};
+};
+
 export async function generateSchema() {
-	const document = await SwaggerParser.parse(process.argv[3]);
+	const document = await fs.readFile(process.argv[3], {
+		encoding: "utf-8",
+	});
 	const typeGenerator = TypeGenerator();
-	return typeGenerator.parseDocument(document as OpenAPIV3.Document);
+	return typeGenerator.parseDocument(JSON.parse(document));
 }
 
 function TypeGenerator() {
@@ -94,7 +101,7 @@ function TypeGenerator() {
 				this.dependencies.push(name);
 			}
 		},
-		parseDocument(document: OpenAPIV3.Document) {
+		parseDocument(document: Document) {
 			const lines = [];
 			lines.push("export type Paths = {");
 			for (const [path, pathSchema] of Object.entries(document.paths as Path)) {
