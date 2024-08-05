@@ -126,7 +126,7 @@ function TypeGenerator() {
 							if (ref !== errorRef) {
 								lines.push(
 									...makeComment(description).map((line) => `\t\t\t${line}`),
-									`\t\t\tsuccess: ${ref ? extractNameFromRef(ref) : "{}"};`,
+									`\t\t\tsuccess: ${ref ? extractNameFromRef(ref) : "Record<string, never>"};`,
 								);
 								if (ref) {
 									this.queueResolution(extractNameFromRef(ref));

@@ -85,7 +85,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 보관 조회 여부
-					 *
+					 * 
 					 * true 이면 보관된 할인 분담의 필터 옵션을 조회하고, false 이면 보관되지 않은 할인 분담의 필터 옵션을 조회합니다. 기본값은 false 입니다.
 					 */
 					isArchived?: boolean;
@@ -645,7 +645,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 보관 조회 여부
-					 *
+					 * 
 					 * true 이면 보관된 파트너의 필터 옵션을 조회하고, false 이면 보관되지 않은 파트너의 필터 옵션을 조회합니다. 기본값은 false 입니다.
 					 */
 					isArchived?: boolean;
@@ -1446,7 +1446,7 @@ export type Paths = {
 			parameters: {
 				body: DownloadPlatformTransferSheetBody;
 			};
-			success: {};
+			success: Record<string, never>;
 			/**
 			 * *   `InvalidRequestError`: 요청된 입력 정보가 유효하지 않은 경우
 			 * *   `UnauthorizedError`: 인증 정보가 올바르지 않은 경우
@@ -1510,13 +1510,13 @@ export type Paths = {
 				query: {
 					/**
 					 * 생년월일
-					 *
+					 * 
 					 * 실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.
 					 */
 					birthdate?: string;
 					/**
 					 * 사업자등록번호
-					 *
+					 * 
 					 * 실명 조회를 위해 추가로 보낼 수 있습니다. birthdate과 businessRegistrationNumber 중 하나만 사용해야 합니다.
 					 */
 					businessRegistrationNumber?: string;
@@ -1559,7 +1559,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -1660,7 +1660,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -1728,7 +1728,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -1762,7 +1762,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -1848,7 +1848,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -1962,7 +1962,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -2211,7 +2211,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -2249,7 +2249,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 상점 아이디
-					 *
+					 * 
 					 * 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 토큰에 담긴 상점 아이디를 사용합니다.
 					 */
 					storeId?: string;
@@ -2745,7 +2745,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -2781,7 +2781,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -2818,7 +2818,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -2850,7 +2850,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -2891,7 +2891,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -2933,7 +2933,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -2970,7 +2970,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3012,7 +3012,7 @@ export type Paths = {
 					contactId: string;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3042,7 +3042,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3089,7 +3089,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3128,7 +3128,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3164,13 +3164,13 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3209,13 +3209,13 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3250,7 +3250,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3283,7 +3283,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3317,7 +3317,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3349,7 +3349,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3386,13 +3386,13 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 페이지 번호
-					 *
+					 * 
 					 * 0부터 시작하는 페이지 번호. 기본 값은 0.
 					 */
 					pageNumber?: number;
 					/**
 					 * 페이지 크기
-					 *
+					 * 
 					 * 각 페이지 당 포함할 객체 수. 기본 값은 500이며 최대 1000까지 요청가능합니다.
 					 */
 					pageSize?: number;
@@ -3410,13 +3410,13 @@ export type Paths = {
 					dateType: B2bSearchDateType;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3447,19 +3447,19 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 메뉴 포함 여부
-					 *
+					 * 
 					 * 팝업 URL에 메뉴 레이아웃을 포함 여부를 결정합니다. 기본 값은 true입니다.
 					 */
 					includeMenu?: boolean;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3497,13 +3497,13 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3541,13 +3541,13 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3582,7 +3582,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3615,7 +3615,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3649,7 +3649,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3676,7 +3676,7 @@ export type Paths = {
 				query: {
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3709,13 +3709,13 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3753,13 +3753,13 @@ export type Paths = {
 					brn: string;
 					/**
 					 * 문서 번호 유형
-					 *
+					 * 
 					 * path 파라미터로 전달된 문서번호 유형. 기본 값은 RECIPIENT이며 SUPPLIER, RECIPIENT을 지원합니다.
 					 */
 					documentKeyType?: B2bTaxInvoiceDocumentKeyType;
 					/**
 					 * 테스트 모드 여부
-					 *
+					 * 
 					 * true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 					 */
 					test?: boolean;
@@ -3876,7 +3876,7 @@ export type Paths = {
 			error: GetPromotionError;
 		};
 	};
-};
+}
 
 /**
  * API Secret 로그인을 위한 입력 정보
@@ -3970,10 +3970,7 @@ export type Platform = {
 /**
  * GetPlatformError
  */
-export type GetPlatformError =
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformError = InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 플랫폼 업데이트를 위한 입력 정보
@@ -4008,12 +4005,7 @@ export type UpdatePlatformResponse = {
 /**
  * UpdatePlatformError
  */
-export type UpdatePlatformError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformInvalidSettlementFormulaError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type UpdatePlatformError = ForbiddenError | InvalidRequestError | PlatformInvalidSettlementFormulaError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책 필터 옵션 조회 성공 응답 정보
@@ -4028,11 +4020,7 @@ export type PlatformDiscountSharePolicyFilterOptions = {
 /**
  * GetPlatformDiscountSharePolicyFilterOptionsError
  */
-export type GetPlatformDiscountSharePolicyFilterOptionsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformDiscountSharePolicyFilterOptionsError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책 다건 조회를 위한 입력 정보
@@ -4065,11 +4053,7 @@ export type GetPlatformDiscountSharePoliciesResponse = {
 /**
  * GetPlatformDiscountSharePoliciesError
  */
-export type GetPlatformDiscountSharePoliciesError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformDiscountSharePoliciesError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책 생성을 위한 입력 정보
@@ -4108,12 +4092,7 @@ export type CreatePlatformDiscountSharePolicyResponse = {
 /**
  * CreatePlatformDiscountSharePolicyError
  */
-export type CreatePlatformDiscountSharePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformDiscountSharePolicyAlreadyExistsError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type CreatePlatformDiscountSharePolicyError = ForbiddenError | InvalidRequestError | PlatformDiscountSharePolicyAlreadyExistsError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책
@@ -4150,12 +4129,7 @@ export type PlatformDiscountSharePolicy = {
 /**
  * GetPlatformDiscountSharePolicyError
  */
-export type GetPlatformDiscountSharePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformDiscountSharePolicyError = ForbiddenError | InvalidRequestError | PlatformDiscountSharePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책 업데이트를 위한 입력 정보
@@ -4192,23 +4166,12 @@ export type UpdatePlatformDiscountSharePolicyResponse = {
 /**
  * UpdatePlatformDiscountSharePolicyError
  */
-export type UpdatePlatformDiscountSharePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformArchivedDiscountSharePolicyError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type UpdatePlatformDiscountSharePolicyError = ForbiddenError | InvalidRequestError | PlatformArchivedDiscountSharePolicyError | PlatformDiscountSharePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * GetPlatformDiscountSharePolicyScheduleError
  */
-export type GetPlatformDiscountSharePolicyScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformDiscountSharePolicyScheduleError = ForbiddenError | InvalidRequestError | PlatformDiscountSharePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책 예약 업데이트 재설정을 위한 입력 정보
@@ -4237,12 +4200,7 @@ export type ReschedulePlatformDiscountSharePolicyResponse = {
 /**
  * RescheduleDiscountSharePolicyError
  */
-export type RescheduleDiscountSharePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type RescheduleDiscountSharePolicyError = ForbiddenError | InvalidRequestError | PlatformDiscountSharePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책 업데이트 예약을 위한 입력 정보
@@ -4271,28 +4229,18 @@ export type SchedulePlatformDiscountSharePolicyResponse = {
 /**
  * ScheduleDiscountSharePolicyError
  */
-export type ScheduleDiscountSharePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformDiscountSharePolicyScheduleAlreadyExistsError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type ScheduleDiscountSharePolicyError = ForbiddenError | InvalidRequestError | PlatformDiscountSharePolicyNotFoundError | PlatformDiscountSharePolicyScheduleAlreadyExistsError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 정책 예약 업데이트 취소 성공 응답
  */
-export type CancelPlatformDiscountSharePolicyScheduleResponse = {};
+export type CancelPlatformDiscountSharePolicyScheduleResponse = {
+};
 
 /**
  * CancelPlatformDiscountSharePolicyScheduleError
  */
-export type CancelPlatformDiscountSharePolicyScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type CancelPlatformDiscountSharePolicyScheduleError = ForbiddenError | InvalidRequestError | PlatformDiscountSharePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 보관 성공 응답
@@ -4307,13 +4255,7 @@ export type ArchivePlatformDiscountSharePolicyResponse = {
 /**
  * ArchivePlatformDiscountSharePolicyError
  */
-export type ArchivePlatformDiscountSharePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformCannotArchiveScheduledDiscountSharePolicyError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type ArchivePlatformDiscountSharePolicyError = ForbiddenError | InvalidRequestError | PlatformCannotArchiveScheduledDiscountSharePolicyError | PlatformDiscountSharePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 할인 분담 복원 성공 응답
@@ -4328,12 +4270,7 @@ export type RecoverPlatformDiscountSharePolicyResponse = {
 /**
  * RecoverPlatformDiscountSharePolicyError
  */
-export type RecoverPlatformDiscountSharePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformDiscountSharePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type RecoverPlatformDiscountSharePolicyError = ForbiddenError | InvalidRequestError | PlatformDiscountSharePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 다건 조회를 위한 입력 정보
@@ -4366,11 +4303,7 @@ export type GetPlatformAdditionalFeePoliciesResponse = {
 /**
  * GetPlatformAdditionalFeePoliciesError
  */
-export type GetPlatformAdditionalFeePoliciesError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformAdditionalFeePoliciesError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 생성을 위한 입력 정보
@@ -4413,12 +4346,7 @@ export type CreatePlatformAdditionalFeePolicyResponse = {
 /**
  * CreatePlatformAdditionalFeePolicyError
  */
-export type CreatePlatformAdditionalFeePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyAlreadyExistsError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type CreatePlatformAdditionalFeePolicyError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyAlreadyExistsError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책
@@ -4460,12 +4388,7 @@ export type PlatformAdditionalFeePolicy = {
 /**
  * GetPlatformAdditionalFeePolicyError
  */
-export type GetPlatformAdditionalFeePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformAdditionalFeePolicyError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 업데이트를 위한 입력 정보
@@ -4504,23 +4427,12 @@ export type UpdatePlatformAdditionalFeePolicyResponse = {
 /**
  * UpdatePlatformAdditionalFeePolicyError
  */
-export type UpdatePlatformAdditionalFeePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformArchivedAdditionalFeePolicyError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type UpdatePlatformAdditionalFeePolicyError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformArchivedAdditionalFeePolicyError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * GetPlatformAdditionalFeePolicyScheduleError
  */
-export type GetPlatformAdditionalFeePolicyScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformAdditionalFeePolicyScheduleError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 예약 업데이트 재설정을 위한 입력 정보
@@ -4549,12 +4461,7 @@ export type ReschedulePlatformAdditionalFeePolicyResponse = {
 /**
  * RescheduleAdditionalFeePolicyError
  */
-export type RescheduleAdditionalFeePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type RescheduleAdditionalFeePolicyError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 업데이트 예약을 위한 입력 정보
@@ -4583,29 +4490,18 @@ export type SchedulePlatformAdditionalFeePolicyResponse = {
 /**
  * ScheduleAdditionalFeePolicyError
  */
-export type ScheduleAdditionalFeePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformAdditionalFeePolicyScheduleAlreadyExistsError
-	| PlatformArchivedAdditionalFeePolicyError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type ScheduleAdditionalFeePolicyError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformAdditionalFeePolicyScheduleAlreadyExistsError | PlatformArchivedAdditionalFeePolicyError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 예약 업데이트 취소 성공 응답
  */
-export type CancelPlatformAdditionalFeePolicyScheduleResponse = {};
+export type CancelPlatformAdditionalFeePolicyScheduleResponse = {
+};
 
 /**
  * CancelPlatformAdditionalFeePolicyScheduleError
  */
-export type CancelPlatformAdditionalFeePolicyScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type CancelPlatformAdditionalFeePolicyScheduleError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 보관 성공 응답
@@ -4620,13 +4516,7 @@ export type ArchivePlatformAdditionalFeePolicyResponse = {
 /**
  * ArchivePlatformAdditionalFeePolicyError
  */
-export type ArchivePlatformAdditionalFeePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformCannotArchiveScheduledAdditionalFeePolicyError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type ArchivePlatformAdditionalFeePolicyError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformCannotArchiveScheduledAdditionalFeePolicyError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 추가 수수료 정책 복원 성공 응답
@@ -4641,12 +4531,7 @@ export type RecoverPlatformAdditionalFeePolicyResponse = {
 /**
  * RecoverPlatformAdditionalFeePolicyError
  */
-export type RecoverPlatformAdditionalFeePolicyError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePolicyNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type RecoverPlatformAdditionalFeePolicyError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePolicyNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 파트너 필터 옵션 조회 성공 응답 정보
@@ -4665,11 +4550,7 @@ export type PlatformPartnerFilterOptions = {
 /**
  * GetPlatformPartnerFilterOptionsError
  */
-export type GetPlatformPartnerFilterOptionsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformPartnerFilterOptionsError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 파트너 다건 조회를 위한 입력 정보
@@ -4702,11 +4583,7 @@ export type GetPlatformPartnersResponse = {
 /**
  * GetPlatformPartnersError
  */
-export type GetPlatformPartnersError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformPartnersError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 파트너 생성을 위한 입력 정보
@@ -4775,18 +4652,7 @@ export type CreatePlatformPartnerResponse = {
 /**
  * CreatePlatformPartnerError
  */
-export type CreatePlatformPartnerError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAccountVerificationAlreadyUsedError
-	| PlatformAccountVerificationFailedError
-	| PlatformAccountVerificationNotFoundError
-	| PlatformContractNotFoundError
-	| PlatformCurrencyNotSupportedError
-	| PlatformNotEnabledError
-	| PlatformPartnerIdAlreadyExistsError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type CreatePlatformPartnerError = ForbiddenError | InvalidRequestError | PlatformAccountVerificationAlreadyUsedError | PlatformAccountVerificationFailedError | PlatformAccountVerificationNotFoundError | PlatformContractNotFoundError | PlatformCurrencyNotSupportedError | PlatformNotEnabledError | PlatformPartnerIdAlreadyExistsError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * 파트너
@@ -4848,12 +4714,7 @@ export type PlatformPartner = {
 /**
  * GetPlatformPartnerError
  */
-export type GetPlatformPartnerError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| UnauthorizedError;
+export type GetPlatformPartnerError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | PlatformPartnerNotFoundError | UnauthorizedError;
 
 /**
  * 파트너 업데이트를 위한 입력 정보
@@ -4908,19 +4769,7 @@ export type UpdatePlatformPartnerResponse = {
 /**
  * UpdatePlatformPartnerError
  */
-export type UpdatePlatformPartnerError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAccountVerificationAlreadyUsedError
-	| PlatformAccountVerificationFailedError
-	| PlatformAccountVerificationNotFoundError
-	| PlatformArchivedPartnerError
-	| PlatformContractNotFoundError
-	| PlatformInsufficientDataToChangePartnerTypeError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type UpdatePlatformPartnerError = ForbiddenError | InvalidRequestError | PlatformAccountVerificationAlreadyUsedError | PlatformAccountVerificationFailedError | PlatformAccountVerificationNotFoundError | PlatformArchivedPartnerError | PlatformContractNotFoundError | PlatformInsufficientDataToChangePartnerTypeError | PlatformNotEnabledError | PlatformPartnerNotFoundError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * 파트너 다건 생성을 위한 입력 정보
@@ -4945,26 +4794,12 @@ export type CreatePlatformPartnersResponse = {
 /**
  * CreatePlatformPartnersError
  */
-export type CreatePlatformPartnersError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformContractsNotFoundError
-	| PlatformCurrencyNotSupportedError
-	| PlatformNotEnabledError
-	| PlatformPartnerIdsAlreadyExistError
-	| PlatformPartnerIdsDuplicatedError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type CreatePlatformPartnersError = ForbiddenError | InvalidRequestError | PlatformContractsNotFoundError | PlatformCurrencyNotSupportedError | PlatformNotEnabledError | PlatformPartnerIdsAlreadyExistError | PlatformPartnerIdsDuplicatedError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * GetPlatformPartnerScheduleError
  */
-export type GetPlatformPartnerScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| UnauthorizedError;
+export type GetPlatformPartnerScheduleError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | PlatformPartnerNotFoundError | UnauthorizedError;
 
 /**
  * 파트너 예약 업데이트 재설정을 위한 입력 정보
@@ -4993,13 +4828,7 @@ export type ReschedulePlatformPartnerResponse = {
 /**
  * ReschedulePartnerError
  */
-export type ReschedulePartnerError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| UnauthorizedError;
+export type ReschedulePartnerError = ForbiddenError | InvalidRequestError | PlatformContractNotFoundError | PlatformNotEnabledError | PlatformPartnerNotFoundError | UnauthorizedError;
 
 /**
  * 파트너 업데이트 예약을 위한 입력 정보
@@ -5028,35 +4857,18 @@ export type SchedulePlatformPartnerResponse = {
 /**
  * SchedulePartnerError
  */
-export type SchedulePartnerError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAccountVerificationAlreadyUsedError
-	| PlatformAccountVerificationFailedError
-	| PlatformAccountVerificationNotFoundError
-	| PlatformArchivedPartnerError
-	| PlatformContractNotFoundError
-	| PlatformInsufficientDataToChangePartnerTypeError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| PlatformPartnerScheduleAlreadyExistsError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type SchedulePartnerError = ForbiddenError | InvalidRequestError | PlatformAccountVerificationAlreadyUsedError | PlatformAccountVerificationFailedError | PlatformAccountVerificationNotFoundError | PlatformArchivedPartnerError | PlatformContractNotFoundError | PlatformInsufficientDataToChangePartnerTypeError | PlatformNotEnabledError | PlatformPartnerNotFoundError | PlatformPartnerScheduleAlreadyExistsError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * 파트너 예약 업데이트 취소 성공 응답
  */
-export type CancelPlatformPartnerScheduleResponse = {};
+export type CancelPlatformPartnerScheduleResponse = {
+};
 
 /**
  * CancelPlatformPartnerScheduleError
  */
-export type CancelPlatformPartnerScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| UnauthorizedError;
+export type CancelPlatformPartnerScheduleError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | PlatformPartnerNotFoundError | UnauthorizedError;
 
 /**
  * SchedulePlatformPartnersBody
@@ -5070,20 +4882,13 @@ export type SchedulePlatformPartnersBody = {
 /**
  * SchedulePlatformPartnersResponse
  */
-export type SchedulePlatformPartnersResponse = {};
+export type SchedulePlatformPartnersResponse = {
+};
 
 /**
  * SchedulePlatformPartnersError
  */
-export type SchedulePlatformPartnersError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformArchivedPartnersCannotBeScheduledError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| PlatformPartnerSchedulesAlreadyExistError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type SchedulePlatformPartnersError = ForbiddenError | InvalidRequestError | PlatformArchivedPartnersCannotBeScheduledError | PlatformContractNotFoundError | PlatformNotEnabledError | PlatformPartnerSchedulesAlreadyExistError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * 파트너 보관 성공 응답
@@ -5098,13 +4903,7 @@ export type ArchivePlatformPartnerResponse = {
 /**
  * ArchivePlatformPartnerError
  */
-export type ArchivePlatformPartnerError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformCannotArchiveScheduledPartnerError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| UnauthorizedError;
+export type ArchivePlatformPartnerError = ForbiddenError | InvalidRequestError | PlatformCannotArchiveScheduledPartnerError | PlatformNotEnabledError | PlatformPartnerNotFoundError | UnauthorizedError;
 
 /**
  * 파트너 복원 성공 응답
@@ -5119,12 +4918,7 @@ export type RecoverPlatformPartnerResponse = {
 /**
  * RecoverPlatformPartnerError
  */
-export type RecoverPlatformPartnerError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| UnauthorizedError;
+export type RecoverPlatformPartnerError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | PlatformPartnerNotFoundError | UnauthorizedError;
 
 /**
  * 계약 다건 조회를 위한 입력 정보
@@ -5157,11 +4951,7 @@ export type GetPlatformContractsResponse = {
 /**
  * GetPlatformContractsError
  */
-export type GetPlatformContractsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformContractsError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약 객체 생성을 위한 입력 정보
@@ -5212,12 +5002,7 @@ export type CreatePlatformContractResponse = {
 /**
  * CreatePlatformContractError
  */
-export type CreatePlatformContractError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformContractAlreadyExistsError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type CreatePlatformContractError = ForbiddenError | InvalidRequestError | PlatformContractAlreadyExistsError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약
@@ -5269,12 +5054,7 @@ export type PlatformContract = {
 /**
  * GetPlatformContractError
  */
-export type GetPlatformContractError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformContractError = ForbiddenError | InvalidRequestError | PlatformContractNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약 업데이트를 위한 입력 정보. 값이 명시되지 않은 필드는 업데이트되지 않습니다.
@@ -5321,23 +5101,12 @@ export type UpdatePlatformContractResponse = {
 /**
  * UpdatePlatformContractError
  */
-export type UpdatePlatformContractError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformArchivedContractError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type UpdatePlatformContractError = ForbiddenError | InvalidRequestError | PlatformArchivedContractError | PlatformContractNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * GetPlatformContractScheduleError
  */
-export type GetPlatformContractScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformContractScheduleError = ForbiddenError | InvalidRequestError | PlatformContractNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약 예약 업데이트 재설정을 위한 입력 정보
@@ -5366,11 +5135,7 @@ export type ReschedulePlatformContractResponse = {
 /**
  * RescheduleContractError
  */
-export type RescheduleContractError =
-	| InvalidRequestError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type RescheduleContractError = InvalidRequestError | PlatformContractNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약 업데이트 예약을 위한 입력 정보
@@ -5399,28 +5164,18 @@ export type SchedulePlatformContractResponse = {
 /**
  * ScheduleContractError
  */
-export type ScheduleContractError =
-	| InvalidRequestError
-	| PlatformArchivedContractError
-	| PlatformContractNotFoundError
-	| PlatformContractScheduleAlreadyExistsError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type ScheduleContractError = InvalidRequestError | PlatformArchivedContractError | PlatformContractNotFoundError | PlatformContractScheduleAlreadyExistsError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약 예약 업데이트 취소 성공 응답
  */
-export type CancelPlatformContractScheduleResponse = {};
+export type CancelPlatformContractScheduleResponse = {
+};
 
 /**
  * CancelPlatformContractScheduleError
  */
-export type CancelPlatformContractScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type CancelPlatformContractScheduleError = ForbiddenError | InvalidRequestError | PlatformContractNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약 보관 성공 응답
@@ -5435,13 +5190,7 @@ export type ArchivePlatformContractResponse = {
 /**
  * ArchivePlatformContractError
  */
-export type ArchivePlatformContractError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformCannotArchiveScheduledContractError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type ArchivePlatformContractError = ForbiddenError | InvalidRequestError | PlatformCannotArchiveScheduledContractError | PlatformContractNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 계약 복원 성공 응답
@@ -5456,49 +5205,30 @@ export type RecoverPlatformContractResponse = {
 /**
  * RecoverPlatformContractError
  */
-export type RecoverPlatformContractError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformContractNotFoundError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type RecoverPlatformContractError = ForbiddenError | InvalidRequestError | PlatformContractNotFoundError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 정산건
  *
  * 정산건은 파트너에 정산해줄 정산 금액과 정산 방식 등이 포함되어 있는 정산 정보입니다. 정산 방식은은 주문 정산, 주문 취소 정산, 수기 정산이 있습니다.
  */
-export type PlatformTransfer =
-	| PlatformManualTransfer
-	| PlatformOrderTransfer
-	| PlatformOrderCancelTransfer;
+export type PlatformTransfer = PlatformManualTransfer | PlatformOrderTransfer | PlatformOrderCancelTransfer;
 
 /**
  * GetPlatformTransferError
  */
-export type GetPlatformTransferError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| PlatformTransferNotFoundError
-	| UnauthorizedError;
+export type GetPlatformTransferError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | PlatformTransferNotFoundError | UnauthorizedError;
 
 /**
  * DeletePlatformTransferResponse
  */
-export type DeletePlatformTransferResponse = {};
+export type DeletePlatformTransferResponse = {
+};
 
 /**
  * DeletePlatformTransferError
  */
-export type DeletePlatformTransferError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformCancelOrderTransfersExistsError
-	| PlatformNotEnabledError
-	| PlatformTransferNonDeletableStatusError
-	| PlatformTransferNotFoundError
-	| UnauthorizedError;
+export type DeletePlatformTransferError = ForbiddenError | InvalidRequestError | PlatformCancelOrderTransfersExistsError | PlatformNotEnabledError | PlatformTransferNonDeletableStatusError | PlatformTransferNotFoundError | UnauthorizedError;
 
 /**
  * 정산건 요약 다건 조회를 위한 입력 정보
@@ -5525,11 +5255,7 @@ export type GetPlatformTransferSummariesResponse = {
 /**
  * GetPlatformTransferSummariesError
  */
-export type GetPlatformTransferSummariesError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformTransferSummariesError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 주문 정산건 생성을 위한 입력 정보
@@ -5609,27 +5335,7 @@ export type CreateOrderTransferResponse = {
 /**
  * CreatePlatformOrderTransferError
  */
-export type CreatePlatformOrderTransferError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformAdditionalFeePoliciesNotFoundError
-	| PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError
-	| PlatformContractNotFoundError
-	| PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError
-	| PlatformCurrencyNotSupportedError
-	| PlatformDiscountExceededOrderAmountError
-	| PlatformDiscountSharePoliciesNotFoundError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| PlatformPaymentNotFoundError
-	| PlatformProductIdDuplicatedError
-	| PlatformSettlementPaymentAmountExceededPortOnePaymentError
-	| PlatformSettlementSupplyWithVatAmountExceededPortOnePaymentError
-	| PlatformSettlementTaxFreeAmountExceededPortOnePaymentError
-	| PlatformTaxFreeAmountOverFlowError
-	| PlatformTransferAlreadyExistsError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type CreatePlatformOrderTransferError = ForbiddenError | InvalidRequestError | PlatformAdditionalFeePoliciesNotFoundError | PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError | PlatformContractNotFoundError | PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError | PlatformCurrencyNotSupportedError | PlatformDiscountExceededOrderAmountError | PlatformDiscountSharePoliciesNotFoundError | PlatformNotEnabledError | PlatformPartnerNotFoundError | PlatformPaymentNotFoundError | PlatformProductIdDuplicatedError | PlatformSettlementPaymentAmountExceededPortOnePaymentError | PlatformSettlementSupplyWithVatAmountExceededPortOnePaymentError | PlatformSettlementTaxFreeAmountExceededPortOnePaymentError | PlatformTaxFreeAmountOverFlowError | PlatformTransferAlreadyExistsError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * 주문 취소 정산 등록을 위한 입력 정보
@@ -5705,30 +5411,7 @@ export type CreateOrderCancelTransferResponse = {
 /**
  * CreatePlatformOrderCancelTransferError
  */
-export type CreatePlatformOrderCancelTransferError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformCancellableAmountExceededError
-	| PlatformCancellableDiscountAmountExceededError
-	| PlatformCancellableProductQuantityExceededError
-	| PlatformCancellationAndPaymentTypeMismatchedError
-	| PlatformCancellationNotFoundError
-	| PlatformCannotSpecifyTransferError
-	| PlatformDiscountCancelExceededOrderCancelAmountError
-	| PlatformDiscountSharePolicyIdDuplicatedError
-	| PlatformNotEnabledError
-	| PlatformOrderDetailMismatchedError
-	| PlatformOrderTransferAlreadyCancelledError
-	| PlatformPaymentNotFoundError
-	| PlatformProductIdDuplicatedError
-	| PlatformProductIdNotFoundError
-	| PlatformSettlementCancelAmountExceededPortOneCancelError
-	| PlatformTaxFreeAmountOverFlowError
-	| PlatformTransferAlreadyExistsError
-	| PlatformTransferDiscountSharePolicyNotFoundError
-	| PlatformTransferNotFoundError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type CreatePlatformOrderCancelTransferError = ForbiddenError | InvalidRequestError | PlatformCancellableAmountExceededError | PlatformCancellableDiscountAmountExceededError | PlatformCancellableProductQuantityExceededError | PlatformCancellationAndPaymentTypeMismatchedError | PlatformCancellationNotFoundError | PlatformCannotSpecifyTransferError | PlatformDiscountCancelExceededOrderCancelAmountError | PlatformDiscountSharePolicyIdDuplicatedError | PlatformNotEnabledError | PlatformOrderDetailMismatchedError | PlatformOrderTransferAlreadyCancelledError | PlatformPaymentNotFoundError | PlatformProductIdDuplicatedError | PlatformProductIdNotFoundError | PlatformSettlementCancelAmountExceededPortOneCancelError | PlatformTaxFreeAmountOverFlowError | PlatformTransferAlreadyExistsError | PlatformTransferDiscountSharePolicyNotFoundError | PlatformTransferNotFoundError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * 수기 정산건 생성을 위한 입력 정보
@@ -5774,13 +5457,7 @@ export type CreateManualTransferResponse = {
 /**
  * CreatePlatformManualTransferError
  */
-export type CreatePlatformManualTransferError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| PlatformPartnerNotFoundError
-	| PlatformUserDefinedPropertyNotFoundError
-	| UnauthorizedError;
+export type CreatePlatformManualTransferError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | PlatformPartnerNotFoundError | PlatformUserDefinedPropertyNotFoundError | UnauthorizedError;
 
 /**
  * DownloadPlatformTransferSheetBody
@@ -5798,9 +5475,7 @@ export type DownloadPlatformTransferSheetBody = {
 /**
  * DownloadPlatformTransferSheetError
  */
-export type DownloadPlatformTransferSheetError =
-	| InvalidRequestError
-	| UnauthorizedError;
+export type DownloadPlatformTransferSheetError = InvalidRequestError | UnauthorizedError;
 
 /**
  * 정산내역 다건 조회를 위한 입력 정보
@@ -5838,11 +5513,7 @@ export type GetPlatformPartnerSettlementsResponse = {
 /**
  * GetPlatformPartnerSettlementsError
  */
-export type GetPlatformPartnerSettlementsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformPartnerSettlementsError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * GetPlatformPayoutsBody
@@ -5865,11 +5536,7 @@ export type GetPlatformPayoutsResponse = {
 /**
  * GetPlatformPayoutsError
  */
-export type GetPlatformPayoutsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformPayoutsError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * GetPlatformBulkPayoutsBody
@@ -5892,94 +5559,12 @@ export type GetPlatformBulkPayoutsResponse = {
 /**
  * GetPlatformBulkPayoutsError
  */
-export type GetPlatformBulkPayoutsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformNotEnabledError
-	| UnauthorizedError;
+export type GetPlatformBulkPayoutsError = ForbiddenError | InvalidRequestError | PlatformNotEnabledError | UnauthorizedError;
 
 /**
  * 은행
  */
-export type Bank =
-	| "BANK_OF_KOREA"
-	| "KDB"
-	| "IBK"
-	| "KOOKMIN"
-	| "SUHYUP"
-	| "KEXIM"
-	| "NONGHYUP"
-	| "LOCAL_NONGHYUP"
-	| "WOORI"
-	| "STANDARD_CHARTERED"
-	| "CITI"
-	| "DAEGU"
-	| "BUSAN"
-	| "KWANGJU"
-	| "JEJU"
-	| "JEONBUK"
-	| "KYONGNAM"
-	| "KFCC"
-	| "SHINHYUP"
-	| "SAVINGS_BANK"
-	| "MORGAN_STANLEY"
-	| "HSBC"
-	| "DEUTSCHE"
-	| "JPMC"
-	| "MIZUHO"
-	| "MUFG"
-	| "BANK_OF_AMERICA"
-	| "BNP_PARIBAS"
-	| "ICBC"
-	| "BANK_OF_CHINA"
-	| "NFCF"
-	| "UOB"
-	| "BOCOM"
-	| "CCB"
-	| "POST"
-	| "KODIT"
-	| "KIBO"
-	| "HANA"
-	| "SHINHAN"
-	| "K_BANK"
-	| "KAKAO"
-	| "TOSS"
-	| "MISC_FOREIGN"
-	| "SGI"
-	| "KCIS"
-	| "YUANTA_SECURITIES"
-	| "KB_SECURITIES"
-	| "SANGSANGIN_SECURITIES"
-	| "HANYANG_SECURITIES"
-	| "LEADING_SECURITIES"
-	| "BNK_SECURITIES"
-	| "IBK_SECURITIES"
-	| "DAOL_SECURITIES"
-	| "MIRAE_ASSET_SECURITIES"
-	| "SAMSUNG_SECURITIES"
-	| "KOREA_SECURITIES"
-	| "NH_SECURITIES"
-	| "KYOBO_SECURITIES"
-	| "HI_SECURITIES"
-	| "HYUNDAI_MOTOR_SECURITIES"
-	| "KIWOOM_SECURITIES"
-	| "EBEST_SECURITIES"
-	| "SK_SECURITIES"
-	| "DAISHIN_SECURITIES"
-	| "HANHWA_SECURITIES"
-	| "HANA_SECURITIES"
-	| "TOSS_SECURITIES"
-	| "SHINHAN_SECURITIES"
-	| "DB_SECURITIES"
-	| "EUGENE_SECURITIES"
-	| "MERITZ_SECURITIES"
-	| "KAKAO_PAY_SECURITIES"
-	| "BOOKOOK_SECURITIES"
-	| "SHINYOUNG_SECURITIES"
-	| "CAPE_SECURITIES"
-	| "KOREA_SECURITIES_FINANCE"
-	| "KOREA_FOSS_SECURITIES"
-	| "WOORI_INVESTMENT_BANK";
+export type Bank = "BANK_OF_KOREA" | "KDB" | "IBK" | "KOOKMIN" | "SUHYUP" | "KEXIM" | "NONGHYUP" | "LOCAL_NONGHYUP" | "WOORI" | "STANDARD_CHARTERED" | "CITI" | "DAEGU" | "BUSAN" | "KWANGJU" | "JEJU" | "JEONBUK" | "KYONGNAM" | "KFCC" | "SHINHYUP" | "SAVINGS_BANK" | "MORGAN_STANLEY" | "HSBC" | "DEUTSCHE" | "JPMC" | "MIZUHO" | "MUFG" | "BANK_OF_AMERICA" | "BNP_PARIBAS" | "ICBC" | "BANK_OF_CHINA" | "NFCF" | "UOB" | "BOCOM" | "CCB" | "POST" | "KODIT" | "KIBO" | "HANA" | "SHINHAN" | "K_BANK" | "KAKAO" | "TOSS" | "MISC_FOREIGN" | "SGI" | "KCIS" | "YUANTA_SECURITIES" | "KB_SECURITIES" | "SANGSANGIN_SECURITIES" | "HANYANG_SECURITIES" | "LEADING_SECURITIES" | "BNK_SECURITIES" | "IBK_SECURITIES" | "DAOL_SECURITIES" | "MIRAE_ASSET_SECURITIES" | "SAMSUNG_SECURITIES" | "KOREA_SECURITIES" | "NH_SECURITIES" | "KYOBO_SECURITIES" | "HI_SECURITIES" | "HYUNDAI_MOTOR_SECURITIES" | "KIWOOM_SECURITIES" | "EBEST_SECURITIES" | "SK_SECURITIES" | "DAISHIN_SECURITIES" | "HANHWA_SECURITIES" | "HANA_SECURITIES" | "TOSS_SECURITIES" | "SHINHAN_SECURITIES" | "DB_SECURITIES" | "EUGENE_SECURITIES" | "MERITZ_SECURITIES" | "KAKAO_PAY_SECURITIES" | "BOOKOOK_SECURITIES" | "SHINYOUNG_SECURITIES" | "CAPE_SECURITIES" | "KOREA_SECURITIES_FINANCE" | "KOREA_FOSS_SECURITIES" | "WOORI_INVESTMENT_BANK";
 
 /**
  * 예금주 조회 성공 응답 정보
@@ -5998,31 +5583,17 @@ export type PlatformAccountHolder = {
 /**
  * GetPlatformAccountHolderError
  */
-export type GetPlatformAccountHolderError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PlatformExternalApiFailedError
-	| PlatformExternalApiTemporarilyFailedError
-	| PlatformNotEnabledError
-	| PlatformNotSupportedBankError
-	| UnauthorizedError;
+export type GetPlatformAccountHolderError = ForbiddenError | InvalidRequestError | PlatformExternalApiFailedError | PlatformExternalApiTemporarilyFailedError | PlatformNotEnabledError | PlatformNotSupportedBankError | UnauthorizedError;
 
 /**
  * 본인인증 내역
  */
-export type IdentityVerification =
-	| FailedIdentityVerification
-	| ReadyIdentityVerification
-	| VerifiedIdentityVerification;
+export type IdentityVerification = FailedIdentityVerification | ReadyIdentityVerification | VerifiedIdentityVerification;
 
 /**
  * GetIdentityVerificationError
  */
-export type GetIdentityVerificationError =
-	| ForbiddenError
-	| IdentityVerificationNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetIdentityVerificationError = ForbiddenError | IdentityVerificationNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 본인인증 요청을 위한 입력 정보
@@ -6049,7 +5620,8 @@ export type SendIdentityVerificationBody = {
 	/**
 	 * PG사별 추가 파라미터 ("PG사별 연동 가이드" 참고)
 	 */
-	bypass?: {};
+	bypass?: {
+	};
 	/**
 	 * 통신사
 	 */
@@ -6063,20 +5635,13 @@ export type SendIdentityVerificationBody = {
 /**
  * 본인인증 요청 전송 성공 응답
  */
-export type SendIdentityVerificationResponse = {};
+export type SendIdentityVerificationResponse = {
+};
 
 /**
  * SendIdentityVerificationError
  */
-export type SendIdentityVerificationError =
-	| ChannelNotFoundError
-	| ForbiddenError
-	| IdentityVerificationAlreadySentError
-	| IdentityVerificationAlreadyVerifiedError
-	| IdentityVerificationNotFoundError
-	| InvalidRequestError
-	| PgProviderError
-	| UnauthorizedError;
+export type SendIdentityVerificationError = ChannelNotFoundError | ForbiddenError | IdentityVerificationAlreadySentError | IdentityVerificationAlreadyVerifiedError | IdentityVerificationNotFoundError | InvalidRequestError | PgProviderError | UnauthorizedError;
 
 /**
  * 본인인증 확인을 위한 입력 정보
@@ -6109,31 +5674,18 @@ export type ConfirmIdentityVerificationResponse = {
 /**
  * ConfirmIdentityVerificationError
  */
-export type ConfirmIdentityVerificationError =
-	| ForbiddenError
-	| IdentityVerificationAlreadyVerifiedError
-	| IdentityVerificationNotFoundError
-	| IdentityVerificationNotSentError
-	| InvalidRequestError
-	| PgProviderError
-	| UnauthorizedError;
+export type ConfirmIdentityVerificationError = ForbiddenError | IdentityVerificationAlreadyVerifiedError | IdentityVerificationNotFoundError | IdentityVerificationNotSentError | InvalidRequestError | PgProviderError | UnauthorizedError;
 
 /**
  * 본인인증 요청 재전송 성공 응답
  */
-export type ResendIdentityVerificationResponse = {};
+export type ResendIdentityVerificationResponse = {
+};
 
 /**
  * ResendIdentityVerificationError
  */
-export type ResendIdentityVerificationError =
-	| ForbiddenError
-	| IdentityVerificationAlreadyVerifiedError
-	| IdentityVerificationNotFoundError
-	| IdentityVerificationNotSentError
-	| InvalidRequestError
-	| PgProviderError
-	| UnauthorizedError;
+export type ResendIdentityVerificationError = ForbiddenError | IdentityVerificationAlreadyVerifiedError | IdentityVerificationNotFoundError | IdentityVerificationNotSentError | InvalidRequestError | PgProviderError | UnauthorizedError;
 
 /**
  * 결제 정보 사전 등록 입력 정보
@@ -6162,16 +5714,13 @@ export type PreRegisterPaymentBody = {
 /**
  * 결제 사전 등록 성공 응답
  */
-export type PreRegisterPaymentResponse = {};
+export type PreRegisterPaymentResponse = {
+};
 
 /**
  * PreRegisterPaymentError
  */
-export type PreRegisterPaymentError =
-	| AlreadyPaidError
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type PreRegisterPaymentError = AlreadyPaidError | ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 빌링키 정보
@@ -6181,11 +5730,7 @@ export type BillingKeyInfo = DeletedBillingKeyInfo | IssuedBillingKeyInfo;
 /**
  * GetBillingKeyInfoError
  */
-export type GetBillingKeyInfoError =
-	| BillingKeyNotFoundError
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetBillingKeyInfoError = BillingKeyNotFoundError | ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 빌링키 삭제 성공 응답
@@ -6200,16 +5745,7 @@ export type DeleteBillingKeyResponse = {
 /**
  * DeleteBillingKeyError
  */
-export type DeleteBillingKeyError =
-	| BillingKeyAlreadyDeletedError
-	| BillingKeyNotFoundError
-	| BillingKeyNotIssuedError
-	| ChannelSpecificError
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentScheduleAlreadyExistsError
-	| PgProviderError
-	| UnauthorizedError;
+export type DeleteBillingKeyError = BillingKeyAlreadyDeletedError | BillingKeyNotFoundError | BillingKeyNotIssuedError | ChannelSpecificError | ForbiddenError | InvalidRequestError | PaymentScheduleAlreadyExistsError | PgProviderError | UnauthorizedError;
 
 /**
  * GetBillingKeyInfosBody
@@ -6254,10 +5790,7 @@ export type GetBillingKeyInfosResponse = {
 /**
  * GetBillingKeyInfosError
  */
-export type GetBillingKeyInfosError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetBillingKeyInfosError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 빌링키 발급 요청 양식
@@ -6296,7 +5829,8 @@ export type IssueBillingKeyBody = {
 	/**
 	 * PG사별 추가 파라미터 ("PG사별 연동 가이드" 참고)
 	 */
-	bypass?: {};
+	bypass?: {
+	};
 	/**
 	 * 웹훅 주소
 	 *
@@ -6322,51 +5856,27 @@ export type IssueBillingKeyResponse = {
 /**
  * IssueBillingKeyError
  */
-export type IssueBillingKeyError =
-	| ChannelNotFoundError
-	| ChannelSpecificError
-	| ForbiddenError
-	| InvalidRequestError
-	| PgProviderError
-	| UnauthorizedError;
+export type IssueBillingKeyError = ChannelNotFoundError | ChannelSpecificError | ForbiddenError | InvalidRequestError | PgProviderError | UnauthorizedError;
 
 /**
  * 현금영수증 내역
  */
-export type CashReceipt =
-	| CancelledCashReceipt
-	| IssuedCashReceipt
-	| IssueFailedCashReceipt;
+export type CashReceipt = CancelledCashReceipt | IssuedCashReceipt | IssueFailedCashReceipt;
 
 /**
  * GetCashReceiptError
  */
-export type GetCashReceiptError =
-	| CashReceiptNotFoundError
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetCashReceiptError = CashReceiptNotFoundError | ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 결제 건
  */
-export type Payment =
-	| CancelledPayment
-	| FailedPayment
-	| PaidPayment
-	| PartialCancelledPayment
-	| PayPendingPayment
-	| ReadyPayment
-	| VirtualAccountIssuedPayment;
+export type Payment = CancelledPayment | FailedPayment | PaidPayment | PartialCancelledPayment | PayPendingPayment | ReadyPayment | VirtualAccountIssuedPayment;
 
 /**
  * GetPaymentError
  */
-export type GetPaymentError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentNotFoundError
-	| UnauthorizedError;
+export type GetPaymentError = ForbiddenError | InvalidRequestError | PaymentNotFoundError | UnauthorizedError;
 
 /**
  * GetPaymentsBody
@@ -6405,10 +5915,7 @@ export type GetPaymentsResponse = {
 /**
  * GetPaymentsError
  */
-export type GetPaymentsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentsError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * GetAllPaymentsByCursorBody
@@ -6461,30 +5968,17 @@ export type GetAllPaymentsByCursorResponse = {
 /**
  * GetAllPaymentsError
  */
-export type GetAllPaymentsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAllPaymentsError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 결제 예약 건
  */
-export type PaymentSchedule =
-	| FailedPaymentSchedule
-	| PendingPaymentSchedule
-	| RevokedPaymentSchedule
-	| ScheduledPaymentSchedule
-	| StartedPaymentSchedule
-	| SucceededPaymentSchedule;
+export type PaymentSchedule = FailedPaymentSchedule | PendingPaymentSchedule | RevokedPaymentSchedule | ScheduledPaymentSchedule | StartedPaymentSchedule | SucceededPaymentSchedule;
 
 /**
  * GetPaymentScheduleError
  */
-export type GetPaymentScheduleError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentScheduleNotFoundError
-	| UnauthorizedError;
+export type GetPaymentScheduleError = ForbiddenError | InvalidRequestError | PaymentScheduleNotFoundError | UnauthorizedError;
 
 /**
  * 결제 예약 다건 조회를 위한 입력 정보
@@ -6527,10 +6021,7 @@ export type GetPaymentSchedulesResponse = {
 /**
  * GetPaymentSchedulesError
  */
-export type GetPaymentSchedulesError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentSchedulesError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 결제 예약 건 취소 요청 입력 정보
@@ -6571,15 +6062,7 @@ export type RevokePaymentSchedulesResponse = {
 /**
  * RevokePaymentSchedulesError
  */
-export type RevokePaymentSchedulesError =
-	| BillingKeyAlreadyDeletedError
-	| BillingKeyNotFoundError
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentScheduleAlreadyProcessedError
-	| PaymentScheduleAlreadyRevokedError
-	| PaymentScheduleNotFoundError
-	| UnauthorizedError;
+export type RevokePaymentSchedulesError = BillingKeyAlreadyDeletedError | BillingKeyNotFoundError | ForbiddenError | InvalidRequestError | PaymentScheduleAlreadyProcessedError | PaymentScheduleAlreadyRevokedError | PaymentScheduleNotFoundError | UnauthorizedError;
 
 /**
  * 결제 예약 요청 입력 정보
@@ -6608,15 +6091,7 @@ export type CreatePaymentScheduleResponse = {
 /**
  * CreatePaymentScheduleError
  */
-export type CreatePaymentScheduleError =
-	| AlreadyPaidOrWaitingError
-	| BillingKeyAlreadyDeletedError
-	| BillingKeyNotFoundError
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentScheduleAlreadyExistsError
-	| SumOfPartsExceedsTotalAmountError
-	| UnauthorizedError;
+export type CreatePaymentScheduleError = AlreadyPaidOrWaitingError | BillingKeyAlreadyDeletedError | BillingKeyNotFoundError | ForbiddenError | InvalidRequestError | PaymentScheduleAlreadyExistsError | SumOfPartsExceedsTotalAmountError | UnauthorizedError;
 
 /**
  * 결제 취소 요청 입력 정보
@@ -6683,20 +6158,7 @@ export type CancelPaymentResponse = {
 /**
  * CancelPaymentError
  */
-export type CancelPaymentError =
-	| CancellableAmountConsistencyBrokenError
-	| CancelAmountExceedsCancellableAmountError
-	| CancelTaxAmountExceedsCancellableTaxAmountError
-	| CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentAlreadyCancelledError
-	| PaymentNotFoundError
-	| PaymentNotPaidError
-	| PgProviderError
-	| RemainedAmountLessThanPromotionMinPaymentAmountError
-	| SumOfPartsExceedsCancelAmountError
-	| UnauthorizedError;
+export type CancelPaymentError = CancellableAmountConsistencyBrokenError | CancelAmountExceedsCancellableAmountError | CancelTaxAmountExceedsCancellableTaxAmountError | CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError | ForbiddenError | InvalidRequestError | PaymentAlreadyCancelledError | PaymentNotFoundError | PaymentNotPaidError | PgProviderError | RemainedAmountLessThanPromotionMinPaymentAmountError | SumOfPartsExceedsCancelAmountError | UnauthorizedError;
 
 /**
  * 빌링키 결제 요청 입력 정보
@@ -6789,7 +6251,8 @@ export type BillingKeyPaymentInput = {
 	/**
 	 * PG사별 추가 파라미터 ("PG사별 연동 가이드" 참고)
 	 */
-	bypass?: {};
+	bypass?: {
+	};
 };
 
 /**
@@ -6805,18 +6268,7 @@ export type PayWithBillingKeyResponse = {
 /**
  * PayWithBillingKeyError
  */
-export type PayWithBillingKeyError =
-	| AlreadyPaidError
-	| BillingKeyAlreadyDeletedError
-	| BillingKeyNotFoundError
-	| ChannelNotFoundError
-	| DiscountAmountExceedsTotalAmountError
-	| ForbiddenError
-	| InvalidRequestError
-	| PgProviderError
-	| PromotionPayMethodDoesNotMatchError
-	| SumOfPartsExceedsTotalAmountError
-	| UnauthorizedError;
+export type PayWithBillingKeyError = AlreadyPaidError | BillingKeyAlreadyDeletedError | BillingKeyNotFoundError | ChannelNotFoundError | DiscountAmountExceedsTotalAmountError | ForbiddenError | InvalidRequestError | PgProviderError | PromotionPayMethodDoesNotMatchError | SumOfPartsExceedsTotalAmountError | UnauthorizedError;
 
 /**
  * 수기 결제 요청 정보
@@ -6923,16 +6375,7 @@ export type PayInstantlyResponse = {
 /**
  * PayInstantlyError
  */
-export type PayInstantlyError =
-	| AlreadyPaidError
-	| ChannelNotFoundError
-	| DiscountAmountExceedsTotalAmountError
-	| ForbiddenError
-	| InvalidRequestError
-	| PgProviderError
-	| PromotionPayMethodDoesNotMatchError
-	| SumOfPartsExceedsTotalAmountError
-	| UnauthorizedError;
+export type PayInstantlyError = AlreadyPaidError | ChannelNotFoundError | DiscountAmountExceedsTotalAmountError | ForbiddenError | InvalidRequestError | PgProviderError | PromotionPayMethodDoesNotMatchError | SumOfPartsExceedsTotalAmountError | UnauthorizedError;
 
 /**
  * 현금영수증 발급 요청 양식
@@ -6994,13 +6437,7 @@ export type IssueCashReceiptResponse = {
 /**
  * IssueCashReceiptError
  */
-export type IssueCashReceiptError =
-	| CashReceiptAlreadyIssuedError
-	| ChannelNotFoundError
-	| ForbiddenError
-	| InvalidRequestError
-	| PgProviderError
-	| UnauthorizedError;
+export type IssueCashReceiptError = CashReceiptAlreadyIssuedError | ChannelNotFoundError | ForbiddenError | InvalidRequestError | PgProviderError | UnauthorizedError;
 
 /**
  * 현금 영수증 취소 성공 응답
@@ -7019,13 +6456,7 @@ export type CancelCashReceiptResponse = {
 /**
  * CancelCashReceiptError
  */
-export type CancelCashReceiptError =
-	| CashReceiptNotFoundError
-	| CashReceiptNotIssuedError
-	| ForbiddenError
-	| InvalidRequestError
-	| PgProviderError
-	| UnauthorizedError;
+export type CancelCashReceiptError = CashReceiptNotFoundError | CashReceiptNotIssuedError | ForbiddenError | InvalidRequestError | PgProviderError | UnauthorizedError;
 
 /**
  * 가상계좌 말소 성공 응답
@@ -7040,13 +6471,7 @@ export type CloseVirtualAccountResponse = {
 /**
  * CloseVirtualAccountError
  */
-export type CloseVirtualAccountError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentNotFoundError
-	| PaymentNotWaitingForDepositError
-	| PgProviderError
-	| UnauthorizedError;
+export type CloseVirtualAccountError = ForbiddenError | InvalidRequestError | PaymentNotFoundError | PaymentNotWaitingForDepositError | PgProviderError | UnauthorizedError;
 
 /**
  * 에스크로 배송 정보 등록 입력 정보
@@ -7103,13 +6528,7 @@ export type ApplyEscrowLogisticsResponse = {
 /**
  * ApplyEscrowLogisticsError
  */
-export type ApplyEscrowLogisticsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentNotFoundError
-	| PaymentNotPaidError
-	| PgProviderError
-	| UnauthorizedError;
+export type ApplyEscrowLogisticsError = ForbiddenError | InvalidRequestError | PaymentNotFoundError | PaymentNotPaidError | PgProviderError | UnauthorizedError;
 
 /**
  * 에스크로 배송 정보 수정 입력 정보
@@ -7166,13 +6585,7 @@ export type ModifyEscrowLogisticsResponse = {
 /**
  * ModifyEscrowLogisticsError
  */
-export type ModifyEscrowLogisticsError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentNotFoundError
-	| PaymentNotPaidError
-	| PgProviderError
-	| UnauthorizedError;
+export type ModifyEscrowLogisticsError = ForbiddenError | InvalidRequestError | PaymentNotFoundError | PaymentNotPaidError | PgProviderError | UnauthorizedError;
 
 /**
  * 에스크로 구매 확정 입력 정보
@@ -7205,13 +6618,7 @@ export type ConfirmEscrowResponse = {
 /**
  * ConfirmEscrowError
  */
-export type ConfirmEscrowError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentNotFoundError
-	| PaymentNotPaidError
-	| PgProviderError
-	| UnauthorizedError;
+export type ConfirmEscrowError = ForbiddenError | InvalidRequestError | PaymentNotFoundError | PaymentNotPaidError | PgProviderError | UnauthorizedError;
 
 /**
  * ResendWebhookBody
@@ -7246,12 +6653,7 @@ export type ResendWebhookResponse = {
 /**
  * ResendWebhookError
  */
-export type ResendWebhookError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentNotFoundError
-	| UnauthorizedError
-	| WebhookNotFoundError;
+export type ResendWebhookError = ForbiddenError | InvalidRequestError | PaymentNotFoundError | UnauthorizedError | WebhookNotFoundError;
 
 /**
  * 고객사의 결제 현황 조회를 위한 입력 정보
@@ -7295,10 +6697,7 @@ export type AnalyticsPaymentChart = {
 /**
  * GetAnalyticsPaymentChartError
  */
-export type GetAnalyticsPaymentChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAnalyticsPaymentChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제 현황 인사이트 조회를 위한 입력 정보
@@ -7365,10 +6764,7 @@ export type AnalyticsPaymentChartInsight = {
 /**
  * GetAnalyticsPaymentChartInsightError
  */
-export type GetAnalyticsPaymentChartInsightError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAnalyticsPaymentChartInsightError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 평균 거래액 현황 조회를 위한 입력 정보
@@ -7413,10 +6809,7 @@ export type AnalyticsAverageAmountChart = {
 /**
  * GetAverageAmountChartError
  */
-export type GetAverageAmountChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAverageAmountChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제수단 현황 조회를 위한 입력 정보
@@ -7454,10 +6847,7 @@ export type AnalyticsPaymentMethodChart = {
 /**
  * GetPaymentMethodChartError
  */
-export type GetPaymentMethodChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentMethodChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제수단 트렌드 조회를 위한 입력 정보
@@ -7506,10 +6896,7 @@ export type AnalyticsPaymentMethodTrendChart = {
 /**
  * GetPaymentMethodTrendChartError
  */
-export type GetPaymentMethodTrendChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentMethodTrendChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 카드결제 현황 조회를 위한 입력 정보
@@ -7553,10 +6940,7 @@ export type AnalyticsCardChart = {
 /**
  * GetAnalyticsCardChartError
  */
-export type GetAnalyticsCardChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAnalyticsCardChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 카드사별 결제 현황 조회를 위한 입력 정보
@@ -7610,10 +6994,7 @@ export type AnalyticsCardCompanyChart = {
 /**
  * GetAnalyticsCardCompanyChartError
  */
-export type GetAnalyticsCardCompanyChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAnalyticsCardCompanyChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 간편결제 현황 조회를 위한 입력 정보
@@ -7657,10 +7038,7 @@ export type AnalyticsEasyPayChart = {
 /**
  * GetAnalyticsEasyPayChartError
  */
-export type GetAnalyticsEasyPayChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAnalyticsEasyPayChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 간편결제사별 결제 현황 조회를 위한 입력 정보
@@ -7714,10 +7092,7 @@ export type AnalyticsEasyPayProviderChart = {
 /**
  * GetAnalyticsEasyPayProviderChartError
  */
-export type GetAnalyticsEasyPayProviderChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAnalyticsEasyPayProviderChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제대행사 현황 조회를 위한 입력 정보
@@ -7755,10 +7130,7 @@ export type AnalyticsPgCompanyChart = {
 /**
  * GetPgCompanyChartError
  */
-export type GetPgCompanyChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPgCompanyChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제대행사별 거래 추이 조회를 위한 입력 정보
@@ -7806,10 +7178,7 @@ export type AnalyticsPgCompanyTrendChart = {
 /**
  * GetPgCompanyTrendChartError
  */
-export type GetPgCompanyTrendChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPgCompanyTrendChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 해외 결제 사용 여부
@@ -7821,9 +7190,7 @@ export type AnalyticsOverseasPaymentUsage = {
 /**
  * GetAnalyticsOverseasPaymentUsageError
  */
-export type GetAnalyticsOverseasPaymentUsageError =
-	| ForbiddenError
-	| UnauthorizedError;
+export type GetAnalyticsOverseasPaymentUsageError = ForbiddenError | UnauthorizedError;
 
 /**
  * 고객사의 환불율 조회를 위한 입력 정보
@@ -7855,10 +7222,7 @@ export type AnalyticsCancellationRate = {
 /**
  * GetAnalyticsCancellationRateError
  */
-export type GetAnalyticsCancellationRateError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetAnalyticsCancellationRateError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제상태 이력 집계 조회를 위한 입력 정보
@@ -7890,10 +7254,7 @@ export type AnalyticsPaymentStatusChart = {
 /**
  * GetPaymentStatusChartError
  */
-export type GetPaymentStatusChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentStatusChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제수단별 결제전환율 조회를 위한 입력 정보
@@ -7925,10 +7286,7 @@ export type AnalyticsPaymentStatusByPaymentMethodChart = {
 /**
  * GetPaymentStatusByPaymentMethodChartError
  */
-export type GetPaymentStatusByPaymentMethodChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentStatusByPaymentMethodChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 PG사별 결제전환율 조회를 위한 입력 정보
@@ -7960,10 +7318,7 @@ export type AnalyticsPaymentStatusByPgCompanyChart = {
 /**
  * GetPaymentStatusByPgCompanyChartError
  */
-export type GetPaymentStatusByPgCompanyChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentStatusByPgCompanyChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 고객사의 결제환경별 결제전환율 조회를 위한 입력 정보
@@ -7995,10 +7350,7 @@ export type AnalyticsPaymentStatusByPaymentClientChart = {
 /**
  * GetPaymentStatusByPaymentClientChartError
  */
-export type GetPaymentStatusByPaymentClientChartError =
-	| ForbiddenError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetPaymentStatusByPaymentClientChartError = ForbiddenError | InvalidRequestError | UnauthorizedError;
 
 /**
  * B2bMemberCompany
@@ -8035,12 +7387,7 @@ export type B2bMemberCompany = {
 /**
  * GetB2bMemberCompanyError
  */
-export type GetB2bMemberCompanyError =
-	| B2bExternalServiceError
-	| B2bMemberCompanyNotFoundError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bMemberCompanyError = B2bExternalServiceError | B2bMemberCompanyNotFoundError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 연동 사업자 정보 수정 요청
@@ -8081,11 +7428,7 @@ export type UpdateB2bMemberCompanyResponse = {
 /**
  * UpdateB2bMemberCompanyError
  */
-export type UpdateB2bMemberCompanyError =
-	| B2bMemberCompanyNotFoundError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type UpdateB2bMemberCompanyError = B2bMemberCompanyNotFoundError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 사업자 연동 요청 정보
@@ -8118,13 +7461,7 @@ export type RegisterB2bMemberCompanyResponse = {
 /**
  * RegisterB2bMemberCompanyError
  */
-export type RegisterB2bMemberCompanyError =
-	| B2bCompanyAlreadyRegisteredError
-	| B2bExternalServiceError
-	| B2bIdAlreadyExistsError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type RegisterB2bMemberCompanyError = B2bCompanyAlreadyRegisteredError | B2bExternalServiceError | B2bIdAlreadyExistsError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * B2bCompanyContact
@@ -8163,13 +7500,7 @@ export type B2bCompanyContact = {
 /**
  * GetB2bMemberCompanyContactError
  */
-export type GetB2bMemberCompanyContactError =
-	| B2bContactNotFoundError
-	| B2bExternalServiceError
-	| B2bMemberCompanyNotFoundError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bMemberCompanyContactError = B2bContactNotFoundError | B2bExternalServiceError | B2bMemberCompanyNotFoundError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 담당자 정보 수정 요청
@@ -8206,13 +7537,7 @@ export type UpdateB2bMemberCompanyContactResponse = {
 /**
  * UpdateB2bMemberCompanyContactError
  */
-export type UpdateB2bMemberCompanyContactError =
-	| B2bContactNotFoundError
-	| B2bExternalServiceError
-	| B2bMemberCompanyNotFoundError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type UpdateB2bMemberCompanyContactError = B2bContactNotFoundError | B2bExternalServiceError | B2bMemberCompanyNotFoundError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 인증서 등록 URL 조회 응답 정보
@@ -8227,12 +7552,7 @@ export type GetB2bCertificateRegistrationUrlResponse = {
 /**
  * GetB2bCertificateRegistrationUrlError
  */
-export type GetB2bCertificateRegistrationUrlError =
-	| B2bExternalServiceError
-	| B2bMemberCompanyNotFoundError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bCertificateRegistrationUrlError = B2bExternalServiceError | B2bMemberCompanyNotFoundError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * B2bCertificate
@@ -8275,13 +7595,7 @@ export type B2bCertificate = {
 /**
  * GetB2bCertificateError
  */
-export type GetB2bCertificateError =
-	| B2bCertificateUnregisteredError
-	| B2bExternalServiceError
-	| B2bMemberCompanyNotFoundError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bCertificateError = B2bCertificateUnregisteredError | B2bExternalServiceError | B2bMemberCompanyNotFoundError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 담당자 ID 존재 여부 응답 정보
@@ -8296,11 +7610,7 @@ export type GetB2bContactIdExistenceResponse = {
 /**
  * getB2bContactIdExistenceError
  */
-export type getB2bContactIdExistenceError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type getB2bContactIdExistenceError = B2bExternalServiceError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 예금주 조회 응답 정보
@@ -8315,18 +7625,7 @@ export type GetB2bBankAccountHolderResponse = {
 /**
  * GetB2bAccountHolderError
  */
-export type GetB2bAccountHolderError =
-	| B2bBankAccountNotFoundError
-	| B2bExternalServiceError
-	| B2bFinancialSystemCommunicationError
-	| B2bFinancialSystemFailureError
-	| B2bFinancialSystemUnderMaintenanceError
-	| B2bForeignExchangeAccountError
-	| B2bNotEnabledError
-	| B2bRegularMaintenanceTimeError
-	| B2bSuspendedAccountError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bAccountHolderError = B2bBankAccountNotFoundError | B2bExternalServiceError | B2bFinancialSystemCommunicationError | B2bFinancialSystemFailureError | B2bFinancialSystemUnderMaintenanceError | B2bForeignExchangeAccountError | B2bNotEnabledError | B2bRegularMaintenanceTimeError | B2bSuspendedAccountError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 사업자 상태
@@ -8357,13 +7656,7 @@ export type B2bCompanyState = {
 /**
  * GetB2bCompanyStateError
  */
-export type GetB2bCompanyStateError =
-	| B2bCompanyNotFoundError
-	| B2bExternalServiceError
-	| B2bHometaxUnderMaintenanceError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bCompanyStateError = B2bCompanyNotFoundError | B2bExternalServiceError | B2bHometaxUnderMaintenanceError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 역발행 요청 정보
@@ -8382,29 +7675,12 @@ export type RequestB2bTaxInvoiceReverseIssuanceRequestBody = {
 /**
  * B2bTaxInvoice
  */
-export type B2bTaxInvoice =
-	| B2bTaxInvoiceBeforeSending
-	| B2bTaxInvoiceIssuanceCancelled
-	| B2bTaxInvoiceRequestRefused
-	| B2bTaxInvoiceIssued
-	| B2bTaxInvoiceRegistered
-	| B2bTaxInvoiceRequested
-	| B2bTaxInvoiceRequestCancelled
-	| B2bTaxInvoiceSending
-	| B2bTaxInvoiceSendingCompleted
-	| B2bTaxInvoiceSendingFailed
-	| B2bTaxInvoiceWaitingSending;
+export type B2bTaxInvoice = B2bTaxInvoiceBeforeSending | B2bTaxInvoiceIssuanceCancelled | B2bTaxInvoiceRequestRefused | B2bTaxInvoiceIssued | B2bTaxInvoiceRegistered | B2bTaxInvoiceRequested | B2bTaxInvoiceRequestCancelled | B2bTaxInvoiceSending | B2bTaxInvoiceSendingCompleted | B2bTaxInvoiceSendingFailed | B2bTaxInvoiceWaitingSending;
 
 /**
  * RequestB2bTaxInvoiceReverseIssuanceError
  */
-export type RequestB2bTaxInvoiceReverseIssuanceError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bRecipientNotFoundError
-	| B2bSupplierNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type RequestB2bTaxInvoiceReverseIssuanceError = B2bExternalServiceError | B2bNotEnabledError | B2bRecipientNotFoundError | B2bSupplierNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 문서번호 유형
@@ -8414,23 +7690,12 @@ export type B2bTaxInvoiceDocumentKeyType = "SUPPLIER" | "RECIPIENT";
 /**
  * GetB2bTaxInvoiceError
  */
-export type GetB2bTaxInvoiceError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bTaxInvoiceError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * DeleteB2bTaxInvoiceError
  */
-export type DeleteB2bTaxInvoiceError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNonDeletableStatusError
-	| B2bTaxInvoiceNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type DeleteB2bTaxInvoiceError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNonDeletableStatusError | B2bTaxInvoiceNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 발행 정보
@@ -8463,13 +7728,7 @@ export type IssueB2bTaxInvoiceRequestBody = {
 /**
  * IssueB2bTaxInvoiceError
  */
-export type IssueB2bTaxInvoiceError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| B2bTaxInvoiceNotRequestedStatusError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type IssueB2bTaxInvoiceError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | B2bTaxInvoiceNotRequestedStatusError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 역발행 요청 취소 정보
@@ -8498,14 +7757,7 @@ export type CancelB2bTaxInvoiceRequestBody = {
 /**
  * CancelB2bTaxInvoiceRequestError
  */
-export type CancelB2bTaxInvoiceRequestError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| B2bTaxInvoiceNotRequestedStatusError
-	| B2bTaxInvoiceNoRecipientDocumentKeyError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type CancelB2bTaxInvoiceRequestError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | B2bTaxInvoiceNotRequestedStatusError | B2bTaxInvoiceNoRecipientDocumentKeyError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 역발행 취소 정보
@@ -8534,12 +7786,7 @@ export type CancelB2bTaxInvoiceIssuanceBody = {
 /**
  * CancelB2bTaxInvoiceIssuanceError
  */
-export type CancelB2bTaxInvoiceIssuanceError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotIssuedStatusError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type CancelB2bTaxInvoiceIssuanceError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotIssuedStatusError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 역발행 요청 거부 정보
@@ -8568,14 +7815,7 @@ export type RefuseB2bTaxInvoiceRequestBody = {
 /**
  * RefuseB2bTaxInvoiceRequestError
  */
-export type RefuseB2bTaxInvoiceRequestError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| B2bTaxInvoiceNotRequestedStatusError
-	| B2bTaxInvoiceNoSupplierDocumentKeyError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type RefuseB2bTaxInvoiceRequestError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | B2bTaxInvoiceNotRequestedStatusError | B2bTaxInvoiceNoSupplierDocumentKeyError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 조회 기준
@@ -8599,11 +7839,7 @@ export type GetB2bTaxInvoicesResponse = {
 /**
  * GetB2bTaxInvoicesError
  */
-export type GetB2bTaxInvoicesError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bTaxInvoicesError = B2bExternalServiceError | B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 팝업 URL 성공 응답
@@ -8618,12 +7854,7 @@ export type GetB2bTaxInvoicePopupUrlResponse = {
 /**
  * GetB2bTaxInvoicePopupUrlError
  */
-export type GetB2bTaxInvoicePopupUrlError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bTaxInvoicePopupUrlError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 프린트 URL 성공 응답
@@ -8638,12 +7869,7 @@ export type GetB2bTaxInvoicePrintUrlResponse = {
 /**
  * GetB2bTaxInvoicePrintUrlError
  */
-export type GetB2bTaxInvoicePrintUrlError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bTaxInvoicePrintUrlError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 PDF 다운로드 URL 성공 응답
@@ -8658,12 +7884,7 @@ export type GetB2bTaxInvoicePdfDownloadUrlResponse = {
 /**
  * GetB2bTaxInvoicePdfDownloadUrlError
  */
-export type GetB2bTaxInvoicePdfDownloadUrlError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bTaxInvoicePdfDownloadUrlError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 임시 저장 정보
@@ -8678,13 +7899,7 @@ export type RequestB2bTaxInvoiceRegisterBody = {
 /**
  * RequestB2bTaxInvoiceRegisterError
  */
-export type RequestB2bTaxInvoiceRegisterError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bRecipientNotFoundError
-	| B2bSupplierNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type RequestB2bTaxInvoiceRegisterError = B2bExternalServiceError | B2bNotEnabledError | B2bRecipientNotFoundError | B2bSupplierNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 역발행 요청 정보
@@ -8713,14 +7928,7 @@ export type RequestB2bTaxInvoiceRequestBody = {
 /**
  * requestB2bTaxInvoiceError
  */
-export type requestB2bTaxInvoiceError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| B2bTaxInvoiceNotRegisteredStatusError
-	| B2bTaxInvoiceNoRecipientDocumentKeyError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type requestB2bTaxInvoiceError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | B2bTaxInvoiceNotRegisteredStatusError | B2bTaxInvoiceNoRecipientDocumentKeyError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 파일 업로드 링크 생성
@@ -8749,10 +7957,7 @@ export type CreateB2bTaxInvoiceFileUploadLinkResponse = {
 /**
  * CreateB2bTaxInvoiceFileUploadLinkCreateError
  */
-export type CreateB2bTaxInvoiceFileUploadLinkCreateError =
-	| B2bNotEnabledError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type CreateB2bTaxInvoiceFileUploadLinkCreateError = B2bNotEnabledError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 파일 첨부 정보
@@ -8783,14 +7988,7 @@ export type AttachB2bTaxInvoiceFileBody = {
 /**
  * AttachB2bTaxInvoiceFileError
  */
-export type AttachB2bTaxInvoiceFileError =
-	| B2bExternalServiceError
-	| B2bFileNotFoundError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| B2bTaxInvoiceNotRegisteredStatusError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type AttachB2bTaxInvoiceFileError = B2bExternalServiceError | B2bFileNotFoundError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | B2bTaxInvoiceNotRegisteredStatusError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 세금계산서 첨부파일 목록 조회 성공 응답
@@ -8805,24 +8003,12 @@ export type GetB2bTaxInvoiceAttachmentsResponse = {
 /**
  * GetB2bTaxInvoiceAttachmentsError
  */
-export type GetB2bTaxInvoiceAttachmentsError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceNotFoundError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetB2bTaxInvoiceAttachmentsError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceNotFoundError | InvalidRequestError | UnauthorizedError;
 
 /**
  * DeleteB2bTaxInvoiceAttachmentError
  */
-export type DeleteB2bTaxInvoiceAttachmentError =
-	| B2bExternalServiceError
-	| B2bNotEnabledError
-	| B2bTaxInvoiceAttachmentNotFoundError
-	| B2bTaxInvoiceNotFoundError
-	| B2bTaxInvoiceNotRegisteredStatusError
-	| InvalidRequestError
-	| UnauthorizedError;
+export type DeleteB2bTaxInvoiceAttachmentError = B2bExternalServiceError | B2bNotEnabledError | B2bTaxInvoiceAttachmentNotFoundError | B2bTaxInvoiceNotFoundError | B2bTaxInvoiceNotRegisteredStatusError | InvalidRequestError | UnauthorizedError;
 
 /**
  * 카카오페이 주문 조회 응답
@@ -8841,9 +8027,7 @@ export type GetKakaopayPaymentOrderResponse = {
 /**
  * GetKakaopayPaymentOrderError
  */
-export type GetKakaopayPaymentOrderError =
-	| InvalidRequestError
-	| UnauthorizedError;
+export type GetKakaopayPaymentOrderError = InvalidRequestError | UnauthorizedError;
 
 /**
  * 영수증 내 하위 상점 거래 등록 정보
@@ -8872,13 +8056,7 @@ export type RegisterStoreReceiptResponse = {
 /**
  * RegisterStoreReceiptError
  */
-export type RegisterStoreReceiptError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PaymentNotFoundError
-	| PaymentNotPaidError
-	| PgProviderError
-	| UnauthorizedError;
+export type RegisterStoreReceiptError = ForbiddenError | InvalidRequestError | PaymentNotFoundError | PaymentNotPaidError | PgProviderError | UnauthorizedError;
 
 /**
  * 프로모션
@@ -8888,11 +8066,7 @@ export type Promotion = CardPromotion;
 /**
  * GetPromotionError
  */
-export type GetPromotionError =
-	| ForbiddenError
-	| InvalidRequestError
-	| PromotionNotFoundError
-	| UnauthorizedError;
+export type GetPromotionError = ForbiddenError | InvalidRequestError | PromotionNotFoundError | UnauthorizedError;
 
 /**
  * 요청된 입력 정보가 유효하지 않은 경우
@@ -9321,7 +8495,8 @@ export type CreatePlatformPartnerBodyType = {
 /**
  * PlatformProperties
  */
-export type PlatformProperties = {};
+export type PlatformProperties = {
+};
 
 /**
  * 파트너 계좌 검증 아이디를 이미 사용한 경우
@@ -9435,10 +8610,7 @@ export type PlatformPartnerStatus = "PENDING" | "APPROVED" | "REJECTED";
 /**
  * 파트너 유형별 추가 정보
  */
-export type PlatformPartnerType =
-	| PlatformPartnerTypeBusiness
-	| PlatformPartnerTypeNonWhtPayer
-	| PlatformPartnerTypeWhtPayer;
+export type PlatformPartnerType = PlatformPartnerTypeBusiness | PlatformPartnerTypeNonWhtPayer | PlatformPartnerTypeWhtPayer;
 
 /**
  * PlatformPartnerNotFoundError
@@ -10021,10 +9193,7 @@ export type PlatformTransferFilterInput = {
 /**
  * PlatformTransferSummary
  */
-export type PlatformTransferSummary =
-	| PlatformManualTransferSummary
-	| PlatformOrderTransferSummary
-	| PlatformOrderCancelTransferSummary;
+export type PlatformTransferSummary = PlatformManualTransferSummary | PlatformOrderTransferSummary | PlatformOrderCancelTransferSummary;
 
 /**
  * 주문 정보
@@ -10091,7 +9260,8 @@ export type CreatePlatformOrderTransferBodyExternalPaymentDetail = {
 /**
  * TransferParameters
  */
-export type TransferParameters = {};
+export type TransferParameters = {
+};
 
 /**
  * 사용자 정의 속성
@@ -10120,28 +9290,26 @@ export type PlatformAdditionalFeePoliciesNotFoundError = {
 /**
  * PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError
  */
-export type PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError =
-	{
-		type: "PLATFORM_ADDITIONAL_FIXED_AMOUNT_FEE_CURRENCY_AND_SETTLEMENT_CURRENCY_MISMATCHED";
-		id: string;
-		graphqlId: string;
-		feeCurrency: Currency;
-		settlementCurrency: Currency;
-		message?: string;
-	};
+export type PlatformAdditionalFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError = {
+	type: "PLATFORM_ADDITIONAL_FIXED_AMOUNT_FEE_CURRENCY_AND_SETTLEMENT_CURRENCY_MISMATCHED";
+	id: string;
+	graphqlId: string;
+	feeCurrency: Currency;
+	settlementCurrency: Currency;
+	message?: string;
+};
 
 /**
  * PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError
  */
-export type PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError =
-	{
-		type: "PLATFORM_CONTRACT_PLATFORM_FIXED_AMOUNT_FEE_CURRENCY_AND_SETTLEMENT_CURRENCY_MISMATCHED";
-		id: string;
-		graphqlId: string;
-		feeCurrency: Currency;
-		settlementCurrency: Currency;
-		message?: string;
-	};
+export type PlatformContractPlatformFixedAmountFeeCurrencyAndSettlementCurrencyMismatchedError = {
+	type: "PLATFORM_CONTRACT_PLATFORM_FIXED_AMOUNT_FEE_CURRENCY_AND_SETTLEMENT_CURRENCY_MISMATCHED";
+	id: string;
+	graphqlId: string;
+	feeCurrency: Currency;
+	settlementCurrency: Currency;
+	message?: string;
+};
 
 /**
  * PlatformDiscountExceededOrderAmountError
@@ -10398,34 +9566,7 @@ export type PlatformTransferDiscountSharePolicyNotFoundError = {
 /**
  * 다운로드 할 시트 컬럼
  */
-export type PlatformTransferSheetField =
-	| "STATUS"
-	| "TRANSFER_ID"
-	| "PARTNER_NAME"
-	| "SETTLEMENT_DATE"
-	| "SETTLEMENT_START_DATE"
-	| "TYPE"
-	| "PAYMENT_ID"
-	| "ORDER_NAME"
-	| "PAYMENT_METHOD"
-	| "SETTLEMENT_AMOUNT"
-	| "SETTLEMENT_ORDER_AMOUNT"
-	| "SETTLEMENT_PAYMENT_AMOUNT"
-	| "SETTLEMENT_PAYMENT_VAT_AMOUNT"
-	| "SETTLEMENT_PAYMENT_VAT_BURDEN_AMOUNT"
-	| "SETTLEMENT_SUPPLY_AMOUNT"
-	| "SETTLEMENT_TAX_FREE_AMOUNT"
-	| "SETTLEMENT_PLATFORM_FEE_AMOUNT"
-	| "SETTLEMENT_PLATFORM_FEE_VAT_AMOUNT"
-	| "SETTLEMENT_DISCOUNT_AMOUNT"
-	| "SETTLEMENT_DISCOUNT_SHARE_AMOUNT"
-	| "SETTLEMENT_ADDITIONAL_FEE_AMOUNT"
-	| "SETTLEMENT_ADDITIONAL_FEE_VAT_AMOUNT"
-	| "SETTLEMENT_CURRENCY"
-	| "PARTNER_TYPE"
-	| "TAXATION_TYPE"
-	| "INCOME_TYPE"
-	| "TAXATION_TYPE_OR_INCOME_TYPE";
+export type PlatformTransferSheetField = "STATUS" | "TRANSFER_ID" | "PARTNER_NAME" | "SETTLEMENT_DATE" | "SETTLEMENT_START_DATE" | "TYPE" | "PAYMENT_ID" | "ORDER_NAME" | "PAYMENT_METHOD" | "SETTLEMENT_AMOUNT" | "SETTLEMENT_ORDER_AMOUNT" | "SETTLEMENT_PAYMENT_AMOUNT" | "SETTLEMENT_PAYMENT_VAT_AMOUNT" | "SETTLEMENT_PAYMENT_VAT_BURDEN_AMOUNT" | "SETTLEMENT_SUPPLY_AMOUNT" | "SETTLEMENT_TAX_FREE_AMOUNT" | "SETTLEMENT_PLATFORM_FEE_AMOUNT" | "SETTLEMENT_PLATFORM_FEE_VAT_AMOUNT" | "SETTLEMENT_DISCOUNT_AMOUNT" | "SETTLEMENT_DISCOUNT_SHARE_AMOUNT" | "SETTLEMENT_ADDITIONAL_FEE_AMOUNT" | "SETTLEMENT_ADDITIONAL_FEE_VAT_AMOUNT" | "SETTLEMENT_CURRENCY" | "PARTNER_TYPE" | "TAXATION_TYPE" | "INCOME_TYPE" | "TAXATION_TYPE_OR_INCOME_TYPE";
 
 /**
  * PlatformPartnerSettlementFilterInput
@@ -10453,10 +9594,7 @@ export type PlatformPartnerSettlementFilterInput = {
 /**
  * PlatformPartnerSettlement
  */
-export type PlatformPartnerSettlement =
-	| PlatformPartnerManualSettlement
-	| PlatformPartnerOrderSettlement
-	| PlatformPartnerOrderCancelSettlement;
+export type PlatformPartnerSettlement = PlatformPartnerManualSettlement | PlatformPartnerOrderSettlement | PlatformPartnerOrderCancelSettlement;
 
 /**
  * PlatformPartnerSettlementStatusStats
@@ -10750,13 +9888,7 @@ export type SendIdentityVerificationBodyCustomer = {
 /**
  * 본인인증 통신사
  */
-export type IdentityVerificationOperator =
-	| "SKT"
-	| "KT"
-	| "LGU"
-	| "SKT_MVNO"
-	| "KT_MVNO"
-	| "LGU_MVNO";
+export type IdentityVerificationOperator = "SKT" | "KT" | "LGU" | "SKT_MVNO" | "KT_MVNO" | "LGU_MVNO";
 
 /**
  * 본인인증 방식
@@ -10808,188 +9940,7 @@ export type IdentityVerificationNotSentError = {
 /**
  * 통화 단위
  */
-export type Currency =
-	| "KRW"
-	| "USD"
-	| "JPY"
-	| "AED"
-	| "AFN"
-	| "ALL"
-	| "AMD"
-	| "ANG"
-	| "AOA"
-	| "ARS"
-	| "AUD"
-	| "AWG"
-	| "AZN"
-	| "BAM"
-	| "BBD"
-	| "BDT"
-	| "BGN"
-	| "BHD"
-	| "BIF"
-	| "BMD"
-	| "BND"
-	| "BOB"
-	| "BOV"
-	| "BRL"
-	| "BSD"
-	| "BTN"
-	| "BWP"
-	| "BYN"
-	| "BZD"
-	| "CAD"
-	| "CDF"
-	| "CHE"
-	| "CHF"
-	| "CHW"
-	| "CLF"
-	| "CLP"
-	| "CNY"
-	| "COP"
-	| "COU"
-	| "CRC"
-	| "CUC"
-	| "CUP"
-	| "CVE"
-	| "CZK"
-	| "DJF"
-	| "DKK"
-	| "DOP"
-	| "DZD"
-	| "EGP"
-	| "ERN"
-	| "ETB"
-	| "EUR"
-	| "FJD"
-	| "FKP"
-	| "GBP"
-	| "GEL"
-	| "GHS"
-	| "GIP"
-	| "GMD"
-	| "GNF"
-	| "GTQ"
-	| "GYD"
-	| "HKD"
-	| "HNL"
-	| "HRK"
-	| "HTG"
-	| "HUF"
-	| "IDR"
-	| "ILS"
-	| "INR"
-	| "IQD"
-	| "IRR"
-	| "ISK"
-	| "JMD"
-	| "JOD"
-	| "KES"
-	| "KGS"
-	| "KHR"
-	| "KMF"
-	| "KPW"
-	| "KWD"
-	| "KYD"
-	| "KZT"
-	| "LAK"
-	| "LBP"
-	| "LKR"
-	| "LRD"
-	| "LSL"
-	| "LYD"
-	| "MAD"
-	| "MDL"
-	| "MGA"
-	| "MKD"
-	| "MMK"
-	| "MNT"
-	| "MOP"
-	| "MRU"
-	| "MUR"
-	| "MVR"
-	| "MWK"
-	| "MXN"
-	| "MXV"
-	| "MYR"
-	| "MZN"
-	| "NAD"
-	| "NGN"
-	| "NIO"
-	| "NOK"
-	| "NPR"
-	| "NZD"
-	| "OMR"
-	| "PAB"
-	| "PEN"
-	| "PGK"
-	| "PHP"
-	| "PKR"
-	| "PLN"
-	| "PYG"
-	| "QAR"
-	| "RON"
-	| "RSD"
-	| "RUB"
-	| "RWF"
-	| "SAR"
-	| "SBD"
-	| "SCR"
-	| "SDG"
-	| "SEK"
-	| "SGD"
-	| "SHP"
-	| "SLE"
-	| "SLL"
-	| "SOS"
-	| "SRD"
-	| "SSP"
-	| "STN"
-	| "SVC"
-	| "SYP"
-	| "SZL"
-	| "THB"
-	| "TJS"
-	| "TMT"
-	| "TND"
-	| "TOP"
-	| "TRY"
-	| "TTD"
-	| "TWD"
-	| "TZS"
-	| "UAH"
-	| "UGX"
-	| "USN"
-	| "UYI"
-	| "UYU"
-	| "UYW"
-	| "UZS"
-	| "VED"
-	| "VES"
-	| "VND"
-	| "VUV"
-	| "WST"
-	| "XAF"
-	| "XAG"
-	| "XAU"
-	| "XBA"
-	| "XBB"
-	| "XBC"
-	| "XBD"
-	| "XCD"
-	| "XDR"
-	| "XOF"
-	| "XPD"
-	| "XPF"
-	| "XPT"
-	| "XSU"
-	| "XTS"
-	| "XUA"
-	| "XXX"
-	| "YER"
-	| "ZAR"
-	| "ZMW"
-	| "ZWL";
+export type Currency = "KRW" | "USD" | "JPY" | "AED" | "AFN" | "ALL" | "AMD" | "ANG" | "AOA" | "ARS" | "AUD" | "AWG" | "AZN" | "BAM" | "BBD" | "BDT" | "BGN" | "BHD" | "BIF" | "BMD" | "BND" | "BOB" | "BOV" | "BRL" | "BSD" | "BTN" | "BWP" | "BYN" | "BZD" | "CAD" | "CDF" | "CHE" | "CHF" | "CHW" | "CLF" | "CLP" | "CNY" | "COP" | "COU" | "CRC" | "CUC" | "CUP" | "CVE" | "CZK" | "DJF" | "DKK" | "DOP" | "DZD" | "EGP" | "ERN" | "ETB" | "EUR" | "FJD" | "FKP" | "GBP" | "GEL" | "GHS" | "GIP" | "GMD" | "GNF" | "GTQ" | "GYD" | "HKD" | "HNL" | "HRK" | "HTG" | "HUF" | "IDR" | "ILS" | "INR" | "IQD" | "IRR" | "ISK" | "JMD" | "JOD" | "KES" | "KGS" | "KHR" | "KMF" | "KPW" | "KWD" | "KYD" | "KZT" | "LAK" | "LBP" | "LKR" | "LRD" | "LSL" | "LYD" | "MAD" | "MDL" | "MGA" | "MKD" | "MMK" | "MNT" | "MOP" | "MRU" | "MUR" | "MVR" | "MWK" | "MXN" | "MXV" | "MYR" | "MZN" | "NAD" | "NGN" | "NIO" | "NOK" | "NPR" | "NZD" | "OMR" | "PAB" | "PEN" | "PGK" | "PHP" | "PKR" | "PLN" | "PYG" | "QAR" | "RON" | "RSD" | "RUB" | "RWF" | "SAR" | "SBD" | "SCR" | "SDG" | "SEK" | "SGD" | "SHP" | "SLE" | "SLL" | "SOS" | "SRD" | "SSP" | "STN" | "SVC" | "SYP" | "SZL" | "THB" | "TJS" | "TMT" | "TND" | "TOP" | "TRY" | "TTD" | "TWD" | "TZS" | "UAH" | "UGX" | "USN" | "UYI" | "UYU" | "UYW" | "UZS" | "VED" | "VES" | "VND" | "VUV" | "WST" | "XAF" | "XAG" | "XAU" | "XBA" | "XBB" | "XBC" | "XBD" | "XCD" | "XDR" | "XOF" | "XPD" | "XPF" | "XPT" | "XSU" | "XTS" | "XUA" | "XXX" | "YER" | "ZAR" | "ZMW" | "ZWL";
 
 /**
  * 결제가 이미 완료된 경우
@@ -11354,9 +10305,7 @@ export type BillingKeyInfoSummary = {
 /**
  * ChannelSpecificFailure
  */
-export type ChannelSpecificFailure =
-	| ChannelSpecificFailureInvalidRequest
-	| ChannelSpecificFailurePgProvider;
+export type ChannelSpecificFailure = ChannelSpecificFailureInvalidRequest | ChannelSpecificFailurePgProvider;
 
 /**
  * 발급 취소
@@ -13224,10 +12173,7 @@ export type CancelPaymentBodyRefundAccount = {
 /**
  * 결제 취소 내역
  */
-export type PaymentCancellation =
-	| FailedPaymentCancellation
-	| RequestedPaymentCancellation
-	| SucceededPaymentCancellation;
+export type PaymentCancellation = FailedPaymentCancellation | RequestedPaymentCancellation | SucceededPaymentCancellation;
 
 /**
  * 취소 가능 잔액 검증에 실패한 경우
@@ -13332,256 +12278,7 @@ export type CashReceiptInput = {
 /**
  * 국가
  */
-export type Country =
-	| "AD"
-	| "AE"
-	| "AF"
-	| "AG"
-	| "AI"
-	| "AL"
-	| "AM"
-	| "AO"
-	| "AQ"
-	| "AR"
-	| "AS"
-	| "AT"
-	| "AU"
-	| "AW"
-	| "AX"
-	| "AZ"
-	| "BA"
-	| "BB"
-	| "BD"
-	| "BE"
-	| "BF"
-	| "BG"
-	| "BH"
-	| "BI"
-	| "BJ"
-	| "BL"
-	| "BM"
-	| "BN"
-	| "BO"
-	| "BQ"
-	| "BR"
-	| "BS"
-	| "BT"
-	| "BV"
-	| "BW"
-	| "BY"
-	| "BZ"
-	| "CA"
-	| "CC"
-	| "CD"
-	| "CF"
-	| "CG"
-	| "CH"
-	| "CI"
-	| "CK"
-	| "CL"
-	| "CM"
-	| "CN"
-	| "CO"
-	| "CR"
-	| "CU"
-	| "CV"
-	| "CW"
-	| "CX"
-	| "CY"
-	| "CZ"
-	| "DE"
-	| "DJ"
-	| "DK"
-	| "DM"
-	| "DO"
-	| "DZ"
-	| "EC"
-	| "EE"
-	| "EG"
-	| "EH"
-	| "ER"
-	| "ES"
-	| "ET"
-	| "FI"
-	| "FJ"
-	| "FK"
-	| "FM"
-	| "FO"
-	| "FR"
-	| "GA"
-	| "GB"
-	| "GD"
-	| "GE"
-	| "GF"
-	| "GG"
-	| "GH"
-	| "GI"
-	| "GL"
-	| "GM"
-	| "GN"
-	| "GP"
-	| "GQ"
-	| "GR"
-	| "GS"
-	| "GT"
-	| "GU"
-	| "GW"
-	| "GY"
-	| "HK"
-	| "HM"
-	| "HN"
-	| "HR"
-	| "HT"
-	| "HU"
-	| "ID"
-	| "IE"
-	| "IL"
-	| "IM"
-	| "IN"
-	| "IO"
-	| "IQ"
-	| "IR"
-	| "IS"
-	| "IT"
-	| "JE"
-	| "JM"
-	| "JO"
-	| "JP"
-	| "KE"
-	| "KG"
-	| "KH"
-	| "KI"
-	| "KM"
-	| "KN"
-	| "KP"
-	| "KR"
-	| "KW"
-	| "KY"
-	| "KZ"
-	| "LA"
-	| "LB"
-	| "LC"
-	| "LI"
-	| "LK"
-	| "LR"
-	| "LS"
-	| "LT"
-	| "LU"
-	| "LV"
-	| "LY"
-	| "MA"
-	| "MC"
-	| "MD"
-	| "ME"
-	| "MF"
-	| "MG"
-	| "MH"
-	| "MK"
-	| "ML"
-	| "MM"
-	| "MN"
-	| "MO"
-	| "MP"
-	| "MQ"
-	| "MR"
-	| "MS"
-	| "MT"
-	| "MU"
-	| "MV"
-	| "MW"
-	| "MX"
-	| "MY"
-	| "MZ"
-	| "NA"
-	| "NC"
-	| "NE"
-	| "NF"
-	| "NG"
-	| "NI"
-	| "NL"
-	| "NO"
-	| "NP"
-	| "NR"
-	| "NU"
-	| "NZ"
-	| "OM"
-	| "PA"
-	| "PE"
-	| "PF"
-	| "PG"
-	| "PH"
-	| "PK"
-	| "PL"
-	| "PM"
-	| "PN"
-	| "PR"
-	| "PS"
-	| "PT"
-	| "PW"
-	| "PY"
-	| "QA"
-	| "RE"
-	| "RO"
-	| "RS"
-	| "RU"
-	| "RW"
-	| "SA"
-	| "SB"
-	| "SC"
-	| "SD"
-	| "SE"
-	| "SG"
-	| "SH"
-	| "SI"
-	| "SJ"
-	| "SK"
-	| "SL"
-	| "SM"
-	| "SN"
-	| "SO"
-	| "SR"
-	| "SS"
-	| "ST"
-	| "SV"
-	| "SX"
-	| "SY"
-	| "SZ"
-	| "TC"
-	| "TD"
-	| "TF"
-	| "TG"
-	| "TH"
-	| "TJ"
-	| "TK"
-	| "TL"
-	| "TM"
-	| "TN"
-	| "TO"
-	| "TR"
-	| "TT"
-	| "TV"
-	| "TW"
-	| "TZ"
-	| "UA"
-	| "UG"
-	| "UM"
-	| "US"
-	| "UY"
-	| "UZ"
-	| "VA"
-	| "VC"
-	| "VE"
-	| "VG"
-	| "VI"
-	| "VN"
-	| "VU"
-	| "WF"
-	| "WS"
-	| "YE"
-	| "YT"
-	| "ZA"
-	| "ZM"
-	| "ZW";
+export type Country = "AD" | "AE" | "AF" | "AG" | "AI" | "AL" | "AM" | "AO" | "AQ" | "AR" | "AS" | "AT" | "AU" | "AW" | "AX" | "AZ" | "BA" | "BB" | "BD" | "BE" | "BF" | "BG" | "BH" | "BI" | "BJ" | "BL" | "BM" | "BN" | "BO" | "BQ" | "BR" | "BS" | "BT" | "BV" | "BW" | "BY" | "BZ" | "CA" | "CC" | "CD" | "CF" | "CG" | "CH" | "CI" | "CK" | "CL" | "CM" | "CN" | "CO" | "CR" | "CU" | "CV" | "CW" | "CX" | "CY" | "CZ" | "DE" | "DJ" | "DK" | "DM" | "DO" | "DZ" | "EC" | "EE" | "EG" | "EH" | "ER" | "ES" | "ET" | "FI" | "FJ" | "FK" | "FM" | "FO" | "FR" | "GA" | "GB" | "GD" | "GE" | "GF" | "GG" | "GH" | "GI" | "GL" | "GM" | "GN" | "GP" | "GQ" | "GR" | "GS" | "GT" | "GU" | "GW" | "GY" | "HK" | "HM" | "HN" | "HR" | "HT" | "HU" | "ID" | "IE" | "IL" | "IM" | "IN" | "IO" | "IQ" | "IR" | "IS" | "IT" | "JE" | "JM" | "JO" | "JP" | "KE" | "KG" | "KH" | "KI" | "KM" | "KN" | "KP" | "KR" | "KW" | "KY" | "KZ" | "LA" | "LB" | "LC" | "LI" | "LK" | "LR" | "LS" | "LT" | "LU" | "LV" | "LY" | "MA" | "MC" | "MD" | "ME" | "MF" | "MG" | "MH" | "MK" | "ML" | "MM" | "MN" | "MO" | "MP" | "MQ" | "MR" | "MS" | "MT" | "MU" | "MV" | "MW" | "MX" | "MY" | "MZ" | "NA" | "NC" | "NE" | "NF" | "NG" | "NI" | "NL" | "NO" | "NP" | "NR" | "NU" | "NZ" | "OM" | "PA" | "PE" | "PF" | "PG" | "PH" | "PK" | "PL" | "PM" | "PN" | "PR" | "PS" | "PT" | "PW" | "PY" | "QA" | "RE" | "RO" | "RS" | "RU" | "RW" | "SA" | "SB" | "SC" | "SD" | "SE" | "SG" | "SH" | "SI" | "SJ" | "SK" | "SL" | "SM" | "SN" | "SO" | "SR" | "SS" | "ST" | "SV" | "SX" | "SY" | "SZ" | "TC" | "TD" | "TF" | "TG" | "TH" | "TJ" | "TK" | "TL" | "TM" | "TN" | "TO" | "TR" | "TT" | "TV" | "TW" | "TZ" | "UA" | "UG" | "UM" | "US" | "UY" | "UZ" | "VA" | "VC" | "VE" | "VG" | "VI" | "VN" | "VU" | "WF" | "WS" | "YE" | "YT" | "ZA" | "ZM" | "ZW";
 
 /**
  * 상품 정보
@@ -14056,82 +12753,7 @@ export type AnalyticsCardChartStat = {
 /**
  * 카드사
  */
-export type CardCompany =
-	| "KOREA_DEVELOPMENT_BANK"
-	| "KFCC"
-	| "SHINHYUP"
-	| "EPOST"
-	| "SAVINGS_BANK_KOREA"
-	| "KAKAO_BANK"
-	| "K_BANK"
-	| "TOSS_BANK"
-	| "WOORI_CARD"
-	| "BC_CARD"
-	| "GWANGJU_CARD"
-	| "SAMSUNG_CARD"
-	| "SHINHAN_CARD"
-	| "HYUNDAI_CARD"
-	| "LOTTE_CARD"
-	| "SUHYUP_CARD"
-	| "CITI_CARD"
-	| "NH_CARD"
-	| "JEONBUK_CARD"
-	| "JEJU_CARD"
-	| "HANA_CARD"
-	| "KOOKMIN_CARD"
-	| "UNIDENTIFIED_GLOBAL_CARD"
-	| "CHAI_CARD"
-	| "AMEX_CARD"
-	| "MIR_CARD"
-	| "UNION_CARD"
-	| "JCB_CARD"
-	| "VISA_CARD"
-	| "MASTER_CARD"
-	| "DINERS_CARD"
-	| "DISCOVER_CARD"
-	| "IBK"
-	| "NH_BANK"
-	| "DAEGU_CARD"
-	| "BUSAN_CARD"
-	| "SC_BANK"
-	| "KYONGNAM_CARD"
-	| "WOORI_BANK"
-	| "CHINA_BANK"
-	| "NFCF"
-	| "KB_SECURITIES"
-	| "YUANTA_SECURITIES"
-	| "NH_SECURITIES"
-	| "DB_SECURITIES"
-	| "SK_SECURITIES"
-	| "EUGENE_SECURITIES"
-	| "KYOBO_SECURITIES"
-	| "MIRAE_ASSET_SECURITIES"
-	| "KOREA_SECURITIES"
-	| "HANHWA_SECURITIES"
-	| "SSG"
-	| "KONA_I"
-	| "CHAI"
-	| "TOSS_CARD"
-	| "PAYCO"
-	| "GMONEY_TRANS"
-	| "FINT"
-	| "KG_MOBILIANS"
-	| "HANPASS"
-	| "FINSHOT"
-	| "BIZPLAY"
-	| "NICE"
-	| "DANAL"
-	| "SECTA"
-	| "GME"
-	| "LORD_SYSTEM"
-	| "NAVERPAY"
-	| "KAKAOPAY"
-	| "KDBC"
-	| "TEEN_CASH"
-	| "EGG_MONEY"
-	| "ON_CASH"
-	| "GALAXIA_MONEY_TREE"
-	| "FIRFIN";
+export type CardCompany = "KOREA_DEVELOPMENT_BANK" | "KFCC" | "SHINHYUP" | "EPOST" | "SAVINGS_BANK_KOREA" | "KAKAO_BANK" | "K_BANK" | "TOSS_BANK" | "WOORI_CARD" | "BC_CARD" | "GWANGJU_CARD" | "SAMSUNG_CARD" | "SHINHAN_CARD" | "HYUNDAI_CARD" | "LOTTE_CARD" | "SUHYUP_CARD" | "CITI_CARD" | "NH_CARD" | "JEONBUK_CARD" | "JEJU_CARD" | "HANA_CARD" | "KOOKMIN_CARD" | "UNIDENTIFIED_GLOBAL_CARD" | "CHAI_CARD" | "AMEX_CARD" | "MIR_CARD" | "UNION_CARD" | "JCB_CARD" | "VISA_CARD" | "MASTER_CARD" | "DINERS_CARD" | "DISCOVER_CARD" | "IBK" | "NH_BANK" | "DAEGU_CARD" | "BUSAN_CARD" | "SC_BANK" | "KYONGNAM_CARD" | "WOORI_BANK" | "CHINA_BANK" | "NFCF" | "KB_SECURITIES" | "YUANTA_SECURITIES" | "NH_SECURITIES" | "DB_SECURITIES" | "SK_SECURITIES" | "EUGENE_SECURITIES" | "KYOBO_SECURITIES" | "MIRAE_ASSET_SECURITIES" | "KOREA_SECURITIES" | "HANHWA_SECURITIES" | "SSG" | "KONA_I" | "CHAI" | "TOSS_CARD" | "PAYCO" | "GMONEY_TRANS" | "FINT" | "KG_MOBILIANS" | "HANPASS" | "FINSHOT" | "BIZPLAY" | "NICE" | "DANAL" | "SECTA" | "GME" | "LORD_SYSTEM" | "NAVERPAY" | "KAKAOPAY" | "KDBC" | "TEEN_CASH" | "EGG_MONEY" | "ON_CASH" | "GALAXIA_MONEY_TREE" | "FIRFIN";
 
 /**
  * AnalyticsCardCompanyChartStat
@@ -14216,24 +12838,7 @@ export type AnalyticsEasyPayChartStat = {
 /**
  * 간편 결제사
  */
-export type EasyPayProvider =
-	| "SAMSUNGPAY"
-	| "KAKAOPAY"
-	| "NAVERPAY"
-	| "PAYCO"
-	| "SSGPAY"
-	| "CHAI"
-	| "LPAY"
-	| "KPAY"
-	| "TOSSPAY"
-	| "LGPAY"
-	| "PINPAY"
-	| "APPLEPAY"
-	| "SKPAY"
-	| "TOSS_BRANDPAY"
-	| "KB_APP"
-	| "ALIPAY"
-	| "HYPHEN";
+export type EasyPayProvider = "SAMSUNGPAY" | "KAKAOPAY" | "NAVERPAY" | "PAYCO" | "SSGPAY" | "CHAI" | "LPAY" | "KPAY" | "TOSSPAY" | "LGPAY" | "PINPAY" | "APPLEPAY" | "SKPAY" | "TOSS_BRANDPAY" | "KB_APP" | "ALIPAY" | "HYPHEN";
 
 /**
  * AnalyticsEasyPayProviderChartStat
@@ -14318,37 +12923,7 @@ export type AnalyticsPgCompanyChartStat = {
 /**
  * PG사
  */
-export type PgCompany =
-	| "INICIS"
-	| "NICE"
-	| "KCP"
-	| "DANAL"
-	| "TOSSPAYMENTS"
-	| "MOBILIANS"
-	| "KICC"
-	| "SMARTRO"
-	| "DAOU"
-	| "BLUEWALNUT"
-	| "PAYPAL"
-	| "ALIPAY"
-	| "EXIMBAY"
-	| "PAYMENTWALL"
-	| "SETTLE"
-	| "GALAXIA"
-	| "NAVERPAY"
-	| "KAKAOPAY"
-	| "SMILEPAY"
-	| "KAKAO"
-	| "TOSSPAY"
-	| "CHAI"
-	| "PAYCO"
-	| "PAYPLE"
-	| "SYRUP"
-	| "KSNET"
-	| "WELCOME"
-	| "JTNET"
-	| "KPN"
-	| "HYPHEN";
+export type PgCompany = "INICIS" | "NICE" | "KCP" | "DANAL" | "TOSSPAYMENTS" | "MOBILIANS" | "KICC" | "SMARTRO" | "DAOU" | "BLUEWALNUT" | "PAYPAL" | "ALIPAY" | "EXIMBAY" | "PAYMENTWALL" | "SETTLE" | "GALAXIA" | "NAVERPAY" | "KAKAOPAY" | "SMILEPAY" | "KAKAO" | "TOSSPAY" | "CHAI" | "PAYCO" | "PAYPLE" | "SYRUP" | "KSNET" | "WELCOME" | "JTNET" | "KPN" | "HYPHEN";
 
 /**
  * AnalyticsPgCompanyTrendChartStat
@@ -14630,20 +13205,12 @@ export type B2bSuspendedAccountError = {
 /**
  * 사업자 과세 유형
  */
-export type B2bCompanyStateTaxationType =
-	| "NORMAL"
-	| "TAX_FREE"
-	| "SIMPLE"
-	| "SIMPLE_TAX_INVOICE_ISSUER"
-	| "ASSIGNED_ID_NUMBER";
+export type B2bCompanyStateTaxationType = "NORMAL" | "TAX_FREE" | "SIMPLE" | "SIMPLE_TAX_INVOICE_ISSUER" | "ASSIGNED_ID_NUMBER";
 
 /**
  * 영업 상태
  */
-export type B2bCompanyStateBusinessStatus =
-	| "IN_BUSINESS"
-	| "CLOSED"
-	| "SUSPENDED";
+export type B2bCompanyStateBusinessStatus = "IN_BUSINESS" | "CLOSED" | "SUSPENDED";
 
 /**
  * 사업자가 존재하지 않는 경우
@@ -16426,14 +14993,7 @@ export type PromotionNotFoundError = {
 /**
  * PlatformSettlementFormulaError
  */
-export type PlatformSettlementFormulaError =
-	| PlatformSettlementFormulaInvalidFunction
-	| PlatformSettlementFormulaInvalidOperator
-	| PlatformSettlementFormulaInvalidSyntax
-	| PlatformSettlementFormulaInvalidVariable
-	| PlatformSettlementFormulaUnexpectedFunctionArguments
-	| PlatformSettlementFormulaUnknownError
-	| PlatformSettlementFormulaUnsupportedVariable;
+export type PlatformSettlementFormulaError = PlatformSettlementFormulaInvalidFunction | PlatformSettlementFormulaInvalidOperator | PlatformSettlementFormulaInvalidSyntax | PlatformSettlementFormulaInvalidVariable | PlatformSettlementFormulaUnexpectedFunctionArguments | PlatformSettlementFormulaUnknownError | PlatformSettlementFormulaUnsupportedVariable;
 
 /**
  * 검색 키워드 입력 정보
@@ -16602,13 +15162,7 @@ export type CreatePlatformPartnerBodyTypeNonWhtPayer = {
 /**
  * 플랫폼 계좌 상태
  */
-export type PlatformAccountStatus =
-	| "VERIFYING"
-	| "VERIFIED"
-	| "VERIFY_FAILED"
-	| "NOT_VERIFIED"
-	| "EXPIRED"
-	| "UNKNOWN";
+export type PlatformAccountStatus = "VERIFYING" | "VERIFIED" | "VERIFY_FAILED" | "NOT_VERIFIED" | "EXPIRED" | "UNKNOWN";
 
 /**
  * 사업자 파트너 정보
@@ -16806,19 +15360,12 @@ export type SchedulePlatformPartnersBodyUpdateAccount = {
 /**
  * 플랫폼 정산 주기 계산 방식
  */
-export type PlatformSettlementCycleType =
-	| "DAILY"
-	| "WEEKLY"
-	| "MONTHLY"
-	| "MANUAL_DATES";
+export type PlatformSettlementCycleType = "DAILY" | "WEEKLY" | "MONTHLY" | "MANUAL_DATES";
 
 /**
  * 플랫폼 정산 기준일
  */
-export type PlatformSettlementCycleDatePolicy =
-	| "HOLIDAY_BEFORE"
-	| "HOLIDAY_AFTER"
-	| "CALENDAR_DAY";
+export type PlatformSettlementCycleDatePolicy = "HOLIDAY_BEFORE" | "HOLIDAY_AFTER" | "CALENDAR_DAY";
 
 /**
  * 검색 키워드 입력 정보
@@ -16863,21 +15410,12 @@ export type PlatformSettlementCycleMethodInput = {
 /**
  * 플랫폼 정산 주기 계산 방식
  */
-export type PlatformSettlementCycleMethod =
-	| PlatformSettlementCycleMethodDaily
-	| PlatformSettlementCycleMethodManualDates
-	| PlatformSettlementCycleMethodMonthly
-	| PlatformSettlementCycleMethodWeekly;
+export type PlatformSettlementCycleMethod = PlatformSettlementCycleMethodDaily | PlatformSettlementCycleMethodManualDates | PlatformSettlementCycleMethodMonthly | PlatformSettlementCycleMethodWeekly;
 
 /**
  * 정산 상태
  */
-export type PlatformTransferStatus =
-	| "SCHEDULED"
-	| "IN_PROCESS"
-	| "SETTLED"
-	| "IN_PAYOUT"
-	| "PAID_OUT";
+export type PlatformTransferStatus = "SCHEDULED" | "IN_PROCESS" | "SETTLED" | "IN_PAYOUT" | "PAID_OUT";
 
 /**
  * 정산 금액 정보
@@ -17039,13 +15577,7 @@ export type DateRange = {
 /**
  * PaymentMethodType
  */
-export type PaymentMethodType =
-	| "CARD"
-	| "TRANSFER"
-	| "VIRTUAL_ACCOUNT"
-	| "GIFT_CERTIFICATE"
-	| "MOBILE"
-	| "EASY_PAY";
+export type PaymentMethodType = "CARD" | "TRANSFER" | "VIRTUAL_ACCOUNT" | "GIFT_CERTIFICATE" | "MOBILE" | "EASY_PAY";
 
 /**
  * PlatformTransferType
@@ -17269,7 +15801,8 @@ export type CreatePlatformOrderCancelTransferBodyOrderLine = {
 /**
  * 전체 금액 취소
  */
-export type CreatePlatformOrderCancelTransferBodyOrderDetailAll = {};
+export type CreatePlatformOrderCancelTransferBodyOrderDetailAll = {
+};
 
 /**
  * 금액 타입
@@ -17279,19 +15812,12 @@ export type PlatformCancellableAmountType = "SUPPLY_WITH_VAT" | "TAX_FREE";
 /**
  * 금액 타입
  */
-export type PlatformPortOnePaymentCancelAmountType =
-	| "SUPPLY_WITH_VAT"
-	| "TAX_FREE";
+export type PlatformPortOnePaymentCancelAmountType = "SUPPLY_WITH_VAT" | "TAX_FREE";
 
 /**
  * 정산 상태
  */
-export type PlatformPartnerSettlementStatus =
-	| "PAYOUT_PREPARED"
-	| "PAYOUT_WITHHELD"
-	| "PAYOUT_FAILED"
-	| "IN_PAYOUT"
-	| "PAID_OUT";
+export type PlatformPartnerSettlementStatus = "PAYOUT_PREPARED" | "PAYOUT_WITHHELD" | "PAYOUT_FAILED" | "IN_PAYOUT" | "PAID_OUT";
 
 /**
  * 정산 유형
@@ -17452,13 +15978,7 @@ export type PlatformPartnerOrderCancelSettlement = {
 /**
  * PlatformPayoutStatus
  */
-export type PlatformPayoutStatus =
-	| "PREPARED"
-	| "CANCELLED"
-	| "STOPPED"
-	| "PROCESSING"
-	| "SUCCEEDED"
-	| "FAILED";
+export type PlatformPayoutStatus = "PREPARED" | "CANCELLED" | "STOPPED" | "PROCESSING" | "SUCCEEDED" | "FAILED";
 
 /**
  * 검색 기준 입력 정보
@@ -17486,13 +16006,7 @@ export type PlatformPayoutAccount = {
 /**
  * PlatformBulkPayoutStatus
  */
-export type PlatformBulkPayoutStatus =
-	| "PREPARING"
-	| "PREPARED"
-	| "ONGOING"
-	| "CANCELLED"
-	| "STOPPED"
-	| "COMPLETED";
+export type PlatformBulkPayoutStatus = "PREPARING" | "PREPARED" | "ONGOING" | "CANCELLED" | "STOPPED" | "COMPLETED";
 
 /**
  * PlatformBulkPayoutFilterInputCriteria
@@ -17609,12 +16123,7 @@ export type IdentityVerificationVerifiedCustomer = {
 /**
  * 빌링키 발급 수단 정보
  */
-export type BillingKeyPaymentMethod =
-	| BillingKeyPaymentMethodCard
-	| BillingKeyPaymentMethodEasyPay
-	| BillingKeyPaymentMethodMobile
-	| BillingKeyPaymentMethodPaypal
-	| BillingKeyPaymentMethodTransfer;
+export type BillingKeyPaymentMethod = BillingKeyPaymentMethodCard | BillingKeyPaymentMethodEasyPay | BillingKeyPaymentMethodMobile | BillingKeyPaymentMethodPaypal | BillingKeyPaymentMethodTransfer;
 
 /**
  * 고객 정보
@@ -17677,18 +16186,12 @@ export type ChannelGroupSummary = {
 /**
  * 채널 별 빌링키 발급 응답
  */
-export type PgBillingKeyIssueResponse =
-	| FailedPgBillingKeyIssueResponse
-	| IssuedPgBillingKeyIssueResponse;
+export type PgBillingKeyIssueResponse = FailedPgBillingKeyIssueResponse | IssuedPgBillingKeyIssueResponse;
 
 /**
  * 빌링키 정렬 기준
  */
-export type BillingKeySortBy =
-	| "REQUESTED_AT"
-	| "ISSUED_AT"
-	| "DELETED_AT"
-	| "STATUS_TIMESTAMP";
+export type BillingKeySortBy = "REQUESTED_AT" | "ISSUED_AT" | "DELETED_AT" | "STATUS_TIMESTAMP";
 
 /**
  * 정렬 방식
@@ -17698,11 +16201,7 @@ export type SortOrder = "DESC" | "ASC";
 /**
  * 빌링키 다건 조회 시, 시각 범위를 적용할 필드
  */
-export type BillingKeyTimeRangeField =
-	| "REQUESTED_AT"
-	| "ISSUED_AT"
-	| "DELETED_AT"
-	| "STATUS_TIMESTAMP";
+export type BillingKeyTimeRangeField = "REQUESTED_AT" | "ISSUED_AT" | "DELETED_AT" | "STATUS_TIMESTAMP";
 
 /**
  * 빌링키 상태
@@ -17725,64 +16224,12 @@ export type BillingKeyTextSearch = {
 /**
  * PG사 결제 모듈
  */
-export type PgProvider =
-	| "HTML5_INICIS"
-	| "PAYPAL"
-	| "PAYPAL_V2"
-	| "INICIS"
-	| "DANAL"
-	| "NICE"
-	| "DANAL_TPAY"
-	| "JTNET"
-	| "UPLUS"
-	| "NAVERPAY"
-	| "KAKAO"
-	| "SETTLE"
-	| "KCP"
-	| "MOBILIANS"
-	| "KAKAOPAY"
-	| "NAVERCO"
-	| "SYRUP"
-	| "KICC"
-	| "EXIMBAY"
-	| "SMILEPAY"
-	| "PAYCO"
-	| "KCP_BILLING"
-	| "ALIPAY"
-	| "PAYPLE"
-	| "CHAI"
-	| "BLUEWALNUT"
-	| "SMARTRO"
-	| "SMARTRO_V2"
-	| "PAYMENTWALL"
-	| "TOSSPAYMENTS"
-	| "KCP_QUICK"
-	| "DAOU"
-	| "GALAXIA"
-	| "TOSSPAY"
-	| "KCP_DIRECT"
-	| "SETTLE_ACC"
-	| "SETTLE_FIRM"
-	| "INICIS_UNIFIED"
-	| "KSNET"
-	| "PINPAY"
-	| "NICE_V2"
-	| "TOSS_BRANDPAY"
-	| "WELCOME"
-	| "TOSSPAY_V2"
-	| "INICIS_V2"
-	| "KPN"
-	| "KCP_V2"
-	| "HYPHEN";
+export type PgProvider = "HTML5_INICIS" | "PAYPAL" | "PAYPAL_V2" | "INICIS" | "DANAL" | "NICE" | "DANAL_TPAY" | "JTNET" | "UPLUS" | "NAVERPAY" | "KAKAO" | "SETTLE" | "KCP" | "MOBILIANS" | "KAKAOPAY" | "NAVERCO" | "SYRUP" | "KICC" | "EXIMBAY" | "SMILEPAY" | "PAYCO" | "KCP_BILLING" | "ALIPAY" | "PAYPLE" | "CHAI" | "BLUEWALNUT" | "SMARTRO" | "SMARTRO_V2" | "PAYMENTWALL" | "TOSSPAYMENTS" | "KCP_QUICK" | "DAOU" | "GALAXIA" | "TOSSPAY" | "KCP_DIRECT" | "SETTLE_ACC" | "SETTLE_FIRM" | "INICIS_UNIFIED" | "KSNET" | "PINPAY" | "NICE_V2" | "TOSS_BRANDPAY" | "WELCOME" | "TOSSPAY_V2" | "INICIS_V2" | "KPN" | "KCP_V2" | "HYPHEN";
 
 /**
  * 빌링키 결제 수단
  */
-export type BillingKeyPaymentMethodType =
-	| "CARD"
-	| "MOBILE"
-	| "EASY_PAY"
-	| "TRANSFER";
+export type BillingKeyPaymentMethodType = "CARD" | "MOBILE" | "EASY_PAY" | "TRANSFER";
 
 /**
  * 포트원 버전
@@ -17842,13 +16289,7 @@ export type ChannelSpecificFailurePgProvider = {
 /**
  * 결제수단 정보
  */
-export type PaymentMethod =
-	| PaymentMethodCard
-	| PaymentMethodEasyPay
-	| PaymentMethodGiftCertificate
-	| PaymentMethodMobile
-	| PaymentMethodTransfer
-	| PaymentMethodVirtualAccount;
+export type PaymentMethod = PaymentMethodCard | PaymentMethodEasyPay | PaymentMethodGiftCertificate | PaymentMethodMobile | PaymentMethodTransfer | PaymentMethodVirtualAccount;
 
 /**
  * 결제 금액 세부 정보
@@ -17895,21 +16336,12 @@ export type PaymentAmount = {
  *
  * V1 결제 건의 경우 타입이 REGISTERED 로 고정됩니다.
  */
-export type PaymentEscrow =
-	| BeforeRegisteredPaymentEscrow
-	| CancelledPaymentEscrow
-	| ConfirmedPaymentEscrow
-	| DeliveredPaymentEscrow
-	| RegisteredPaymentEscrow
-	| RejectedPaymentEscrow
-	| RejectConfirmedPaymentEscrow;
+export type PaymentEscrow = BeforeRegisteredPaymentEscrow | CancelledPaymentEscrow | ConfirmedPaymentEscrow | DeliveredPaymentEscrow | RegisteredPaymentEscrow | RejectedPaymentEscrow | RejectConfirmedPaymentEscrow;
 
 /**
  * 결제 건 내 현금영수증 정보
  */
-export type PaymentCashReceipt =
-	| CancelledPaymentCashReceipt
-	| IssuedPaymentCashReceipt;
+export type PaymentCashReceipt = CancelledPaymentCashReceipt | IssuedPaymentCashReceipt;
 
 /**
  * 조회 시점 기준
@@ -17921,14 +16353,7 @@ export type PaymentTimestampType = "CREATED_AT" | "STATUS_CHANGED_AT";
 /**
  * 결제 건 상태
  */
-export type PaymentStatus =
-	| "READY"
-	| "PENDING"
-	| "VIRTUAL_ACCOUNT_ISSUED"
-	| "PAID"
-	| "FAILED"
-	| "PARTIAL_CANCELLED"
-	| "CANCELLED";
+export type PaymentStatus = "READY" | "PENDING" | "VIRTUAL_ACCOUNT_ISSUED" | "PAID" | "FAILED" | "PARTIAL_CANCELLED" | "CANCELLED";
 
 /**
  * 결제 건 정렬 기준
@@ -17938,33 +16363,17 @@ export type PaymentSortBy = "REQUESTED_AT" | "STATUS_CHANGED_AT";
 /**
  * 웹훅 전송 상태
  */
-export type PaymentWebhookStatus =
-	| "SUCCEEDED"
-	| "FAILED_NOT_OK_RESPONSE"
-	| "FAILED_UNEXPECTED_ERROR";
+export type PaymentWebhookStatus = "SUCCEEDED" | "FAILED_NOT_OK_RESPONSE" | "FAILED_UNEXPECTED_ERROR";
 
 /**
  * 에스크로 상태
  */
-export type PaymentFilterInputEscrowStatus =
-	| "REGISTERED"
-	| "DELIVERED"
-	| "CONFIRMED"
-	| "REJECTED"
-	| "CANCELLED"
-	| "REJECT_CONFIRMED";
+export type PaymentFilterInputEscrowStatus = "REGISTERED" | "DELIVERED" | "CONFIRMED" | "REJECTED" | "CANCELLED" | "REJECT_CONFIRMED";
 
 /**
  * 카드 브랜드
  */
-export type CardBrand =
-	| "LOCAL"
-	| "MASTER"
-	| "UNIONPAY"
-	| "VISA"
-	| "JCB"
-	| "AMEX"
-	| "DINERS";
+export type CardBrand = "LOCAL" | "MASTER" | "UNIONPAY" | "VISA" | "JCB" | "AMEX" | "DINERS";
 
 /**
  * 카드 유형
@@ -17979,12 +16388,7 @@ export type CardOwnerType = "PERSONAL" | "CORPORATE";
 /**
  * 상품권 종류
  */
-export type PaymentMethodGiftCertificateType =
-	| "BOOKNLIFE"
-	| "SMART_MUNSANG"
-	| "CULTURELAND"
-	| "HAPPYMONEY"
-	| "CULTUREGIFT";
+export type PaymentMethodGiftCertificateType = "BOOKNLIFE" | "SMART_MUNSANG" | "CULTURELAND" | "HAPPYMONEY" | "CULTUREGIFT";
 
 /**
  * 입력 시 발급 유형
@@ -18015,21 +16419,12 @@ export type PaymentTextSearch = {
 /**
  * 결제 예약 건 정렬 기준
  */
-export type PaymentScheduleSortBy =
-	| "CREATED_AT"
-	| "TIME_TO_PAY"
-	| "COMPLETED_AT";
+export type PaymentScheduleSortBy = "CREATED_AT" | "TIME_TO_PAY" | "COMPLETED_AT";
 
 /**
  * 결제 예약 건 상태
  */
-export type PaymentScheduleStatus =
-	| "SCHEDULED"
-	| "STARTED"
-	| "SUCCEEDED"
-	| "FAILED"
-	| "REVOKED"
-	| "PENDING";
+export type PaymentScheduleStatus = "SCHEDULED" | "STARTED" | "SUCCEEDED" | "FAILED" | "REVOKED" | "PENDING";
 
 /**
  * 취소 실패 상태
@@ -18219,62 +16614,19 @@ export type InstantPaymentMethodInputVirtualAccount = {
 /**
  * 물류 회사
  */
-export type PaymentLogisticsCompany =
-	| "LOTTE"
-	| "LOGEN"
-	| "DONGWON"
-	| "POST"
-	| "CJ"
-	| "HANJIN"
-	| "DAESIN"
-	| "ILYANG"
-	| "KYUNGDONG"
-	| "CHUNIL"
-	| "POST_REGISTERED"
-	| "GS"
-	| "WOORI"
-	| "HAPDONG"
-	| "FEDEX"
-	| "UPS"
-	| "GSM_NTON"
-	| "SUNGWON"
-	| "LX_PANTOS"
-	| "ACI"
-	| "CJ_INTL"
-	| "USPS"
-	| "EMS"
-	| "DHL"
-	| "KGL"
-	| "GOODSTOLUCK"
-	| "KUNYOUNG"
-	| "SLX"
-	| "SF"
-	| "ETC";
+export type PaymentLogisticsCompany = "LOTTE" | "LOGEN" | "DONGWON" | "POST" | "CJ" | "HANJIN" | "DAESIN" | "ILYANG" | "KYUNGDONG" | "CHUNIL" | "POST_REGISTERED" | "GS" | "WOORI" | "HAPDONG" | "FEDEX" | "UPS" | "GSM_NTON" | "SUNGWON" | "LX_PANTOS" | "ACI" | "CJ_INTL" | "USPS" | "EMS" | "DHL" | "KGL" | "GOODSTOLUCK" | "KUNYOUNG" | "SLX" | "SF" | "ETC";
 
 /**
  * 웹훅 발송 시 결제 건 상태
  */
-export type PaymentWebhookPaymentStatus =
-	| "READY"
-	| "VIRTUAL_ACCOUNT_ISSUED"
-	| "PAID"
-	| "FAILED"
-	| "PARTIAL_CANCELLED"
-	| "CANCELLED"
-	| "PAY_PENDING";
+export type PaymentWebhookPaymentStatus = "READY" | "VIRTUAL_ACCOUNT_ISSUED" | "PAID" | "FAILED" | "PARTIAL_CANCELLED" | "CANCELLED" | "PAY_PENDING";
 
 /**
  * 웹훅 실행 트리거
  *
  * 수동 웹훅 재발송, 가상계좌 입금, 비동기 취소 승인 시 발생한 웹훅일 때 필드의 값이 존재합니다.
  */
-export type PaymentWebhookTrigger =
-	| "MANUAL"
-	| "VIRTUAL_ACCOUNT_DEPOSIT"
-	| "ASYNC_CANCEL_APPROVED"
-	| "ASYNC_CANCEL_FAILED"
-	| "ASYNC_PAY_APPROVED"
-	| "ASYNC_PAY_FAILED";
+export type PaymentWebhookTrigger = "MANUAL" | "VIRTUAL_ACCOUNT_DEPOSIT" | "ASYNC_CANCEL_APPROVED" | "ASYNC_CANCEL_FAILED" | "ASYNC_PAY_APPROVED" | "ASYNC_PAY_FAILED";
 
 /**
  * 웹훅 요청 정보
@@ -18319,12 +16671,14 @@ export type PaymentWebhookResponse = {
 /**
  * 분
  */
-export type AnalyticsTimeGranularityMinute = {};
+export type AnalyticsTimeGranularityMinute = {
+};
 
 /**
  * 시간
  */
-export type AnalyticsTimeGranularityHour = {};
+export type AnalyticsTimeGranularityHour = {
+};
 
 /**
  * 일
@@ -18502,50 +16856,22 @@ export type B2bTaxInvoiceAdditionalContact = {
 /**
  * B2bTaxInvoiceStatus
  */
-export type B2bTaxInvoiceStatus =
-	| "REGISTERED"
-	| "REQUESTED"
-	| "REQUEST_CANCELLED_BY_RECIPIENT"
-	| "ISSUED"
-	| "BEFORE_SENDING"
-	| "WAITING_SENDING"
-	| "SENDING"
-	| "SENDING_COMPLETED"
-	| "SENDING_FAILED"
-	| "REQUEST_REFUSED"
-	| "ISSUANCE_CANCELLED_BY_SUPPLIER";
+export type B2bTaxInvoiceStatus = "REGISTERED" | "REQUESTED" | "REQUEST_CANCELLED_BY_RECIPIENT" | "ISSUED" | "BEFORE_SENDING" | "WAITING_SENDING" | "SENDING" | "SENDING_COMPLETED" | "SENDING_FAILED" | "REQUEST_REFUSED" | "ISSUANCE_CANCELLED_BY_SUPPLIER";
 
 /**
  * PromotionDiscount
  */
-export type PromotionDiscount =
-	| PromotionAmountDiscount
-	| PromotionPercentDiscount;
+export type PromotionDiscount = PromotionAmountDiscount | PromotionPercentDiscount;
 
 /**
  * 프로모션 적용 가능한 카드사
  */
-export type PromotionCardCompany =
-	| "WOORI_CARD"
-	| "BC_CARD"
-	| "SAMSUNG_CARD"
-	| "SHINHAN_CARD"
-	| "HYUNDAI_CARD"
-	| "LOTTE_CARD"
-	| "NH_CARD"
-	| "HANA_CARD"
-	| "KOOKMIN_CARD";
+export type PromotionCardCompany = "WOORI_CARD" | "BC_CARD" | "SAMSUNG_CARD" | "SHINHAN_CARD" | "HYUNDAI_CARD" | "LOTTE_CARD" | "NH_CARD" | "HANA_CARD" | "KOOKMIN_CARD";
 
 /**
  * PromotionStatus
  */
-export type PromotionStatus =
-	| "SCHEDULED"
-	| "IN_PROGRESS"
-	| "PAUSED"
-	| "BUDGET_EXHAUSTED"
-	| "TERMINATED"
-	| "COMPLETED";
+export type PromotionStatus = "SCHEDULED" | "IN_PROGRESS" | "PAUSED" | "BUDGET_EXHAUSTED" | "TERMINATED" | "COMPLETED";
 
 /**
  * PlatformSettlementFormulaInvalidFunction
@@ -18613,23 +16939,12 @@ export type PlatformSettlementFormulaUnsupportedVariable = {
 /**
  * 플랫폼 파트너 과세 유형
  */
-export type PlatformPartnerTaxationType =
-	| "NORMAL"
-	| "SIMPLE_TAX_INVOICE_ISSUER"
-	| "SIMPLE"
-	| "TAX_FREE";
+export type PlatformPartnerTaxationType = "NORMAL" | "SIMPLE_TAX_INVOICE_ISSUER" | "SIMPLE" | "TAX_FREE";
 
 /**
  * 플랫폼 파트너 사업자 상태
  */
-export type PlatformPartnerBusinessStatus =
-	| "NOT_VERIFIED"
-	| "VERIFY_FAILED"
-	| "NOT_FOUND"
-	| "VERIFYING"
-	| "IN_BUSINESS"
-	| "CLOSED"
-	| "SUSPENDED";
+export type PlatformPartnerBusinessStatus = "NOT_VERIFIED" | "VERIFY_FAILED" | "NOT_FOUND" | "VERIFYING" | "IN_BUSINESS" | "CLOSED" | "SUSPENDED";
 
 /**
  * SchedulePlatformPartnersBodyUpdateTypeBusiness
@@ -18692,7 +17007,8 @@ export type SchedulePlatformPartnersBodyUpdateTypeNonWhtPayer = {
 /**
  * PlatformSettlementCycleMethodDailyInput
  */
-export type PlatformSettlementCycleMethodDailyInput = {};
+export type PlatformSettlementCycleMethodDailyInput = {
+};
 
 /**
  * PlatformSettlementCycleMethodWeeklyInput
@@ -18860,9 +17176,7 @@ export type PlatformTransferSummaryPartner = {
 /**
  * PlatformTransferSummaryPayment
  */
-export type PlatformTransferSummaryPayment =
-	| PlatformTransferSummaryExternalPayment
-	| PlatformTransferSummaryPortOnePayment;
+export type PlatformTransferSummaryPayment = PlatformTransferSummaryExternalPayment | PlatformTransferSummaryPortOnePayment;
 
 /**
  * 상품
@@ -18893,27 +17207,32 @@ export type CreatePlatformOrderTransferBodyProduct = {
 /**
  * PlatformPaymentMethodCardInput
  */
-export type PlatformPaymentMethodCardInput = {};
+export type PlatformPaymentMethodCardInput = {
+};
 
 /**
  * PlatformPaymentMethodTransferInput
  */
-export type PlatformPaymentMethodTransferInput = {};
+export type PlatformPaymentMethodTransferInput = {
+};
 
 /**
  * PlatformPaymentMethodVirtualAccountInput
  */
-export type PlatformPaymentMethodVirtualAccountInput = {};
+export type PlatformPaymentMethodVirtualAccountInput = {
+};
 
 /**
  * PlatformPaymentMethodGiftCertificateInput
  */
-export type PlatformPaymentMethodGiftCertificateInput = {};
+export type PlatformPaymentMethodGiftCertificateInput = {
+};
 
 /**
  * PlatformPaymentMethodMobileInput
  */
-export type PlatformPaymentMethodMobileInput = {};
+export type PlatformPaymentMethodMobileInput = {
+};
 
 /**
  * 간편 결제 입력 정보
@@ -19043,18 +17362,7 @@ export type IssuedPgBillingKeyIssueResponse = {
 /**
  * 통합검색 항목
  */
-export type BillingKeyTextSearchField =
-	| "CARD_BIN"
-	| "CARD_NUMBER"
-	| "PG_MERCHANT_ID"
-	| "CUSTOMER_NAME"
-	| "CUSTOMER_EMAIL"
-	| "CUSTOMER_PHONE_NUMBER"
-	| "CUSTOMER_ADDRESS"
-	| "CUSTOMER_ZIPCODE"
-	| "USER_AGENT"
-	| "BILLING_KEY"
-	| "CHANNEL_GROUP_NAME";
+export type BillingKeyTextSearchField = "CARD_BIN" | "CARD_NUMBER" | "PG_MERCHANT_ID" | "CUSTOMER_NAME" | "CUSTOMER_EMAIL" | "CUSTOMER_PHONE_NUMBER" | "CUSTOMER_ADDRESS" | "CUSTOMER_ZIPCODE" | "USER_AGENT" | "BILLING_KEY" | "CHANNEL_GROUP_NAME";
 
 /**
  * 카드 인증 관련 정보
@@ -19444,39 +17752,7 @@ export type IssuedPaymentCashReceipt = {
 /**
  * 통합검색 항목
  */
-export type PaymentTextSearchField =
-	| "ALL"
-	| "PAYMENT_ID"
-	| "TX_ID"
-	| "SCHEDULE_ID"
-	| "FAIL_REASON"
-	| "CARD_ISSUER"
-	| "CARD_ACQUIRER"
-	| "CARD_BIN"
-	| "CARD_NUMBER"
-	| "CARD_APPROVAL_NUMBER"
-	| "CARD_RECEIPT_NAME"
-	| "CARD_INSTALLMENT"
-	| "TRANS_BANK"
-	| "VIRTUAL_ACCOUNT_HOLDER_NAME"
-	| "VIRTUAL_ACCOUNT_BANK"
-	| "VIRTUAL_ACCOUNT_NUMBER"
-	| "PG_MERCHANT_ID"
-	| "PG_TX_ID"
-	| "PG_RECEIPT_ID"
-	| "RECEIPT_APPROVAL_NUMBER"
-	| "PG_CANCELLATION_ID"
-	| "CANCEL_REASON"
-	| "ORDER_NAME"
-	| "CUSTOMER_NAME"
-	| "CUSTOMER_EMAIL"
-	| "CUSTOMER_PHONE_NUMBER"
-	| "CUSTOMER_ADDRESS"
-	| "CUSTOMER_ZIPCODE"
-	| "USER_AGENT"
-	| "BILLING_KEY"
-	| "PROMOTION_ID"
-	| "GIFT_CERTIFICATION_APPROVAL_NUMBER";
+export type PaymentTextSearchField = "ALL" | "PAYMENT_ID" | "TX_ID" | "SCHEDULE_ID" | "FAIL_REASON" | "CARD_ISSUER" | "CARD_ACQUIRER" | "CARD_BIN" | "CARD_NUMBER" | "CARD_APPROVAL_NUMBER" | "CARD_RECEIPT_NAME" | "CARD_INSTALLMENT" | "TRANS_BANK" | "VIRTUAL_ACCOUNT_HOLDER_NAME" | "VIRTUAL_ACCOUNT_BANK" | "VIRTUAL_ACCOUNT_NUMBER" | "PG_MERCHANT_ID" | "PG_TX_ID" | "PG_RECEIPT_ID" | "RECEIPT_APPROVAL_NUMBER" | "PG_CANCELLATION_ID" | "CANCEL_REASON" | "ORDER_NAME" | "CUSTOMER_NAME" | "CUSTOMER_EMAIL" | "CUSTOMER_PHONE_NUMBER" | "CUSTOMER_ADDRESS" | "CUSTOMER_ZIPCODE" | "USER_AGENT" | "BILLING_KEY" | "PROMOTION_ID" | "GIFT_CERTIFICATION_APPROVAL_NUMBER";
 
 /**
  * 입금 만료 기한
@@ -19555,13 +17831,7 @@ export type B2bTaxInvoiceContact = {
 /**
  * 수정 사유
  */
-export type B2bTaxInvoiceModificationType =
-	| "CORRECTION_OF_ENTRY_ERRORS"
-	| "CHANGE_IN_SUPPLY_COST"
-	| "RETURN"
-	| "CANCELLATION_OF_CONTRACT"
-	| "DUPLICATE_ISSUANCE_DUE_TO_ERROR"
-	| "POST_ISSUANCE_LOCAL_LETTER_OF_CREDIT";
+export type B2bTaxInvoiceModificationType = "CORRECTION_OF_ENTRY_ERRORS" | "CHANGE_IN_SUPPLY_COST" | "RETURN" | "CANCELLATION_OF_CONTRACT" | "DUPLICATE_ISSUANCE_DUE_TO_ERROR" | "POST_ISSUANCE_LOCAL_LETTER_OF_CREDIT";
 
 /**
  * PromotionAmountDiscount
@@ -19600,21 +17870,12 @@ export type MonthDay = {
 /**
  * 결제 수단
  */
-export type PlatformPaymentMethod =
-	| PlatformPaymentMethodCard
-	| PlatformPaymentMethodEasyPay
-	| PlatformPaymentMethodGiftCertificate
-	| PlatformPaymentMethodMobile
-	| PlatformPaymentMethodTransfer
-	| PlatformPaymentMethodVirtualAccount;
+export type PlatformPaymentMethod = PlatformPaymentMethodCard | PlatformPaymentMethodEasyPay | PlatformPaymentMethodGiftCertificate | PlatformPaymentMethodMobile | PlatformPaymentMethodTransfer | PlatformPaymentMethodVirtualAccount;
 
 /**
  * 파트너 유형
  */
-export type PlatformTransferSummaryPartnerType =
-	| "BUSINESS"
-	| "WHT_PAYER"
-	| "NON_WHT_PAYER";
+export type PlatformTransferSummaryPartnerType = "BUSINESS" | "WHT_PAYER" | "NON_WHT_PAYER";
 
 /**
  * PlatformTransferSummaryExternalPayment
@@ -19684,10 +17945,7 @@ export type Card = {
 /**
  * 간편 결제 수단
  */
-export type BillingKeyPaymentMethodEasyPayMethod =
-	| BillingKeyPaymentMethodCard
-	| BillingKeyPaymentMethodEasyPayCharge
-	| BillingKeyPaymentMethodTransfer;
+export type BillingKeyPaymentMethodEasyPayMethod = BillingKeyPaymentMethodCard | BillingKeyPaymentMethodEasyPayCharge | BillingKeyPaymentMethodTransfer;
 
 /**
  * 한 줄 형식 주소
@@ -19774,10 +18032,7 @@ export type PaymentInstallment = {
 /**
  * 간편 결제 수단
  */
-export type PaymentMethodEasyPayMethod =
-	| PaymentMethodCard
-	| PaymentMethodEasyPayMethodCharge
-	| PaymentMethodTransfer;
+export type PaymentMethodEasyPayMethod = PaymentMethodCard | PaymentMethodEasyPayMethodCharge | PaymentMethodTransfer;
 
 /**
  * 가상계좌 유형
@@ -19787,18 +18042,12 @@ export type PaymentMethodVirtualAccountType = "FIXED" | "NORMAL";
 /**
  * 가상계좌 환불 상태
  */
-export type PaymentMethodVirtualAccountRefundStatus =
-	| "PENDING"
-	| "PARTIAL_REFUND_FAILED"
-	| "FAILED"
-	| "COMPLETED";
+export type PaymentMethodVirtualAccountRefundStatus = "PENDING" | "PARTIAL_REFUND_FAILED" | "FAILED" | "COMPLETED";
 
 /**
  * 가상계좌 발급 유형
  */
-export type InstantPaymentMethodInputVirtualAccountOptionType =
-	| "NORMAL"
-	| "FIXED";
+export type InstantPaymentMethodInputVirtualAccountOptionType = "NORMAL" | "FIXED";
 
 /**
  * 고정식 가상계좌 발급 유형
