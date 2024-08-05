@@ -37,7 +37,7 @@ export function ApiClient(secret: string, init?: ApiRequestClientInit) {
 			}
 			const url = new URL(replacedPath, this.apiBase);
 			const headers = new Headers();
-			headers.set("User-Agent", __USER_AGENT__);
+			headers.set("User-Agent", "__USER_AGENT__");
 			const init: RequestInit = {
 				method,
 				headers,
