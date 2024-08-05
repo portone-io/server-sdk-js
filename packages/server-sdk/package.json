@@ -3,12 +3,7 @@
 	"type": "module",
 	"version": "0.1.0",
 	"description": "PortOne JavaScript SDK for server-side usage",
-	"keywords": [
-		"PortOne",
-		"payment",
-		"포트원",
-		"결제 연동"
-	],
+	"keywords": ["PortOne", "payment", "포트원", "결제 연동"],
 	"author": {
 		"name": "portone-dx",
 		"email": "support@portone.io"
@@ -41,9 +36,7 @@
 		"unbuild": "^2.0.0",
 		"vitest": "^2.0.5"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"sideEffects": false,
 	"license": "(Apache-2.0 OR MIT)"
 }
