@@ -6,7 +6,7 @@ import packageInfo from "./package.json";
 const commitHash = childProcess
 	.execSync("git rev-parse HEAD", { encoding: "utf-8" })
 	.trim();
-const userAgent = `"portone-io/server-sdk-js v${packageInfo.version} (${commitHash})"`;
+const userAgent = `portone-io/server-sdk-js v${packageInfo.version} (${commitHash})`;
 
 export default defineBuildConfig({
 	entries: [
