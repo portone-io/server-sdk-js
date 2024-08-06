@@ -5,4 +5,5 @@ module.exports = {
 	out: "./docs",
 	tsconfig: "../../tsconfig.json",
 	plugin: ["./typedoc-plugin-expand.mjs"],
+	sort: ["kind", "source-order"],
 };

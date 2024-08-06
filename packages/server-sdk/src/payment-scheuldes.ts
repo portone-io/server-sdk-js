@@ -27,10 +27,10 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param paymentScheduleId 조회할 결제 예약 건 아이디
 		 * @returns 결제 예약 건 객체
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentScheduleNotFoundError} 결제 예약건이 존재하지 않는 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentScheduleNotFoundError} 결제 예약건이 존재하지 않는 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async getPaymentSchedule(paymentScheduleId: string) {
 			const response = await client.send(
@@ -73,9 +73,9 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 		 * @param pageSize 각 페이지 당 포함할 객체 수
 		 * @param options 결제 예약 다건 조회를 위한 추가 정보
 		 * @returns 조회된 예약 결제 건 리스트
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async getPaymentScheuldes(
 			pageNumber: number,
@@ -118,14 +118,14 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param options 결제 예약 건 취소를 위한 추가 정보
 		 * @returns 결제 예약 건 취소 정보
-		 * @throws {BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
-		 * @throws {BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentScheduleAlreadyProcessedError} 결제 예약건이 이미 처리된 경우
-		 * @throws {PaymentScheduleAlreadyRevokedError} 결제 예약건이 이미 취소된 경우
-		 * @throws {PaymentScheduleNotFoundError} 결제 예약건이 존재하지 않는 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
+		 * @throws {@link Errors.BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentScheduleAlreadyProcessedError} 결제 예약건이 이미 처리된 경우
+		 * @throws {@link Errors.PaymentScheduleAlreadyRevokedError} 결제 예약건이 이미 취소된 경우
+		 * @throws {@link Errors.PaymentScheduleNotFoundError} 결제 예약건이 존재하지 않는 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async revokePaymentSchedules(
 			options?: Omit<RevokePaymentSchedulesBody, "storeId">,
@@ -168,14 +168,14 @@ export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 		 * @param payment 빌링키 결제 요청 입력 정보
 		 * @param timeToPay 결제 예정 시점
 		 * @returns 결제 예약 건
-		 * @throws {AlreadyPaidOrWaitingError} 결제가 이미 완료되었거나 대기중인 경우
-		 * @throws {BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
-		 * @throws {BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentScheduleAlreadyExistsError}
-		 * @throws {SumOfPartsExceedsTotalAmountError}
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.AlreadyPaidOrWaitingError} 결제가 이미 완료되었거나 대기중인 경우
+		 * @throws {@link Errors.BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
+		 * @throws {@link Errors.BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentScheduleAlreadyExistsError}
+		 * @throws {@link Errors.SumOfPartsExceedsTotalAmountError}
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async schedulePayment(
 			paymentId: string,

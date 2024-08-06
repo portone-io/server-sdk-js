@@ -11,8 +11,8 @@ export function PgProviderApi(client: ReturnType<typeof ApiClient>) {
 		 * @param pgTxId 카카오페이 주문 번호 (tid)
 		 * @param channelKey 채널 키
 		 * @returns 카카오페이 주문 조회 응답 객체
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async getKakaopayOrder(pgTxId: string, channelKey: string) {
 			const response = await client.send("/kakaopay/payment/order", "get", {

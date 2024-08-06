@@ -19,9 +19,9 @@ export function CashReceiptApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param paymentId 결제 건 아이디
 		 * @returns 현금 영수증 객체 또는 `null`
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async getCashReceipt(paymentId: string) {
 			const response = await client.send(
@@ -58,12 +58,12 @@ export function CashReceiptApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param options 현금 영수증 수동 발급을 위한 추가 정보
 		 * @returns 현금영수증 내역
-		 * @throws {CashReceiptAlreadyIssuedError} 현금영수증이 이미 발급된 경우
-		 * @throws {ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.CashReceiptAlreadyIssuedError} 현금영수증이 이미 발급된 경우
+		 * @throws {@link Errors.ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async issueCashReceipt(options: Omit<IssueCashReceiptBody, "storeId">) {
 			const response = await client.send("/cash-receipts", "post", {
@@ -98,12 +98,12 @@ export function CashReceiptApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param paymentId 결제 건 아이디
 		 * @returns 현금 영수증 취소 정보
-		 * @throws {CashReceiptNotFoundError}
-		 * @throws {CashReceiptNotIssuedError}
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.CashReceiptNotFoundError}
+		 * @throws {@link Errors.CashReceiptNotIssuedError}
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async cancelCashReceipt(paymentId: string) {
 			const response = await client.send(

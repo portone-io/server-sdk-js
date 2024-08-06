@@ -26,9 +26,9 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param billingKey 조회할 빌링키
 		 * @returns 빌링키 정보 또는 `null`
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async getBillingKey(billingKey: string) {
 			const response = await client.send("/billing-keys/{billingKey}", "get", {
@@ -61,15 +61,15 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param billingKey 삭제할 빌링키
 		 * @returns 삭제한 빌링키에 대한 정보
-		 * @throws {BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
-		 * @throws {BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
-		 * @throws {BillingKeyNotIssuedError}
-		 * @throws {ChannelSpecificError} 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentScheduleAlreadyExistsError} 결제 예약건이 이미 존재하는 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
+		 * @throws {@link Errors.BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
+		 * @throws {@link Errors.BillingKeyNotIssuedError}
+		 * @throws {@link Errors.ChannelSpecificError} 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentScheduleAlreadyExistsError} 결제 예약건이 이미 존재하는 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async deleteBillingKey(billingKey: string) {
 			const response = await client.send(
@@ -118,9 +118,9 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 		 * @param pageSize 각 페이지 당 포함할 객체 수
 		 * @param options 빌링키 다건 조회를 위한 추가 정보
 		 * @returns 조회된 빌링키 리스트
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async getBillingKeys(
 			pageNumber: number,
@@ -170,12 +170,12 @@ export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 		 * @param method 빌링키 발급 시 결제 수단 입력 양식
 		 * @param options 빌링키 발급을 위한 추가 정보
 		 * @returns 빌링키 발급 정보
-		 * @throws {ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
-		 * @throws {ChannelSpecificError} 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
+		 * @throws {@link Errors.ChannelSpecificError} 여러 채널을 지정한 요청에서, 채널 각각에서 오류가 발생한 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
 		 * @throws  {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async issueBillingKey(
 			method: InstantBillingKeyPaymentMethodInput,
