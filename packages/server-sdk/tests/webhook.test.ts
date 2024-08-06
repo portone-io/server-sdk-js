@@ -94,7 +94,7 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify("", testWebhook.payload, testWebhook.header),
-		).rejects.throw;
+		).rejects.toThrow(sdk.Errors.InvalidInputError);
 		await expect(() =>
 			// biome-ignore lint/suspicious/noExplicitAny: testing runtime type check
 			sdk.Webhook.verify(null as any, testWebhook.payload, testWebhook.header),
