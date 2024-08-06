@@ -41,7 +41,6 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * 주어진 아이디에 대응되는 결제 건을 조회합니다.
 		 *
 		 * @param paymentId 조회할 결제 아이디
-		 * @param storeId 상점 ID
 		 * @returns 결제 건 객체 또는 `null`
 		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
