@@ -22,6 +22,8 @@ type PortOneApiBase = {
 
 /**
  * 포트원 API 객체
+ *
+ * @typedocExpand
  */
 export type PortOneApiClient = Expand<
 	Readonly<
