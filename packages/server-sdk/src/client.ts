@@ -1,4 +1,5 @@
-import type { MethodType, SdkPaths } from "./api";
+import type { Paths } from "../__generated__/schema";
+import type { MethodType } from "./api";
 
 export type ApiRequestClientInit = {
 	/**
@@ -17,15 +18,12 @@ type TryIndex<T, U extends PropertyKey> = T extends { [K in U]: infer V }
 	? V
 	: never;
 
-type PortOneResult<
-	Path extends keyof SdkPaths,
-	Method extends keyof SdkPaths[Path],
-> =
+type PortOneResult<Path extends keyof Paths, Method extends keyof Paths[Path]> =
 	| {
-			success: TryIndex<SdkPaths[Path][Method], "success">;
+			success: TryIndex<Paths[Path][Method], "success">;
 	  }
 	| {
-			error: TryIndex<SdkPaths[Path][Method], "error">;
+			error: TryIndex<Paths[Path][Method], "error">;
 	  };
 
 export function ApiClient(secret: string, init?: ApiRequestClientInit) {
@@ -33,12 +31,12 @@ export function ApiClient(secret: string, init?: ApiRequestClientInit) {
 		apiBase: init?.apiBase ?? "https://api.portone.io",
 		storeId: init?.storeId,
 		async send<
-			Path extends keyof SdkPaths,
-			Method extends string & keyof SdkPaths[Path],
+			Path extends keyof Paths,
+			Method extends string & keyof Paths[Path],
 		>(
 			path: Path,
 			method: Method,
-			args: Extract<SdkPaths[Path][Method], MethodType>["parameters"],
+			args: Extract<Paths[Path][Method], MethodType>["parameters"],
 		): Promise<PortOneResult<Path, Method>> {
 			let replacedPath: string = path;
 			if ("path" in args) {

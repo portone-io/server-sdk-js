@@ -8,6 +8,15 @@ type PortOneProperty = {
 	"x-portone-error": OpenAPIV3.ReferenceObject;
 };
 
+const includePaths = [
+	/^\/payments/,
+	/^\/payment-schedules/,
+	/^\/identity-verifications/,
+	/^\/billing-keys/,
+	/^\/cash-receipts/,
+	/^\/kakaopay/,
+];
+
 export async function generateSchema() {
 	const document = await fs.readFile(process.argv[3], {
 		encoding: "utf-8",
@@ -32,6 +41,7 @@ function TypeGenerator() {
 			const HttpMethods = Object.values(OpenAPIV3.HttpMethods);
 			lines.push("export type Paths = {");
 			for (const [path, pathSchema] of Object.entries(document.paths)) {
+				if (!includePaths.some((pattern) => pattern.test(path))) continue;
 				if (!pathSchema) continue;
 				const methods = HttpMethods.filter((method) => method in pathSchema);
 				if (methods.length === 0) continue;
