@@ -17,7 +17,7 @@ import {
 	PgProviderError,
 	UnauthorizedError,
 	UnknownError,
-} from "./error";
+} from "./errors";
 
 export function BillingKeyApi(client: ReturnType<typeof ApiClient>) {
 	return {

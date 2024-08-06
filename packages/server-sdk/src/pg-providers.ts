@@ -1,5 +1,5 @@
 import type { ApiClient } from "./client";
-import { InvalidRequestError, UnauthorizedError, UnknownError } from "./error";
+import { InvalidRequestError, UnauthorizedError, UnknownError } from "./errors";
 
 export function PgProviderApi(client: ReturnType<typeof ApiClient>) {
 	return {
@@ -14,7 +14,7 @@ export function PgProviderApi(client: ReturnType<typeof ApiClient>) {
 		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
 		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
-		async GetKakaopayOrder(pgTxId: string, channelKey: string) {
+		async getKakaopayOrder(pgTxId: string, channelKey: string) {
 			const response = await client.send("/kakaopay/payment/order", "get", {
 				query: {
 					pgTxId,

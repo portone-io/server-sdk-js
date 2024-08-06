@@ -11,7 +11,7 @@ import {
 	PgProviderError,
 	UnauthorizedError,
 	UnknownError,
-} from "./error";
+} from "./errors";
 
 export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 	return {

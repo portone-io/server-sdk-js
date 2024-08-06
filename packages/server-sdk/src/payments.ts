@@ -33,7 +33,7 @@ import {
 	UnauthorizedError,
 	UnknownError,
 	WebhookNotFoundError,
-} from "./error";
+} from "./errors";
 
 export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 	return {

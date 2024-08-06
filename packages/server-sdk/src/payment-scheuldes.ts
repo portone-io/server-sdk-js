@@ -18,7 +18,7 @@ import {
 	SumOfPartsExceedsTotalAmountError,
 	UnauthorizedError,
 	UnknownError,
-} from "./error";
+} from "./errors";
 
 export function PaymentScheduleApi(client: ReturnType<typeof ApiClient>) {
 	return {

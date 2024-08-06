@@ -10,7 +10,7 @@ import {
 	PgProviderError,
 	UnauthorizedError,
 	UnknownError,
-} from "./error";
+} from "./errors";
 
 export function CashReceiptApi(client: ReturnType<typeof ApiClient>) {
 	return {

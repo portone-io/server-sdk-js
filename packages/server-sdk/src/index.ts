@@ -7,8 +7,7 @@ import { PaymentApi } from "./payments";
 import { PgProviderApi } from "./pg-providers";
 export type * as Schema from "../__generated__/schema.js";
 export { type ApiRequestClientInit } from "./client";
-export type * from "./error";
-export { InvalidInputError } from "./error";
+export * as Errors from "./errors";
 export * as Webhook from "./webhook";
 
 type Expand<T> = {

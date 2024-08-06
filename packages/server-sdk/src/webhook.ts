@@ -1,4 +1,4 @@
-import { InvalidInputError, PortOneError } from "./error";
+import { InvalidInputError, PortOneError } from "./errors";
 import { timingSafeEqual } from "./utils/timingSafeEqual";
 import { tryCatch } from "./utils/try";
 

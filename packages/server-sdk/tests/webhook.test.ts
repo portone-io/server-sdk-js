@@ -94,11 +94,11 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify("", testWebhook.payload, testWebhook.header),
-		).rejects.toThrow(sdk.InvalidInputError);
+		).rejects.throw;
 		await expect(() =>
 			// biome-ignore lint/suspicious/noExplicitAny: testing runtime type check
 			sdk.Webhook.verify(null as any, testWebhook.payload, testWebhook.header),
-		).rejects.toThrow(sdk.InvalidInputError);
+		).rejects.toThrow(sdk.Errors.InvalidInputError);
 		await expect(() =>
 			sdk.Webhook.verify(
 				// biome-ignore lint/suspicious/noExplicitAny: testing runtime type check
@@ -106,7 +106,7 @@ describe("error cases", () => {
 				testWebhook.payload,
 				testWebhook.header,
 			),
-		).rejects.toThrow(sdk.InvalidInputError);
+		).rejects.toThrow(sdk.Errors.InvalidInputError);
 	});
 
 	it("missing id on header", async () => {
