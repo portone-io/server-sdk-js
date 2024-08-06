@@ -1,11 +1,22 @@
 import type { MethodType, SdkPaths } from "./api";
 
 export type ApiRequestClientInit = {
+	/**
+	 * 포트원 API URL Origin
+	 *
+	 * 기본값은 `https://api.portone.io`입니다.
+	 */
 	apiBase?: string;
+	/**
+	 * 상점 ID
+	 */
 	storeId?: string;
 };
 
-type TryIndex<T, U extends PropertyKey> = U extends keyof T ? T[U] : never;
+type TryIndex<T, U extends PropertyKey> = T extends { [K in U]: infer V }
+	? V
+	: never;
+
 type PortOneResult<
 	Path extends keyof SdkPaths,
 	Method extends keyof SdkPaths[Path],
