@@ -4,5 +4,7 @@
   "initialVersions": {
     "@portone/server-sdk": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "curvy-rivers-destroy"
+  ]
 }
