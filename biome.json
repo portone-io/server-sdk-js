@@ -15,6 +15,6 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignore": ["packages/server-sdk/__generated__"]
+		"ignore": ["packages/server-sdk/__generated__", "package.json"]
 	}
 }
