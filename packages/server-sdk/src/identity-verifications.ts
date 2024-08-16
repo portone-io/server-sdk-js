@@ -20,9 +20,9 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param identityVerificationId 조회할 본인인증 아이디
 		 * @returns 본인 인증 객체 또는 `null`
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async getIdentityVerification(identityVerificationId: string) {
 			const response = await client.send(
@@ -59,14 +59,14 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param identityVerificationId 본인인증 아이디
 		 * @param options 본인인증 요청을 전송하기 위한 추가 정보
-		 * @throws {ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {IdentityVerificationAlreadySentError} 본인인증 건이 이미 API로 요청된 상태인 경우
-		 * @throws {IdentityVerificationAlreadyVerifiedError} 본인인증 건이 이미 인증 완료된 상태인 경우
-		 * @throws {IdentityVerificationNotFoundError} 요청된 본인인증 건이 존재하지 않는 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.IdentityVerificationAlreadySentError} 본인인증 건이 이미 API로 요청된 상태인 경우
+		 * @throws {@link Errors.IdentityVerificationAlreadyVerifiedError} 본인인증 건이 이미 인증 완료된 상태인 경우
+		 * @throws {@link Errors.IdentityVerificationNotFoundError} 요청된 본인인증 건이 존재하지 않는 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async sendIdentityVerification(
 			identityVerificationId: string,
@@ -115,13 +115,13 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 		 * @param identityVerificationId 본인인증 아이디
 		 * @param otp OTP (One-Time Password) SMS 방식에서만 사용됩니다.
 		 * @returns 완료된 본인인증 내역
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {IdentityVerificationAlreadyVerifiedError} 본인인증 건이 이미 인증 완료된 상태인 경우
-		 * @throws {IdentityVerificationNotFoundError} 요청된 본인인증 건이 존재하지 않는 경우
-		 * @throws {IdentityVerificationNotSentError} 본인인증 건이 API로 요청된 상태가 아닌 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.IdentityVerificationAlreadyVerifiedError} 본인인증 건이 이미 인증 완료된 상태인 경우
+		 * @throws {@link Errors.IdentityVerificationNotFoundError} 요청된 본인인증 건이 존재하지 않는 경우
+		 * @throws {@link Errors.IdentityVerificationNotSentError} 본인인증 건이 API로 요청된 상태가 아닌 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async confirmIdentityVerification(
 			identityVerificationId: string,
@@ -167,13 +167,13 @@ export function IdentityVerificationApi(client: ReturnType<typeof ApiClient>) {
 		 * SMS 본인인증 요청을 재전송합니다.
 		 *
 		 * @param identityVerificationId 본인인증 아이디
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {IdentityVerificationAlreadyVerifiedError} 본인인증 건이 이미 인증 완료된 상태인 경우
-		 * @throws {IdentityVerificationNotFoundError} 요청된 본인인증 건이 존재하지 않는 경우
-		 * @throws {IdentityVerificationNotSentError} 본인인증 건이 API로 요청된 상태가 아닌 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.IdentityVerificationAlreadyVerifiedError} 본인인증 건이 이미 인증 완료된 상태인 경우
+		 * @throws {@link Errors.IdentityVerificationNotFoundError} 요청된 본인인증 건이 존재하지 않는 경우
+		 * @throws {@link Errors.IdentityVerificationNotSentError} 본인인증 건이 API로 요청된 상태가 아닌 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async resendIdentityVerification(identityVerificationId: string) {
 			const response = await client.send(

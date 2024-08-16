@@ -42,9 +42,9 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param paymentId 조회할 결제 아이디
 		 * @returns 결제 건 객체 또는 `null`
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
 		 */
 		async getPayment(paymentId: string) {
 			const response = await client.send("/payments/{paymentId}", "get", {
@@ -79,9 +79,9 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param pageSize 각 페이지 당 포함할 객체 수
 		 * @param filter 결제 건 다건 조회를 위한 입력 정보
 		 * @returns 조회된 결제 건 리스트
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
 		 */
 		async getPayments(
 			pageNumber: number,
@@ -120,10 +120,10 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param paymentId 결제 건 아이디
 		 * @param options 등록할 사전 정보
-		 * @throws {AlreadyPaidError} 결제가 이미 완료된 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.AlreadyPaidError} 결제가 이미 완료된 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async preRegisterPayment(
 			paymentId: string,
@@ -164,19 +164,19 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param options 결제 취소 정보
 		 * @returns 결제 취소 내역
-		 * @throws {CancelAmountExceedsCancellableAmountError} 결제 취소 금액이 취소 가능 금액을 초과한 경우
-		 * @throws {CancelTaxAmountExceedsCancellableTaxAmountError} 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
-		 * @throws {CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError} 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
-		 * @throws {CancellableAmountConsistencyBrokenError} 취소 가능 잔액 검증에 실패한 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentAlreadyCancelledError} 결제가 이미 취소된 경우
-		 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
-		 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {SumOfPartsExceedsCancelAmountError} 하위 항목들의 합이 전체 취소 금액을 초과한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
-		 * @throws {RemainedAmountLessThanPromotionMinPaymentAmountError} 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
+		 * @throws {@link Errors.CancelAmountExceedsCancellableAmountError} 결제 취소 금액이 취소 가능 금액을 초과한 경우
+		 * @throws {@link Errors.CancelTaxAmountExceedsCancellableTaxAmountError} 취소 과세 금액이 취소 가능한 과세 금액을 초과한 경우
+		 * @throws {@link Errors.CancelTaxFreeAmountExceedsCancellableTaxFreeAmountError} 취소 면세 금액이 취소 가능한 면세 금액을 초과한 경우
+		 * @throws {@link Errors.CancellableAmountConsistencyBrokenError} 취소 가능 잔액 검증에 실패한 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentAlreadyCancelledError} 결제가 이미 취소된 경우
+		 * @throws {@link Errors.PaymentNotFoundError} 결제 건이 존재하지 않는 경우
+		 * @throws {@link Errors.PaymentNotPaidError} 결제가 완료되지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.SumOfPartsExceedsCancelAmountError} 하위 항목들의 합이 전체 취소 금액을 초과한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.RemainedAmountLessThanPromotionMinPaymentAmountError} 부분 취소 시, 취소하게 될 경우 남은 금액이 프로모션의 최소 결제 금액보다 작아지는 경우
 		 */
 		async cancelPayment(
 			paymentId: string,
@@ -242,17 +242,17 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param options 빌링 키 결제 정보
 		 * @returns 빌링키 결제 완료된 결제 건 요약 정보
-		 * @throws {AlreadyPaidError} 이미 결제가 완료된 건에 대하여 사전 등록을 시도할 경우
-		 * @throws {BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
-		 * @throws {BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
-		 * @throws {ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {SumOfPartsExceedsTotalAmountError} 하위 항목들의 합이 전체 결제 금액을 초과한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
-		 * @throws {DiscountAmountExceedsTotalAmountError} 프로모션 할인 금액이 결제 시도 금액 이상인 경우
-		 * @throws {PromotionPayMethodDoesNotMatchError} 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
+		 * @throws {@link Errors.AlreadyPaidError} 이미 결제가 완료된 건에 대하여 사전 등록을 시도할 경우
+		 * @throws {@link Errors.BillingKeyAlreadyDeletedError} 빌링키가 이미 삭제된 경우
+		 * @throws {@link Errors.BillingKeyNotFoundError} 빌링키가 존재하지 않는 경우
+		 * @throws {@link Errors.ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.SumOfPartsExceedsTotalAmountError} 하위 항목들의 합이 전체 결제 금액을 초과한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.DiscountAmountExceedsTotalAmountError} 프로모션 할인 금액이 결제 시도 금액 이상인 경우
+		 * @throws {@link Errors.PromotionPayMethodDoesNotMatchError} 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
 		 */
 		async payWithBillingKey(
 			paymentId: string,
@@ -308,15 +308,15 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param options 수기 결제 정보
 		 * @returns 수기 결제가 완료된 결제 건 요약 정보
-		 * @throws {AlreadyPaidError} 이미 결제가 완료된 건에 대하여 사전 등록을 시도할 경우
-		 * @throws {ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {SumOfPartsExceedsTotalAmountError} 하위 항목들의 합이 전체 결제 금액을 초과한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
-		 * @throws {DiscountAmountExceedsTotalAmountError} 프로모션 할인 금액이 결제 시도 금액 이상인 경우
-		 * @throws {PromotionPayMethodDoesNotMatchError} 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
+		 * @throws {@link Errors.AlreadyPaidError} 이미 결제가 완료된 건에 대하여 사전 등록을 시도할 경우
+		 * @throws {@link Errors.ChannelNotFoundError} 요청된 채널이 존재하지 않는 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.SumOfPartsExceedsTotalAmountError} 하위 항목들의 합이 전체 결제 금액을 초과한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.DiscountAmountExceedsTotalAmountError} 프로모션 할인 금액이 결제 시도 금액 이상인 경우
+		 * @throws {@link Errors.PromotionPayMethodDoesNotMatchError} 결제수단이 프로모션에 지정된 것과 일치하지 않는 경우
 		 */
 		async instantPay(
 			paymentId: string,
@@ -367,12 +367,12 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 *
 		 * @param paymentId 결제 건 아이디
 		 * @returns 가상계좌 말소 정보
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
-		 * @throws {PaymentNotWaitingForDepositError} 결제 건이 입금 대기 상태가 아닌 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentNotFoundError} 결제 건이 존재하지 않는 경우
+		 * @throws {@link Errors.PaymentNotWaitingForDepositError} 결제 건이 입금 대기 상태가 아닌 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async closeVirtualAccount(paymentId: string) {
 			const response = await client.send(
@@ -414,12 +414,12 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param options 에스크로 배송 정보
 		 * @returns 에스크로 정보 등록 정보
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
-		 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentNotFoundError} 결제 건이 존재하지 않는 경우
+		 * @throws {@link Errors.PaymentNotPaidError} 결제가 완료되지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async registerEscrowLogistics(
 			paymentId: string,
@@ -465,12 +465,12 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param options 에스크로 배송 정보
 		 * @returns 에스크로 배송 정보 수정 정보
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
-		 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentNotFoundError} 결제 건이 존재하지 않는 경우
+		 * @throws {@link Errors.PaymentNotPaidError} 결제가 완료되지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async modifyEscrowLogsitics(
 			paymentId: string,
@@ -516,12 +516,12 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param fromStore 확인 주체가 상점인지 여부
 		 * @returns 에스크로 구매 확정 정보
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
-		 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
-		 * @throws {PgProviderError} PG사에서 오류를 전달한 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentNotFoundError} 결제 건이 존재하지 않는 경우
+		 * @throws {@link Errors.PaymentNotPaidError} 결제가 완료되지 않은 경우
+		 * @throws {@link Errors.PgProviderError} PG사에서 오류를 전달한 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async completeEscrow(
 			paymentId: string,
@@ -571,11 +571,11 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 결제 건 아이디
 		 * @param webhookId 웹훅 아이디
 		 * @returns 성공 웹훅 내역
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
-		 * @throws {WebhookNotFoundError} 웹훅 내역이 존재하지 않는 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentNotFoundError} 결제 건이 존재하지 않는 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.WebhookNotFoundError} 웹훅 내역이 존재하지 않는 경우
 		 */
 		async resendWebhook(
 			paymentId: string,
@@ -624,11 +624,11 @@ export function PaymentApi(client: ReturnType<typeof ApiClient>) {
 		 * @param paymentId 등록할 하위 상점 결제 건 아이디
 		 * @param items 하위 상점 거래 목록
 		 * @returns 하위 상점 거래 등록 정보
-		 * @throws {ForbiddenError} 요청이 거절된 경우
-		 * @throws {InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
-		 * @throws {PaymentNotFoundError} 결제 건이 존재하지 않는 경우
-		 * @throws {PaymentNotPaidError} 결제가 완료되지 않은 경우
-		 * @throws {UnauthorizedError} 인증 정보가 올바르지 않은 경우
+		 * @throws {@link Errors.ForbiddenError} 요청이 거절된 경우
+		 * @throws {@link Errors.InvalidRequestError} 요청된 입력 정보가 유효하지 않은 경우
+		 * @throws {@link Errors.PaymentNotFoundError} 결제 건이 존재하지 않는 경우
+		 * @throws {@link Errors.PaymentNotPaidError} 결제가 완료되지 않은 경우
+		 * @throws {@link Errors.UnauthorizedError} 인증 정보가 올바르지 않은 경우
 		 */
 		async registerStoreReceipt(
 			paymentId: string,
