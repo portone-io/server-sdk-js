@@ -1,4 +1,4 @@
-import { InvalidInputError, PortOneError } from "./error";
+import { InvalidInputError, PortOneError } from "./errors";
 import { timingSafeEqual } from "./utils/timingSafeEqual";
 import { tryCatch } from "./utils/try";
 
@@ -92,8 +92,8 @@ const prefix = "whsec_";
  * @param payload 웹훅 페이로드
  * @param headers 웹훅 요청 시 포함된 헤더
  * @returns 검증 후 디코딩된 웹훅 페이로드를 반환하는 Promise
- * @throws {InvalidInputError} 입력받은 시크릿이 유효하지 않을 때 발생합니다.
- * @throws {WebhookVerificationError} 웹훅 검증에 실패했을 때 발생합니다.
+ * @throws {@link Errors.InvalidInputError} 입력받은 시크릿이 유효하지 않을 때 발생합니다.
+ * @throws {@link WebhookVerificationError} 웹훅 검증에 실패했을 때 발생합니다.
  */
 export async function verify(
 	secret: string | Uint8Array,
@@ -148,7 +148,7 @@ export async function verify(
  * @param msgTimestamp 웹훅 생성 시도 시각
  * @param payload 웹훅 페이로드
  * @returns 서명된 웹훅 본문을 반환하는 Promise
- * @throws {InvalidInputError} 입력받은 웹훅 페이로드가 유효하지 않을 때 발생합니다.
+ * @throws {@link Errors.InvalidInputError} 입력받은 웹훅 페이로드가 유효하지 않을 때 발생합니다.
  */
 async function sign(
 	secret: string | Uint8Array,
@@ -168,7 +168,7 @@ const secrets = new Map<string | Uint8Array, CryptoKey>();
 /**
  * 웹훅 시크릿 입력으로부터 CryptoKey를 가져옵니다.
  *
- * @throws {InvalidInputError} 입력받은 웹훅 시크릿이 유효하지 않을 때 발생합니다.
+ * @throws {@link Errors.InvalidInputError} 입력받은 웹훅 시크릿이 유효하지 않을 때 발생합니다.
  */
 async function getCryptoKeyFromSecret(secret: string | Uint8Array) {
 	const cryptoKeyCached = secrets.get(secret); // cache based on argument
@@ -212,7 +212,7 @@ async function getCryptoKeyFromSecret(secret: string | Uint8Array) {
 /**
  * 웹훅의 타임스탬프 정보를 검증합니다.
  *
- * @throws {WebhookVerificationError} 타임스탬프가 유효하지 않을 때 발생합니다.
+ * @throws {@link Errors.WebhookVerificationError} 타임스탬프가 유효하지 않을 때 발생합니다.
  */
 function verifyTimestamp(timestampHeader: string): void {
 	const now = Math.floor(Date.now() / 1000);
