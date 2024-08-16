@@ -6,6 +6,11 @@ settings:
 
 packageExtensionsChecksum: aa6d5169683495d087017692d1b5a11c
 
+patchedDependencies:
+  '@changesets/assemble-release-plan@6.0.3':
+    hash: ip5f3v7zkc2xpbta6kf73tytpa
+    path: patches/@changesets__assemble-release-plan@6.0.3.patch
+
 importers:
 
   .:
@@ -2668,7 +2673,7 @@ snapshots:
       resolve-from: 5.0.0
       semver: 7.6.3
 
-  '@changesets/assemble-release-plan@6.0.3':
+  '@changesets/assemble-release-plan@6.0.3(patch_hash=ip5f3v7zkc2xpbta6kf73tytpa)':
     dependencies:
       '@babel/runtime': 7.25.0
       '@changesets/errors': 0.2.0
@@ -2686,7 +2691,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.0
       '@changesets/apply-release-plan': 7.0.4
-      '@changesets/assemble-release-plan': 6.0.3
+      '@changesets/assemble-release-plan': 6.0.3(patch_hash=ip5f3v7zkc2xpbta6kf73tytpa)
       '@changesets/changelog-git': 0.2.0
       '@changesets/config': 3.0.2
       '@changesets/errors': 0.2.0
@@ -2742,7 +2747,7 @@ snapshots:
   '@changesets/get-release-plan@4.0.3':
     dependencies:
       '@babel/runtime': 7.25.0
-      '@changesets/assemble-release-plan': 6.0.3
+      '@changesets/assemble-release-plan': 6.0.3(patch_hash=ip5f3v7zkc2xpbta6kf73tytpa)
       '@changesets/config': 3.0.2
       '@changesets/pre': 2.0.0
       '@changesets/read': 0.6.0

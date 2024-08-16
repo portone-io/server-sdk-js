@@ -1,0 +1,69 @@
+diff --git a/dist/changesets-assemble-release-plan.cjs.js b/dist/changesets-assemble-release-plan.cjs.js
+index 60427457c887f2d72168fecec83d79088c68e3a4..5e6933b165fa1bb147c88453790ede0c3049baba 100644
+--- a/dist/changesets-assemble-release-plan.cjs.js
++++ b/dist/changesets-assemble-release-plan.cjs.js
+@@ -396,7 +396,7 @@ function matchFixedConstraint(releases, packagesByName, config) {
+ 
+ function getPreVersion(version) {
+   let parsed = semverParse__default["default"](version);
+-  let preVersion = parsed.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
++  let preVersion = parsed?.prerelease[1] === undefined ? -1 : parsed?.prerelease[1];
+ 
+   if (typeof preVersion !== "number") {
+     throw new errors.InternalError("preVersion is not a number");
+diff --git a/dist/changesets-assemble-release-plan.esm.js b/dist/changesets-assemble-release-plan.esm.js
+index f6583cf3f639e1fe4df764a015689dea74127236..31a715bcad86b9709f38344570ee4914863dfd81 100644
+--- a/dist/changesets-assemble-release-plan.esm.js
++++ b/dist/changesets-assemble-release-plan.esm.js
+@@ -2,10 +2,10 @@ import _objectSpread from '@babel/runtime/helpers/esm/objectSpread2';
+ import { InternalError } from '@changesets/errors';
+ import { getDependentsGraph } from '@changesets/get-dependents-graph';
+ import { shouldSkipPackage } from '@changesets/should-skip-package';
+-import semverParse from 'semver/functions/parse';
+ import semverGt from 'semver/functions/gt';
+-import semverSatisfies from 'semver/functions/satisfies';
+ import semverInc from 'semver/functions/inc';
++import semverParse from 'semver/functions/parse';
++import semverSatisfies from 'semver/functions/satisfies';
+ 
+ function getHighestReleaseType(releases) {
+   if (releases.length === 0) {
+@@ -385,7 +385,7 @@ function matchFixedConstraint(releases, packagesByName, config) {
+ 
+ function getPreVersion(version) {
+   let parsed = semverParse(version);
+-  let preVersion = parsed.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
++  let preVersion = parsed?.prerelease[1] === undefined ? -1 : parsed?.prerelease[1];
+ 
+   if (typeof preVersion !== "number") {
+     throw new InternalError("preVersion is not a number");
+diff --git a/src/index.ts b/src/index.ts
+index 8fd4c29deaeaa144cacee57d32d4fd28b967f20f..cddcb08a6dd0d88672753a9ebbb9986afac69751 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -2,11 +2,11 @@ import { InternalError } from "@changesets/errors";
+ import { getDependentsGraph } from "@changesets/get-dependents-graph";
+ import { shouldSkipPackage } from "@changesets/should-skip-package";
+ import {
+-  Config,
+-  NewChangeset,
+-  PackageGroup,
+-  PreState,
+-  ReleasePlan,
++    Config,
++    NewChangeset,
++    PackageGroup,
++    PreState,
++    ReleasePlan,
+ } from "@changesets/types";
+ import { Package, Packages } from "@manypkg/get-packages";
+ import semverParse from "semver/functions/parse";
+@@ -25,7 +25,7 @@ type SnapshotReleaseParameters = {
+ function getPreVersion(version: string) {
+   let parsed = semverParse(version)!;
+   let preVersion =
+-    parsed.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
++    parsed?.prerelease[1] === undefined ? -1 : parsed?.prerelease[1];
+   if (typeof preVersion !== "number") {
+     throw new InternalError("preVersion is not a number");
+   }
