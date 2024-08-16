@@ -23,6 +23,9 @@
 					"mkdist": "^1.5.4"
 				}
 			}
+		},
+		"patchedDependencies": {
+			"@changesets/assemble-release-plan@6.0.3": "patches/@changesets__assemble-release-plan@6.0.3.patch"
 		}
 	},
 	"license": "(Apache-2.0 OR MIT)",
