@@ -48,29 +48,27 @@ export function ApiClient(secret: string, init?: ApiRequestClientInit) {
 			const headers = new Headers();
 			headers.set("User-Agent", "__USER_AGENT__");
 			const init: RequestInit = {
-				method,
+				method: method.toUpperCase(),
 				headers,
 			};
 			headers.set("Authorization", `PortOne ${secret}`);
-			switch (method) {
-				case "get":
-				case "delete":
-					if ("query" in args && Object.keys(args.query).length !== 0) {
-						for (const [key, value] of Object.entries(args.query)) {
-							url.searchParams.set(key, value);
-						}
-					}
-					if ("body" in args && Object.keys(args.body).length !== 0) {
+			if ("query" in args && Object.keys(args.query).length !== 0) {
+				for (const [key, value] of Object.entries(args.query)) {
+					if (value != null) url.searchParams.set(key, value);
+				}
+			}
+			if ("body" in args && Object.keys(args.body).length !== 0) {
+				switch (method) {
+					case "get":
+					case "delete":
 						url.searchParams.set("requestBody", JSON.stringify(args.body));
-					}
-					break;
-				case "post":
-				case "patch":
-					if ("body" in args && Object.keys(args.body).length !== 0) {
+						break;
+					case "post":
+					case "patch":
 						init.body = JSON.stringify(args.body);
-					}
-					headers.set("Content-Type", "application/json");
-					break;
+						headers.set("Content-Type", "application/json");
+						break;
+				}
 			}
 			const rawResponse = await fetch(url, init);
 			if (rawResponse.ok) {
