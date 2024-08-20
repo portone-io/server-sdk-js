@@ -26,7 +26,7 @@ app.get("/webhook", rawBody, async (req, res, next) => {
 		try {
 			await PortOne.Webhook.verify(webhookSecret, req.rawBody, req.headers);
 		} catch (err) {
-			if (err instanceof PortOne.Webhook.WebhookVerificationError) {
+			if (err instanceof PortOne.Errors.WebhookVerificationError) {
 				console.log("Invalid webhook payload received:", err.message);
 				res.status(400).end();
 				return;
