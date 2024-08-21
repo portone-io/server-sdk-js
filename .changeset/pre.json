@@ -5,6 +5,7 @@
     "@portone/server-sdk": "0.1.0"
   },
   "changesets": [
-    "curvy-rivers-destroy"
+    "curvy-rivers-destroy",
+    "wet-lions-drop"
   ]
 }
