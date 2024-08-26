@@ -7,7 +7,7 @@ import type {
 	PreRegisterPaymentBody,
 	RegisterEscrowLogisticsBody,
 	RegisterStoreReceiptBodyItem,
-} from "../__generated__/schema";
+} from "./__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	AlreadyPaidError,

@@ -16,7 +16,7 @@
 	},
 	"files": {
 		"ignore": [
-			"packages/server-sdk/__generated__",
+			"packages/server-sdk/src/__generated__",
 			"package.json",
 			".changeset"
 		]

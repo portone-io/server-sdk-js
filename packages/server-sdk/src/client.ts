@@ -1,4 +1,4 @@
-import type { Paths } from "../__generated__/schema";
+import type { Paths } from "./__generated__/schema";
 import type { MethodType } from "./api";
 
 export type ApiRequestClientInit = {

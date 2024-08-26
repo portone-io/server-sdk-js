@@ -3,7 +3,7 @@ import type {
 	PaymentScheduleFilterInput,
 	PaymentScheduleSortInput,
 	RevokePaymentSchedulesBody,
-} from "../__generated__/schema";
+} from "./__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	AlreadyPaidOrWaitingError,
