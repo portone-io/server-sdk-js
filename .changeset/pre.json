@@ -5,7 +5,9 @@
     "@portone/server-sdk": "0.1.0"
   },
   "changesets": [
+    "chilly-eagles-listen",
     "curvy-rivers-destroy",
+    "hungry-pianos-sit",
     "wet-lions-drop"
   ]
 }

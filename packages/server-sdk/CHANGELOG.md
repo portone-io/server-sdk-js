@@ -1,5 +1,15 @@
 # @portone/server-sdk
 
+## 0.2.0-alpha.2
+
+### Minor Changes
+
+- e115ff4: Webhook 관련 에러를 Errors 모듈로 병합
+
+### Patch Changes
+
+- a4e3438: schema.d.ts가 배포되도록 수정
+
 ## 0.2.0-alpha.1
 
 ### Patch Changes
