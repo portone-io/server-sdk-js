@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 
 const secret = "pzQGE83cSIRKM4/WH5QY+g==";
 
+const crypto = globalThis.crypto ?? (await import("node:crypto")).webcrypto;
+
 const makeWebhook = async (timestamp = Date.now()) => {
 	const timestampInSec = Math.floor(timestamp / 1000);
 	const id = "dummy-webhook-id";
@@ -116,7 +118,7 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 
 	it("missing timestamp on header", async () => {
@@ -126,7 +128,7 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 
 	it("invalid timestamp on header", async () => {
@@ -135,7 +137,7 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 
 	it("missing signature on header", async () => {
@@ -145,7 +147,7 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 
 	it("invalid signature on header", async () => {
@@ -154,7 +156,7 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 
 	it("partial signature on header", async () => {
@@ -166,13 +168,13 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 
 		testWebhook.header["webhook-signature"] = "v1,";
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 
 	it("old timestamp", async () => {
@@ -180,7 +182,7 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testWebhook.payload, testWebhook.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 
 	it("new timestamp", async () => {
@@ -188,6 +190,6 @@ describe("error cases", () => {
 
 		await expect(() =>
 			sdk.Webhook.verify(secret, testPayload.payload, testPayload.header),
-		).rejects.toThrowError(sdk.Webhook.WebhookVerificationError);
+		).rejects.toThrowError(sdk.Errors.WebhookVerificationError);
 	});
 });
