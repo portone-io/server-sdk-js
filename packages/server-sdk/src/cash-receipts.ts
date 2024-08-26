@@ -1,4 +1,4 @@
-import type { IssueCashReceiptBody } from "../__generated__/schema";
+import type { IssueCashReceiptBody } from "./__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	CashReceiptAlreadyIssuedError,

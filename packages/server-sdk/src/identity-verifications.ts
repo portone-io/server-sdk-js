@@ -1,4 +1,4 @@
-import type { SendIdentityVerificationBody } from "../__generated__/schema";
+import type { SendIdentityVerificationBody } from "./__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	ChannelNotFoundError,

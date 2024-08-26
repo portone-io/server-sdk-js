@@ -3,7 +3,7 @@ import type {
 	BillingKeySortInput,
 	InstantBillingKeyPaymentMethodInput,
 	IssueBillingKeyBody,
-} from "../__generated__/schema";
+} from "./__generated__/schema";
 import type { ApiClient } from "./client";
 import {
 	BillingKeyAlreadyDeletedError,
