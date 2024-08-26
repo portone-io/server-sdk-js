@@ -5,6 +5,8 @@ import { beforeAll, describe, expect, test } from "vitest";
 
 let uuid: string;
 
+const crypto = globalThis.crypto ?? (await import("node:crypto")).webcrypto;
+
 // To simulate a real build, since we have different package.json entries on development because of package.json#publishConfig
 beforeAll(async () => {
 	uuid = crypto.randomUUID();

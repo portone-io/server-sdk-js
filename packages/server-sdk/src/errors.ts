@@ -1,4 +1,5 @@
 import type Schema from "../__generated__/schema";
+import type { WebhookVerificationFailureReason } from "./webhook";
 
 /**
  * 포트원 SDK에서 발생하는 모든 에러의 기반 타입입니다.
@@ -556,6 +557,51 @@ export class CashReceiptAlreadyIssuedError extends PortOneError {
 		super(response.message ?? "");
 		Object.setPrototypeOf(this, CashReceiptAlreadyIssuedError.prototype);
 		this.name = "CashReceiptAlreadyIssuedError";
+	}
+}
+
+/**
+ * 웹훅 검증이 실패했을 때 발생하는 에러입니다.
+ *
+ * `reason` 필드를 통해 상세한 실패 원인을 확인할 수 있습니다.
+ */
+export class WebhookVerificationError extends PortOneError {
+	readonly _tag = "WebhookVerificationError";
+
+	/**
+	 * 웹훅 검증이 실패한 상세 사유을 나타냅니다.
+	 */
+	readonly reason: WebhookVerificationFailureReason;
+
+	/**
+	 * 웹훅 검증 실패 사유로부터 에러 메시지를 생성합니다.
+	 *
+	 * @param reason 에러 메시지를 생성할 실패 사유
+	 * @returns 에러 메시지
+	 */
+	static getMessage(reason: WebhookVerificationFailureReason): string {
+		switch (reason) {
+			case "MISSING_REQUIRED_HEADERS":
+				return "필수 헤더가 누락되었습니다.";
+			case "NO_MATCHING_SIGNATURE":
+				return "올바른 웹훅 시그니처를 찾을 수 없습니다.";
+			case "INVALID_SIGNATURE":
+				return "웹훅 시그니처가 유효하지 않습니다.";
+			case "TIMESTAMP_TOO_OLD":
+				return "웹훅 시그니처의 타임스탬프가 만료 기한을 초과했습니다.";
+			case "TIMESTAMP_TOO_NEW":
+				return "웹훅 시그니처의 타임스탬프가 미래 시간으로 설정되어 있습니다.";
+		}
+	}
+
+	constructor(
+		reason: WebhookVerificationFailureReason,
+		options?: ErrorOptions,
+	) {
+		super(WebhookVerificationError.getMessage(reason), options);
+		Object.setPrototypeOf(this, WebhookVerificationError.prototype);
+		this.name = "WebhookVerificationError";
+		this.reason = reason;
 	}
 }
 
