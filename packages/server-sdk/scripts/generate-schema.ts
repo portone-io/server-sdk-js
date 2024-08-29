@@ -1,12 +1,6 @@
 import fs from "node:fs/promises";
-import { OpenAPIV3 } from "openapi-types";
+import type { OpenAPIV3 } from "openapi-types";
 import TurndownService from "turndown";
-
-type PortOneProperty = {
-	"x-portone-title"?: string;
-	"x-portone-description"?: string;
-	"x-portone-error": OpenAPIV3.ReferenceObject;
-};
 
 const includePaths = [
 	/^\/payments/,
@@ -17,363 +11,348 @@ const includePaths = [
 	/^\/kakaopay/,
 ];
 
-export async function generateSchema() {
-	const document = await fs.readFile(process.argv[3], {
-		encoding: "utf-8",
-	});
-	const typeGenerator = TypeGenerator();
-	return typeGenerator.parseDocument(JSON.parse(document));
-}
+const document = await fs.readFile(process.argv[3], {
+	encoding: "utf-8",
+});
+await fs.writeFile(process.argv[2], generateSchema(JSON.parse(document)));
 
-function TypeGenerator() {
-	return {
-		dependencies: [] as string[],
-		resolved: new Set<string>(),
-		discriminator: new Map<string, TypeObject>(),
-		queueResolution(name: string) {
-			if (!this.resolved.has(name)) {
-				this.resolved.add(name);
-				this.dependencies.push(name);
-			}
-		},
-		parseDocument(document: OpenAPIV3.Document<PortOneProperty>) {
-			const lines = [];
-			const HttpMethods = Object.values(OpenAPIV3.HttpMethods);
-			lines.push("export type Paths = {");
-			for (const [path, pathSchema] of Object.entries(document.paths)) {
-				if (!includePaths.some((pattern) => pattern.test(path))) continue;
-				if (!pathSchema) continue;
-				const methods = HttpMethods.filter((method) => method in pathSchema);
-				if (methods.length === 0) continue;
-				lines.push(`\t"${path}": {`);
-				for (const method of methods) {
-					const methodSchema = pathSchema[method];
-					if (!methodSchema) continue;
-					lines.push(
-						...makeComment(
-							methodSchema["x-portone-title"],
-							methodSchema["x-portone-description"],
-						).map((line) => `\t\t${line}`),
-					);
-					const errorRef = methodSchema["x-portone-error"]?.$ref;
-					lines.push(`\t\t${method}: {`);
-					const parameterLines = [];
-					const bodyRef = extractRef(extractJson(methodSchema.requestBody));
-					if (bodyRef) {
-						const name = extractNameFromRef(bodyRef);
-						parameterLines.push(`body: ${name};`);
-						this.queueResolution(name);
-					}
-					if (methodSchema.parameters) {
-						const parameters: Record<string, TypeObject[]> = {
-							query: [],
-							path: [],
-						};
-						for (const parameter of methodSchema.parameters) {
-							if ("$ref" in parameter) {
-								throw new Error("parameter ref is not implemented", {
-									cause: parameter,
-								});
-							}
-							const {
-								name,
-								in: where,
-								required,
-								schema,
-								description,
-							} = parameter;
-							if (name === "requestBody") continue;
-							const fieldName = required ? name : `${name}?`;
-							if (!schema) {
-								throw new Error("schema is not specified", {
-									cause: parameter,
-								});
-							}
-							if (where in parameters) {
-								parameters[where].push({
-									...this.parseSchema(schema, fieldName),
-									name: fieldName,
-									description,
-								});
-							} else {
-								throw new Error("Unknown parameter `in`", {
-									cause: methodSchema,
-								});
-							}
-						}
-						for (const [key, value] of Object.entries(parameters)) {
-							if (value.length > 0) {
-								parameterLines.push(
-									`${key}: {`,
-									...value
-										.flatMap((property) => makeTypes(property, false))
-										.map((line) => `\t${line}`),
-									"};",
-								);
-							}
-						}
-					}
-					if (parameterLines.length > 0) {
-						lines.push(
-							"\t\t\tparameters: {",
-							...parameterLines.map((line) => `\t\t\t\t${line}`),
-							"\t\t\t};",
-						);
-					} else {
-						lines.push("\t\t\tparameters: Record<string, never>;");
-					}
-					if (methodSchema.responses) {
-						const errorDescription = [];
-						for (const status of Object.values(methodSchema.responses)) {
-							if ("$ref" in status) {
-								throw new Error("status reference is not implemented", {
-									cause: status,
-								});
-							}
-							const { content, description } = status;
-							if (!content) continue;
-							const ref = extractRef(extractJson(status));
-							if (ref !== errorRef) {
-								lines.push(
-									...makeComment(description).map((line) => `\t\t\t${line}`),
-									`\t\t\tsuccess: ${ref ? extractNameFromRef(ref) : "Record<string, never>"};`,
-								);
-								if (ref) {
-									this.queueResolution(extractNameFromRef(ref));
-								}
-							} else {
-								errorDescription.push(...makeComment(description).slice(1, -1));
-							}
-						}
-						lines.push(
-							"\t\t\t/**",
-							...errorDescription.map((line) => `\t\t\t${line}`),
-							"\t\t\t */",
-							`\t\t\terror: ${extractNameFromRef(errorRef)};`,
-						);
-						this.queueResolution(extractNameFromRef(errorRef));
-					}
-					lines.push("\t\t};");
-				}
-				lines.push("\t};");
-			}
-			lines.push("}");
-			lines.push("");
-			for (const dependency of this.dependencies) {
-				if (!document.components?.schemas?.[dependency]) continue;
-				const schema = this.parseSchema(
-					document.components.schemas[dependency],
-					dependency,
-				);
-				const discriminant = this.discriminator.get(dependency);
-				if (discriminant && "properties" in schema) {
-					schema.properties = schema.properties.map((property) =>
-						property.name === discriminant.name ? discriminant : property,
-					);
-				}
-				lines.push(...makeTypes(schema, true));
-				lines.push("");
-			}
-			return lines.join("\n");
-		},
-		parseSchema(
-			schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
-			name: string,
-		) {
-			let typeObject: TypeObject = {
-				type: "simple",
-				tsType: "",
-				name,
-				// $ref의 sibling으로 들어오는 title, description은 무시되지만 PortOne에서는 사용 중.
-				title: "title" in schema ? schema.title : undefined,
-				description: "description" in schema ? schema.description : undefined,
-			};
-			if ("$ref" in schema) {
-				const name = extractNameFromRef(schema.$ref);
-				typeObject.tsType = name;
-				this.queueResolution(name);
-				return typeObject;
-			}
-			if (schema.discriminator?.mapping) {
-				const oneOf = [];
-				for (const [key, ref] of Object.entries(schema.discriminator.mapping)) {
-					const name = extractNameFromRef(ref);
-					oneOf.push(name);
-					this.queueResolution(name);
-					this.discriminator.set(name, {
-						name: schema.discriminator.propertyName,
-						type: "simple",
-						tsType: `"${key}"`,
-					});
-				}
-				typeObject.tsType = oneOf.join(" | ");
-			}
-			if (schema.type) {
-				switch (schema.type) {
-					case "object": {
-						typeObject = {
-							...typeObject,
-							type: "object",
-							tsType: name,
-							properties: [],
-						};
-						const required = new Set(schema.required);
-						if (schema.properties) {
-							for (const [key, value] of Object.entries(schema.properties)) {
-								typeObject.properties.push(
-									this.parseSchema(value, required.has(key) ? key : `${key}?`),
-								);
-							}
-						}
-						break;
-					}
-					case "array": {
-						const items = this.parseSchema(schema.items, "");
-						typeObject.tsType = `${items.tsType}[]`;
-						break;
-					}
-					case "string":
-						if (schema.enum) {
-							typeObject.tsType = schema.enum
-								.map((name) => `"${name}"`)
-								.join(" | ");
-						} else {
-							typeObject.tsType = "string";
-						}
-						break;
-					case "integer": {
-						typeObject.tsType = "number";
-						break;
-					}
-					case "boolean": {
-						typeObject.tsType = "boolean";
-						break;
-					}
-					case "number": {
-						typeObject.tsType = "number";
-						break;
-					}
-				}
-			}
-			if (schema.format) {
-				switch (schema.format) {
-					case "date-time":
-						schema.title = `${schema.title} (RFC 3339 date/time)`;
-						break;
-					case "int32":
-					case "int64":
-						schema.title = `${schema.title} (${schema.format})`;
-						break;
-					case "double":
-						schema.title = `${schema.title} (IEEE 754 double-precision)`;
-						break;
-					default:
-						throw new Error(`Unimplemented format: ${schema.format}`, {
-							cause: schema,
-						});
-				}
-			}
-			return typeObject;
-		},
-	};
-}
+type PortOneProperty = {
+	"x-portone-title"?: string;
+	"x-portone-description"?: string;
+	"x-portone-error": OpenAPIV3.ReferenceObject;
+};
 
-function extractRef(
-	ref: object | OpenAPIV3.ReferenceObject | null | undefined,
-): string | null {
-	return ref && "$ref" in ref ? ref.$ref : null;
-}
-
-function extractJson(
-	response:
-		| OpenAPIV3.RequestBodyObject
-		| OpenAPIV3.ReferenceObject
-		| OpenAPIV3.ResponseObject
-		| null
-		| undefined,
-) {
-	return response &&
-		"content" in response &&
-		response.content &&
-		"application/json" in response.content
-		? response.content["application/json"].schema
-		: null;
-}
-
-type TypeObject = {
+interface Documented {
 	title?: string;
 	description?: string;
-	name: string;
-	type: string;
-	tsType: string;
-} & (
-	| {
-			type: "simple";
-	  }
-	| {
-			type: "object";
-			properties: TypeObject[];
-	  }
-);
+}
 
-function makeTypes(typeObject: TypeObject, exports: boolean) {
-	const lines = [...makeComment(typeObject.title, typeObject.description)];
-	switch (typeObject.type) {
-		case "simple":
-			if (exports) {
-				lines.push(`export type ${typeObject.name} = ${typeObject.tsType};`);
-			} else {
-				lines.push(`${typeObject.name}: ${typeObject.tsType};`);
+type Spec = Documented & {
+	name: string;
+	as_type: string;
+	properties?: Spec[];
+};
+
+type Operation = Documented & {
+	name: string;
+	method: string;
+	param: Spec[];
+	query: Spec[];
+	body?: string;
+	success?: string;
+	returns?: string;
+	error: string;
+};
+
+function generateSchema(document: OpenAPIV3.Document<PortOneProperty>) {
+	const resolvedNames = new Set<string>();
+	const operations: Map<string, Operation[]> = new Map();
+	const schemas = new Map<string, Spec>();
+	const documentSchemas = document.components?.schemas;
+	const turndown = new TurndownService();
+	for (const [path, entry] of Object.entries(document.paths)) {
+		if (includePaths.every((regexp) => !regexp.test(path))) continue;
+		if (typeof entry !== "object") continue;
+		const methods = [];
+		for (const [method, schema] of Object.entries(entry)) {
+			if (typeof schema !== "object") continue;
+			if (!("operationId" in schema)) continue;
+			const {
+				operationId,
+				"x-portone-title": title,
+				"x-portone-description": description,
+				"x-portone-error": portoneError,
+				requestBody,
+				parameters,
+				responses,
+			} = schema;
+			if (operationId == null) continue;
+			const error = parseRef(portoneError.$ref);
+			exportType(error);
+			let body = undefined;
+			if (typeof requestBody === "object" && "content" in requestBody) {
+				const schema = requestBody.content["application/json"]?.schema;
+				if (typeof schema === "object" && "$ref" in schema) {
+					body = parseRef(schema.$ref);
+					exportType(body);
+				}
 			}
-			break;
-		case "object":
-			if (exports) {
-				lines.push(`export type ${typeObject.name} = {`);
-			} else {
-				lines.push(`${typeObject.name}: {`);
+			const params = [];
+			const query = [];
+			for (const parameter of parameters ?? []) {
+				if (!("name" in parameter)) continue;
+				const { name, in: where, schema, description, required } = parameter;
+				if (name === "requestBody") continue;
+				if (schema == null) return [];
+				const spec = visitSchema(schema, name);
+				spec.description = description;
+				if (where === "path") params.push(spec);
+				else if (where === "query") {
+					if (required == null || !required) spec.name = `${spec.name}?`;
+					query.push(spec);
+				}
 			}
-			for (const property of typeObject.properties) {
-				lines.push(...makeTypes(property, false).map((line) => `\t${line}`));
+			let success = undefined;
+			let returns = undefined;
+			if ("200" in responses && "content" in responses["200"]) {
+				returns = responses["200"].description;
+				const content = responses["200"].content;
+				if (
+					typeof content === "object" &&
+					typeof content["application/json"]?.schema === "object" &&
+					"$ref" in content["application/json"].schema
+				) {
+					success = parseRef(content["application/json"].schema.$ref);
+					exportType(success);
+				}
+			}
+			const typeName =
+				operationId.slice(0, 1).toUpperCase() + operationId.slice(1);
+			methods.push({
+				name: operationId,
+				method,
+				param: params,
+				query,
+				body,
+				success,
+				error,
+				title,
+				description,
+				returns,
+			});
+		}
+		operations.set(path, methods);
+	}
+
+	const lines = [];
+	lines.push("export type Paths = {");
+	const operationEntries = [...operations.entries()];
+	operationEntries.sort();
+	for (const [path, methods] of operationEntries) {
+		lines.push(`\t"${path}": {`);
+		for (const method of methods) {
+			for (const line of buildOperation(method)) lines.push(`\t\t${line}`);
+		}
+		lines.push("\t}");
+	}
+	lines.push("};");
+	lines.push("");
+
+	const schemaEntries = [...schemas.entries()];
+	schemaEntries.sort();
+	for (const [, spec] of schemaEntries) {
+		if (spec.as_type === "void") continue;
+		for (const line of buildExport(spec)) lines.push(line);
+		lines.push("");
+	}
+
+	return lines.join("\n");
+
+	function exportType(name: string) {
+		if (resolvedNames.has(name)) return;
+		resolvedNames.add(name);
+		const schema = documentSchemas?.[name];
+		if (schema == null) return;
+		schemas.set(name, visitSchema(schema, name));
+	}
+
+	function visitSchema(
+		schema: OpenAPIV3.ReferenceObject | OpenAPIV3.SchemaObject,
+		name: string,
+	): Spec {
+		let title = undefined;
+		let description = undefined;
+		if ("title" in schema) title = schema.title;
+		if ("description" in schema) description = schema.description;
+		if ("$ref" in schema) {
+			const as_type = parseRef(schema.$ref);
+			exportType(as_type);
+			return {
+				name,
+				as_type,
+				title,
+				description,
+			};
+		}
+		if ("discriminator" in schema && typeof schema.discriminator === "object") {
+			const { propertyName, mapping } = schema.discriminator;
+			const as_types = [];
+			for (const [key, ref] of Object.entries(mapping ?? {})) {
+				const name = parseRef(ref);
+				exportType(name);
+				as_types.push(name);
+				const spec = schemas.get(name);
+				const property = spec?.properties?.find(
+					(property) => property.name === propertyName,
+				);
+				if (property == null)
+					throw new Error("Discriminant type mismatch", { cause: schema });
+				property.as_type = `"${key}"`;
+			}
+			const as_type = as_types.join(" | ");
+			return {
+				name,
+				as_type,
+				title,
+				description,
+			};
+		}
+		switch (schema.type) {
+			case "object": {
+				const required = schema.required ?? [];
+				const properties = Object.entries(schema.properties ?? {}).map(
+					([key, value]) => {
+						const spec = visitSchema(value, key);
+						if (!required.includes(key)) spec.name = `${spec.name}?`;
+						return spec;
+					},
+				);
+				const as_type = properties.length === 0 ? "void" : name;
+				return {
+					name,
+					as_type,
+					title,
+					description,
+					properties,
+				};
+			}
+			case "array": {
+				const spec = visitSchema(schema.items, name);
+				const as_type = `${spec.as_type}[]`;
+				return {
+					name,
+					as_type,
+					title,
+					description,
+				};
+			}
+			case "string": {
+				let as_type: string;
+				if (typeof schema.enum === "object")
+					as_type = schema.enum.map((variant) => `"${variant}"`).join(" | ");
+				else as_type = "string";
+				return {
+					name,
+					as_type,
+					title,
+					description,
+				};
+			}
+			case "integer":
+			case "number":
+				return {
+					name,
+					as_type: "number",
+					title,
+					description,
+				};
+			case "boolean":
+				return {
+					name,
+					as_type: "boolean",
+					title,
+					description,
+				};
+			default:
+				throw new Error("Unimplemented schema type", { cause: schema });
+		}
+	}
+
+	function buildExport(spec: Spec): string[] {
+		const lines = buildDocLines(spec).map((line) => ` ${line}`);
+		if (spec.properties == null) {
+			lines.push(`export type ${spec.name} = ${spec.as_type};`);
+		} else {
+			lines.push(`export type ${spec.name} = {`);
+			for (const property of spec.properties) {
+				for (const docLine of buildDocLines(property))
+					lines.push(`\t${docLine}`);
+				lines.push(`\t${property.name}: ${property.as_type};`);
 			}
 			lines.push("};");
-			break;
-		default:
-			throw new Error("Unchecked type", {
-				cause: typeObject,
-			});
-	}
-	return lines;
-}
-
-function extractNameFromRef(ref: string) {
-	const name = ref.split("/").at(-1);
-	if (!name) throw name;
-	return name;
-}
-
-const turndown = new TurndownService();
-function makeComment(...lines: (string | undefined)[]) {
-	const flattened = ["/**"];
-	for (const line of lines) {
-		if (!line) continue;
-		const current = turndown
-			.turndown(line)
-			.trim()
-			.split("\n")
-			.map((line) => ` * ${line}`);
-		const insert = flattened.length;
-		let begin = true;
-		for (const line of current) {
-			if (begin && (flattened.at(-1) === line || line === " * ")) continue;
-			flattened.push(line);
-			begin = false;
 		}
-		if (insert > 1 && insert !== flattened.length) {
-			flattened.splice(insert, 0, " *");
-		}
+		return lines;
 	}
-	flattened.push(" */");
-	return flattened.length === 2 ? [] : flattened;
+
+	function buildOperation(operation: Operation): string[] {
+		const lines = [];
+		lines.push(`${operation.method}: {`);
+		lines.push("\tparameters: {");
+		if (operation.param.length > 0) {
+			lines.push("\t\tpath: {");
+			for (const spec of operation.param) {
+				for (const line of buildDocLines(spec)) lines.push(`\t\t\t${line}`);
+				lines.push(`\t\t\t${spec.name}: ${spec.as_type};`);
+			}
+			lines.push("\t\t};");
+		}
+		if (operation.query.length > 0) {
+			lines.push("\t\tquery: {");
+			for (const spec of operation.query) {
+				for (const line of buildDocLines(spec)) lines.push(`\t\t\t${line}`);
+				lines.push(`\t\t\t${spec.name}: ${spec.as_type};`);
+			}
+			lines.push("\t\t};");
+		}
+		if (operation.body != null) lines.push(`\t\tbody: ${operation.body};`);
+		lines.push("\t};");
+		if (operation.success != null) {
+			const successSpec = schemas.get(operation.success);
+			if (successSpec != null) {
+				for (const line of buildDocLines(successSpec)) lines.push(`\t${line}`);
+				lines.push(`\tsuccess: ${successSpec.as_type};`);
+			}
+		}
+		if (operation.error != null) {
+			const errorSpec = schemas.get(operation.error);
+			if (errorSpec != null) {
+				for (const line of buildDocLines(errorSpec)) lines.push(`\t${line}`);
+				lines.push(`\terror: ${errorSpec.as_type};`);
+			}
+		}
+		lines.push("};");
+		return lines;
+	}
+
+	function buildDocLines(doc: Documented): string[] {
+		const inner = buildInnerDocLines(doc);
+		if (inner.length === 0) return [];
+		const lines = ["/**"];
+		for (const line of inner)
+			lines.push(line.length === 0 ? " *" : ` * ${line}`);
+		lines.push(" */");
+		return lines;
+	}
+
+	function buildInnerDocLines(doc: Documented): string[] {
+		const lines = [];
+		if (doc.title != null) {
+			lines.push(doc.title);
+		}
+		if (doc.description != null) {
+			let isFirst = true;
+			for (const line of turndown
+				.turndown(doc.description)
+				.trim()
+				.split(/\n/)) {
+				const trimmed = line.trim();
+				if (isFirst) {
+					if (
+						trimmed.length === 0 ||
+						(lines.length > 0 && lines.at(-1) === trimmed)
+					)
+						continue;
+					if (lines.length > 0) lines.push("");
+					isFirst = false;
+				}
+				lines.push(trimmed);
+			}
+		}
+		return lines;
+	}
 }
 
-fs.writeFile(process.argv[2], await generateSchema());
+function parseRef(ref: string): string {
+	const slash = ref.lastIndexOf("/");
+	return ref.slice(slash + 1);
+}

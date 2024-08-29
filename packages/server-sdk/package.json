@@ -33,7 +33,7 @@
 		"test:dev": "vitest --ui --typecheck",
 		"test": "vitest run --typecheck",
 		"prepublish": "pnpm build",
-		"schema": "vite-node scripts/generate-schema.ts __generated__/schema.d.ts"
+		"schema": "vite-node scripts/generate-schema.ts src/__generated__/schema.d.ts"
 	},
 	"devDependencies": {
 		"@apidevtools/swagger-parser": "^10.1.0",
