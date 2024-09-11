@@ -1,0 +1,14 @@
+{
+	"$schema": "https://jsr.io/schema/config-file.v1.json",
+	"name": "@portone/server-sdk",
+	"version": "VERSION_PLACEHOLDER",
+	"exports": "./src/index.ts",
+	"include": [
+		"jsr.json",
+		"README.md",
+		"COPYRIGHT",
+		"LICENSE-APACHE",
+		"LICENSE-MIT",
+		"src/**/*.ts"
+	]
+}

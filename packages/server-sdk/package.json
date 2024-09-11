@@ -32,7 +32,7 @@
 		"build": "unbuild",
 		"test:dev": "vitest --ui --typecheck",
 		"test": "vitest run --typecheck",
-		"prepublish": "pnpm build",
+		"prepublish": "pnpm build && sed -i \"s/VERSION_PLACEHOLDER/$(jq .version package.json)/\" jsr.json",
 		"schema": "vite-node scripts/generate-schema.ts src/__generated__/schema.d.ts"
 	},
 	"devDependencies": {
