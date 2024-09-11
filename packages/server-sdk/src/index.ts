@@ -5,7 +5,7 @@ import { IdentityVerificationApi } from "./identity-verifications";
 import { PaymentScheduleApi } from "./payment-scheuldes";
 import { PaymentApi } from "./payments";
 import { PgProviderApi } from "./pg-providers";
-export type * as Schema from "./__generated__/schema.js";
+export type * as Schema from "./__generated__/schema";
 export { type ApiRequestClientInit } from "./client";
 export * as Errors from "./errors";
 export * as Webhook from "./webhook";
