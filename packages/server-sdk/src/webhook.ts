@@ -41,6 +41,28 @@ export interface WebhookOptions {
 const prefix = "whsec_";
 
 /**
+ * returns the value only when there is only one string entry with the name (case-insensitive)
+ */
+function findHeaderValue(headers: unknown, name: string): string | undefined {
+	if (typeof headers !== "object" || headers === null) return undefined;
+
+	const nameLowerCase = name.toLowerCase();
+
+	let found: string | undefined = undefined;
+	for (const [key, value] of Object.entries(headers)) {
+		if (key.toLowerCase() === nameLowerCase) {
+			for (const v of Array.isArray(value) ? value : [value]) {
+				if (v == null) continue; // ignore null or undefined
+				if (typeof v !== "string") return undefined; // non-string values are illegal
+				if (found !== undefined) return undefined; // having duplicate entries is illegal
+				found = v;
+			}
+		}
+	}
+	return found;
+}
+
+/**
  * 웹훅 페이로드를 검증합니다.
  *
  * @param secret 웹훅 시크릿
@@ -53,24 +75,15 @@ const prefix = "whsec_";
 export async function verify(
 	secret: string | Uint8Array,
 	payload: string,
-	headers: WebhookUnbrandedRequiredHeaders | Record<string, string>,
+	headers:
+		| WebhookUnbrandedRequiredHeaders
+		| Record<string, string | string[] | undefined>,
 ): Promise<void> {
-	const mappedHeaders: Record<string, string> = Object.fromEntries(
-		Object.entries(headers).map(([key, value]) => [key.toLowerCase(), value]),
-	);
+	const msgId = findHeaderValue(headers, "webhook-id");
+	const msgSignature = findHeaderValue(headers, "webhook-signature");
+	const msgTimestamp = findHeaderValue(headers, "webhook-timestamp");
 
-	const msgId = mappedHeaders["webhook-id"];
-	const msgSignature = mappedHeaders["webhook-signature"];
-	const msgTimestamp = mappedHeaders["webhook-timestamp"];
-
-	if (
-		typeof msgId !== "string" ||
-		typeof msgSignature !== "string" ||
-		typeof msgTimestamp !== "string" ||
-		!msgId ||
-		!msgSignature ||
-		!msgTimestamp
-	) {
+	if (!msgId || !msgSignature || !msgTimestamp) {
 		throw new WebhookVerificationError("MISSING_REQUIRED_HEADERS");
 	}
 
