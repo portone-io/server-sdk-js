@@ -1,5 +1,11 @@
 # @portone/server-sdk
 
+## 0.2.1
+
+### Patch Changes
+
+- 74d9abb: Use more general type for the header parameter
+
 ## 0.2.0
 
 ### Minor Changes
