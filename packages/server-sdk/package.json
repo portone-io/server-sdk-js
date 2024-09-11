@@ -36,14 +36,13 @@
 		"schema": "vite-node scripts/generate-schema.ts src/__generated__/schema.d.ts"
 	},
 	"devDependencies": {
-		"@apidevtools/swagger-parser": "^10.1.0",
 		"@expo/spawn-async": "^1.7.2",
-		"@types/node": "^20.14.13",
+		"@types/node": "^20.16.5",
 		"@types/turndown": "^5.0.5",
 		"@vitest/ui": "^2.0.5",
 		"openapi-types": "^12.1.3",
 		"turndown": "^7.2.0",
-		"typedoc": "^0.26.5",
+		"typedoc": "^0.26.7",
 		"unbuild": "^2.0.0",
 		"vite-node": "^2.0.5",
 		"vitest": "^2.0.5"

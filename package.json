@@ -12,9 +12,9 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
-		"@changesets/cli": "^2.27.7",
-		"turbo": "^2.0.11",
-		"typescript": "^5.5.4"
+		"@changesets/cli": "^2.27.8",
+		"turbo": "^2.1.1",
+		"typescript": "^5.6.2"
 	},
 	"pnpm": {
 		"packageExtensions": {
@@ -25,7 +25,7 @@
 			}
 		},
 		"patchedDependencies": {
-			"@changesets/assemble-release-plan@6.0.3": "patches/@changesets__assemble-release-plan@6.0.3.patch"
+			"@changesets/assemble-release-plan": "patches/@changesets__assemble-release-plan.patch"
 		}
 	},
 	"license": "(Apache-2.0 OR MIT)",
