@@ -70,7 +70,7 @@ function findHeaderValue(headers: unknown, name: string): string | undefined {
  * @param headers 웹훅 요청 시 포함된 헤더
  * @returns 검증 후 디코딩된 웹훅 페이로드를 반환하는 Promise
  * @throws {@link Errors.InvalidInputError} 입력받은 시크릿이 유효하지 않을 때 발생합니다.
- * @throws {@link WebhookVerificationError} 웹훅 검증에 실패했을 때 발생합니다.
+ * @throws {@link Errors.WebhookVerificationError} 웹훅 검증에 실패했을 때 발생합니다.
  */
 export async function verify(
 	secret: string | Uint8Array,
