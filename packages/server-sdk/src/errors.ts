@@ -1,4 +1,4 @@
-import type Schema from "./__generated__/schema";
+import type * as Schema from "./__generated__/schema";
 import type { WebhookVerificationFailureReason } from "./webhook";
 
 /**
