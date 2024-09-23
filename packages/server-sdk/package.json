@@ -33,7 +33,7 @@
 		"test:dev": "vitest --ui --typecheck",
 		"test": "vitest run --typecheck",
 		"prepublish": "pnpm build && sed -i \"s/VERSION_PLACEHOLDER/$(jq -r .version package.json)/\" jsr.json",
-		"publish": "pnpx jsr publish",
+		"publish": "pnpx jsr publish --allow-slow-types",
 		"schema": "vite-node scripts/generate-schema.ts src/__generated__/schema.d.ts"
 	},
 	"devDependencies": {
