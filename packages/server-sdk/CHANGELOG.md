@@ -1,5 +1,11 @@
 # @portone/server-sdk
 
+## 0.2.2-alpha.1
+
+### Patch Changes
+
+- ff9dfd9: jsr 배포 누락 수정
+
 ## 0.2.2-alpha.0
 
 ### Patch Changes
