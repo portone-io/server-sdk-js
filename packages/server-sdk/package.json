@@ -1,7 +1,7 @@
 {
 	"name": "@portone/server-sdk",
 	"type": "module",
-	"version": "0.2.2-alpha.9",
+	"version": "0.2.2-alpha.10",
 	"description": "PortOne JavaScript SDK for server-side usage",
 	"keywords": [
 		"PortOne",
@@ -33,7 +33,7 @@
 		"test:dev": "vitest --ui --typecheck",
 		"test": "vitest run --typecheck",
 		"prepublish": "pnpm build && sed -i \"s/VERSION_PLACEHOLDER/$(jq -r .version package.json)/\" jsr.json",
-		"publish": "pnpx jsr publish --allow-slow-types --allow-dirty",
+		"publish": "jsr publish --allow-slow-types --allow-dirty",
 		"schema": "vite-node scripts/generate-schema.ts src/__generated__/schema.d.ts"
 	},
 	"devDependencies": {
@@ -41,6 +41,7 @@
 		"@types/node": "^20.16.5",
 		"@types/turndown": "^5.0.5",
 		"@vitest/ui": "^2.0.5",
+		"jsr": "^0.13.2",
 		"openapi-types": "^12.1.3",
 		"turndown": "^7.2.0",
 		"typedoc": "^0.26.7",
