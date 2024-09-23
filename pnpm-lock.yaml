@@ -10,6 +10,9 @@ patchedDependencies:
   '@changesets/assemble-release-plan':
     hash: f2kopktzqoz3xcbwxzwihinouq
     path: patches/@changesets__assemble-release-plan.patch
+  '@changesets/cli':
+    hash: 54xqtkf76vd6wkvu4owauck3pq
+    path: patches/@changesets__cli.patch
 
 importers:
 
@@ -20,7 +23,7 @@ importers:
         version: 1.8.3
       '@changesets/cli':
         specifier: ^2.27.8
-        version: 2.27.8
+        version: 2.27.8(patch_hash=54xqtkf76vd6wkvu4owauck3pq)
       turbo:
         specifier: ^2.1.1
         version: 2.1.1
@@ -2592,7 +2595,7 @@ snapshots:
     dependencies:
       '@changesets/types': 6.0.0
 
-  '@changesets/cli@2.27.8':
+  '@changesets/cli@2.27.8(patch_hash=54xqtkf76vd6wkvu4owauck3pq)':
     dependencies:
       '@changesets/apply-release-plan': 7.0.5
       '@changesets/assemble-release-plan': 6.0.4(patch_hash=f2kopktzqoz3xcbwxzwihinouq)
