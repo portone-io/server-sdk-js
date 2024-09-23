@@ -1,5 +1,13 @@
 # @portone/server-sdk
 
+## 0.2.2-alpha.0
+
+### Patch Changes
+
+- e9008d2: Deploy to jsr.io
+- 69cfa0a: 잘못된 schema 타입 import 수정
+- ce1f4d7: 의존성 업데이트
+
 ## 0.2.1
 
 ### Patch Changes
