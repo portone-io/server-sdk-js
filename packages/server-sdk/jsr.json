@@ -4,12 +4,14 @@
 	"version": "VERSION_PLACEHOLDER",
 	"license": "Apache-2.0 OR MIT",
 	"exports": "./src/index.ts",
-	"include": [
-		"jsr.json",
-		"README.md",
-		"COPYRIGHT",
-		"LICENSE-APACHE",
-		"LICENSE-MIT",
-		"src/**/*.ts"
-	]
+	"publish": {
+		"include": [
+			"jsr.json",
+			"README.md",
+			"COPYRIGHT",
+			"LICENSE-APACHE",
+			"LICENSE-MIT",
+			"src/**/*.ts"
+		]
+	}
 }
