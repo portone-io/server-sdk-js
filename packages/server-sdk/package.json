@@ -47,7 +47,7 @@
 		"typedoc": "^0.26.7",
 		"unbuild": "^2.0.0",
 		"vite-node": "^2.0.5",
-		"vitest": "^2.0.5"
+		"vitest": "^4.1.0"
 	},
 	"files": [
 		"dist"
